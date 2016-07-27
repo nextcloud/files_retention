@@ -7,7 +7,7 @@
 	<description>
 		This application allows for automatic deletion of files after a given time
 	</description>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<types>
 		<filesystem/>
 	</types>

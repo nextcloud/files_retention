@@ -100,7 +100,6 @@ class RetentionJob extends TimedJob {
 			$this->tagManager->getTagsByIds($tag);
 		} catch (\InvalidArgumentException $e) {
 			// tag no longer exists error out
-			// todo: remove job
 			return;
 		}
 
@@ -108,7 +107,7 @@ class RetentionJob extends TimedJob {
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')
 			->from('retention')
-			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tag));
+			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tag)));
 
 		$cursor = $qb->execute();
 		$data = $cursor->fetch();
@@ -116,7 +115,6 @@ class RetentionJob extends TimedJob {
 
 		if ($data === false) {
 			// No entry anymore in the retention db
-			// TODO remove job
 			return;
 		}
 
@@ -138,7 +136,7 @@ class RetentionJob extends TimedJob {
 				$this->expireNode($node, $deleteBefore);
 			}
 
-			if (empty($fileids)) {
+			if (empty($fileids) || count($fileids) < $limit) {
 				break;
 			}
 
@@ -180,7 +178,7 @@ class RetentionJob extends TimedJob {
 		$mtime = new \DateTime();
 		$mtime->setTimestamp($node->getMTime());
 
-		if ($mtime <= $deleteBefore) {
+		if ($mtime < $deleteBefore) {
 			try {
 				$node->delete();
 			} catch (NotPermittedException $e) {
@@ -196,16 +194,16 @@ class RetentionJob extends TimedJob {
 	 * @return \DateTime
 	 */
 	private function getBeforeDate($timeunit, $timeamount) {
-		$spec = 'P';
+		$spec = 'P' . $timeamount;
 
 		if ($timeunit === Constants::DAY) {
-			$spec .= $timeamount . 'd';
+			$spec .= 'D';
 		} else if ($timeunit === Constants::WEEK) {
-			$spec .= ($timeamount * 7) . 'd';
+			$spec .= 'W';
 		} else if ($timeunit === Constants::MONTH) {
-			$spec .= $timeamount . 'm';
+			$spec .= 'M';
 		} else if ($timeunit === Constants::YEAR) {
-			$spec .= $timeamount . 'y';
+			$spec .= 'Y';
 		}
 
 		$delta = new \DateInterval($spec);
