@@ -109,7 +109,7 @@ class APIControllerTest extends \Test\TestCase {
 			->with('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => 42]);
 
 		$response = $this->api->addRetention(42, Constants::MONTH, 1);
-		$this->assertInstanceOf(Http\JSONResponse::class, $response);
+		$this->assertInstanceOf('OCP\AppFramework\Http\JSONResponse', $response);
 		/** @var Http\JSONResponse $response */
 
 		$qb = $this->db->getQueryBuilder();
@@ -136,7 +136,7 @@ class APIControllerTest extends \Test\TestCase {
 	public function testDeleteRetentionNotFound() {
 		$response = $this->api->deleteRetention(42);
 
-		$this->assertInstanceOf(Http\NotFoundResponse::class, $response);
+		$this->assertInstanceOf('OCP\AppFramework\Http\NotFoundResponse', $response);
 	}
 
 	public function testDeleteRetention() {
@@ -207,7 +207,7 @@ class APIControllerTest extends \Test\TestCase {
 
 		$response = $this->api->getRetentions();
 
-		$this->assertInstanceOf(Http\JSONResponse::class, $response);
+		$this->assertInstanceOf('OCP\AppFramework\Http\JSONResponse', $response);
 		$this->assertSame($expected, $response->getData());
 	}
 
@@ -230,14 +230,14 @@ class APIControllerTest extends \Test\TestCase {
 	public function testEditRetentionBadRequest($timeunit, $timeamount) {
 		$response = $this->api->editRetention(42, $timeunit, $timeamount);
 
-		$this->assertInstanceOf(Http\Response::class, $response);
+		$this->assertInstanceOf('OCP\AppFramework\Http\Response', $response);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
 	public function testEditRetentionNoRetetion() {
 		$response = $this->api->editRetention(42, Constants::DAY, 6);
 
-		$this->assertInstanceOf(Http\NotFoundResponse::class, $response);
+		$this->assertInstanceOf('OCP\AppFramework\Http\NotFoundResponse', $response);
 	}
 
 	public function dataEditRetention() {
@@ -272,7 +272,7 @@ class APIControllerTest extends \Test\TestCase {
 
 		$response = $this->api->editRetention($id, $timeunit, $timeamount);
 
-		$this->assertInstanceOf(Http\JSONResponse::class, $response);
+		$this->assertInstanceOf('OCP\AppFramework\Http\JSONResponse', $response);
 		/** @var Http\JSONResponse $response */
 		$this->assertSame(Http::STATUS_OK, $response->getStatus());
 		$this->assertSame($expected, $response->getData());
