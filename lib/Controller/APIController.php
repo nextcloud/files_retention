@@ -25,6 +25,7 @@ use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\Response;
+use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
 use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
@@ -37,14 +38,28 @@ class APIController extends Controller {
 	/** @var ISystemTagManager */
 	private $tagManager;
 
+	/** @var IJobList */
+	private $joblist;
+
+	/**
+	 * APIController constructor.
+	 *
+	 * @param string $appName
+	 * @param IRequest $request
+	 * @param IDBConnection $db
+	 * @param ISystemTagManager $tagManager
+	 * @param IJobList $jobList
+	 */
 	public function __construct($appName,
 								IRequest $request,
 								IDBConnection $db,
-								ISystemTagManager $tagManager) {
+								ISystemTagManager $tagManager,
+								IJobList $jobList) {
 		parent::__construct($appName, $request);
 
 		$this->db = $db;
 		$this->tagManager = $tagManager;
+		$this->joblist = $jobList;
 	}
 
 	/**
@@ -66,10 +81,10 @@ class APIController extends Controller {
 
 		while($data = $cursor->fetch()) {
 			$result[] = [
-				'id' => $data['id'],
-				'tagid' => $data['tag_id'],
-				'timeunit' => $data['time_type'],
-				'timeamount' => $data['time_amount'],
+				'id' => (int)$data['id'],
+				'tagid' => (int)$data['tag_id'],
+				'timeunit' => (int)$data['time_unit'],
+				'timeamount' => (int)$data['time_amount'],
 			];
 		}
 
@@ -106,19 +121,21 @@ class APIController extends Controller {
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter($tagid))
-			->setValue('time_type', $qb->createNamedParameter($timeunit))
+			->setValue('time_unit', $qb->createNamedParameter($timeunit))
 			->setValue('time_amount', $qb->createNamedParameter($timeamount));
 
 		$qb->execute();
-
 		$id = $qb->getLastInsertId();
+
+		//Insert cronjob
+		$this->joblist->add('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => $tagid]);
 
 		return new JSONResponse([
 			'id' => $id,
 			'tagid' => $tagid,
 			'timeunit' => $timeunit,
 			'timeamount' => $timeamount,
-		]);
+		], HTTP::STATUS_CREATED);
 	}
 
 	/**
@@ -132,20 +149,93 @@ class APIController extends Controller {
 	public function deleteRetention($id) {
 		$qb = $this->db->getQueryBuilder();
 
+		// Fetch tag_id
+		$qb->select('tag_id')
+			->from('retention')
+			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
+			->setMaxResults(1);
+		$cursor = $qb->execute();
+		$data = $cursor->fetch();
+		$cursor->closeCursor();
+
+		if ($data === false) {
+			return new Http\NotFoundResponse();
+		}
+
+		// Remove from retention db
+		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention')
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)));
-
 		$qb->execute();
 
-		return new Response();
+		// Remove cronjob
+		$this->joblist->remove('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => $data['tag_id']]);
+
+		$response = new Response();
+		$response->setStatus(Http::STATUS_NO_CONTENT);
+		return $response;
 	}
 
 	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 *
 	 * @param int $id
+	 * @param int|null $timeunit
+	 * @param int|null $timeamount
 	 *
 	 * @return Response
 	 */
-	public function editRetention($id) {
+	public function editRetention($id, $timeunit = null, $timeamount = null) {
+		if (($timeunit === null && $timeamount === null) ||
+			($timeunit !== null && ($timeunit < 0 || $timeunit > 3)) ||
+			($timeamount !== null && $timeamount < 1)) {
+			$response = new Response();
+			$response->setStatus(Http::STATUS_BAD_REQUEST);
+			return $response;
+		}
 
+		$qb = $this->db->getQueryBuilder();
+
+		// Fetch tag_id
+		$qb->select('tag_id')
+			->from('retention')
+			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
+			->setMaxResults(1);
+		$cursor = $qb->execute();
+		$data = $cursor->fetch();
+		$cursor->closeCursor();
+
+		if ($data === false) {
+			return new Http\NotFoundResponse();
+		}
+
+		$qb = $this->db->getQueryBuilder();
+		$qb->update('retention');
+
+		if ($timeunit !== null) {
+			$qb->set('time_unit', $qb->createNamedParameter($timeunit));
+		}
+		if ($timeamount !== null) {
+			$qb->set('time_amount', $qb->createNamedParameter($timeamount));
+		}
+		$qb->where($qb->expr()->eq('id', $qb->createNamedParameter($id)));
+		$qb->execute();
+
+		$qb = $this->db->getQueryBuilder();
+		$qb->select('*')
+			->from('retention')
+			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
+			->setMaxResults(1);
+		$cursor = $qb->execute();
+		$data = $cursor->fetch();
+		$cursor->closeCursor();
+
+		return new JSONResponse([
+			'id' => $id,
+			'tagid' => (int)$data['tag_id'],
+			'timeunit' => (int)$data['time_unit'],
+			'timeamount' => (int)$data['time_amount'],
+		]);
 	}
 }
