@@ -63,9 +63,6 @@ class APIController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 *
 	 * @return JSONResponse
 	 */
 	public function getRetentions() {
@@ -94,9 +91,6 @@ class APIController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 *
 	 * @param int $tagid
 	 * @param int $timeunit
 	 * @param int $timeamount
@@ -139,9 +133,6 @@ class APIController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 *
 	 * @param int $id
 	 *
 	 * @return Response
@@ -177,9 +168,6 @@ class APIController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 *
 	 * @param int $id
 	 * @param int|null $timeunit
 	 * @param int|null $timeamount
