@@ -55,42 +55,28 @@ class RetentionJob extends TimedJob {
 	/**
 	 * RetentionJob constructor.
 	 *
-	 * @param ISystemTagManager|null $tagManager
-	 * @param ISystemTagObjectMapper|null $tagMapper
-	 * @param IUserMountCache|null $userMountCache
-	 * @param IDBConnection|null $db
-	 * @param IRootFolder|null $rootFolder
-	 * @param ITimeFactory|null $timeFactory
+	 * @param ISystemTagManager $tagManager
+	 * @param ISystemTagObjectMapper $tagMapper
+	 * @param IUserMountCache $userMountCache
+	 * @param IDBConnection $db
+	 * @param IRootFolder $rootFolder
+	 * @param ITimeFactory $timeFactory
 	 */
-	public function __construct(ISystemTagManager $tagManager = null,
-								ISystemTagObjectMapper $tagMapper = null,
-								IUserMountCache $userMountCache = null,
-								IDBConnection $db = null,
-								IRootFolder $rootFolder = null,
-								ITimeFactory $timeFactory = null) {
+	public function __construct(ISystemTagManager $tagManager,
+								ISystemTagObjectMapper $tagMapper,
+								IUserMountCache $userMountCache,
+								IDBConnection $db,
+								IRootFolder $rootFolder,
+								ITimeFactory $timeFactory) {
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);
 
-		if ($tagManager === null || $tagMapper === null ||
-			$userMountCache === null || $db === null ||
-			$rootFolder === null || $timeFactory === null) {
-			$this->fixDI();
-		} else {
-			$this->tagManager = $tagManager;
-			$this->tagMapper = $tagMapper;
-			$this->userMountCache = $userMountCache;
-			$this->db = $db;
-			$this->rootFolder = $rootFolder;
-			$this->timeFactory = $timeFactory;
-		}
-	}
-
-	private function fixDI() {
-		$this->tagManager = \OC::$server->getSystemTagManager();
-		$this->tagMapper = \OC::$server->getSystemTagObjectMapper();
-		$this->userMountCache = \OC::$server->getMountProviderCollection()->getMountCache();
-		$this->db = \OC::$server->getDatabaseConnection();
-		$this->rootFolder = \OC::$server->getLazyRootFolder();
+		$this->tagManager = $tagManager;
+		$this->tagMapper = $tagMapper;
+		$this->userMountCache = $userMountCache;
+		$this->db = $db;
+		$this->rootFolder = $rootFolder;
+		$this->timeFactory = $timeFactory;
 	}
 
 	public function run($argument) {

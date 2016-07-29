@@ -26,5 +26,12 @@ use OCP\AppFramework\App;
 class Application extends App {
 	public function __construct(array $urlParams = array()) {
 		parent::__construct('files_retention', $urlParams);
+
+		$container = $this->getContainer();
+		$server = $container->getServer();
+
+		$container->registerService('OCP\\Files\\Config\\IUserMountCache', function ($c) use ($server) {
+			return $server->getMountProviderCollection()->getMountCache();
+		});
 	}
 }
