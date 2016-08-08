@@ -21,7 +21,9 @@
 
 namespace OCA\Files_Retention\AppInfo;
 
+use OCA\Files_Retention\EventListener;
 use OCP\AppFramework\App;
+use OCP\SystemTag\ManagerEvent;
 
 class Application extends App {
 	public function __construct(array $urlParams = array()) {
@@ -32,6 +34,18 @@ class Application extends App {
 
 		$container->registerService('OCP\\Files\\Config\\IUserMountCache', function ($c) use ($server) {
 			return $server->getMountProviderCollection()->getMountCache();
+		});
+	}
+
+	public function registerEventListener() {
+		$container = $this->getContainer();
+		$dispatcher = $container->getServer()->getEventDispatcher();
+
+		$dispatcher->addListener(ManagerEvent::EVENT_DELETE, function(ManagerEvent $event) use ($container) {
+			/** @var EventListener $eventListener */
+			$eventListener = $container->query('OCA\Files_Retention\EventListener');
+
+			$eventListener->tagDeleted($event->getTag());
 		});
 	}
 }

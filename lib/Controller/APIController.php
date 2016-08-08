@@ -129,7 +129,7 @@ class APIController extends Controller {
 			'tagid' => $tagid,
 			'timeunit' => $timeunit,
 			'timeamount' => $timeamount,
-		], HTTP::STATUS_CREATED);
+		], Http::STATUS_CREATED);
 	}
 
 	/**
