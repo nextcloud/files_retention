@@ -24,7 +24,9 @@ namespace OCA\Files_Retention\Tests\BackgroundJob\RententionJobTest;
 use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\BackgroundJob\IJobList;
 use OCP\Files\Config\IUserMountCache;
+use OCP\Files\NotPermittedException;
 use OCP\IDBConnection;
 use OCP\Files\IRootFolder;
 use OCP\SystemTag\ISystemTagManager;
@@ -53,6 +55,9 @@ class RetentionJobTest extends \Test\TestCase {
 	/** @var ITimeFactory|\PHPUnit_Framework_MockObject_MockObject */
 	private $timeFactory;
 
+	/** @var IJobList|\PHPUnit_Framework_MockObject_MockObject */
+	private $jobList;
+
 	/** @var RetentionJob */
 	private $retentionJob;
 
@@ -75,6 +80,8 @@ class RetentionJobTest extends \Test\TestCase {
 			->disableOriginalConstructor()->getMock();
 		$this->timeFactory = $this->getMockBuilder('OCP\AppFramework\Utility\ITimeFactory')
 			->disableOriginalConstructor()->getMock();
+		$this->jobList = $this->getMockBuilder('OCP\BackgroundJob\IJobList')
+			->disableOriginalConstructor()->getMock();
 
 		$this->timeFactory->method('getTime')->willReturn($this->timestampbase);
 
@@ -84,7 +91,8 @@ class RetentionJobTest extends \Test\TestCase {
 			$this->userMountCache,
 			$this->db,
 			$this->rootFolder,
-			$this->timeFactory
+			$this->timeFactory,
+			$this->jobList
 		);
 	}
 
@@ -200,4 +208,162 @@ class RetentionJobTest extends \Test\TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
+	public function testNoSuchTag() {
+		$this->tagManager->expects($this->once())
+			->method('getTagsByIds')
+			->will($this->throwException(new \InvalidArgumentException()));
+
+		$this->jobList->expects($this->once())
+			->method('remove')
+			->with($this->equalTo($this->retentionJob), $this->equalTo(['tag' => 42]));
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testNoSuchRetention() {
+		// Tag exists
+		$this->tagManager->expects($this->once())
+			->method('getTagsByIds');
+
+		$this->jobList->expects($this->once())
+			->method('remove')
+			->with($this->equalTo($this->retentionJob), $this->equalTo(['tag' => 42]));
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testCantDelete() {
+		$this->addTag(42, 1, Constants::DAY);
+
+		$this->tagMapper->expects($this->once())
+			->method('getObjectIdsForTags')
+			->with(42, 'files')
+			->willReturn([1337]);
+
+		$mountPoint = $this->getMockBuilder('OCP\Files\Config\ICachedMountInfo')
+			->disableOriginalConstructor()->getMock();
+		$this->userMountCache->expects($this->once())
+			->method('getMountsForFileId')
+			->with(1337)
+			->willReturn([$mountPoint]);
+
+		$user = $this->getMockBuilder('OCP\IUser')
+			->disableOriginalConstructor()->getMock();
+		$mountPoint->expects($this->once())
+			->method('getUser')
+			->willReturn($user);
+
+		$user->expects($this->once())
+			->method('getUID')
+			->willReturn('user');
+
+		$userFolder = $this->getMockBuilder('OCP\Files\Folder')
+			->disableOriginalConstructor()->getMock();
+		$this->rootFolder->expects($this->once())
+			->method('getUserFolder')
+			->with('user')
+			->willReturn($userFolder);
+
+		$node = $this->getMockBuilder('OCP\Files\Node')
+			->disableOriginalConstructor()->getMock();
+		$userFolder->expects($this->once())
+			->method('getById')
+			->with(1337)
+			->willReturn([$node]);
+
+		$delta = new \DateInterval('P' . 2 . 'D');
+		$now = new \DateTime();
+		$now->setTimestamp($this->timestampbase);
+		$mtime = $now->sub($delta);
+
+		$node->expects($this->once())
+			->method('getMTime')
+			->willReturn($mtime->getTimestamp());
+
+		$node->expects($this->once())
+			->method('delete')
+			->will($this->throwException(new NotPermittedException()));
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testNoMountPoint() {
+		$this->addTag(42, 1, Constants::DAY);
+
+		$this->tagMapper->expects($this->once())
+			->method('getObjectIdsForTags')
+			->with(42, 'files')
+			->willReturn([1337]);
+
+		$this->userMountCache->expects($this->once())
+			->method('getMountsForFileId')
+			->with(1337)
+			->willReturn([]);
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testNoFileIds() {
+		$this->addTag(42, 1, Constants::DAY);
+
+		$this->tagMapper->expects($this->once())
+			->method('getObjectIdsForTags')
+			->with(42, 'files')
+			->willReturn([1337]);
+
+		$mountPoint = $this->getMockBuilder('OCP\Files\Config\ICachedMountInfo')
+			->disableOriginalConstructor()->getMock();
+		$this->userMountCache->expects($this->once())
+			->method('getMountsForFileId')
+			->with(1337)
+			->willReturn([$mountPoint]);
+
+		$user = $this->getMockBuilder('OCP\IUser')
+			->disableOriginalConstructor()->getMock();
+		$mountPoint->expects($this->once())
+			->method('getUser')
+			->willReturn($user);
+
+		$user->expects($this->once())
+			->method('getUID')
+			->willReturn('user');
+
+		$userFolder = $this->getMockBuilder('OCP\Files\Folder')
+			->disableOriginalConstructor()->getMock();
+		$this->rootFolder->expects($this->once())
+			->method('getUserFolder')
+			->with('user')
+			->willReturn($userFolder);
+
+		$userFolder->expects($this->once())
+			->method('getById')
+			->with(1337)
+			->willReturn([]);
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testsPagination() {
+		$this->addTag(42, 1, Constants::DAY);
+
+		$this->tagMapper->expects($this->exactly(2))
+			->method('getObjectIdsForTags')
+			->withConsecutive(
+				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo(0)],
+				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo(1000)]
+			)
+			->will(
+				$this->onConsecutiveCalls(
+					array_fill(0, 1000, 1337),
+					[]
+				)
+			);
+
+		$this->userMountCache->expects($this->exactly(1000))
+			->method('getMountsForFileId')
+			->with(1337)
+			->willReturn([]);
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
 }
