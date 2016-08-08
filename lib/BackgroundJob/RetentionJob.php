@@ -24,6 +24,7 @@ namespace OCA\Files_Retention\BackgroundJob;
 use OC\BackgroundJob\TimedJob;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\BackgroundJob\IJobList;
 use OCP\Files\Config\IUserMountCache;
 use OCP\IDBConnection;
 use OCP\Files\Node;
@@ -49,8 +50,11 @@ class RetentionJob extends TimedJob {
 	/** @var IRootFolder */
 	private $rootFolder;
 
-	/**@var ITimeFactory */
+	/** @var ITimeFactory */
 	private $timeFactory;
+
+	/** @var IJobList */
+	private $jobList;
 
 	/**
 	 * RetentionJob constructor.
@@ -61,13 +65,15 @@ class RetentionJob extends TimedJob {
 	 * @param IDBConnection $db
 	 * @param IRootFolder $rootFolder
 	 * @param ITimeFactory $timeFactory
+	 * @param IJobList $jobList
 	 */
 	public function __construct(ISystemTagManager $tagManager,
 								ISystemTagObjectMapper $tagMapper,
 								IUserMountCache $userMountCache,
 								IDBConnection $db,
 								IRootFolder $rootFolder,
-								ITimeFactory $timeFactory) {
+								ITimeFactory $timeFactory,
+								IJobList $jobList) {
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);
 
@@ -77,6 +83,7 @@ class RetentionJob extends TimedJob {
 		$this->db = $db;
 		$this->rootFolder = $rootFolder;
 		$this->timeFactory = $timeFactory;
+		$this->jobList = $jobList;
 	}
 
 	public function run($argument) {
@@ -85,7 +92,8 @@ class RetentionJob extends TimedJob {
 		try {
 			$this->tagManager->getTagsByIds($tag);
 		} catch (\InvalidArgumentException $e) {
-			// tag no longer exists error out
+			// tag no longer exists remove backgroundjob and exit
+			$this->jobList->remove($this, $argument);
 			return;
 		}
 
@@ -101,6 +109,7 @@ class RetentionJob extends TimedJob {
 
 		if ($data === false) {
 			// No entry anymore in the retention db
+			$this->jobList->remove($this, $argument);
 			return;
 		}
 
