@@ -1,4 +1,4 @@
-# NExtcloud Files Retention App
+# Nextcloud Files Retention App
 An app for Nextcloud to control automatic deletion of files after a given time.
 
 ## QA metrics on master branch:
