@@ -69,6 +69,7 @@
 			});
 
 			$('#retention_submit').prop('disabled', true);
+			$('#retention_tag').select2('val', '');
 			this.view.render();
 		},
 
@@ -80,8 +81,21 @@
 			multiple: false,
 			placeholder: t('files_retention', 'Select tag…'),
 			query: _.debounce(function(query) {
+				// Filter tag list by search
+				var tags = OCA.File_Retention.Admin.tagCollection.filterByName(query.term);
+
+				// Get all the tags already in used for retention rules
+				var usedTagIds = OCA.File_Retention.Admin.collection.map(function(retention) {
+					return retention.attributes.tagid;
+				});
+
+				// Filter tag list by tags already in use
+				tags = tags.filter(function(tag) {
+					return $.inArray(parseInt(tag.id, 10), usedTagIds) === -1;
+				});
+
 				query.callback({
-					results: OCA.File_Retention.Admin.tagCollection.filterByName(query.term)
+					results: tags
 				});
 			}, 100, true),
 			id: function(element) {
