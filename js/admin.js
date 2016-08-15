@@ -55,8 +55,21 @@
 		 * Clicking the Create button
 		 */
 		_onClickSubmit: function () {
+			var $el = $('#retention_amount');
+			var amount = $el.val();
+			if (!/^\d+$/.test(amount)) {
+				$el.tooltip({
+						title: t('files_retention', 'Not a number'),
+						placement: 'bottom',
+						trigger: 'manual'
+					})
+					.tooltip('show');
+				return;
+			}
+			$el.tooltip('hide');
+
 			var unit = parseInt($('#retention_unit').val(), 10);
-			var amount = parseInt($('#retention_amount').val(), 10);
+			amount = parseInt(amount, 10);
 
 			if (isNaN(amount)) {
 				amount = 10;
