@@ -1,0 +1,32 @@
+#retention table {
+	width: 100%;
+	min-height: 50px;
+	padding-top: 5px;
+	max-width: 580px;
+}
+
+#retention table th {
+	opacity: .5;
+}
+
+#retention table th,
+#retention table td {
+	padding: 10px 10px 10px 0;
+}
+
+#retention #retention-list td {
+	border-top: 1px solid #DDD;
+	text-overflow: ellipsis;
+	max-width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#retention tr *:nth-child(2) {
+	text-align: right;
+}
+
+#retention #retention-list td a.icon-delete {
+	display: block;
+	opacity: 0.6;
+}
