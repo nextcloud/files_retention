@@ -20,6 +20,7 @@
 
 namespace OCA\Files_Retention\Tests\Controller;
 
+use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
 use OCA\Files_Retention\Controller\APIController;
 use OCP\AppFramework\Http;
@@ -57,15 +58,10 @@ class APIControllerTest extends \Test\TestCase {
 	public function setUp() {
 		parent::setUp();
 
-		$this->request = $this->getMockBuilder('OCP\IRequest')
-			->disableOriginalConstructor()->getMock();
+		$this->request = $this->createMock(IRequest::class);
 		$this->db = \OC::$server->getDatabaseConnection();
-		$this->getMockBuilder('OCP\IRequest')
-			->disableOriginalConstructor()->getMock();
-		$this->tagManager = $this->getMockBuilder('OCP\SystemTag\ISystemTagManager')
-			->disableOriginalConstructor()->getMock();
-		$this->jobList = $this->getMockBuilder('OCP\BackgroundJob\IJobList')
-			->disableOriginalConstructor()->getMock();
+		$this->tagManager = $this->createMock(ISystemTagManager::class);
+		$this->jobList = $this->createMock(IJobList::class);
 
 		$this->api = new APIController(
 			$this->appName,
@@ -106,10 +102,10 @@ class APIControllerTest extends \Test\TestCase {
 	public function testAddRetention() {
 		$this->jobList->expects($this->once())
 			->method('add')
-			->with('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => 42]);
+			->with(RetentionJob::class, ['tag' => 42]);
 
 		$response = $this->api->addRetention(42, Constants::MONTH, 1);
-		$this->assertInstanceOf('OCP\AppFramework\Http\JSONResponse', $response);
+		$this->assertInstanceOf(Http\JSONResponse::class, $response);
 		/** @var Http\JSONResponse $response */
 
 		$qb = $this->db->getQueryBuilder();
@@ -136,7 +132,7 @@ class APIControllerTest extends \Test\TestCase {
 	public function testDeleteRetentionNotFound() {
 		$response = $this->api->deleteRetention(42);
 
-		$this->assertInstanceOf('OCP\AppFramework\Http\NotFoundResponse', $response);
+		$this->assertInstanceOf(Http\NotFoundResponse::class, $response);
 	}
 
 	public function testDeleteRetention() {
@@ -151,7 +147,7 @@ class APIControllerTest extends \Test\TestCase {
 
 		$this->jobList->expects($this->once())
 			->method('remove')
-			->with('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => 42]);
+			->with(RetentionJob::class, ['tag' => 42]);
 
 		$response = $this->api->deleteRetention($id);
 
@@ -207,7 +203,7 @@ class APIControllerTest extends \Test\TestCase {
 
 		$response = $this->api->getRetentions();
 
-		$this->assertInstanceOf('OCP\AppFramework\Http\JSONResponse', $response);
+		$this->assertInstanceOf(Http\JSONResponse::class, $response);
 		$this->assertSame($expected, $response->getData());
 	}
 
@@ -230,14 +226,14 @@ class APIControllerTest extends \Test\TestCase {
 	public function testEditRetentionBadRequest($timeunit, $timeamount) {
 		$response = $this->api->editRetention(42, $timeunit, $timeamount);
 
-		$this->assertInstanceOf('OCP\AppFramework\Http\Response', $response);
+		$this->assertInstanceOf(Http\Response::class, $response);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
 	public function testEditRetentionNoRetetion() {
 		$response = $this->api->editRetention(42, Constants::DAY, 6);
 
-		$this->assertInstanceOf('OCP\AppFramework\Http\NotFoundResponse', $response);
+		$this->assertInstanceOf(Http\NotFoundResponse::class, $response);
 	}
 
 	public function dataEditRetention() {
@@ -272,7 +268,7 @@ class APIControllerTest extends \Test\TestCase {
 
 		$response = $this->api->editRetention($id, $timeunit, $timeamount);
 
-		$this->assertInstanceOf('OCP\AppFramework\Http\JSONResponse', $response);
+		$this->assertInstanceOf(Http\JSONResponse::class, $response);
 		/** @var Http\JSONResponse $response */
 		$this->assertSame(Http::STATUS_OK, $response->getStatus());
 		$this->assertSame($expected, $response->getData());

@@ -25,12 +25,16 @@ use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
+use OCP\Files\Config\ICachedMountInfo;
 use OCP\Files\Config\IUserMountCache;
+use OCP\Files\Folder;
+use OCP\Files\Node;
 use OCP\Files\NotPermittedException;
 use OCP\IDBConnection;
 use OCP\Files\IRootFolder;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
+use OCP\IUser;
 
 /**
  * @group DB
@@ -69,19 +73,13 @@ class RetentionJobTest extends \Test\TestCase {
 
 		$this->timestampbase = 1000000000;
 
-		$this->tagManager = $this->getMockBuilder('OCP\SystemTag\ISystemTagManager')
-			->disableOriginalConstructor()->getMock();
-		$this->tagMapper = $this->getMockBuilder('OCP\SystemTag\ISystemTagObjectMapper')
-			->disableOriginalConstructor()->getMock();
-		$this->userMountCache = $this->getMockBuilder('OCP\Files\Config\IUserMountCache')
-			->disableOriginalConstructor()->getMock();
+		$this->tagManager = $this->createMock(ISystemTagManager::class);
+		$this->tagMapper = $this->createMock(ISystemTagObjectMapper::class);
+		$this->userMountCache = $this->createMock(IUserMountCache::class);
 		$this->db = \OC::$server->getDatabaseConnection();
-		$this->rootFolder = $this->getMockBuilder('OCP\Files\IRootFolder')
-			->disableOriginalConstructor()->getMock();
-		$this->timeFactory = $this->getMockBuilder('OCP\AppFramework\Utility\ITimeFactory')
-			->disableOriginalConstructor()->getMock();
-		$this->jobList = $this->getMockBuilder('OCP\BackgroundJob\IJobList')
-			->disableOriginalConstructor()->getMock();
+		$this->rootFolder = $this->createMock(IRootFolder::class);
+		$this->timeFactory = $this->createMock(ITimeFactory::class);
+		$this->jobList = $this->createMock(IJobList::class);
 
 		$this->timeFactory->method('getTime')->willReturn($this->timestampbase);
 
@@ -157,15 +155,13 @@ class RetentionJobTest extends \Test\TestCase {
 			->with(42, 'files')
 			->willReturn([1337]);
 
-		$mountPoint = $this->getMockBuilder('OCP\Files\Config\ICachedMountInfo')
-			->disableOriginalConstructor()->getMock();
+		$mountPoint = $this->createMock(ICachedMountInfo::class);
 		$this->userMountCache->expects($this->once())
 			->method('getMountsForFileId')
 			->with(1337)
 			->willReturn([$mountPoint]);
 
-		$user = $this->getMockBuilder('OCP\IUser')
-			->disableOriginalConstructor()->getMock();
+		$user = $this->createMock(IUser::class);
 		$mountPoint->expects($this->once())
 			->method('getUser')
 			->willReturn($user);
@@ -174,15 +170,13 @@ class RetentionJobTest extends \Test\TestCase {
 			->method('getUID')
 			->willReturn('user');
 
-		$userFolder = $this->getMockBuilder('OCP\Files\Folder')
-			->disableOriginalConstructor()->getMock();
+		$userFolder = $this->createMock(Folder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
 			->with('user')
 			->willReturn($userFolder);
 
-		$node = $this->getMockBuilder('OCP\Files\Node')
-			->disableOriginalConstructor()->getMock();
+		$node = $this->createMock(Node::class);
 		$userFolder->expects($this->once())
 			->method('getById')
 			->with(1337)
@@ -240,15 +234,13 @@ class RetentionJobTest extends \Test\TestCase {
 			->with(42, 'files')
 			->willReturn([1337]);
 
-		$mountPoint = $this->getMockBuilder('OCP\Files\Config\ICachedMountInfo')
-			->disableOriginalConstructor()->getMock();
+		$mountPoint = $this->createMock(ICachedMountInfo::class);
 		$this->userMountCache->expects($this->once())
 			->method('getMountsForFileId')
 			->with(1337)
 			->willReturn([$mountPoint]);
 
-		$user = $this->getMockBuilder('OCP\IUser')
-			->disableOriginalConstructor()->getMock();
+		$user = $this->createMock(IUser::class);
 		$mountPoint->expects($this->once())
 			->method('getUser')
 			->willReturn($user);
@@ -257,15 +249,13 @@ class RetentionJobTest extends \Test\TestCase {
 			->method('getUID')
 			->willReturn('user');
 
-		$userFolder = $this->getMockBuilder('OCP\Files\Folder')
-			->disableOriginalConstructor()->getMock();
+		$userFolder = $this->createMock(Folder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
 			->with('user')
 			->willReturn($userFolder);
 
-		$node = $this->getMockBuilder('OCP\Files\Node')
-			->disableOriginalConstructor()->getMock();
+		$node = $this->createMock(Node::class);
 		$userFolder->expects($this->once())
 			->method('getById')
 			->with(1337)
@@ -311,15 +301,13 @@ class RetentionJobTest extends \Test\TestCase {
 			->with(42, 'files')
 			->willReturn([1337]);
 
-		$mountPoint = $this->getMockBuilder('OCP\Files\Config\ICachedMountInfo')
-			->disableOriginalConstructor()->getMock();
+		$mountPoint = $this->createMock(ICachedMountInfo::class);
 		$this->userMountCache->expects($this->once())
 			->method('getMountsForFileId')
 			->with(1337)
 			->willReturn([$mountPoint]);
 
-		$user = $this->getMockBuilder('OCP\IUser')
-			->disableOriginalConstructor()->getMock();
+		$user = $this->createMock(IUser::class);
 		$mountPoint->expects($this->once())
 			->method('getUser')
 			->willReturn($user);
@@ -328,8 +316,7 @@ class RetentionJobTest extends \Test\TestCase {
 			->method('getUID')
 			->willReturn('user');
 
-		$userFolder = $this->getMockBuilder('OCP\Files\Folder')
-			->disableOriginalConstructor()->getMock();
+		$userFolder = $this->createMock(Folder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
 			->with('user')
