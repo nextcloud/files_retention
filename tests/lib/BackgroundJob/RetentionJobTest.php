@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCA\Files_Retention\Tests\BackgroundJob\RententionJobTest;
+namespace OCA\Files_Retention\Tests\BackgroundJob;
 
 use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
@@ -35,11 +35,13 @@ use OCP\Files\IRootFolder;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\IUser;
+use OCP\SystemTag\TagNotFoundException;
+use Test\TestCase;
 
 /**
  * @group DB
  */
-class RetentionJobTest extends \Test\TestCase {
+class RetentionJobTest extends TestCase {
 
 	/** @var ISystemTagManager|\PHPUnit_Framework_MockObject_MockObject */
 	private $tagManager;
@@ -202,10 +204,22 @@ class RetentionJobTest extends \Test\TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoSuchTag() {
+	public function testInvalidTag() {
 		$this->tagManager->expects($this->once())
 			->method('getTagsByIds')
 			->will($this->throwException(new \InvalidArgumentException()));
+
+		$this->jobList->expects($this->once())
+			->method('remove')
+			->with($this->equalTo($this->retentionJob), $this->equalTo(['tag' => 42]));
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testNoSuchTag() {
+		$this->tagManager->expects($this->once())
+			->method('getTagsByIds')
+			->will($this->throwException(new TagNotFoundException()));
 
 		$this->jobList->expects($this->once())
 			->method('remove')
