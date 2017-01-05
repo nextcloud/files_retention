@@ -33,6 +33,7 @@ use OCP\Files\NotPermittedException;
 use OCP\Files\IRootFolder;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
+use OCP\SystemTag\TagNotFoundException;
 
 class RetentionJob extends TimedJob {
 	/** @var ISystemTagManager */
@@ -92,6 +93,10 @@ class RetentionJob extends TimedJob {
 		try {
 			$this->tagManager->getTagsByIds($tag);
 		} catch (\InvalidArgumentException $e) {
+			// tag is invalid remove backgroundjob and exit
+			$this->jobList->remove($this, $argument);
+			return;
+		} catch (TagNotFoundException $e) {
 			// tag no longer exists remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
 			return;
