@@ -1,5 +1,6 @@
 <?php
 /**
+ * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
