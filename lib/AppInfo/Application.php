@@ -1,5 +1,6 @@
 <?php
 /**
+ * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -17,8 +18,8 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
-
 namespace OCA\Files_Retention\AppInfo;
 
 use OCA\Files_Retention\EventListener;
