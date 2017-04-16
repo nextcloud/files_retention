@@ -123,7 +123,7 @@ class APIController extends Controller {
 		$id = $qb->getLastInsertId();
 
 		//Insert cronjob
-		$this->joblist->add('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => $tagid]);
+		$this->joblist->add('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => (int)$tagid]);
 
 		return new JSONResponse([
 			'id' => $id,
@@ -161,7 +161,7 @@ class APIController extends Controller {
 		$qb->execute();
 
 		// Remove cronjob
-		$this->joblist->remove('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => $data['tag_id']]);
+		$this->joblist->remove('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => (int)$data['tag_id']]);
 
 		$response = new Response();
 		$response->setStatus(Http::STATUS_NO_CONTENT);
