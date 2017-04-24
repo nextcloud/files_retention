@@ -18,7 +18,7 @@ branches:
 
 before_install:
   - wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh
-  - bash ./before_install.sh $APP_NAME $CORE_BRANCH $DB
+  - . ./before_install.sh $APP_NAME $CORE_BRANCH $DB
 
   # Add some output debugging information
   - cd ../server
@@ -27,10 +27,6 @@ before_install:
   - ./occ app:list
   - ./occ app:enable $APP_NAME
   - ./occ app:list
-
-  # get latest phpunit
-  - wget https://phar.phpunit.de/phpunit.phar
-  - chmod +x phpunit.phar
 
 script:
   - cd apps/$APP_NAME/
@@ -44,7 +40,7 @@ script:
 
   # Run phpunit tests
   - cd tests
-  - sh -c "if [ '$CODECHECK' != '1' -a '$CODECHECK' != '2' ]; then ./../../../phpunit.phar --configuration phpunit.xml; fi"
+  - sh -c "if [ '$CODECHECK' != '1' -a '$CODECHECK' != '2' ]; then phpunit --configuration phpunit.xml; fi"
   - cd ..
 
   # Create coverage report
