@@ -7,10 +7,14 @@
 	<description>
 		This application allows for automatic deletion of files after a given time
 	</description>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<types>
 		<filesystem/>
 	</types>
+	<category>tools</category>
+	<website>https://github.com/nextcloud/files_retention</website>
+	<bugs>https://github.com/nextcloud/files_retention/issues</bugs>
+	<repository type="git">https://github.com/nextcloud/files_retention.git</repository>
 	<namespace>Files_Retention</namespace>
 	<dependencies>
 		<nextcloud min-version="12" max-version="12" />
