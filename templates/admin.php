@@ -41,7 +41,12 @@ style('files_retention', [
 ?>
 
 <form id="retention" class="section" data-systemtag-id="">
-	<h2><?php p($l->t('File retention')); ?></h2>
+	<h2 class="inlineblock"><?php p($l->t('File retention')); ?></h2>
+	<a target="_blank" rel="noreferrer" class="icon-info svg"
+	   title="<?php p($l->t('Open documentation'));?>"
+	   href="<?php p(link_to_docs('admin-files-retention')); ?>">
+	</a>
+
 	<p class="settings-hint"><?php p($l->t('Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')); ?></p>
 
 	<table>
