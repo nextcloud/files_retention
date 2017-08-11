@@ -19,6 +19,10 @@
 	</dependencies>
 	<screenshot>https://raw.githubusercontent.com/nextcloud/files_retention/master/screenshots/1.png</screenshot>
 
+	<documentation>
+		<admin>https://docs.nextcloud.com/server/13/go.php?to=admin-files-retention</admin>
+	</documentation>
+
 	<settings>
 		<admin>OCA\Files_Retention\Settings\Admin</admin>
 	</settings>
