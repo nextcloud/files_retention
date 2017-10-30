@@ -155,20 +155,20 @@ class RetentionJob extends TimedJob {
 	private function checkFileId($fileid) {
 		$mountPoints = $this->userMountCache->getMountsForFileId($fileid);
 
-		if (count($mountPoints) === 0) {
+		if (empty($mountPoints)) {
 			throw new NotFoundException();
 		}
 
-		$mountPoint = $mountPoints[0];
+		$mountPoint = array_shift($mountPoints);
 
 		$userFolder = $this->rootFolder->getUserFolder($mountPoint->getUser()->getUID());
 
 		$nodes = $userFolder->getById($fileid);
-		if (count($nodes) === 0) {
+		if (empty($nodes)) {
 			throw new NotFoundException();
 		}
 
-		return $nodes[0];
+		return array_shift($nodes);
 	}
 
 	/**
