@@ -1,0 +1,8 @@
+{ "translations": {
+    "Not a number" : "Ei numero",
+    "Select tag…" : "Valitse tunniste…",
+    "Delete" : "Poista",
+    "Error while deleting the retention rule" : "Virhe poistaessa säilytyssääntöä",
+    "Create" : "Luo"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -6,6 +6,12 @@
     "Retention" : "Retención",
     "This application allows for automatic deletion of files after a given time" : "Esta aplicación permite la eliminación automática de archivos después de un tiempo predeterminado",
     "File retention" : "Retención de archivos",
-    "Open documentation" : "Abrir documentación"
+    "Open documentation" : "Abrir documentación",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Determinar si los archivos etiquetados con una etiqueta específica deberían ser eliminados automáticamente después de un tiempo predeterminado. Esto es útil para documentos confidenciales.",
+    "Days" : "Días",
+    "Weeks" : "Semanas",
+    "Months" : "Meses",
+    "Years" : "Años",
+    "Create" : "Crear"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

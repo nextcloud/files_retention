@@ -6,8 +6,11 @@ OC.L10N.register(
     "Delete" : "Löschen",
     "Error while deleting the retention rule" : "Fehler beim Löschen der Zurückhaltungsregel",
     "Retention" : "Zurückhaltung",
+    "Open documentation" : "Dokumentation öffnen",
     "Days" : "Tage",
     "Weeks" : "Wochen",
-    "Months" : "Monate"
+    "Months" : "Monate",
+    "Years" : "Jahre",
+    "Create" : "Erstellen"
 },
 "nplurals=2; plural=(n != 1);");
