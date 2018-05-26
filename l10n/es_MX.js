@@ -6,10 +6,13 @@ OC.L10N.register(
     "Delete" : "Borrar",
     "Error while deleting the retention rule" : "Error al borrar la regla de retención",
     "Retention" : "Retención",
+    "This application allows for automatic deletion of files after a given time" : "Esta aplicación permite el borrado automático de archivos después de un tiempo dado",
+    "File retention" : "Retención de archivo",
     "Open documentation" : "Abrir documentación",
     "Days" : "Días",
     "Weeks" : "Semanas",
     "Months" : "Meses",
-    "Years" : "Años"
+    "Years" : "Años",
+    "Create" : "Crear"
 },
 "nplurals=2; plural=(n != 1);");
