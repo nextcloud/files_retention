@@ -5,7 +5,7 @@ OC.L10N.register(
     "Select tag…" : "Choisir une étiquette…",
     "Delete" : "Supprimer",
     "Error while deleting the retention rule" : "Erreur lors de l'effacement de la règle de suppression de fichier",
-    "Retention" : "Suppression",
+    "Retention" : "Conservation limitée",
     "This application allows for automatic deletion of files after a given time" : "Cette application permet la suppression automatique de fichiers après une période de temps donnée",
     "File retention" : "Suppression programmée de fichiers",
     "Open documentation" : "Ouvrir l'aide",
