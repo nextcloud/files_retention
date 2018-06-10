@@ -1,0 +1,19 @@
+OC.L10N.register(
+    "files_retention",
+    {
+    "Not a number" : "Није број",
+    "Select tag…" : "Одаберите ознаку…",
+    "Delete" : "Обриши",
+    "Error while deleting the retention rule" : "Грешка приликом брисања правила задржавања",
+    "Retention" : "Задржавање",
+    "This application allows for automatic deletion of files after a given time" : "Ова апликација Вам омогућава аутоматско брисање фајлова после задатог времена",
+    "File retention" : "Задржавање фајла",
+    "Open documentation" : "Отвори документацију",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Дефинише да ли фајл са одређеним ознакама треба да буде аутоматски обрисана после неког времена. Корисно је за поверљива документа.",
+    "Days" : "Дана",
+    "Weeks" : "Недеља",
+    "Months" : "Месеци",
+    "Years" : "Година",
+    "Create" : "Направи"
+},
+"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");
