@@ -4,6 +4,7 @@ OC.L10N.register(
     "Not a number" : "Не номер",
     "Select tag…" : "Выберите метку…",
     "Delete" : "Удалить",
+    "This application allows for automatic deletion of files after a given time" : "Это приложение служит для удаления файлов по прошествии установленного интервала времени",
     "Open documentation" : "Открыть документацию",
     "Days" : "Дней",
     "Weeks" : "Недель",
