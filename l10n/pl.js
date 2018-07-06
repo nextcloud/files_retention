@@ -1,0 +1,13 @@
+OC.L10N.register(
+    "files_retention",
+    {
+    "Not a number" : "Nie jest liczbą",
+    "Select tag…" : "Wybierz etykietę…",
+    "Delete" : "Usuń",
+    "Open documentation" : "Otwórz dokumentację",
+    "Days" : "Dni",
+    "Weeks" : "Tygodni",
+    "Months" : "Miesięcy",
+    "Years" : "Lata"
+},
+"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");
