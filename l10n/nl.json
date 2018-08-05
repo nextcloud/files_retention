@@ -1,0 +1,12 @@
+{ "translations": {
+    "Delete" : "Verwijderen",
+    "Retention" : "Bewaartermijjn",
+    "File retention" : "Bewaartermijn",
+    "Open documentation" : "Openen documentatie",
+    "Days" : "Dagen",
+    "Weeks" : "Weken",
+    "Months" : "Maanden",
+    "Years" : "Jaar",
+    "Create" : "Aanmaken"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
