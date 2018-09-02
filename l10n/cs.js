@@ -6,6 +6,7 @@ OC.L10N.register(
     "Delete" : "Smazat",
     "Error while deleting the retention rule" : "Chyba při mazání zadržovacího pravidla",
     "This application allows for automatic deletion of files after a given time" : "Tato aplikace umožňuje automatické mazání souborů po uplynutí zadané doby",
+    "File retention" : "Zadržování souboru",
     "Open documentation" : "Otevřít dokumentaci",
     "Days" : "Dnů",
     "Weeks" : "Týdny",
