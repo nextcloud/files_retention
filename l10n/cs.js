@@ -9,6 +9,7 @@ OC.L10N.register(
     "This application allows for automatic deletion of files after a given time" : "Tato aplikace umožňuje automatické mazání souborů po uplynutí zadané doby",
     "File retention" : "Zadržování souboru",
     "Open documentation" : "Otevřít dokumentaci",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Určuje zda soubory označené konkrétním štítkem mají být po určité době automaticky smazány. Užitečné pro důvěrné dokumenty.",
     "Days" : "Dnů",
     "Weeks" : "Týdny",
     "Months" : "Měsíce",
