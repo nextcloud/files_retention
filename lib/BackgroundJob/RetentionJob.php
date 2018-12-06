@@ -122,9 +122,9 @@ class RetentionJob extends TimedJob {
 		// Calculate before date only once
 		$deleteBefore = $this->getBeforeDate((int)$data['time_unit'], (int)$data['time_amount']);
 
-		$offset = 0;
+		$offset = '';
 		$limit = 1000;
-		while(true) {
+		while ($offset !== null) {
 			$fileids = $this->tagMapper->getObjectIdsForTags($tag, 'files', $limit, $offset);
 
 			foreach ($fileids as $fileid) {
@@ -141,7 +141,7 @@ class RetentionJob extends TimedJob {
 				break;
 			}
 
-			$offset += $limit;
+			$offset = array_pop($fileids);
 		}
 	}
 
