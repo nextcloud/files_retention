@@ -351,8 +351,8 @@ class RetentionJobTest extends TestCase {
 		$this->tagMapper->expects($this->exactly(2))
 			->method('getObjectIdsForTags')
 			->withConsecutive(
-				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo(0)],
-				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo(1000)]
+				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo('')],
+				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo('1337')]
 			)
 			->will(
 				$this->onConsecutiveCalls(
