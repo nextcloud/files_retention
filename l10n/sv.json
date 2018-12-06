@@ -6,7 +6,7 @@
     "Retention" : "Radering",
     "This application allows for automatic deletion of files after a given time" : "Den här applikationen möjliggör automatisk radering av filer efter en viss tid",
     "File retention" : "Filradering",
-    "Open documentation" : "Öppna dokumentation",
+    "Open documentation" : "Öppna dokumentationen",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definiera om filer som taggats med en viss tagg ska raderas automatiskt efter en tid. Detta är användbart för konfidentiella dokument.",
     "Days" : "Dagar",
     "Weeks" : "Veckor",
