@@ -1,0 +1,11 @@
+{ "translations": {
+    "Not a number" : "Ez da zenbakia",
+    "Delete" : "Ezabatu",
+    "Open documentation" : "Ireki dokumentazioa",
+    "Days" : "Egunak",
+    "Weeks" : "Asteak",
+    "Months" : "Hilabeteak",
+    "Years" : "Urteak",
+    "Create" : "Sortu"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
