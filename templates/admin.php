@@ -63,7 +63,7 @@ style('files_retention', [
 
 	<input type="hidden" name="retention_tag" id="retention_tag" placeholder="<?php p($l->t('Select tag…')); ?>" style="width: 400px;" />
 	<br>
-	<input type="number" id="retention_amount" name="retention_amount" placeholder="10" style="width: 200px;">
+	<input type="number" id="retention_amount" name="retention_amount" value="10" style="width: 200px;">
 
 	<select id="retention_unit">
 		<option value="0"><?php p($l->t('Days')); ?></option>
