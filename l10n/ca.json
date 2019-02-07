@@ -1,0 +1,7 @@
+{ "translations": {
+    "Days" : "Dies",
+    "Weeks" : "Setmanes",
+    "Months" : "Mesos",
+    "Years" : "Anys"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
