@@ -1,0 +1,10 @@
+{ "translations": {
+    "Not a number" : "Ikke et tal",
+    "Delete" : "Slet",
+    "Days" : "Dage",
+    "Weeks" : "Uger",
+    "Months" : "Måneder",
+    "Years" : "År",
+    "Create" : "Opret"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
