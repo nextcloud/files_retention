@@ -4,21 +4,17 @@ clone:
     depth: 1
 
 pipeline:
-  signed-off-check:
-    image: nextcloudci/php7.1:php7.1-16
-    environment:
-      - APP_NAME=files_retention
-      - CORE_BRANCH=master
-      - DB=sqlite
+  handlebars:
+    image: node
     commands:
-      - wget https://raw.githubusercontent.com/nextcloud/travis_ci/master/before_install.sh
-      - bash ./before_install.sh $APP_NAME $CORE_BRANCH $DB
-      - cd ../server
-      - php ./build/signed-off-checker.php
-    secrets: [ github_token ]
+      - npm install handlebars -g
+      - make handlebars
+      - git status
+      - bash -c "[[ ! \"`git status --porcelain `\" ]] || ( echo 'Uncommited changes handlebars template ' && exit 1 )"
     when:
       matrix:
-        TESTS: signed-off-check
+        TESTS: handlebars
+
 matrix:
   include:
-    - TESTS: signed-off-check
+    - TESTS: handlebars
