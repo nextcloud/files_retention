@@ -21,6 +21,9 @@ clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
 
+handlebars:
+	handlebars -n OCA.File_Retention.Templates js/template.handlebars -f js/template.js
+
 appstore: clean
 	mkdir -p $(sign_dir)
 	rsync -a \

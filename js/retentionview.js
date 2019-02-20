@@ -26,14 +26,6 @@
 
 	OCA.File_Retention = OCA.File_Retention || {};
 
-	var TEMPLATE_RETENTION =
-		'<tr data-id="{{id}}">'
-		+ '<td><span>{{tagName}}</span></td>'
-		+ '<td><span>{{timeAmount}}</span></td>'
-		+ '<td><span>{{timeUnit}}</span></td>'
-		+ '<td><a class="icon-delete has-tooltip" title="' + t('files_retention', 'Delete') + '"></a></td>'
-		+ '<tr>';
-
 	var RetentionView = OC.Backbone.View.extend({
 		collection: null,
 		tagCollection: null,
@@ -47,11 +39,9 @@
 		},
 
 		template: function (data) {
-			if (_.isUndefined(this._template)) {
-				this._template = Handlebars.compile(TEMPLATE_RETENTION);
-			}
+			data.deleteString = t('files_retention', 'Delete');
 
-			return this._template(data);
+			return OCA.File_Retention.Templates.template(data);
 		},
 		
 		render: function () {

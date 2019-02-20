@@ -28,6 +28,7 @@ script('core', [
 
 script('files_retention', [
 	'retentionmodel',
+	'template',
 	'retentioncollection',
 	'retentionview',
 	'admin'
