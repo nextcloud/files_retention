@@ -6,6 +6,7 @@
     "Days" : "Dager",
     "Weeks" : "Uker",
     "Months" : "Måneder",
-    "Years" : "År"
+    "Years" : "År",
+    "Create" : "Opprett"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

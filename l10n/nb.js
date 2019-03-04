@@ -8,6 +8,7 @@ OC.L10N.register(
     "Days" : "Dager",
     "Weeks" : "Uker",
     "Months" : "Måneder",
-    "Years" : "År"
+    "Years" : "År",
+    "Create" : "Opprett"
 },
 "nplurals=2; plural=(n != 1);");
