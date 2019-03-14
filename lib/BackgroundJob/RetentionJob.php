@@ -32,6 +32,7 @@ use OCP\Files\Node;
 use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
 use OCP\Files\IRootFolder;
+use OCP\ILogger;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\SystemTag\TagNotFoundException;
@@ -57,6 +58,8 @@ class RetentionJob extends TimedJob {
 
 	/** @var IJobList */
 	private $jobList;
+	/** @var ILogger */
+	private $logger;
 
 	/**
 	 * RetentionJob constructor.
@@ -75,7 +78,8 @@ class RetentionJob extends TimedJob {
 								IDBConnection $db,
 								IRootFolder $rootFolder,
 								ITimeFactory $timeFactory,
-								IJobList $jobList) {
+								IJobList $jobList,
+								ILogger $logger) {
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);
 
@@ -86,6 +90,7 @@ class RetentionJob extends TimedJob {
 		$this->rootFolder = $rootFolder;
 		$this->timeFactory = $timeFactory;
 		$this->jobList = $jobList;
+		$this->logger = $logger;
 	}
 
 	public function run($argument) {
@@ -161,7 +166,12 @@ class RetentionJob extends TimedJob {
 
 		$mountPoint = array_shift($mountPoints);
 
-		$userFolder = $this->rootFolder->getUserFolder($mountPoint->getUser()->getUID());
+		try {
+			$userFolder = $this->rootFolder->getUserFolder($mountPoint->getUser()->getUID());
+		} catch (\Exception $e) {
+			$this->logger->logException($e, ['level' => ILogger::DEBUG]);
+			throw new NotFoundException('Could not get user');
+		}
 
 		$nodes = $userFolder->getById($fileid);
 		if (empty($nodes)) {

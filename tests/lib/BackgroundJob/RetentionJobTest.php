@@ -33,6 +33,7 @@ use OCP\Files\Node;
 use OCP\Files\NotPermittedException;
 use OCP\IDBConnection;
 use OCP\Files\IRootFolder;
+use OCP\ILogger;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\IUser;
@@ -93,7 +94,8 @@ class RetentionJobTest extends TestCase {
 			$this->db,
 			$this->rootFolder,
 			$this->timeFactory,
-			$this->jobList
+			$this->jobList,
+			$this->createMock(ILogger::class)
 		);
 	}
 
