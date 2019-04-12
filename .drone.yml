@@ -1,20 +1,19 @@
-clone:
-  git:
-    image: plugins/git
-    depth: 1
+kind: pipeline
+name: handlebars
 
-pipeline:
-  handlebars:
+steps:
+  - name: handlebars
     image: node
     commands:
       - npm install handlebars -g
       - make handlebars
       - git status
       - bash -c "[[ ! \"`git status --porcelain `\" ]] || ( echo 'Uncommited changes handlebars template ' && exit 1 )"
-    when:
-      matrix:
-        TESTS: handlebars
 
-matrix:
-  include:
-    - TESTS: handlebars
+trigger:
+  branch:
+    - master
+    - stable*
+  event:
+    - pull_request
+    - push
