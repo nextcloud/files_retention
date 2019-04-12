@@ -1,5 +1,5 @@
 kind: pipeline
-name: handlebars
+name: handlebars2
 
 steps:
   - name: handlebars
