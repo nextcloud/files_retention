@@ -9,7 +9,7 @@ OC.L10N.register(
     "This application allows for automatic deletion of files after a given time" : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen",
     "File retention" : "Bewaartermijn",
     "Open documentation" : "Openen documentatie",
-    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een speficieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertouwelijke documenten.",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een specifieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertrouwelijke documenten.",
     "Days" : "Dagen",
     "Weeks" : "Weken",
     "Months" : "Maanden",
