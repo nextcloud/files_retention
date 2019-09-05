@@ -5,7 +5,7 @@
 	<name>Retention</name>
 	<summary>This application allows for automatic deletion of files after a given time</summary>
 	<description>This application allows for automatic deletion of files after a given time</description>
-	<version>1.6.0</version>
+	<version>1.7.0</version>
 	<licence>agpl</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>Files_Retention</namespace>
@@ -27,7 +27,7 @@
 	<screenshot>https://raw.githubusercontent.com/nextcloud/files_retention/master/screenshots/1.png</screenshot>
 
 	<dependencies>
-		<nextcloud min-version="17" max-version="17" />
+		<nextcloud min-version="18" max-version="18" />
 	</dependencies>
 
 	<settings>
