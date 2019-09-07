@@ -2,7 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Nav skaitlis",
-    "Select tag…" : "Izvēlies atzīmi...",
+    "Select tag…" : "Izvēlies birku...",
     "Delete" : "Dzēst",
     "Error while deleting the retention rule" : "Kļūda, dzēšot saglabāšanas kārtulu",
     "Retention" : "Paturēšana",
