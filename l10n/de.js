@@ -1,11 +1,11 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Not a number" : "Keine Nummer",
+    "Not a number" : "Keine Zahl",
     "Select tag…" : "Schlagwort auswählen",
     "Delete" : "Löschen",
-    "Error while deleting the retention rule" : "Fehler beim Löschen der Zurückhaltungsregel",
-    "Retention" : "Zurückhaltung",
+    "Error while deleting the retention rule" : "Fehler beim Löschen der Aufbewahrungsregel",
+    "Retention" : "Aufbewahrung",
     "This application allows for automatic deletion of files after a given time" : "Diese Anwendung ermöglicht das automatische Löschen von Dateien nach einer bestimmten Zeit",
     "File retention" : "Dateizurückhaltung",
     "Open documentation" : "Dokumentation öffnen",
