@@ -20,5 +20,5 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-$application = new \OCA\Files_Retention\AppInfo\Application();
+$application = \OC::$server->query(\OCA\Files_Retention\AppInfo\Application::class);
 $application->registerEventListener();
