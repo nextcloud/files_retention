@@ -46,7 +46,7 @@ class EventListenerTest extends \Test\TestCase {
 	/** @var ISystemTagManager */
 	private $tagManager;
 
-	public function setUp() {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->db = \OC::$server->getDatabaseConnection();
@@ -57,7 +57,7 @@ class EventListenerTest extends \Test\TestCase {
 		$app->registerEventListener();
 	}
 
-	public function tearDown() {
+	protected function tearDown(): void {
 		// Clear retention DB
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention');

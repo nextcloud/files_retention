@@ -72,7 +72,7 @@ class RetentionJobTest extends TestCase {
 	/** @var int */
 	private $timestampbase;
 
-	public function setUp() {
+	protected function setUp(): void {
 		 parent::setUp();
 
 		$this->timestampbase = 1000000000;
@@ -99,7 +99,7 @@ class RetentionJobTest extends TestCase {
 		);
 	}
 
-	public function tearDown() {
+	protected function tearDown(): void {
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention');
 		$qb->execute();
