@@ -2,7 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Bir sayı değil",
-    "Select tag…" : "Etiket seçin...",
+    "Select tag…" : "Etiket seçin …",
     "Delete" : "Sil",
     "Error while deleting the retention rule" : "Saklama kuralı silinirken bir sorun çıktı",
     "Retention" : "Saklama",
