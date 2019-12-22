@@ -1,0 +1,7 @@
+{ "translations": {
+    "Select tag…" : "Seleccionar etiqueta...",
+    "Delete" : "Eliminar",
+    "Open documentation" : "Abrir documentación",
+    "Create" : "Crear"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
