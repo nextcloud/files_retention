@@ -1,6 +1,7 @@
 { "translations": {
     "Select tag…" : "Изберете етикет...",
     "Delete" : "Изтриване",
+    "Open documentation" : "Отвори документацията",
     "Create" : "Създай"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

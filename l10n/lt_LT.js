@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Select tag…" : "Pasirinkti žymę...",
     "Delete" : "Ištrinti",
     "This application allows for automatic deletion of files after a given time" : "Ši programa leidžia automatiškai ištrinti failus po nurodyto laiko",
     "Open documentation" : "Atverti dokumentaciją",
