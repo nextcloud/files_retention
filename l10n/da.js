@@ -2,7 +2,9 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Ikke et tal",
+    "Select tag…" : "Vælg tag...",
     "Delete" : "Slet",
+    "Open documentation" : "Åbn dokumentation",
     "Days" : "Dage",
     "Weeks" : "Uger",
     "Months" : "Måneder",

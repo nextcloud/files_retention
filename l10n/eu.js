@@ -2,6 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Ez da zenbakia",
+    "Select tag…" : "Hautatu etiketa…",
     "Delete" : "Ezabatu",
     "Open documentation" : "Ireki dokumentazioa",
     "Days" : "Egunak",
