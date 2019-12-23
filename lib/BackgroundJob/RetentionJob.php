@@ -187,7 +187,14 @@ class RetentionJob extends TimedJob {
 	 */
 	private function expireNode(Node $node, \DateTime $deleteBefore) {
 		$mtime = new \DateTime();
+
+		// Fallback is the mtime
 		$mtime->setTimestamp($node->getMTime());
+
+		// Use the upload time if we have it
+		if ($node->getUploadTime() !== 0) {
+			$mtime->setTimestamp($node->getUploadTime());
+		}
 
 		if ($mtime < $deleteBefore) {
 			try {
