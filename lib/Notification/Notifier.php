@@ -71,7 +71,7 @@ class Notifier implements INotifier {
 		$notification->setRichSubject(
 				$l->t('{file} will be removed in 24 hours'),
 				[
-					'name' => [
+					'file' => [
 						'type' => 'file',
 						'id' => $node->getId(),
 						'name' => $node->getName(),

@@ -145,9 +145,9 @@ class RetentionJob extends TimedJob {
 					continue;
 				}
 
-				$this->expireNode($node, $deleteBefore);
+				$deleted = $this->expireNode($node, $deleteBefore);
 
-				if ($notifyDayBefore) {
+				if ($notifyDayBefore && !$deleted) {
 					$this->notifyNode($node, $notifyBefore);
 				}
 			}
@@ -209,10 +209,13 @@ class RetentionJob extends TimedJob {
 		if ($mtime < $deleteBefore) {
 			try {
 				$node->delete();
+				return true;
 			} catch (NotPermittedException $e) {
 				//LOG?
 			}
 		}
+
+		return false;
 	}
 
 	private function notifyNode(Node $node, \DateTime $notifyBefore) {
@@ -226,7 +229,7 @@ class RetentionJob extends TimedJob {
 			$mtime->setTimestamp($node->getUploadTime());
 		}
 
-		if ($mtime < $notifyBefore) {
+		if ($mtime > $notifyBefore) {
 			try {
 				$notification = $this->notificationManager->createNotification();
 				$notification->setApp(Application::APP_ID)
