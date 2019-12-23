@@ -23,16 +23,19 @@
 namespace OCA\Files_Retention\BackgroundJob;
 
 use OC\BackgroundJob\TimedJob;
+use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
 use OCP\Files\Config\IUserMountCache;
+use OCP\IConfig;
 use OCP\IDBConnection;
 use OCP\Files\Node;
 use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
 use OCP\Files\IRootFolder;
 use OCP\ILogger;
+use OCP\Notification\IManager as NotificationManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\SystemTag\TagNotFoundException;
@@ -58,20 +61,15 @@ class RetentionJob extends TimedJob {
 
 	/** @var IJobList */
 	private $jobList;
+
 	/** @var ILogger */
 	private $logger;
 
-	/**
-	 * RetentionJob constructor.
-	 *
-	 * @param ISystemTagManager $tagManager
-	 * @param ISystemTagObjectMapper $tagMapper
-	 * @param IUserMountCache $userMountCache
-	 * @param IDBConnection $db
-	 * @param IRootFolder $rootFolder
-	 * @param ITimeFactory $timeFactory
-	 * @param IJobList $jobList
-	 */
+	/** @var NotificationManager */
+	private $notificationManager;
+	/** @var IConfig */
+	private $config;
+
 	public function __construct(ISystemTagManager $tagManager,
 								ISystemTagObjectMapper $tagMapper,
 								IUserMountCache $userMountCache,
@@ -79,7 +77,9 @@ class RetentionJob extends TimedJob {
 								IRootFolder $rootFolder,
 								ITimeFactory $timeFactory,
 								IJobList $jobList,
-								ILogger $logger) {
+								ILogger $logger,
+								NotificationManager $notificationManager,
+								IConfig $config) {
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);
 
@@ -91,6 +91,8 @@ class RetentionJob extends TimedJob {
 		$this->timeFactory = $timeFactory;
 		$this->jobList = $jobList;
 		$this->logger = $logger;
+		$this->notificationManager = $notificationManager;
+		$this->config = $config;
 	}
 
 	public function run($argument) {
@@ -124,8 +126,12 @@ class RetentionJob extends TimedJob {
 			return;
 		}
 
+		// Do we notify the user before
+		$notifyDayBefore = $this->config->getAppValue(Application::APP_ID, 'notify_before', 'no') === 'yes';
+
 		// Calculate before date only once
 		$deleteBefore = $this->getBeforeDate((int)$data['time_unit'], (int)$data['time_amount']);
+		$notifyBefore = $this->getNotifyBeforeDate($deleteBefore);
 
 		$offset = '';
 		$limit = 1000;
@@ -140,6 +146,10 @@ class RetentionJob extends TimedJob {
 				}
 
 				$this->expireNode($node, $deleteBefore);
+
+				if ($notifyDayBefore) {
+					$this->notifyNode($node, $notifyBefore);
+				}
 			}
 
 			if (empty($fileids) || count($fileids) < $limit) {
@@ -203,7 +213,36 @@ class RetentionJob extends TimedJob {
 				//LOG?
 			}
 		}
+	}
 
+	private function notifyNode(Node $node, \DateTime $notifyBefore) {
+		$mtime = new \DateTime();
+
+		// Fallback is the mtime
+		$mtime->setTimestamp($node->getMTime());
+
+		// Use the upload time if we have it
+		if ($node->getUploadTime() !== 0) {
+			$mtime->setTimestamp($node->getUploadTime());
+		}
+
+		if ($mtime < $notifyBefore) {
+			try {
+				$notification = $this->notificationManager->createNotification();
+				$notification->setApp(Application::APP_ID)
+					->setUser($node->getOwner()->getUID())
+					->setDateTime(new \DateTime())
+					->setObject('retention', (string)$node->getId())
+					->setSubject('deleteTomorrow', [
+						'fileId' => $node->getId(),
+						'name' => $node->getName(),
+					]);
+
+				$this->notificationManager->notify($notification);
+			} catch (\Exception $e) {
+				$this->logger->logException($e);
+			}
+		}
 	}
 
 	/**
@@ -211,7 +250,7 @@ class RetentionJob extends TimedJob {
 	 * @param int $timeamount
 	 * @return \DateTime
 	 */
-	private function getBeforeDate($timeunit, $timeamount) {
+	private function getBeforeDate(int $timeunit, int $timeamount): \DateTime {
 		$spec = 'P' . $timeamount;
 
 		if ($timeunit === Constants::DAY) {
@@ -229,5 +268,13 @@ class RetentionJob extends TimedJob {
 		$currentDate->setTimestamp($this->timeFactory->getTime());
 
 		return $currentDate->sub($delta);
+	}
+
+	private function getNotifyBeforeDate(\DateTime $retentionDate): \DateTime {
+		$spec = 'P1D';
+
+		$delta = new \DateInterval($spec);
+		$retentionDate = clone $retentionDate;
+		return $retentionDate->sub($delta);
 	}
 }
