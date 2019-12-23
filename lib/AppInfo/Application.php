@@ -23,6 +23,7 @@
 namespace OCA\Files_Retention\AppInfo;
 
 use OCA\Files_Retention\EventListener;
+use OCA\Files_Retention\Notification\Notifier;
 use OCP\AppFramework\App;
 use OCP\Files\Config\IUserMountCache;
 use OCP\SystemTag\ManagerEvent;
@@ -40,6 +41,9 @@ class Application extends App {
 		$container->registerService(IUserMountCache::class, function ($c) use ($server) {
 			return $server->getMountProviderCollection()->getMountCache();
 		});
+
+		$notifier = $server->getNotificationManager();
+		$notifier->registerNotifierService(Notifier::class);
 	}
 
 	public function registerEventListener() {
