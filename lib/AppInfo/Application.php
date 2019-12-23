@@ -28,8 +28,11 @@ use OCP\Files\Config\IUserMountCache;
 use OCP\SystemTag\ManagerEvent;
 
 class Application extends App {
+
+	const APP_ID = 'files_retention';
+
 	public function __construct(array $urlParams = array()) {
-		parent::__construct('files_retention', $urlParams);
+		parent::__construct(self::APP_ID, $urlParams);
 
 		$container = $this->getContainer();
 		$server = $container->getServer();
