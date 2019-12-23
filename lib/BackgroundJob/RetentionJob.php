@@ -235,7 +235,6 @@ class RetentionJob extends TimedJob {
 					->setObject('retention', (string)$node->getId())
 					->setSubject('deleteTomorrow', [
 						'fileId' => $node->getId(),
-						'name' => $node->getName(),
 					]);
 
 				$this->notificationManager->notify($notification);
