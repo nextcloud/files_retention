@@ -57,7 +57,7 @@ class APIControllerTest extends \Test\TestCase {
 	/** @var APIController */
 	private $api;
 
-	public function setUp() {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->request = $this->createMock(IRequest::class);
@@ -74,7 +74,7 @@ class APIControllerTest extends \Test\TestCase {
 		);
 	}
 
-	public function tearDown() {
+	protected function tearDown(): void {
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention');
 		$qb->execute();
