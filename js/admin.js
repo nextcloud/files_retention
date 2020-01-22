@@ -37,6 +37,8 @@
 
 		currentTagId: null,
 
+		notifyCheckbox: null,
+
 		init: function() {
 			var self = this;
 
@@ -60,6 +62,12 @@
 			});
 
 			$('#retention_submit').on('click', _.bind(this._onClickSubmit, this));
+
+			this.notifyCheckbox = $('#retention_notify');
+			this.notifyCheckbox.prop('checked', OCP.InitialState.loadState('files_retention', 'notify_before'));
+			this.notifyCheckbox.change(function() {
+				OCP.AppConfig.setValue('files_retention', 'notify_before', $(this).is(":checked") ? 'yes' : 'no')
+			});
 		},
 
 		/**
