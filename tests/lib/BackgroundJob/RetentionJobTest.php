@@ -31,9 +31,11 @@ use OCP\Files\Config\IUserMountCache;
 use OCP\Files\Folder;
 use OCP\Files\Node;
 use OCP\Files\NotPermittedException;
+use OCP\IConfig;
 use OCP\IDBConnection;
 use OCP\Files\IRootFolder;
 use OCP\ILogger;
+use OCP\Notification\IManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\IUser;
@@ -95,7 +97,9 @@ class RetentionJobTest extends TestCase {
 			$this->rootFolder,
 			$this->timeFactory,
 			$this->jobList,
-			$this->createMock(ILogger::class)
+			$this->createMock(ILogger::class),
+			$this->createMock(IManager::class),
+			$this->createMock(IConfig::class)
 		);
 	}
 

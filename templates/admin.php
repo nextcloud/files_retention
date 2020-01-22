@@ -74,4 +74,11 @@ style('files_retention', [
 	</select>
 
 	<input type="button" id="retention_submit" value="<?php p($l->t('Create')); ?>" disabled>
+
+	<p>
+		<input type="checkbox" id="retention_notify" class="checkbox" />
+		<label for="retention_notify">
+			<?php p($l->t('Notify users a day before retention will delete a file')); ?>
+		</label>
+	</p>
 </form>

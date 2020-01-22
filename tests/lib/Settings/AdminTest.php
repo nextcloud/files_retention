@@ -24,16 +24,23 @@ namespace OCA\Files_Retention\Tests\Settings;
 
 use OCA\Files_Retention\Settings\Admin;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\IConfig;
+use OCP\IInitialStateService;
 use Test\TestCase;
 
 class AdminTest extends TestCase {
 	/** @var Admin */
 	private $admin;
 
+	private $initialStateService;
+	private $config;
+
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->admin = new Admin();
+		$this->initialStateService = $this->createMock(IInitialStateService::class);
+		$this->config = $this->createMock(IConfig::class);
+		$this->admin = new Admin($this->initialStateService, $this->config);
 	}
 
 	public function testGetForm() {
