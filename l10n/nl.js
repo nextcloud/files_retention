@@ -5,6 +5,7 @@ OC.L10N.register(
     "Select tag…" : "Selecteren tag…",
     "Delete" : "Verwijderen",
     "Error while deleting the retention rule" : "Fout bij verwijderen bewaartermijnregel",
+    "{file} will be removed in 24 hours" : "{file} zal over 24 uur worden verwijderd",
     "Retention" : "Bewaartermijjn",
     "This application allows for automatic deletion of files after a given time" : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen",
     "File retention" : "Bewaartermijn",
