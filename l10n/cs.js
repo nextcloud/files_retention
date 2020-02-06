@@ -18,6 +18,6 @@ OC.L10N.register(
     "Months" : "Měsíce",
     "Years" : "Let",
     "Create" : "Vytvořit",
-    "Notify users a day before retention will delete a file" : "Oznámit uživatelům den předem než zadržování soubor smaže"
+    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");
