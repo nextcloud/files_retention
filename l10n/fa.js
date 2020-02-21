@@ -5,6 +5,7 @@ OC.L10N.register(
     "Select tag…" : "انتخاب برچسب",
     "Delete" : "حذف",
     "Error while deleting the retention rule" : "خطا هنگام حذف کردن قانون نگهداری",
+    "{file} will be removed in 24 hours" : "{file} تا 24 ساعت دیگر حذف خواهد شد",
     "Retention" : "نگهداری",
     "This application allows for automatic deletion of files after a given time" : "این برنامه امکان حذف خودکار پرونده ها را در مدت زمان مشخصی فراهم می کند",
     "File retention" : "حفظ پرونده",
