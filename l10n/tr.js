@@ -6,7 +6,7 @@ OC.L10N.register(
     "Delete" : "Sil",
     "Error while deleting the retention rule" : "Saklama kuralı silinirken bir sorun çıktı",
     "Files retention" : "Dosya saklama",
-    "{file} will be removed in 24 hours" : "{file} dosyası 24 saat sonra silinecek",
+    "{file} will be removed in 24 hours" : "{file} dosyası 24 saat içinde silinecek",
     "Your systems retention rules will deleted this file within 24 hours." : "Sisteminizin saklama kurallarına göre bu dosya 24 saat içinde silinecek.",
     "Retention" : "Saklama",
     "This application allows for automatic deletion of files after a given time" : "Bu uygulama belirtilen süre sonunda dosyaların otomatik olarak silinmesini sağlar",
