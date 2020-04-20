@@ -1,6 +1,7 @@
 { "translations": {
     "Select tag…" : "chọn thẻ",
     "Delete" : "Xóa",
+    "Open documentation" : "Mở tài liệu",
     "Create" : "Tạo mới"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
