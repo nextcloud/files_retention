@@ -5,6 +5,9 @@ OC.L10N.register(
     "Select tag…" : "Odaberite oznaku…",
     "Delete" : "Izbriši",
     "Error while deleting the retention rule" : "Pogreška tijekom brisanja pravila o zadržavanju",
+    "Files retention" : "Zadržavanje datoteka",
+    "{file} will be removed in 24 hours" : "Datoteka {file} bit će uklonjena za 24 sata",
+    "Your systems retention rules will deleted this file within 24 hours." : "Pravila zadržavanja vašeg sustava izbrisat će ovu datoteku unutar 24 sata.",
     "Retention" : "Zadržavanje",
     "This application allows for automatic deletion of files after a given time" : "Ova aplikacija omogućuje automatsko brisanje datoteka nakon određenog vremena",
     "File retention" : "Zadržavanje datoteka",
@@ -14,6 +17,7 @@ OC.L10N.register(
     "Weeks" : "Tjedana",
     "Months" : "Mjeseci",
     "Years" : "Godina",
-    "Create" : "Stvori"
+    "Create" : "Stvori",
+    "Notify users a day before retention will delete a file" : "Obavijestite korisnike dan prije nego što pravila zadržavanja izbrišu datoteku"
 },
 "nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;");
