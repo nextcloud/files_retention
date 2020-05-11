@@ -5,6 +5,8 @@ OC.L10N.register(
     "Select tag…" : "Veldu merki...",
     "Delete" : "Eyða",
     "Error while deleting the retention rule" : "Villa kom upp við að eyða geymslureglunni",
+    "Files retention" : "Tímabundin geymsla skráa",
+    "{file} will be removed in 24 hours" : "{file} verður fjarlægð eftir 24 klukkustundir",
     "Retention" : "Tímabundin geymsla",
     "This application allows for automatic deletion of files after a given time" : "Þetta forrit gerir kleift að eyða skrám sjálfvirkt eftir tiltekinn tíma",
     "File retention" : "Tímabundin geymsla skráa",
