@@ -1,7 +1,8 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Delete" : "Видалити",
+    "Select tag…" : "Вибрати позначку...",
+    "Delete" : "Вилучити",
     "Open documentation" : "Відкрити документацію",
     "Create" : "Створити"
 },
