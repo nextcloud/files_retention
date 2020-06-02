@@ -3,7 +3,18 @@ OC.L10N.register(
     {
     "Select tag…" : "Pilih tag...",
     "Delete" : "Hapus",
+    "Files retention" : "Retensi berkas",
+    "{file} will be removed in 24 hours" : "{file} akan terhapus setelah 24 jam",
+    "Your systems retention rules will deleted this file within 24 hours." : "Aturan retensi sistem akan menghapus berkas ini setelah 24 jam",
+    "Retention" : "Retensi",
+    "This application allows for automatic deletion of files after a given time" : "Aplikasi ini akan secara otomatis menghapus berkas setelah periode waktu yang ditentukan",
+    "File retention" : "Retensi berkas",
     "Open documentation" : "Buka dokumentasi",
-    "Create" : "Buat"
+    "Days" : "Hari",
+    "Weeks" : "Pekan",
+    "Months" : "Bulan",
+    "Years" : "Tahun",
+    "Create" : "Buat",
+    "Notify users a day before retention will delete a file" : "Mengingatkan pengguna 1 hari sebelum masa retensi akan menghapus berkas"
 },
 "nplurals=1; plural=0;");
