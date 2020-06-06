@@ -81,9 +81,9 @@ class Notifier implements INotifier {
 				])
 			->setParsedSubject(str_replace('{file}', $node->getName(), $l->t('{file} will be removed in 24 hours')))
 			->setRichMessage(
-				$l->t('Your systems retention rules will deleted this file within 24 hours.')
+				$l->t('Your systems retention rules will delete this file within 24 hours.')
 			)
-			->setParsedMessage($l->t('Your systems retention rules will deleted this file within 24 hours.'));
+			->setParsedMessage($l->t('Your systems retention rules will delete this file within 24 hours.'));
 
 		return $notification;
 	}
