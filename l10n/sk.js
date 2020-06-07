@@ -7,7 +7,6 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Chyba pri odstraňovaní pravidla uchovávania",
     "Files retention" : "Uchovávanie súborov",
     "{file} will be removed in 24 hours" : "{file} bude odstránený v priebehu 24 hodín",
-    "Your systems retention rules will deleted this file within 24 hours." : "Váš systémové pravidlá uchovávania zmažú tento súbor v priebehu 24 hodín.",
     "Retention" : "Uchovávanie",
     "This application allows for automatic deletion of files after a given time" : "Táto aplikácia umožňuje automatické mazanie súborov po určitom čase",
     "File retention" : "Uchovávanie súborov",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Months" : "Mesiacov",
     "Years" : "Rokov",
     "Create" : "Vytvoriť",
-    "Notify users a day before retention will delete a file" : "Upozorní používateľov deň pred vymazaním súboru"
+    "Notify users a day before retention will delete a file" : "Upozorní používateľov deň pred vymazaním súboru",
+    "Your systems retention rules will deleted this file within 24 hours." : "Váš systémové pravidlá uchovávania zmažú tento súbor v priebehu 24 hodín."
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

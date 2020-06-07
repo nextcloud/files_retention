@@ -7,7 +7,6 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Errore bat gertatu da fitxategiak mantentzeko erregela ezabatzean",
     "Files retention" : "Fitxategiak mantentzea",
     "{file} will be removed in 24 hours" : "{file} fitxategia 24 orduan ezabatuko da",
-    "Your systems retention rules will deleted this file within 24 hours." : "Zure sistemaren fitxategiak mantentzeko erregelak fitxategi hau 24 orduan ezabatuko du.",
     "Retention" : "Mantentzea",
     "This application allows for automatic deletion of files after a given time" : "Aplikazio honek fitxategiak esandako epe bat pasatu ostean ezabatzen uzten dizu",
     "File retention" : "Fitxategiak mantentzea",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Months" : "Hilabeteak",
     "Years" : "Urteak",
     "Create" : "Sortu",
-    "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali."
+    "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali.",
+    "Your systems retention rules will deleted this file within 24 hours." : "Zure sistemaren fitxategiak mantentzeko erregelak fitxategi hau 24 orduan ezabatuko du."
 },
 "nplurals=2; plural=(n != 1);");
