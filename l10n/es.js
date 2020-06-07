@@ -7,7 +7,6 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Error al eliminar la regla de retención",
     "Files retention" : "Retención de archivos",
     "{file} will be removed in 24 hours" : "{file} será eliminado dentro de 24 horas",
-    "Your systems retention rules will deleted this file within 24 hours." : "Tus reglas del sistema de retención eliminarán este archivo dentro de 24 horas.",
     "Retention" : "Retención",
     "This application allows for automatic deletion of files after a given time" : "Esta aplicación permite la eliminación automática de archivos después de un tiempo determinado",
     "File retention" : "Retención de archivos",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Months" : "Meses",
     "Years" : "Años",
     "Create" : "Crear",
-    "Notify users a day before retention will delete a file" : "Notificar a los usuarios un día antes de que la retención elimine un archivo"
+    "Notify users a day before retention will delete a file" : "Notificar a los usuarios un día antes de que la retención elimine un archivo",
+    "Your systems retention rules will deleted this file within 24 hours." : "Tus reglas del sistema de retención eliminarán este archivo dentro de 24 horas."
 },
 "nplurals=2; plural=(n != 1);");

@@ -7,7 +7,6 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "שגיאה בעת מחיקת כלל השמירה",
     "Files retention" : "שמירת קבצים",
     "{file} will be removed in 24 hours" : "{file} יוסר תוך 24 שעות",
-    "Your systems retention rules will deleted this file within 24 hours." : "כללי שמירת המערכת שלך ימחקו את הקובץ הזה תוך 24 שעות.",
     "Retention" : "שמירה",
     "This application allows for automatic deletion of files after a given time" : "יישומון זה מאפשר למחוק קבצים לאחר תקופה מסוימת",
     "File retention" : "שמירת קבצים",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Months" : "חודשים",
     "Years" : "שנים",
     "Create" : "יצירה",
-    "Notify users a day before retention will delete a file" : "להודיע למשתמש בטרם מחיקת הקובץ על לידי מנגנון השמירה"
+    "Notify users a day before retention will delete a file" : "להודיע למשתמש בטרם מחיקת הקובץ על לידי מנגנון השמירה",
+    "Your systems retention rules will deleted this file within 24 hours." : "כללי שמירת המערכת שלך ימחקו את הקובץ הזה תוך 24 שעות."
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");

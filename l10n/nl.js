@@ -7,7 +7,6 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Fout bij verwijderen bewaartermijnregel",
     "Files retention" : "Bewaartermijn van bestanden",
     "{file} will be removed in 24 hours" : "{file} zal over 24 uur worden verwijderd",
-    "Your systems retention rules will deleted this file within 24 hours." : "De bewaartermijninstellingen van uw systeem zullen dit bestand binnen 24 uur verwijderen.",
     "Retention" : "Bewaartermijn",
     "This application allows for automatic deletion of files after a given time" : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen",
     "File retention" : "Bewaartermijn van bestand",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Months" : "Maanden",
     "Years" : "Jaar",
     "Create" : "Aanmaken",
-    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt"
+    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt",
+    "Your systems retention rules will deleted this file within 24 hours." : "De bewaartermijninstellingen van uw systeem zullen dit bestand binnen 24 uur verwijderen."
 },
 "nplurals=2; plural=(n != 1);");
