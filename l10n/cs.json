@@ -5,6 +5,7 @@
     "Error while deleting the retention rule" : "Chyba při mazání zadržovacího pravidla",
     "Files retention" : "Zadržování souborů",
     "{file} will be removed in 24 hours" : "{file} bude odebrán za 24 hodin",
+    "Your systems retention rules will delete this file within 24 hours." : "Podle pravidel držení dat na vašich systémech bude tento soubor za 24 hodin smazán.",
     "Retention" : "Uchovávání",
     "This application allows for automatic deletion of files after a given time" : "Tato aplikace umožňuje automatické mazání souborů po uplynutí zadané doby",
     "File retention" : "Zadržování souboru",
