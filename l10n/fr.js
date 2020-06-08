@@ -7,6 +7,7 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Erreur lors de l'effacement de la règle de suppression de fichier",
     "Files retention" : "Rétention des fichiers",
     "{file} will be removed in 24 hours" : "{file} sera supprimé dans 24 heures",
+    "Your systems retention rules will delete this file within 24 hours." : "Vos règles de rétention systèmes supprimeront ce fichier dans 24 heures.",
     "Retention" : "Conservation limitée",
     "This application allows for automatic deletion of files after a given time" : "Cette application permet la suppression automatique de fichiers après une période de temps donnée",
     "File retention" : "Suppression programmée de fichiers",

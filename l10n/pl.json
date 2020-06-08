@@ -5,6 +5,7 @@
     "Error while deleting the retention rule" : "Błąd podczas usuwania reguły przechowywania",
     "Files retention" : "Przechowywanie plików",
     "{file} will be removed in 24 hours" : "{file} zostanie usunięty za 24 godziny",
+    "Your systems retention rules will delete this file within 24 hours." : "System reguł przechowywania usunie ten plik w ciągu 24 godzin.",
     "Retention" : "Przechowywanie",
     "This application allows for automatic deletion of files after a given time" : "Ta aplikacja umożliwia automatyczne usuwanie plików po określonym czasie",
     "File retention" : "Przechowywanie pliku",
