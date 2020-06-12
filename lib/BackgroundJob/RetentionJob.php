@@ -229,7 +229,7 @@ class RetentionJob extends TimedJob {
 			$mtime->setTimestamp($node->getUploadTime());
 		}
 
-		if ($mtime > $notifyBefore) {
+		if ($mtime < $notifyBefore) {
 			try {
 				$notification = $this->notificationManager->createNotification();
 				$notification->setApp(Application::APP_ID)
