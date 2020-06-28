@@ -7,6 +7,7 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Ошибка при удалении правила срока хранения",
     "Files retention" : "Удаление файлов",
     "{file} will be removed in 24 hours" : "Файл {file} будет удалён через 24 часа",
+    "Your systems retention rules will delete this file within 24 hours." : "В соответствии с параметрами работы с удаляемыми файлами, этот файл будет удалён через 24 часа.",
     "Retention" : "Удаление файлов",
     "This application allows for automatic deletion of files after a given time" : "Это приложение служит для удаления файлов по прошествии установленного интервала времени",
     "File retention" : "Удаление файлов",
