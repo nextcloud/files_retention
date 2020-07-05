@@ -277,6 +277,6 @@ class RetentionJob extends TimedJob {
 
 		$delta = new \DateInterval($spec);
 		$retentionDate = clone $retentionDate;
-		return $retentionDate->sub($delta);
+		return $retentionDate->add($delta);
 	}
 }
