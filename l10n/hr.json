@@ -5,6 +5,7 @@
     "Error while deleting the retention rule" : "Pogreška tijekom brisanja pravila o zadržavanju",
     "Files retention" : "Zadržavanje datoteka",
     "{file} will be removed in 24 hours" : "Datoteka {file} bit će uklonjena za 24 sata",
+    "Your systems retention rules will delete this file within 24 hours." : "Pravila zadržavanja vašeg sustava izbrisat će ovu datoteku unutar 24 sata.",
     "Retention" : "Zadržavanje",
     "This application allows for automatic deletion of files after a given time" : "Ova aplikacija omogućuje automatsko brisanje datoteka nakon određenog vremena",
     "File retention" : "Zadržavanje datoteka",
