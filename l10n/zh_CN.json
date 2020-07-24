@@ -5,6 +5,7 @@
     "Error while deleting the retention rule" : "删除保留规则时出错",
     "Files retention" : "文件保留",
     "{file} will be removed in 24 hours" : "{file} 将在 24 小时内被删除",
+    "Your systems retention rules will delete this file within 24 hours." : "您的系统保留规则将在24消失内删除该文件",
     "Retention" : "保留",
     "This application allows for automatic deletion of files after a given time" : "此应用允许在给定时间之后自动删除文件",
     "File retention" : "文件保留",
