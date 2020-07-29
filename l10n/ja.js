@@ -5,6 +5,9 @@ OC.L10N.register(
     "Select tag…" : "タグ選択",
     "Delete" : "削除",
     "Error while deleting the retention rule" : "保持ルールの削除中にエラーが発生しました",
+    "Files retention" : "ファイル保持期間",
+    "{file} will be removed in 24 hours" : "ファイル {file} は、24時間後に削除されます",
+    "Your systems retention rules will delete this file within 24 hours." : "システムの保持ルールにより、このファイルは24時間以内に削除されます。",
     "Retention" : "保持",
     "This application allows for automatic deletion of files after a given time" : "このアプリで一定時間後にファイルを自動削除できます",
     "File retention" : "ファイル保持",
@@ -14,6 +17,8 @@ OC.L10N.register(
     "Weeks" : "週",
     "Months" : "月",
     "Years" : "年",
-    "Create" : "作成"
+    "Create" : "作成",
+    "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する",
+    "Your systems retention rules will deleted this file within 24 hours." : "システムの保持ルールにより、このファイルは24時間以内に削除されます。"
 },
 "nplurals=1; plural=0;");
