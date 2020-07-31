@@ -3,6 +3,7 @@
     "Select tag…" : "Címke kiválasztása...",
     "Delete" : "Törlés",
     "Error while deleting the retention rule" : "Hiba a visszatartási szabály törlésekor",
+    "{file} will be removed in 24 hours" : "{file} 24 órán belül törlődik",
     "Retention" : "Visszatartás",
     "This application allows for automatic deletion of files after a given time" : "Ez az alkalmazás engedélyezi a fájlok automatikus törlését egy beállított idő utáni",
     "File retention" : "Fájl visszatartás",
