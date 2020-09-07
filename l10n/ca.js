@@ -2,9 +2,12 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "No és un nombre",
-    "Select tag…" : "Selecciona etiqueta...",
+    "Select tag…" : "Selecciona etiqueta…",
     "Delete" : "Suprimeix",
     "Error while deleting the retention rule" : "S'ha produït un error en suprimir la regla de retenció",
+    "Files retention" : "Retenció de fitxers",
+    "{file} will be removed in 24 hours" : "{file} s'eliminarà en 24 hores",
+    "Your systems retention rules will delete this file within 24 hours." : "Les regles de retenció de sistemes suprimiran aquest fitxer en un termini de 24 hores.",
     "Retention" : "Retenció",
     "This application allows for automatic deletion of files after a given time" : "Aquesta aplicació permet suprimir automàticament els fitxers després d’un moment determinat",
     "File retention" : "Retenció de fitxers",
@@ -14,6 +17,8 @@ OC.L10N.register(
     "Weeks" : "Setmanes",
     "Months" : "Mesos",
     "Years" : "Anys",
-    "Create" : "Crea"
+    "Create" : "Crea",
+    "Notify users a day before retention will delete a file" : "Notificar als usuaris un dia abans que la retenció suprimirà un fitxer",
+    "Your systems retention rules will deleted this file within 24 hours." : "Les regles de retenció de sistemes suprimiran aquest fitxer en un termini de 24 hores."
 },
 "nplurals=2; plural=(n != 1);");
