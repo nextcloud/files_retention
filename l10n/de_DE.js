@@ -18,7 +18,7 @@ OC.L10N.register(
     "Months" : "Monate",
     "Years" : "Jahre",
     "Create" : "Erstellen",
-    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vorher, bevor die Dateiaufbewahrung eine Datei löscht",
+    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung",
     "Your systems retention rules will deleted this file within 24 hours." : "Die Aufbewahrungsregeln Ihres Systems werden diese Datei innerhalb von 24 Stunden löschen."
 },
 "nplurals=2; plural=(n != 1);");
