@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Not a number" : "Inte ett nummer",
     "Select tag…" : "Välj tagg...",
-    "Delete" : "Radera",
+    "Delete" : "Ta bort",
     "Error while deleting the retention rule" : "Ett fel uppstod när raderingsregeln togs bort",
     "Files retention" : "Fillagring",
     "{file} will be removed in 24 hours" : "{file} kommer tas bort inom 24 timmar",
