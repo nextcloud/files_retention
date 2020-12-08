@@ -5,6 +5,7 @@ OC.L10N.register(
     "Select tag…" : "Izbor oznake ...",
     "Delete" : "Izbriši",
     "Error while deleting the retention rule" : "Prišlo je do napake med brisanjem pravila zadrževanja",
+    "{file} will be removed in 24 hours" : "{file} bo odstranjena v 24 urah",
     "Retention" : "Zadrževanje",
     "This application allows for automatic deletion of files after a given time" : "Program omogoča samodejno brisanje datotek po določenem času.",
     "File retention" : "Samodejno brisanje datotek",
