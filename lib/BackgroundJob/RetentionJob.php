@@ -23,6 +23,7 @@
 namespace OCA\Files_Retention\BackgroundJob;
 
 use OC\BackgroundJob\TimedJob;
+use OC\Files\Filesystem;
 use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
@@ -177,7 +178,13 @@ class RetentionJob extends TimedJob {
 		$mountPoint = array_shift($mountPoints);
 
 		try {
-			$userFolder = $this->rootFolder->getUserFolder($mountPoint->getUser()->getUID());
+			$userId = $mountPoint->getUser()->getUID();
+			$userFolder = $this->rootFolder->getUserFolder($userId);
+			if (!Filesystem::$loaded) {
+				// Filesystem wasn't loaded for anyone,
+				// so we boot it up in order to make hooks in the View work.
+				Filesystem::init($userId, '/' . $userId . '/files');
+			}
 		} catch (\Exception $e) {
 			$this->logger->logException($e, ['level' => ILogger::DEBUG]);
 			throw new NotFoundException('Could not get user');
