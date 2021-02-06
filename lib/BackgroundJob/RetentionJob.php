@@ -136,6 +136,8 @@ class RetentionJob extends TimedJob {
 		$deleteBefore = $this->getBeforeDate((int)$data['time_unit'], (int)$data['time_amount']);
 		$notifyBefore = $this->getNotifyBeforeDate($deleteBefore);
 
+		$timeAfter = (int)$data['time_after'];
+
 		$offset = '';
 		$limit = 1000;
 		while ($offset !== null) {
@@ -149,7 +151,7 @@ class RetentionJob extends TimedJob {
 					continue;
 				}
 
-				$deleted = $this->expireNode($node, $deleteBefore);
+				$deleted = $this->expireNode($node, $deleteBefore, $timeAfter);
 
 				if ($notifyDayBefore && !$deleted) {
 					$this->notifyNode($node, $notifyBefore);
@@ -205,14 +207,14 @@ class RetentionJob extends TimedJob {
 	 * @param Node $node
 	 * @param \DateTime $deleteBefore
 	 */
-	private function expireNode(Node $node, \DateTime $deleteBefore) {
+	private function expireNode(Node $node, \DateTime $deleteBefore, int $timeAfter) {
 		$mtime = new \DateTime();
 
 		// Fallback is the mtime
 		$mtime->setTimestamp($node->getMTime());
 
 		// Use the upload time if we have it
-		if ($node->getUploadTime() !== 0) {
+		if ($timeAfter === Constants::CTIME && $node->getUploadTime() !== 0) {
 			$mtime->setTimestamp($node->getUploadTime());
 		}
 

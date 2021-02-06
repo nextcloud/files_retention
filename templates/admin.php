@@ -55,6 +55,7 @@ style('files_retention', [
 			<th>Tag</th>
 			<th>Retention</th>
 			<th>Time</th>
+			<th>After</th>
 			<th>Active</th>
 			<th></th>
 		</thead>
@@ -72,6 +73,13 @@ style('files_retention', [
 		<option value="1"><?php p($l->t('Weeks')); ?></option>
 		<option value="2"><?php p($l->t('Months')); ?></option>
 		<option value="3"><?php p($l->t('Years')); ?></option>
+	</select>
+
+	<?php p($l->t('after')); ?>
+
+	<select id="retention_after">
+		<option value="0"><?php p($l->t('Creation')); ?></option>
+		<option value="1"><?php p($l->t('Last modification')); ?></option>
 	</select>
 
 	<input type="button" id="retention_submit" value="<?php p($l->t('Create')); ?>" disabled>

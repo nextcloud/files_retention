@@ -23,6 +23,7 @@
 namespace OCA\Files_Retention\Controller;
 
 use OCA\Files_Retention\BackgroundJob\RetentionJob;
+use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
@@ -86,6 +87,7 @@ class APIController extends Controller {
 				'tagid' => (int)$data['tag_id'],
 				'timeunit' => (int)$data['time_unit'],
 				'timeamount' => (int)$data['time_amount'],
+				'timeafter' => (int)$data['time_after'],
 				'hasJob' => $hasJob,
 			];
 		}
@@ -99,10 +101,11 @@ class APIController extends Controller {
 	 * @param int $tagid
 	 * @param int $timeunit
 	 * @param int $timeamount
+	 * @param int $timeafter
 	 *
 	 * @return Response
 	 */
-	public function addRetention($tagid, $timeunit, $timeamount) {
+	public function addRetention($tagid, $timeunit, $timeamount, $timeafter = Constants::CTIME) {
 		$response = new Response();
 
 		try {
@@ -112,7 +115,7 @@ class APIController extends Controller {
 			return $response;
 		}
 
-		if ($timeunit < 0 || $timeunit > 3 || $timeamount < 1) {
+		if ($timeunit < 0 || $timeunit > 3 || $timeamount < 1 || $timeafter < 0 || $timeafter > 1) {
 			$response->setStatus(Http::STATUS_BAD_REQUEST);
 			return $response;
 		}
@@ -121,7 +124,8 @@ class APIController extends Controller {
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter($tagid))
 			->setValue('time_unit', $qb->createNamedParameter($timeunit))
-			->setValue('time_amount', $qb->createNamedParameter($timeamount));
+			->setValue('time_amount', $qb->createNamedParameter($timeamount))
+			->setValue('time_after', $qb->createNamedParameter($timeafter));
 
 		$qb->execute();
 		$id = $qb->getLastInsertId();
@@ -134,6 +138,7 @@ class APIController extends Controller {
 			'tagid' => $tagid,
 			'timeunit' => $timeunit,
 			'timeamount' => $timeamount,
+			'timeafter' => $timeafter,
 			'hasJob' => true,
 		], Http::STATUS_CREATED);
 	}
@@ -177,13 +182,15 @@ class APIController extends Controller {
 	 * @param int $id
 	 * @param int|null $timeunit
 	 * @param int|null $timeamount
+	 * @param int|null $timeafter
 	 *
 	 * @return Response
 	 */
-	public function editRetention($id, $timeunit = null, $timeamount = null) {
+	public function editRetention($id, $timeunit = null, $timeamount = null, $timeafter = null) {
 		if (($timeunit === null && $timeamount === null) ||
 			($timeunit !== null && ($timeunit < 0 || $timeunit > 3)) ||
-			($timeamount !== null && $timeamount < 1)) {
+			($timeamount !== null && $timeamount < 1) ||
+			($timeafter !== null && ($timeafter < 0 || $timeafter > 1))) {
 			$response = new Response();
 			$response->setStatus(Http::STATUS_BAD_REQUEST);
 			return $response;
@@ -213,6 +220,9 @@ class APIController extends Controller {
 		if ($timeamount !== null) {
 			$qb->set('time_amount', $qb->createNamedParameter($timeamount));
 		}
+		if ($timeafter !== null) {
+			$qb->set('time_after', $qb->createNamedParameter($timeafter));
+		}
 		$qb->where($qb->expr()->eq('id', $qb->createNamedParameter($id)));
 		$qb->execute();
 
@@ -234,6 +244,7 @@ class APIController extends Controller {
 			'tagid' => (int)$data['tag_id'],
 			'timeunit' => (int)$data['time_unit'],
 			'timeamount' => (int)$data['time_amount'],
+			'timeafter' => (int)$data['time_after'],			
 			'hasJob' => true,
 		]);
 	}

@@ -111,41 +111,42 @@ class RetentionJobTest extends TestCase {
 		parent::tearDown();
 	}
 
-	private function addTag($tagId, $timeunit, $timeamount) {
+	private function addTag($tagId, $timeunit, $timeamount, $timeafter = 0) {
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter($tagId))
 			->setValue('time_unit', $qb->createNamedParameter($timeunit))
-			->setValue('time_amount', $qb->createNamedParameter($timeamount));
+			->setValue('time_amount', $qb->createNamedParameter($timeamount))
+			->setValue('time_after', $qb->createNamedParameter($timeafter));
 		$qb->execute();
 	}
 
 	public function deleteTestCases() {
 		return [
-			[[1, Constants::DAY],   [0, Constants::DAY], false],
-			[[2, Constants::WEEK],  [0, Constants::DAY], false],
-			[[3, Constants::MONTH], [0, Constants::DAY], false],
-			[[4, Constants::YEAR],  [0, Constants::DAY], false],
+			[[1, Constants::DAY],   [0, Constants::DAY], false, 0],
+			[[2, Constants::WEEK],  [0, Constants::DAY], false, 0],
+			[[3, Constants::MONTH], [0, Constants::DAY], false, 1],
+			[[4, Constants::YEAR],  [0, Constants::DAY], false, 1],
 
-			[[1, Constants::DAY],   [2, Constants::DAY], true],
-			[[2, Constants::WEEK],  [2, Constants::DAY], false],
-			[[3, Constants::MONTH], [2, Constants::DAY], false],
-			[[4, Constants::YEAR],  [2, Constants::DAY], false],
+			[[1, Constants::DAY],   [2, Constants::DAY], true, 0],
+			[[2, Constants::WEEK],  [2, Constants::DAY], false, 0],
+			[[3, Constants::MONTH], [2, Constants::DAY], false, 1],
+			[[4, Constants::YEAR],  [2, Constants::DAY], false, 1],
 
-			[[1, Constants::DAY],   [21, Constants::DAY], true],
-			[[2, Constants::WEEK],  [21, Constants::DAY], true],
-			[[3, Constants::MONTH], [21, Constants::DAY], false],
-			[[4, Constants::YEAR],  [21, Constants::DAY], false],
+			[[1, Constants::DAY],   [21, Constants::DAY], true, 0],
+			[[2, Constants::WEEK],  [21, Constants::DAY], true, 0],
+			[[3, Constants::MONTH], [21, Constants::DAY], false, 1],
+			[[4, Constants::YEAR],  [21, Constants::DAY], false, 1],
 
-			[[1, Constants::DAY],   [180, Constants::DAY], true],
-			[[2, Constants::WEEK],  [180, Constants::DAY], true],
-			[[3, Constants::MONTH], [180, Constants::DAY], true],
-			[[4, Constants::YEAR],  [180, Constants::DAY], false],
+			[[1, Constants::DAY],   [180, Constants::DAY], true, 0],
+			[[2, Constants::WEEK],  [180, Constants::DAY], true, 0],
+			[[3, Constants::MONTH], [180, Constants::DAY], true, 1],
+			[[4, Constants::YEAR],  [180, Constants::DAY], false, 1],
 
-			[[1, Constants::DAY],   [10000, Constants::DAY], true],
-			[[2, Constants::WEEK],  [10000, Constants::DAY], true],
-			[[3, Constants::MONTH], [10000, Constants::DAY], true],
-			[[4, Constants::YEAR],  [10000, Constants::DAY], true],
+			[[1, Constants::DAY],   [10000, Constants::DAY], true, 0],
+			[[2, Constants::WEEK],  [10000, Constants::DAY], true, 0],
+			[[3, Constants::MONTH], [10000, Constants::DAY], true, 1],
+			[[4, Constants::YEAR],  [10000, Constants::DAY], true, 1],
 		];
 	}
 
@@ -155,9 +156,10 @@ class RetentionJobTest extends TestCase {
 	 * @param array $retentionTime
 	 * @param array $fileTime
 	 * @param array $delete
+	 * @param array $after
 	 */
-	public function testDeleteFile($retentionTime, $fileTime, $delete) {
-		$this->addTag(42, $retentionTime[1], $retentionTime[0]);
+	public function testDeleteFile($retentionTime, $fileTime, $delete, $after) {
+		$this->addTag(42, $retentionTime[1], $retentionTime[0], $after);
 
 		$this->tagMapper->expects($this->once())
 			->method('getObjectIdsForTags')
@@ -198,6 +200,10 @@ class RetentionJobTest extends TestCase {
 
 		$node->expects($this->once())
 			->method('getMTime')
+			->willReturn($mtime->getTimestamp());
+
+		$node->expects($after === 0 ? $this->exactly(2) : $this->never())
+			->method('getUploadTime')
 			->willReturn($mtime->getTimestamp());
 
 		if ($delete) {
