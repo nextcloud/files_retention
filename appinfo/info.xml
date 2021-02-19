@@ -10,10 +10,6 @@
 	<author>Roeland Jago Douma</author>
 	<namespace>Files_Retention</namespace>
 
-	<types>
-		<filesystem/>
-	</types>
-
 	<documentation>
 		<admin>https://docs.nextcloud.com/server/22/go.php?to=admin-files-retention</admin>
 	</documentation>
