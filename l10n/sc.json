@@ -1,4 +1,5 @@
 { "translations": {
-    "Delete" : "Cantzella"
+    "Delete" : "Cantzella",
+    "Create" : "Crea"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
