@@ -19,6 +19,6 @@ OC.L10N.register(
     "Years" : "Jaar",
     "Create" : "Aanmaken",
     "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt",
-    "Your systems retention rules will deleted this file within 24 hours." : "De bewaartermijninstellingen van uw systeem zullen dit bestand binnen 24 uur verwijderen."
+    "Your systems retention rules will deleted this file within 24 hours." : "De bewaartermijninstellingen van je systeem zullen dit bestand binnen 24 uur verwijderen."
 },
 "nplurals=2; plural=(n != 1);");
