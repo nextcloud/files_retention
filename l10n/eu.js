@@ -7,6 +7,7 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Errore bat gertatu da fitxategiak mantentzeko erregela ezabatzean",
     "Files retention" : "Fitxategiak mantentzea",
     "{file} will be removed in 24 hours" : "{file} fitxategia 24 orduan ezabatuko da",
+    "Your systems retention rules will delete this file within 24 hours." : "Zure sistemen atxikitze-arauek ezabatuko dute fitxategi hau 24 ordutan. ",
     "Retention" : "Mantentzea",
     "This application allows for automatic deletion of files after a given time" : "Aplikazio honek fitxategiak esandako epe bat pasatu ostean ezabatzen uzten dizu",
     "File retention" : "Fitxategiak mantentzea",
