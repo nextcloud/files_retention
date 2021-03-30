@@ -31,7 +31,7 @@
 		RETENTION_UNIT_YEAR: 3,
 
 		RETENTION_UNIT_MAP: {
-			0:'days',
+			0: 'days',
 			1: 'weeks',
 			2: 'months',
 			3: 'years'
