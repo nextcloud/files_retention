@@ -22,6 +22,7 @@
  */
 namespace OCA\Files_Retention\Controller;
 
+use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
@@ -78,11 +79,14 @@ class APIController extends Controller {
 		$result = [];
 
 		while($data = $cursor->fetch()) {
+			$hasJob = $this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
+
 			$result[] = [
 				'id' => (int)$data['id'],
 				'tagid' => (int)$data['tag_id'],
 				'timeunit' => (int)$data['time_unit'],
 				'timeamount' => (int)$data['time_amount'],
+				'hasJob' => $hasJob,
 			];
 		}
 
@@ -123,13 +127,14 @@ class APIController extends Controller {
 		$id = $qb->getLastInsertId();
 
 		//Insert cronjob
-		$this->joblist->add('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => (int)$tagid]);
+		$this->joblist->add(RetentionJob::class, ['tag' => (int)$tagid]);
 
 		return new JSONResponse([
 			'id' => $id,
 			'tagid' => $tagid,
 			'timeunit' => $timeunit,
 			'timeamount' => $timeamount,
+			'hasJob' => true,
 		], Http::STATUS_CREATED);
 	}
 
@@ -161,7 +166,7 @@ class APIController extends Controller {
 		$qb->execute();
 
 		// Remove cronjob
-		$this->joblist->remove('OCA\Files_Retention\BackgroundJob\RetentionJob', ['tag' => (int)$data['tag_id']]);
+		$this->joblist->remove(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 
 		$response = new Response();
 		$response->setStatus(Http::STATUS_NO_CONTENT);
@@ -220,11 +225,16 @@ class APIController extends Controller {
 		$data = $cursor->fetch();
 		$cursor->closeCursor();
 
+		if (!$this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']])) {
+			$this->joblist->add(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
+		}
+
 		return new JSONResponse([
 			'id' => $id,
 			'tagid' => (int)$data['tag_id'],
 			'timeunit' => (int)$data['time_unit'],
 			'timeamount' => (int)$data['time_amount'],
+			'hasJob' => true,
 		]);
 	}
 }

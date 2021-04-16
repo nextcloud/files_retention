@@ -55,6 +55,7 @@ style('files_retention', [
 			<th>Tag</th>
 			<th>Retention</th>
 			<th>Time</th>
+			<th>Active</th>
 			<th></th>
 		</thead>
 		<tbody id="retention-list">
