@@ -104,10 +104,12 @@ class RetentionJob extends TimedJob {
 		} catch (\InvalidArgumentException $e) {
 			// tag is invalid remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
+			$this->logger->logException($e, ['message' => "Background job was removed, because tag $tag is invalid", 'level' => ILogger::DEBUG]);
 			return;
 		} catch (TagNotFoundException $e) {
 			// tag no longer exists remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
+			$this->logger->logException($e, ['message' => "Background job was removed, because tag $tag no longer exists", 'level' => ILogger::DEBUG]);
 			return;
 		}
 
@@ -143,6 +145,7 @@ class RetentionJob extends TimedJob {
 				try {
 					$node = $this->checkFileId($fileid);
 				} catch (NotFoundException $e) {
+					$this->logger->logException($e, ['message' => "Node with id $fileid was not found", 'level' => ILogger::DEBUG]);
 					continue;
 				}
 
