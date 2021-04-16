@@ -4,6 +4,8 @@ OC.L10N.register(
     "Not a number" : "不是数字",
     "Select tag…" : "选择标签...",
     "Delete" : "删除",
+    "Yes" : "是 ",
+    "No" : "否",
     "Error while deleting the retention rule" : "删除保留规则时出错",
     "Files retention" : "文件保留",
     "{file} will be removed in 24 hours" : "{file} 将在 24 小时内被删除",

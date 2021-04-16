@@ -4,6 +4,8 @@ OC.L10N.register(
     "Not a number" : "Bir sayı değil",
     "Select tag…" : "Etiket seçin …",
     "Delete" : "Sil",
+    "Yes" : "Evet",
+    "No" : "Hayır",
     "Error while deleting the retention rule" : "Saklama kuralı silinirken bir sorun çıktı",
     "Files retention" : "Dosya saklama",
     "{file} will be removed in 24 hours" : "{file} dosyası 24 saat içinde silinecek",

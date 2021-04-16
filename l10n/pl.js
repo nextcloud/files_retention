@@ -4,6 +4,8 @@ OC.L10N.register(
     "Not a number" : "Nie jest liczbą",
     "Select tag…" : "Wybierz etykietę…",
     "Delete" : "Usuń",
+    "Yes" : "Tak",
+    "No" : "Nie",
     "Error while deleting the retention rule" : "Błąd podczas usuwania reguły przechowywania",
     "Files retention" : "Przechowywanie plików",
     "{file} will be removed in 24 hours" : "{file} zostanie usunięty za 24 godziny",
