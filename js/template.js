@@ -17,9 +17,11 @@ templates['template'] = template({"compiler":[8,">= 4.3.0"],"main":function(cont
     + "</span></td>\n	<td><span>"
     + alias4(((helper = (helper = lookupProperty(helpers,"timeUnit") || (depth0 != null ? lookupProperty(depth0,"timeUnit") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"timeUnit","hash":{},"data":data,"loc":{"start":{"line":4,"column":11},"end":{"line":4,"column":23}}}) : helper)))
     + "</span></td>\n	<td><span>"
-    + alias4(((helper = (helper = lookupProperty(helpers,"hasJob") || (depth0 != null ? lookupProperty(depth0,"hasJob") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"hasJob","hash":{},"data":data,"loc":{"start":{"line":5,"column":11},"end":{"line":5,"column":21}}}) : helper)))
+    + alias4(((helper = (helper = lookupProperty(helpers,"timeAfter") || (depth0 != null ? lookupProperty(depth0,"timeAfter") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"timeAfter","hash":{},"data":data,"loc":{"start":{"line":5,"column":11},"end":{"line":5,"column":24}}}) : helper)))
+    + "</span></td>\n	<td><span>"
+    + alias4(((helper = (helper = lookupProperty(helpers,"hasJob") || (depth0 != null ? lookupProperty(depth0,"hasJob") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"hasJob","hash":{},"data":data,"loc":{"start":{"line":6,"column":11},"end":{"line":6,"column":21}}}) : helper)))
     + "</span></td>\n	<td><a class=\"icon-delete has-tooltip\" title=\""
-    + alias4(((helper = (helper = lookupProperty(helpers,"deleteString") || (depth0 != null ? lookupProperty(depth0,"deleteString") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"deleteString","hash":{},"data":data,"loc":{"start":{"line":6,"column":47},"end":{"line":6,"column":63}}}) : helper)))
+    + alias4(((helper = (helper = lookupProperty(helpers,"deleteString") || (depth0 != null ? lookupProperty(depth0,"deleteString") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"deleteString","hash":{},"data":data,"loc":{"start":{"line":7,"column":47},"end":{"line":7,"column":63}}}) : helper)))
     + "\"></a></td>\n<tr>\n";
 },"useData":true});
 })();

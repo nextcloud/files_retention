@@ -35,7 +35,12 @@
 			1: 'weeks',
 			2: 'months',
 			3: 'years'
-		}
+		},
+
+		RETENTION_AFTER_MAP: {
+			0: 'creation',
+			1: 'last modification',
+		},
 	});
 
 	var RetentionModel = OC.Backbone.Model.extend({

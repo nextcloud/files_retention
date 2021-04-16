@@ -98,6 +98,7 @@
 			}
 			$el.tooltip('hide');
 
+			var after = parseInt($('#retention_after').val(), 10);
 			var unit = parseInt($('#retention_unit').val(), 10);
 			amount = parseInt(amount, 10);
 
@@ -108,7 +109,8 @@
 			this.collection.create({
 				tagid: this.currentTagId,
 				timeunit: unit,
-				timeamount: amount
+				timeamount: amount,
+				timeafter: after,
 			});
 
 			$('#retention_submit').prop('disabled', true);

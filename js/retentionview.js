@@ -61,6 +61,7 @@
 					tagName: _this.tagCollection.get(model.attributes.tagid).attributes.name,
 					timeAmount: model.attributes.timeamount,
 					timeUnit: t('files_retention', OCA.File_Retention.RETENTION_UNIT_MAP[model.attributes.timeunit]),
+					timeAfter: OCA.File_Retention.RETENTION_AFTER_MAP[model.attributes.timeafter],
 					hasJob: model.attributes.hasJob ? t('files_retention', 'Yes') : t('files_retention', 'No'),
 				};
 				var html = _this.template(data);

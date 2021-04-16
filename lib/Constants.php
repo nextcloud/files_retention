@@ -27,4 +27,7 @@ class Constants {
 	const WEEK = 1;
 	const MONTH = 2;
 	const YEAR = 3;
+
+	const CTIME = 0;
+	const MTIME = 1;
 }
