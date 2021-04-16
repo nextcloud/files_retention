@@ -4,6 +4,8 @@ OC.L10N.register(
     "Not a number" : "Nem szám",
     "Select tag…" : "Címke kiválasztása...",
     "Delete" : "Törlés",
+    "Yes" : "Igen",
+    "No" : "Nem",
     "Error while deleting the retention rule" : "Hiba a visszatartási szabály törlésekor",
     "Files retention" : "Fájl megőrzés",
     "{file} will be removed in 24 hours" : "{file} 24 órán belül törlődik",
