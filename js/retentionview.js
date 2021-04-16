@@ -43,7 +43,7 @@
 
 			return OCA.File_Retention.Templates.template(data);
 		},
-		
+
 		render: function () {
 			var _this = this;
 			var list = $('#retention-list');
@@ -60,7 +60,8 @@
 					id: model.attributes.id,
 					tagName: _this.tagCollection.get(model.attributes.tagid).attributes.name,
 					timeAmount: model.attributes.timeamount,
-					timeUnit: OCA.File_Retention.RETENTION_UNIT_MAP[model.attributes.timeunit]
+					timeUnit: t('files_retention', OCA.File_Retention.RETENTION_UNIT_MAP[model.attributes.timeunit]),
+					hasJob: model.attributes.hasJob ? t('files_retention', 'Yes') : t('files_retention', 'No'),
 				};
 				var html = _this.template(data);
 				var $html = $(html);
