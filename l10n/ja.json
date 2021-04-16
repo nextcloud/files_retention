@@ -2,6 +2,8 @@
     "Not a number" : "数値ではありません",
     "Select tag…" : "タグ選択",
     "Delete" : "削除",
+    "Yes" : "はい",
+    "No" : "いいえ",
     "Error while deleting the retention rule" : "保持ルールの削除中にエラーが発生しました",
     "Files retention" : "ファイル保持期間",
     "{file} will be removed in 24 hours" : "ファイル {file} は、24時間後に削除されます",
