@@ -2,6 +2,8 @@
     "Not a number" : "不是數字",
     "Select tag…" : "選擇標記",
     "Delete" : "刪除",
+    "Yes" : "是",
+    "No" : "否",
     "Error while deleting the retention rule" : "刪除保留規則時發生錯誤",
     "Files retention" : "保留檔案",
     "{file} will be removed in 24 hours" : "{file} 將在24小時內刪除",
