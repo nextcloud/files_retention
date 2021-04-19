@@ -19,6 +19,9 @@ OC.L10N.register(
     "Weeks" : "Hetek",
     "Months" : "Hónapok",
     "Years" : "Évek",
+    "after" : "után",
+    "Creation" : "Létrehozás",
+    "Last modification" : "Utolsó módosítás",
     "Create" : "Létrehozás",
     "Notify users a day before retention will delete a file" : "Egy nappal a fájl törlése előtt értesítse a felhasználókat",
     "Your systems retention rules will deleted this file within 24 hours." : "A rendszer megőrzési szabályai 24 órán belül törlik ezt a fájlt."

@@ -19,6 +19,9 @@ OC.L10N.register(
     "Weeks" : "Semanas",
     "Months" : "Meses",
     "Years" : "Anos",
+    "after" : "depois",
+    "Creation" : "Criação",
+    "Last modification" : "Última modificação",
     "Create" : "Criar",
     "Notify users a day before retention will delete a file" : "Notificar usuários um dia antes da retenção excluir um arquivo",
     "Your systems retention rules will deleted this file within 24 hours." : "Suas regras de retenção excluirão este arquivo dentro de 24 horas"
