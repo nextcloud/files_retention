@@ -17,6 +17,9 @@
     "Weeks" : "Settimane",
     "Months" : "Mesi",
     "Years" : "Anni",
+    "after" : "dopo",
+    "Creation" : "Creazione",
+    "Last modification" : "Ultima modifica",
     "Create" : "Crea",
     "Notify users a day before retention will delete a file" : "Notifica gli utenti un giorno prima dell'eliminazione di un file",
     "Your systems retention rules will deleted this file within 24 hours." : "Le tue regole di conservazione di sistema elimineranno questo file tra 24 ore."
