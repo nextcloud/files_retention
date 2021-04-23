@@ -4,6 +4,8 @@ OC.L10N.register(
     "Not a number" : "Není číslo",
     "Select tag…" : "Vybrat štítek…",
     "Delete" : "Smazat",
+    "Yes" : "Ano",
+    "No" : "Ne",
     "Error while deleting the retention rule" : "Chyba při mazání zadržovacího pravidla",
     "Files retention" : "Zadržování souborů",
     "{file} will be removed in 24 hours" : "{file} bude odebrán za 24 hodin",
@@ -17,6 +19,9 @@ OC.L10N.register(
     "Weeks" : "Týdny",
     "Months" : "Měsíce",
     "Years" : "Let",
+    "after" : "po",
+    "Creation" : "Vytvoření",
+    "Last modification" : "Naposledy upraveno",
     "Create" : "Vytvořit",
     "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže",
     "Your systems retention rules will deleted this file within 24 hours." : "Podle pravidel držení dat na vašich systémech bude tento soubor za 24 hodin smazán."
