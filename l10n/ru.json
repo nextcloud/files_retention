@@ -2,6 +2,8 @@
     "Not a number" : "Не номер",
     "Select tag…" : "Выберите метку…",
     "Delete" : "Удалить",
+    "Yes" : "Да",
+    "No" : "Нет",
     "Error while deleting the retention rule" : "Ошибка при удалении правила срока хранения",
     "Files retention" : "Удаление файлов",
     "{file} will be removed in 24 hours" : "Файл {file} будет удалён через 24 часа",
@@ -15,6 +17,9 @@
     "Weeks" : "Недель",
     "Months" : "Месяц(ев)",
     "Years" : "Лет",
+    "after" : "после",
+    "Creation" : "Создание",
+    "Last modification" : "Изменён",
     "Create" : "Создать",
     "Notify users a day before retention will delete a file" : "Уведомлять пользователей за день до окончания хранения удалённых файлов",
     "Your systems retention rules will deleted this file within 24 hours." : "В соответствии с параметрами работы с удаляемыми файлами, этот файл будет удалён через 24 часа."
