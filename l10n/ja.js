@@ -19,6 +19,8 @@ OC.L10N.register(
     "Weeks" : "週",
     "Months" : "月",
     "Years" : "年",
+    "Creation" : "作成",
+    "Last modification" : "最終更新日",
     "Create" : "作成",
     "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する",
     "Your systems retention rules will deleted this file within 24 hours." : "システムの保持ルールにより、このファイルは24時間以内に削除されます。"
