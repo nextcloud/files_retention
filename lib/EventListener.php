@@ -23,7 +23,6 @@
 
 namespace OCA\Files_Retention;
 
-use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
 use OCP\SystemTag\ISystemTag;
 
@@ -31,15 +30,10 @@ class EventListener {
 	/** @var IDBConnection */
 	private $db;
 
-	/** @var IJobList */
-	private $jobList;
-
 	public function __construct(
-		IDBConnection $db,
-		IJobList $jobList
+		IDBConnection $db
 	) {
 		$this->db = $db;
-		$this->jobList = $jobList;
 	}
 
 	public function tagDeleted(ISystemTag $tag) {
