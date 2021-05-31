@@ -25,10 +25,8 @@ namespace OCA\Files_Retention\Tests;
 use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
 use OCP\IDBConnection;
-use OCP\SystemTag\ISystemTag;
 use OCP\SystemTag\ISystemTagManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-
 
 /**
  * Class EventListenerTest

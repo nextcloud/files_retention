@@ -183,7 +183,6 @@ class APIControllerTest extends \Test\TestCase {
 	 * @param array $data
 	 */
 	public function testGetRetentions($data) {
-
 		$expected = [];
 
 		foreach ($data as $d) {

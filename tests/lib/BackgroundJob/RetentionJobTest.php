@@ -75,7 +75,7 @@ class RetentionJobTest extends TestCase {
 	private $timestampbase;
 
 	protected function setUp(): void {
-		 parent::setUp();
+		parent::setUp();
 
 		$this->timestampbase = 1000000000;
 
