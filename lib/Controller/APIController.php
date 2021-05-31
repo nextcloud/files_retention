@@ -77,7 +77,7 @@ class APIController extends Controller {
 
 		$result = [];
 
-		while($data = $cursor->fetch()) {
+		while ($data = $cursor->fetch()) {
 			$result[] = [
 				'id' => (int)$data['id'],
 				'tagid' => (int)$data['tag_id'],

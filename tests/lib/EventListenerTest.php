@@ -27,9 +27,7 @@ namespace OCA\Files_Retention\Tests;
 use OCA\Files_Retention\Constants;
 use OCA\Files_Retention\EventListener;
 use OCP\IDBConnection;
-use OCP\SystemTag\ISystemTag;
 use OCP\SystemTag\ISystemTagManager;
-
 
 /**
  * Class EventListenerTest
