@@ -54,7 +54,7 @@ class EventListenerTest extends \Test\TestCase {
 		// Clear retention DB
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention');
-		$qb->executeStatement();
+		$qb->execute();
 	}
 
 	private function addTag(int $tagId, int $timeunit, int $timeamount): void {
@@ -63,7 +63,7 @@ class EventListenerTest extends \Test\TestCase {
 			->setValue('tag_id', $qb->createNamedParameter($tagId))
 			->setValue('time_unit', $qb->createNamedParameter($timeunit))
 			->setValue('time_amount', $qb->createNamedParameter($timeamount));
-		$qb->executeStatement();
+		$qb->execute();
 	}
 
 	public function testTagDeleted(): void {
@@ -77,7 +77,7 @@ class EventListenerTest extends \Test\TestCase {
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')
 			->from('retention');
-		$cursor = $qb->executeQuery();
+		$cursor = $qb->execute();
 		$data = $cursor->fetchAll();
 		$cursor->closeCursor();
 
