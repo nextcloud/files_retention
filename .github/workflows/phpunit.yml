@@ -8,7 +8,7 @@ on:
       - stable*
 
 env:
-  APP_NAME: notifications
+  APP_NAME: files_retention
 
 jobs:
   sqlite:
