@@ -34,12 +34,12 @@ use OCP\Files\NotPermittedException;
 use OCP\IConfig;
 use OCP\IDBConnection;
 use OCP\Files\IRootFolder;
-use OCP\ILogger;
 use OCP\Notification\IManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\IUser;
 use OCP\SystemTag\TagNotFoundException;
+use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
 /**
@@ -97,7 +97,7 @@ class RetentionJobTest extends TestCase {
 			$this->rootFolder,
 			$this->timeFactory,
 			$this->jobList,
-			$this->createMock(ILogger::class),
+			$this->createMock(LoggerInterface::class),
 			$this->createMock(IManager::class),
 			$this->createMock(IConfig::class)
 		);
@@ -179,12 +179,12 @@ class RetentionJobTest extends TestCase {
 
 		$user->expects($this->once())
 			->method('getUID')
-			->willReturn('user');
+			->willReturn('admin');
 
 		$userFolder = $this->createMock(Folder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
-			->with('user')
+			->with('admin')
 			->willReturn($userFolder);
 
 		$node = $this->createMock(Node::class);

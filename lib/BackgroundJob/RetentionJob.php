@@ -179,7 +179,7 @@ class RetentionJob extends TimedJob {
 				break;
 			}
 
-			$offset = array_pop($fileIds);
+			$offset = (string) array_pop($fileIds);
 		}
 	}
 
