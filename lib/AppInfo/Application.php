@@ -37,7 +37,6 @@ use OCP\SystemTag\ManagerEvent;
 use Psr\Container\ContainerInterface;
 
 class Application extends App implements IBootstrap {
-
 	public const APP_ID = 'files_retention';
 
 	public function __construct(array $urlParams = []) {
@@ -57,7 +56,7 @@ class Application extends App implements IBootstrap {
 	public function boot(IBootContext $context): void {
 		$server = $context->getServerContainer();
 		$dispatcher = $server->getEventDispatcher();
-		$dispatcher->addListener(ManagerEvent::EVENT_DELETE, function(ManagerEvent $event) use ($server) {
+		$dispatcher->addListener(ManagerEvent::EVENT_DELETE, function (ManagerEvent $event) use ($server) {
 			/** @var EventListener $eventListener */
 			$eventListener = $server->get(EventListener::class);
 

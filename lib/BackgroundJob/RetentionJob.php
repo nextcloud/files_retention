@@ -285,11 +285,11 @@ class RetentionJob extends TimedJob {
 
 		if ($timeunit === Constants::DAY) {
 			$spec .= 'D';
-		} else if ($timeunit === Constants::WEEK) {
+		} elseif ($timeunit === Constants::WEEK) {
 			$spec .= 'W';
-		} else if ($timeunit === Constants::MONTH) {
+		} elseif ($timeunit === Constants::MONTH) {
 			$spec .= 'M';
-		} else if ($timeunit === Constants::YEAR) {
+		} elseif ($timeunit === Constants::YEAR) {
 			$spec .= 'Y';
 		}
 
