@@ -79,7 +79,7 @@ class APIController extends Controller {
 
 		$result = [];
 
-		while($data = $cursor->fetch()) {
+		while ($data = $cursor->fetch()) {
 			$hasJob = $this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 
 			$result[] = [
@@ -244,7 +244,7 @@ class APIController extends Controller {
 			'tagid' => (int)$data['tag_id'],
 			'timeunit' => (int)$data['time_unit'],
 			'timeamount' => (int)$data['time_amount'],
-			'timeafter' => (int)$data['time_after'],			
+			'timeafter' => (int)$data['time_after'],
 			'hasJob' => true,
 		]);
 	}

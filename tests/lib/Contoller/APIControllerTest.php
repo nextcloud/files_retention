@@ -128,6 +128,7 @@ class APIControllerTest extends \Test\TestCase {
 			'timeunit' => Constants::MONTH,
 			'timeamount' => 1,
 			'timeafter' => 0,
+			'hasJob' => true,
 		];
 		$this->assertSame($expected, $response->getData());
 	}
@@ -164,15 +165,15 @@ class APIControllerTest extends \Test\TestCase {
 			],
 			[
 				[
-					[1, Constants::DAY, 1, 0],
+					[1, Constants::DAY, 1, 0, null],
 				]
 			],
 			[
 				[
-					[1, Constants::DAY, 1, 0],
-					[2, Constants::WEEK, 2, 0],
-					[3, Constants::MONTH, 3, 1],
-					[4, Constants::YEAR, 4, 1],
+					[1, Constants::DAY, 1, 0, null],
+					[2, Constants::WEEK, 2, 0, null],
+					[3, Constants::MONTH, 3, 1, null],
+					[4, Constants::YEAR, 4, 1, null],
 				]
 			],
 		];
@@ -183,7 +184,6 @@ class APIControllerTest extends \Test\TestCase {
 	 * @param array $data
 	 */
 	public function testGetRetentions($data) {
-
 		$expected = [];
 
 		foreach ($data as $d) {
@@ -203,6 +203,7 @@ class APIControllerTest extends \Test\TestCase {
 				'timeunit' => $d[1],
 				'timeamount' => $d[2],
 				'timeafter' => $d[3],
+				'hasJob' => null,
 			];
 		}
 
@@ -270,6 +271,7 @@ class APIControllerTest extends \Test\TestCase {
 			'timeunit' => $timeunit === null ? Constants::DAY : $timeunit,
 			'timeamount' => $timeamount === null ? 1 : $timeamount,
 			'timeafter' => 0,
+			'hasJob' => true,
 		];
 
 		$response = $this->api->editRetention($id, $timeunit, $timeamount);

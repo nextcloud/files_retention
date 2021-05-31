@@ -23,11 +23,11 @@
 namespace OCA\Files_Retention;
 
 class Constants {
-	const DAY = 0;
-	const WEEK = 1;
-	const MONTH = 2;
-	const YEAR = 3;
+	public const DAY = 0;
+	public const WEEK = 1;
+	public const MONTH = 2;
+	public const YEAR = 3;
 
-	const CTIME = 0;
-	const MTIME = 1;
+	public const CTIME = 0;
+	public const MTIME = 1;
 }
