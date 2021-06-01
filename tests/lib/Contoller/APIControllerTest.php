@@ -127,7 +127,6 @@ class APIControllerTest extends \Test\TestCase {
 			'tagid' => 42,
 			'timeunit' => Constants::MONTH,
 			'timeamount' => 1,
-			'hasJob' => true,
 		];
 		$this->assertSame($expected, $response->getData());
 	}
@@ -200,7 +199,6 @@ class APIControllerTest extends \Test\TestCase {
 				'tagid' => $d[0],
 				'timeunit' => $d[1],
 				'timeamount' => $d[2],
-				'hasJob' => null,
 			];
 		}
 
@@ -267,7 +265,6 @@ class APIControllerTest extends \Test\TestCase {
 			'tagid' => 42,
 			'timeunit' => $timeunit === null ? Constants::DAY : $timeunit,
 			'timeamount' => $timeamount === null ? 1 : $timeamount,
-			'hasJob' => true,
 		];
 
 		$response = $this->api->editRetention($id, $timeunit, $timeamount);
