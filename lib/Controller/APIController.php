@@ -78,7 +78,7 @@ class APIController extends Controller {
 
 		$result = [];
 
-		while($data = $cursor->fetch()) {
+		while ($data = $cursor->fetch()) {
 			$hasJob = $this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 
 			$result[] = [
