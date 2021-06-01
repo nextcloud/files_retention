@@ -49,8 +49,6 @@ class Application extends App implements IBootstrap {
 			$server = $c->get(IServerContainer::class);
 			return $server->get(IMountProviderCollection::class)->getMountCache();
 		});
-
-		$context->registerNotifierService(Notifier::class);
 	}
 
 	public function boot(IBootContext $context): void {
@@ -62,5 +60,7 @@ class Application extends App implements IBootstrap {
 
 			$eventListener->tagDeleted($event->getTag());
 		});
+
+		$server->getNotificationManager()->registerNotifierService(Notifier::class);
 	}
 }
