@@ -6,19 +6,14 @@
     </UndefinedClass>
   </file>
   <file src="lib/Controller/APIController.php">
+    <ImplicitToStringCast occurrences="3">
+      <code>$qb-&gt;createNamedParameter($tagid)</code>
+      <code>$qb-&gt;createNamedParameter($timeamount)</code>
+      <code>$qb-&gt;createNamedParameter($timeunit)</code>
+    </ImplicitToStringCast>
     <InvalidScalarArgument occurrences="1">
       <code>$tagid</code>
     </InvalidScalarArgument>
-    <MissingDependency occurrences="5">
-      <code>RetentionJob</code>
-      <code>RetentionJob</code>
-      <code>RetentionJob</code>
-      <code>RetentionJob</code>
-      <code>RetentionJob</code>
-    </MissingDependency>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$timeafter !== null</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="lib/Notification/Notifier.php">
     <MissingDependency occurrences="3">
