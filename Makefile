@@ -7,7 +7,7 @@ source_dir=$(build_dir)/source
 sign_dir=$(build_dir)/sign
 package_name=$(app_name)
 cert_dir=$(HOME)/.nextcloud/certificates
-version+=1.5.1
+version+=master
 
 all: appstore
 
@@ -28,20 +28,27 @@ appstore: clean
 	mkdir -p $(sign_dir)
 	rsync -a \
 	--exclude=/build \
+	--exclude=/CONTRIBUTING.md \
+	--exclude=/composer.json \
+	--exclude=/composer.lock \
 	--exclude=/docs \
-	--exclude=/translationfiles \
-	--exclude=/.tx \
-	--exclude=/tests \
+	--exclude=/.drone.yml \
 	--exclude=/.git \
 	--exclude=/.github \
-	--exclude=/l10n/l10n.pl \
-	--exclude=/CONTRIBUTING.md \
 	--exclude=/issue_template.md \
+	--exclude=/l10n/l10n.pl \
 	--exclude=/README.md \
 	--exclude=/.gitattributes \
 	--exclude=/.gitignore \
+	--exclude=/.l10nignore \
+	--exclude=/.php_cs.cache \
+	--exclude=/.php_cs.dist \
+	--exclude=/psalm.xml \
+	--exclude=/screenshots \
 	--exclude=/.scrutinizer.yml \
-	--exclude=/.travis.yml \
+	--exclude=/tests \
+	--exclude=/translationfiles \
+	--exclude=/.tx \
 	--exclude=/vendor \
 	--exclude=/Makefile \
 	$(project_dir)/ $(sign_dir)/$(app_name)
