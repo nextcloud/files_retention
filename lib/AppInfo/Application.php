@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -25,36 +27,40 @@ namespace OCA\Files_Retention\AppInfo;
 use OCA\Files_Retention\EventListener;
 use OCA\Files_Retention\Notification\Notifier;
 use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\Files\Config\IMountProviderCollection;
 use OCP\Files\Config\IUserMountCache;
+use OCP\IServerContainer;
 use OCP\SystemTag\ManagerEvent;
+use Psr\Container\ContainerInterface;
 
-class Application extends App {
+class Application extends App implements IBootstrap {
+	public const APP_ID = 'files_retention';
 
-	const APP_ID = 'files_retention';
-
-	public function __construct(array $urlParams = array()) {
+	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
-
-		$container = $this->getContainer();
-		$server = $container->getServer();
-
-		$container->registerService(IUserMountCache::class, function ($c) use ($server) {
-			return $server->getMountProviderCollection()->getMountCache();
-		});
-
-		$notifier = $server->getNotificationManager();
-		$notifier->registerNotifierService(Notifier::class);
 	}
 
-	public function registerEventListener() {
-		$container = $this->getContainer();
-		$dispatcher = $container->getServer()->getEventDispatcher();
+	public function register(IRegistrationContext $context): void {
+		$context->registerService(IUserMountCache::class, function (ContainerInterface $c) {
+			/** @var IServerContainer $server */
+			$server = $c->get(IServerContainer::class);
+			return $server->get(IMountProviderCollection::class)->getMountCache();
+		});
+	}
 
-		$dispatcher->addListener(ManagerEvent::EVENT_DELETE, function(ManagerEvent $event) use ($container) {
+	public function boot(IBootContext $context): void {
+		$server = $context->getServerContainer();
+		$dispatcher = $server->getEventDispatcher();
+		$dispatcher->addListener(ManagerEvent::EVENT_DELETE, function (ManagerEvent $event) use ($server) {
 			/** @var EventListener $eventListener */
-			$eventListener = $container->query(EventListener::class);
+			$eventListener = $server->get(EventListener::class);
 
 			$eventListener->tagDeleted($event->getTag());
 		});
+
+		$server->getNotificationManager()->registerNotifierService(Notifier::class);
 	}
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.7.0@d4377c0baf3ffbf0b1ec6998e8d1be2a40971005">
+  <file src="lib/BackgroundJob/RetentionJob.php">
+    <UndefinedClass occurrences="1">
+      <code>TimedJob</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/Controller/APIController.php">
+    <ImplicitToStringCast occurrences="3">
+      <code>$qb-&gt;createNamedParameter($tagid)</code>
+      <code>$qb-&gt;createNamedParameter($timeamount)</code>
+      <code>$qb-&gt;createNamedParameter($timeunit)</code>
+    </ImplicitToStringCast>
+    <InvalidScalarArgument occurrences="1">
+      <code>$tagid</code>
+    </InvalidScalarArgument>
+  </file>
+  <file src="lib/Notification/Notifier.php">
+    <MissingDependency occurrences="3">
+      <code>$this-&gt;rootFolder</code>
+      <code>IRootFolder</code>
+      <code>IRootFolder</code>
+    </MissingDependency>
+  </file>
+</files>

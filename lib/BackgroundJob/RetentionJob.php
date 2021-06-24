@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -22,7 +24,9 @@
  */
 namespace OCA\Files_Retention\BackgroundJob;
 
+use Exception;
 use OC\BackgroundJob\TimedJob;
+use OC\Files\Filesystem;
 use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
@@ -32,13 +36,12 @@ use OCP\IConfig;
 use OCP\IDBConnection;
 use OCP\Files\Node;
 use OCP\Files\NotFoundException;
-use OCP\Files\NotPermittedException;
 use OCP\Files\IRootFolder;
-use OCP\ILogger;
 use OCP\Notification\IManager as NotificationManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\SystemTag\TagNotFoundException;
+use Psr\Log\LoggerInterface;
 
 class RetentionJob extends TimedJob {
 	/** @var ISystemTagManager */
@@ -62,7 +65,7 @@ class RetentionJob extends TimedJob {
 	/** @var IJobList */
 	private $jobList;
 
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	private $logger;
 
 	/** @var NotificationManager */
@@ -77,7 +80,7 @@ class RetentionJob extends TimedJob {
 								IRootFolder $rootFolder,
 								ITimeFactory $timeFactory,
 								IJobList $jobList,
-								ILogger $logger,
+								LoggerInterface $logger,
 								NotificationManager $notificationManager,
 								IConfig $config) {
 		// Run once a day
@@ -95,7 +98,7 @@ class RetentionJob extends TimedJob {
 		$this->config = $config;
 	}
 
-	public function run($argument) {
+	public function run($argument): void {
 		// Validate if tag still exists
 		$tag = $argument['tag'];
 		try {
@@ -103,10 +106,16 @@ class RetentionJob extends TimedJob {
 		} catch (\InvalidArgumentException $e) {
 			// tag is invalid remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
+			$this->logger->debug("Background job was removed, because tag $tag is invalid", [
+				'exception' => $e,
+			]);
 			return;
 		} catch (TagNotFoundException $e) {
 			// tag no longer exists remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
+			$this->logger->debug("Background job was removed, because tag $tag no longer exists", [
+				'exception' => $e,
+			]);
 			return;
 		}
 
@@ -123,6 +132,7 @@ class RetentionJob extends TimedJob {
 		if ($data === false) {
 			// No entry anymore in the retention db
 			$this->jobList->remove($this, $argument);
+			$this->logger->debug("Background job was removed, because tag $tag has no retention configured");
 			return;
 		}
 
@@ -133,15 +143,26 @@ class RetentionJob extends TimedJob {
 		$deleteBefore = $this->getBeforeDate((int)$data['time_unit'], (int)$data['time_amount']);
 		$notifyBefore = $this->getNotifyBeforeDate($deleteBefore);
 
+		if ($notifyDayBefore) {
+			$this->logger->debug("Running retention for Tag $tag with delete before " . $deleteBefore->format(\DateTimeInterface::ATOM) . " and notify before " . $notifyBefore->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug("Running retention for Tag $tag with delete before " . $deleteBefore->format(\DateTimeInterface::ATOM));
+		}
+
 		$offset = '';
 		$limit = 1000;
 		while ($offset !== null) {
-			$fileids = $this->tagMapper->getObjectIdsForTags($tag, 'files', $limit, $offset);
+			$fileIds = $this->tagMapper->getObjectIdsForTags($tag, 'files', $limit, $offset);
+			$this->logger->debug('Checking retention for ' . count($fileIds) . ' files in this chunk');
 
-			foreach ($fileids as $fileid) {
+			foreach ($fileIds as $fileId) {
+				$fileId = (int) $fileId;
 				try {
-					$node = $this->checkFileId($fileid);
+					$node = $this->checkFileId($fileId);
 				} catch (NotFoundException $e) {
+					$this->logger->debug("Node with id $fileId was not found", [
+						'exception' => $e,
+					]);
 					continue;
 				}
 
@@ -152,50 +173,54 @@ class RetentionJob extends TimedJob {
 				}
 			}
 
-			if (empty($fileids) || count($fileids) < $limit) {
+			if (empty($fileIds) || count($fileIds) < $limit) {
 				break;
 			}
 
-			$offset = array_pop($fileids);
+			$offset = (string) array_pop($fileIds);
 		}
 	}
 
 	/**
 	 * Get a node for the given fileid.
 	 *
-	 * @param int $fileid
+	 * @param int $fileId
 	 * @return Node
 	 * @throws NotFoundException
 	 */
-	private function checkFileId($fileid) {
-		$mountPoints = $this->userMountCache->getMountsForFileId($fileid);
+	private function checkFileId(int $fileId): Node {
+		$mountPoints = $this->userMountCache->getMountsForFileId($fileId);
 
 		if (empty($mountPoints)) {
-			throw new NotFoundException();
+			throw new NotFoundException("No mount points found for file $fileId");
 		}
 
 		$mountPoint = array_shift($mountPoints);
 
 		try {
-			$userFolder = $this->rootFolder->getUserFolder($mountPoint->getUser()->getUID());
-		} catch (\Exception $e) {
-			$this->logger->logException($e, ['level' => ILogger::DEBUG]);
-			throw new NotFoundException('Could not get user');
+			$userId = $mountPoint->getUser()->getUID();
+			$userFolder = $this->rootFolder->getUserFolder($userId);
+			if (!Filesystem::$loaded) {
+				// Filesystem wasn't loaded for anyone,
+				// so we boot it up in order to make hooks in the View work.
+				Filesystem::init($userId, '/' . $userId . '/files');
+			}
+		} catch (Exception $e) {
+			$this->logger->debug($e->getMessage(), [
+				'exception' => $e,
+			]);
+			throw new NotFoundException('Could not get user', 0, $e);
 		}
 
-		$nodes = $userFolder->getById($fileid);
+		$nodes = $userFolder->getById($fileId);
 		if (empty($nodes)) {
-			throw new NotFoundException();
+			throw new NotFoundException('No node for file ' . $fileId . ' and user ' . $userId);
 		}
 
 		return array_shift($nodes);
 	}
 
-	/**
-	 * @param Node $node
-	 * @param \DateTime $deleteBefore
-	 */
-	private function expireNode(Node $node, \DateTime $deleteBefore) {
+	private function expireNode(Node $node, \DateTime $deleteBefore): bool {
 		$mtime = new \DateTime();
 
 		// Fallback is the mtime
@@ -207,18 +232,23 @@ class RetentionJob extends TimedJob {
 		}
 
 		if ($mtime < $deleteBefore) {
+			$this->logger->debug('Expiring file ' . $node->getId());
 			try {
 				$node->delete();
 				return true;
-			} catch (NotPermittedException $e) {
-				//LOG?
+			} catch (Exception $e) {
+				$this->logger->debug($e->getMessage(), [
+					'exception' => $e,
+				]);
 			}
+		} else {
+			$this->logger->debug('Skipping file ' . $node->getId() . ' from expiration');
 		}
 
 		return false;
 	}
 
-	private function notifyNode(Node $node, \DateTime $notifyBefore) {
+	private function notifyNode(Node $node, \DateTime $notifyBefore): void {
 		$mtime = new \DateTime();
 
 		// Fallback is the mtime
@@ -230,6 +260,7 @@ class RetentionJob extends TimedJob {
 		}
 
 		if ($mtime < $notifyBefore) {
+			$this->logger->debug('Notifying about retention tomorrow for file ' . $node->getId());
 			try {
 				$notification = $this->notificationManager->createNotification();
 				$notification->setApp(Application::APP_ID)
@@ -241,27 +272,24 @@ class RetentionJob extends TimedJob {
 					]);
 
 				$this->notificationManager->notify($notification);
-			} catch (\Exception $e) {
-				$this->logger->logException($e);
+			} catch (Exception $e) {
+				$this->logger->error($e->getMessage(), [
+					'exception' => $e,
+				]);
 			}
 		}
 	}
 
-	/**
-	 * @param int $timeunit
-	 * @param int $timeamount
-	 * @return \DateTime
-	 */
-	private function getBeforeDate(int $timeunit, int $timeamount): \DateTime {
-		$spec = 'P' . $timeamount;
+	private function getBeforeDate(int $timeunit, int $timeAmount): \DateTime {
+		$spec = 'P' . $timeAmount;
 
 		if ($timeunit === Constants::DAY) {
 			$spec .= 'D';
-		} else if ($timeunit === Constants::WEEK) {
+		} elseif ($timeunit === Constants::WEEK) {
 			$spec .= 'W';
-		} else if ($timeunit === Constants::MONTH) {
+		} elseif ($timeunit === Constants::MONTH) {
 			$spec .= 'M';
-		} else if ($timeunit === Constants::YEAR) {
+		} elseif ($timeunit === Constants::YEAR) {
 			$spec .= 'Y';
 		}
 

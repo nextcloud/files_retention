@@ -163,15 +163,15 @@ class APIControllerTest extends \Test\TestCase {
 			],
 			[
 				[
-					[1, Constants::DAY, 1],
+					[1, Constants::DAY, 1, null],
 				]
 			],
 			[
 				[
-					[1, Constants::DAY, 1],
-					[2, Constants::WEEK, 2],
-					[3, Constants::MONTH, 3],
-					[4, Constants::YEAR, 4],
+					[1, Constants::DAY, 1, null],
+					[2, Constants::WEEK, 2, null],
+					[3, Constants::MONTH, 3, null],
+					[4, Constants::YEAR, 4, null],
 				]
 			],
 		];
@@ -182,7 +182,6 @@ class APIControllerTest extends \Test\TestCase {
 	 * @param array $data
 	 */
 	public function testGetRetentions($data) {
-
 		$expected = [];
 
 		foreach ($data as $d) {

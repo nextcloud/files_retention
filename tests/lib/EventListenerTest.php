@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -22,13 +24,10 @@
  */
 namespace OCA\Files_Retention\Tests;
 
-use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
+use OCA\Files_Retention\EventListener;
 use OCP\IDBConnection;
-use OCP\SystemTag\ISystemTag;
 use OCP\SystemTag\ISystemTagManager;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-
 
 /**
  * Class EventListenerTest
@@ -39,10 +38,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class EventListenerTest extends \Test\TestCase {
 	/** @var IDBConnection */
 	private $db;
-
-	/** @var EventDispatcherInterface */
-	private $dispatcher;
-
 	/** @var ISystemTagManager */
 	private $tagManager;
 
@@ -50,11 +45,7 @@ class EventListenerTest extends \Test\TestCase {
 		parent::setUp();
 
 		$this->db = \OC::$server->getDatabaseConnection();
-		$this->dispatcher = \OC::$server->getEventDispatcher();
-		$this->tagManager = \OC::$server->getSystemTagManager();
-
-		$app = new Application();
-		$app->registerEventListener();
+		$this->tagManager = \OC::$server->get(ISystemTagManager::class);
 	}
 
 	protected function tearDown(): void {
@@ -64,7 +55,7 @@ class EventListenerTest extends \Test\TestCase {
 		$qb->execute();
 	}
 
-	private function addTag($tagId, $timeunit, $timeamount) {
+	private function addTag(int $tagId, int $timeunit, int $timeamount): void {
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter($tagId))
@@ -73,10 +64,13 @@ class EventListenerTest extends \Test\TestCase {
 		$qb->execute();
 	}
 
-	public function testTagDeleted() {
-		$tag = $this->tagManager->createTag('foo', true, true);
-		$this->addTag($tag->getId(), 1, Constants::DAY);
+	public function testTagDeleted(): void {
+		$tag = $this->tagManager->createTag(self::getUniqueID('foo'), true, true);
 		$this->tagManager->deleteTags($tag->getId());
+		$this->addTag((int) $tag->getId(), 1, Constants::DAY);
+
+		$eventListener = new EventListener($this->db);
+		$eventListener->tagDeleted($tag);
 
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')
