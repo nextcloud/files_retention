@@ -11,7 +11,6 @@ OC.L10N.register(
     "{file} will be removed in 24 hours" : "A(z) {file} 24 órán belül eltávolításra kerül",
     "Your systems retention rules will delete this file within 24 hours." : "A rendszer megőrzési szabályai 24 órán belül törlik ezt a fájlt.",
     "Retention" : "Megőrzés",
-    "This application allows for automatic deletion of files after a given time" : "Ez az alkalmazás lehetővé teszi a fájlok automatikus törlését egy megadott idő után",
     "File retention" : "Fájlmegőrzés",
     "Open documentation" : "Dokumentáció megnyitása",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Meghatározza, hogy egy bizonyos címkével rendelkező fájlok valamennyi idő után automatikusan törölve legyenek. Hasznos lehet a bizalmas dokumentumok esetén.",
@@ -24,6 +23,7 @@ OC.L10N.register(
     "Last modification" : "Utolsó módosítás",
     "Create" : "Létrehozás",
     "Notify users a day before retention will delete a file" : "Egy nappal a fájl törlése előtt értesítse a felhasználókat",
-    "Your systems retention rules will deleted this file within 24 hours." : "A rendszer megőrzési szabályai 24 órán belül törlik ezt a fájlt."
+    "Your systems retention rules will deleted this file within 24 hours." : "A rendszer megőrzési szabályai 24 órán belül törlik ezt a fájlt.",
+    "This application allows for automatic deletion of files after a given time" : "Ez az alkalmazás lehetővé teszi a fájlok automatikus törlését egy megadott idő után"
 },
 "nplurals=2; plural=(n != 1);");
