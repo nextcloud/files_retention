@@ -9,7 +9,6 @@ OC.L10N.register(
     "{file} will be removed in 24 hours" : "{file} s'eliminarà en 24 hores",
     "Your systems retention rules will delete this file within 24 hours." : "Les regles de retenció de sistemes suprimiran aquest fitxer en un termini de 24 hores.",
     "Retention" : "Retenció",
-    "This application allows for automatic deletion of files after a given time" : "Aquesta aplicació permet suprimir automàticament els fitxers després d’un moment determinat",
     "File retention" : "Retenció de fitxers",
     "Open documentation" : "Obre la documentació",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definiu si els fitxers etiquetats amb una etiqueta específica s'han de suprimir automàticament després d'un temps. Això és útil per a documents confidencials.",
@@ -19,6 +18,7 @@ OC.L10N.register(
     "Years" : "Anys",
     "Create" : "Crea",
     "Notify users a day before retention will delete a file" : "Notificar als usuaris un dia abans que la retenció suprimirà un fitxer",
-    "Your systems retention rules will deleted this file within 24 hours." : "Les regles de retenció de sistemes suprimiran aquest fitxer en un termini de 24 hores."
+    "Your systems retention rules will deleted this file within 24 hours." : "Les regles de retenció de sistemes suprimiran aquest fitxer en un termini de 24 hores.",
+    "This application allows for automatic deletion of files after a given time" : "Aquesta aplicació permet suprimir automàticament els fitxers després d’un moment determinat"
 },
 "nplurals=2; plural=(n != 1);");
