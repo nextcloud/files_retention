@@ -9,6 +9,7 @@
     "{file} will be removed in 24 hours" : "{file} zal over 24 uur worden verwijderd",
     "Your systems retention rules will delete this file within 24 hours." : "De bewaartermijninstellingen van je systeem zullen dit bestand binnen 24 uur verwijderen.",
     "Retention" : "Bewaartermijn",
+    "This application allows for automatic deletion of files after a given time." : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen.",
     "File retention" : "Bewaartermijn van bestand",
     "Open documentation" : "Openen documentatie",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een specifieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertrouwelijke documenten.",
