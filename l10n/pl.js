@@ -25,7 +25,6 @@ OC.L10N.register(
     "Last modification" : "Ostatnia modyfikacja",
     "Create" : "Utwórz",
     "Notify users a day before retention will delete a file" : "Powiadom użytkowników dzień przed usunięciem pliku z przechowywania",
-    "Your systems retention rules will deleted this file within 24 hours." : "System reguł przechowywania usunie ten plik w ciągu 24 godzin.",
     "This application allows for automatic deletion of files after a given time" : "Aplikacja umożliwia automatyczne usuwanie plików po określonym czasie"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

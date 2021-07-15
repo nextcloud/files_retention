@@ -18,7 +18,6 @@ OC.L10N.register(
     "Years" : "Années",
     "Create" : "Créer",
     "Notify users a day before retention will delete a file" : "Notifier les utilisateurs 1 jour avant la suppression automatique d'un fichier",
-    "Your systems retention rules will deleted this file within 24 hours." : "Vos règles de rétention systèmes supprimeront ce fichier dans 24 heures.",
     "This application allows for automatic deletion of files after a given time" : "Cette application permet la suppression automatique de fichiers après une période de temps donnée"
 },
 "nplurals=2; plural=(n > 1);");
