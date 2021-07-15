@@ -25,7 +25,6 @@ OC.L10N.register(
     "Last modification" : "Naposledy zmenené",
     "Create" : "Vytvoriť",
     "Notify users a day before retention will delete a file" : "Upozorní používateľov deň pred vymazaním súboru",
-    "Your systems retention rules will deleted this file within 24 hours." : "Váš systémové pravidlá uchovávania zmažú tento súbor v priebehu 24 hodín.",
     "This application allows for automatic deletion of files after a given time" : "Táto aplikácia umožňuje automatické mazanie súborov po určitom čase"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

@@ -25,7 +25,6 @@ OC.L10N.register(
     "Last modification" : "Son değişiklik",
     "Create" : "Oluştur",
     "Notify users a day before retention will delete a file" : "Bir dosyanın saklama kuralı tarafından silineceği bir gün önceden kullanıcılara bildirilsin",
-    "Your systems retention rules will deleted this file within 24 hours." : "Sisteminizin saklama kurallarına göre bu dosya 24 saat içinde silinecek.",
     "This application allows for automatic deletion of files after a given time" : "Bu uygulama belirtilen süre sonunda dosyaların otomatik olarak silinmesini sağlar"
 },
 "nplurals=2; plural=(n > 1);");

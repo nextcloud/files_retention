@@ -23,7 +23,6 @@ OC.L10N.register(
     "Last modification" : "Senast ändrad",
     "Create" : "Skapa",
     "Notify users a day before retention will delete a file" : "Meddela användare en dag innan en lagringsregel kommer radera en fil",
-    "Your systems retention rules will deleted this file within 24 hours." : "Dina lagringsregler raderar den här filen inom 24 timmar.",
     "This application allows for automatic deletion of files after a given time" : "Den här applikationen möjliggör automatisk radering av filer efter en viss tid"
 },
 "nplurals=2; plural=(n != 1);");
