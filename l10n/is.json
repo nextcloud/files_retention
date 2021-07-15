@@ -7,7 +7,6 @@
     "{file} will be removed in 24 hours" : "{file} verður fjarlægð eftir 24 klukkustundir",
     "Your systems retention rules will delete this file within 24 hours." : "Geymslureglur kerfisins munu eyða þessari skrá innan 24 klukkustunda.",
     "Retention" : "Tímabundin geymsla",
-    "This application allows for automatic deletion of files after a given time" : "Þetta forrit gerir kleift að eyða skrám sjálfvirkt eftir tiltekinn tíma",
     "File retention" : "Tímabundin geymsla skráa",
     "Open documentation" : "Opna hjálparskjöl",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Skilgreindu hvort skrár sem merktar eru með tilteknu merki eigi að eyðast sjálfvirkt eftir tiltekinn tíma. Þetta nýtist t.d. vel fyrir ýmis trúnaðargögn.",
@@ -17,6 +16,6 @@
     "Years" : "Ár",
     "Create" : "Búa til",
     "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá",
-    "Your systems retention rules will deleted this file within 24 hours." : "Geymslureglur kerfisins munu eyða þessari skrá innan 24 klukkustunda."
+    "This application allows for automatic deletion of files after a given time" : "Þetta forrit gerir kleift að eyða skrám sjálfvirkt eftir tiltekinn tíma"
 },"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
 }

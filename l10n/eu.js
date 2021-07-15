@@ -11,7 +11,8 @@ OC.L10N.register(
     "{file} will be removed in 24 hours" : "{file} fitxategia 24 orduan ezabatuko da",
     "Your systems retention rules will delete this file within 24 hours." : "Zure sistemen atxikitze-arauek ezabatuko dute fitxategi hau 24 ordutan. ",
     "Retention" : "Mantentzea",
-    "This application allows for automatic deletion of files after a given time" : "Aplikazio honek fitxategiak esandako epe bat pasatu ostean ezabatzen uzten dizu",
+    "This application allows for automatic deletion of files after a given time." : "Aplikazio honek fitxategiak denbora jakin baten buruan ezabatzeko aukera ematen du.",
+    "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Denbora jakin baten ondoren fitxategiak automatikoki ezabatzea kontrolatzeko Nextcloud-en aplikazioa.\nAukeran, erabiltzaileei bezperan jakinarazi ahal izango zaie.",
     "File retention" : "Fitxategiak mantentzea",
     "Open documentation" : "Ireki dokumentazioa",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Konfiguratu ea etiketa jakin bat duten fitxategiak epe bat igaro ostean ezabatu behar diren. Hau dokumentu konfidentzialentzat erabilgarria da.",
@@ -24,6 +25,6 @@ OC.L10N.register(
     "Last modification" : "Azken aldaketa",
     "Create" : "Sortu",
     "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali.",
-    "Your systems retention rules will deleted this file within 24 hours." : "Zure sistemaren fitxategiak mantentzeko erregelak fitxategi hau 24 orduan ezabatuko du."
+    "This application allows for automatic deletion of files after a given time" : "Aplikazio honek fitxategiak esandako epe bat pasatu ostean ezabatzen uzten dizu"
 },
 "nplurals=2; plural=(n != 1);");
