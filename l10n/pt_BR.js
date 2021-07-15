@@ -23,7 +23,6 @@ OC.L10N.register(
     "Last modification" : "Última modificação",
     "Create" : "Criar",
     "Notify users a day before retention will delete a file" : "Notificar usuários um dia antes da retenção excluir um arquivo",
-    "Your systems retention rules will deleted this file within 24 hours." : "Suas regras de retenção excluirão este arquivo dentro de 24 horas",
     "This application allows for automatic deletion of files after a given time" : "Esta aplicação permite a exclusão automática de arquivos após um determinado tempo"
 },
 "nplurals=2; plural=(n > 1);");

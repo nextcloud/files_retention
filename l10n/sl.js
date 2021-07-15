@@ -23,7 +23,6 @@ OC.L10N.register(
     "Last modification" : "Nazadnje spremenjeno",
     "Create" : "Ustvari",
     "Notify users a day before retention will delete a file" : "Obvesti uporabnika dan pred brisanjem datoteke.",
-    "Your systems retention rules will deleted this file within 24 hours." : "Sistemske nastavitve določajo brisanje te datoteke v 24 urah.",
     "This application allows for automatic deletion of files after a given time" : "Program omogoča samodejno brisanje datotek po določenem času."
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");

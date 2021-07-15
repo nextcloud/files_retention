@@ -14,7 +14,6 @@ OC.L10N.register(
     "Years" : "Tahun",
     "Create" : "Buat",
     "Notify users a day before retention will delete a file" : "Mengingatkan pengguna 1 hari sebelum masa retensi akan menghapus berkas",
-    "Your systems retention rules will deleted this file within 24 hours." : "Aturan retensi sistem akan menghapus berkas ini setelah 24 jam",
     "This application allows for automatic deletion of files after a given time" : "Aplikasi ini akan secara otomatis menghapus berkas setelah periode waktu yang ditentukan"
 },
 "nplurals=1; plural=0;");
