@@ -12,6 +12,7 @@ OC.L10N.register(
     "Your systems retention rules will delete this file within 24 hours." : "De bewaartermijninstellingen van je systeem zullen dit bestand binnen 24 uur verwijderen.",
     "Retention" : "Bewaartermijn",
     "This application allows for automatic deletion of files after a given time." : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen.",
+    "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Een Nextcloud app om het automatisch verwijderen van bestanden na een bepaalde tijd te regelen.\nOptioneel kunnen de gebruikers de dag ervoor worden geïnformeerd.",
     "File retention" : "Bewaartermijn van bestand",
     "Open documentation" : "Openen documentatie",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een specifieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertrouwelijke documenten.",
