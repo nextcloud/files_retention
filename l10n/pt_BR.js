@@ -11,6 +11,8 @@ OC.L10N.register(
     "{file} will be removed in 24 hours" : "{file} será removido em 24 horas",
     "Your systems retention rules will delete this file within 24 hours." : "Suas regras de retenção de sistemas excluirão esse arquivo dentro de 24 horas.",
     "Retention" : "Retenção",
+    "This application allows for automatic deletion of files after a given time." : "Este aplicativo permite a exclusão automática de arquivos após um determinado tempo. ",
+    "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Um aplicativo para Nextcloud para controlar a exclusão automática de arquivos após um determinado tempo. \nOpcionalmente, os usuários podem ser informados no dia anterior. ",
     "File retention" : "Retenção de arquivo",
     "Open documentation" : "Abrir documentação",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Define se os arquivos marcados com uma etiqueta específica serão excluídos automaticamente após algum tempo. Isso é útil para documentos confidenciais.",
