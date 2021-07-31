@@ -9,6 +9,8 @@
     "{file} will be removed in 24 hours" : "{file} será eliminado dentro de 24 horas",
     "Your systems retention rules will delete this file within 24 hours." : "Las reglas de retención de tu sistema borrarán este archivo en 24 horas.",
     "Retention" : "Retención",
+    "This application allows for automatic deletion of files after a given time." : "Esta aplicación permite la eliminación automática de archivos después de un tiempo determinado.",
+    "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Una aplicación para Nextcloud para controlar la eliminación automática de archivos después de un tiempo determinado.\nOpcionalmente se puede informar a los usuarios el día anterior.",
     "File retention" : "Retención de archivos",
     "Open documentation" : "Abrir documentación",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Defina si los archivos etiquetados con una etiqueta específica deben eliminarse automáticamente después de un tiempo. Esto es útil para documentos confidenciales.",
