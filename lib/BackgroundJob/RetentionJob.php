@@ -31,7 +31,9 @@ use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
+use OCP\Files\Config\ICachedMountFileInfo;
 use OCP\Files\Config\IUserMountCache;
+use OCP\Files\NotPermittedException;
 use OCP\IConfig;
 use OCP\IDBConnection;
 use OCP\Files\Node;
@@ -197,8 +199,21 @@ class RetentionJob extends TimedJob {
 			throw new NotFoundException("No mount points found for file $fileId");
 		}
 
-		$mountPoint = array_shift($mountPoints);
+		foreach ($mountPoints as $mountPoint) {
+			try {
+				return $this->getDeletableNodeFromMountPoint($mountPoint, $fileId);
+			} catch (NotPermittedException $e) {
+				// Check the next mount point
+				$this->logger->debug('Mount point ' . $mountPoint->getMountId() . ' has no delete permissions for file ' . $fileId);
+			} catch (NotFoundException $e) {
+				// Already logged explicitly inside
+			}
+		}
 
+		throw new NotFoundException("No mount point with delete permissions found for file $fileId");
+	}
+
+	protected function getDeletableNodeFromMountPoint(ICachedMountFileInfo $mountPoint, int $fileId): Node {
 		try {
 			$userId = $mountPoint->getUser()->getUID();
 			$userFolder = $this->rootFolder->getUserFolder($userId);
@@ -219,7 +234,14 @@ class RetentionJob extends TimedJob {
 			throw new NotFoundException('No node for file ' . $fileId . ' and user ' . $userId);
 		}
 
-		return array_shift($nodes);
+		foreach ($nodes as $node) {
+			if ($node->getPermissions() & \OCP\Constants::PERMISSION_DELETE) {
+				return $node;
+			}
+			$this->logger->debug('Mount point has access to node ' . $node->getId() . ' but permissions are ' . $node->getPermissions());
+		}
+
+		throw new NotPermittedException();
 	}
 
 	private function expireNode(Node $node, \DateTime $deleteBefore, int $timeAfter): bool {
