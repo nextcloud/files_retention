@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -26,6 +28,7 @@ use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
+use OCP\Files\Config\ICachedMountFileInfo;
 use OCP\Files\Config\ICachedMountInfo;
 use OCP\Files\Config\IUserMountCache;
 use OCP\Files\Folder;
@@ -39,6 +42,7 @@ use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\IUser;
 use OCP\SystemTag\TagNotFoundException;
+use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
@@ -47,25 +51,25 @@ use Test\TestCase;
  */
 class RetentionJobTest extends TestCase {
 
-	/** @var ISystemTagManager|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var ISystemTagManager|MockObject */
 	private $tagManager;
 
-	/** @var ISystemTagObjectMapper|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var ISystemTagObjectMapper|MockObject */
 	private $tagMapper;
 
-	/** @var IUserMountCache|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var IUserMountCache|MockObject */
 	private $userMountCache;
 
 	/** @var IDBConnection */
 	private $db;
 
-	/** @var IRootFolder|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var IRootFolder|MockObject */
 	private $rootFolder;
 
-	/** @var ITimeFactory|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var ITimeFactory|MockObject */
 	private $timeFactory;
 
-	/** @var IJobList|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var IJobList|MockObject */
 	private $jobList;
 
 	/** @var RetentionJob */
@@ -164,7 +168,7 @@ class RetentionJobTest extends TestCase {
 			->with(42, 'files')
 			->willReturn([1337]);
 
-		$mountPoint = $this->createMock(ICachedMountInfo::class);
+		$mountPoint = $this->createMock(ICachedMountFileInfo::class);
 		$this->userMountCache->expects($this->once())
 			->method('getMountsForFileId')
 			->with(1337)
@@ -199,6 +203,13 @@ class RetentionJobTest extends TestCase {
 		$node->expects($this->once())
 			->method('getMTime')
 			->willReturn($mtime->getTimestamp());
+
+		$node->expects($after === 0 ? $this->exactly(2) : $this->never())
+			->method('getUploadTime')
+			->willReturn($mtime->getTimestamp());
+
+		$node->method('isDeletable')
+			->willReturn(true);
 
 		if ($delete) {
 			$node->expects($this->once())
@@ -255,7 +266,7 @@ class RetentionJobTest extends TestCase {
 			->with(42, 'files')
 			->willReturn([1337]);
 
-		$mountPoint = $this->createMock(ICachedMountInfo::class);
+		$mountPoint = $this->createMock(ICachedMountFileInfo::class);
 		$this->userMountCache->expects($this->once())
 			->method('getMountsForFileId')
 			->with(1337)
@@ -295,6 +306,126 @@ class RetentionJobTest extends TestCase {
 			->method('delete')
 			->will($this->throwException(new NotPermittedException()));
 
+		$node->method('isDeletable')
+			->willReturn(true);
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testNoDeletePermissions() {
+		$this->addTag(42, 1, Constants::DAY);
+
+		$this->tagMapper->expects($this->once())
+			->method('getObjectIdsForTags')
+			->with(42, 'files')
+			->willReturn([1337]);
+
+		$mountPoint = $this->createMock(ICachedMountFileInfo::class);
+		$this->userMountCache->expects($this->once())
+			->method('getMountsForFileId')
+			->with(1337)
+			->willReturn([$mountPoint]);
+
+		$user = $this->createMock(IUser::class);
+		$mountPoint->expects($this->once())
+			->method('getUser')
+			->willReturn($user);
+
+		$user->expects($this->once())
+			->method('getUID')
+			->willReturn('user');
+
+		$userFolder = $this->createMock(Folder::class);
+		$this->rootFolder->expects($this->once())
+			->method('getUserFolder')
+			->with('user')
+			->willReturn($userFolder);
+
+		$node = $this->createMock(Node::class);
+		$userFolder->expects($this->once())
+			->method('getById')
+			->with(1337)
+			->willReturn([$node]);
+
+		$node->method('isDeletable')
+			->willReturn(false);
+
+		$this->retentionJob->run(['tag' => 42]);
+	}
+
+	public function testNoDeletePermissionsOnFirstMountPointButOnSecond() {
+		$this->addTag(42, 1, Constants::DAY);
+
+		$this->tagMapper->expects($this->once())
+			->method('getObjectIdsForTags')
+			->with(42, 'files')
+			->willReturn([1337]);
+
+		$mountPoint1 = $this->createMock(ICachedMountFileInfo::class);
+		$mountPoint2 = $this->createMock(ICachedMountFileInfo::class);
+		$this->userMountCache->expects($this->once())
+			->method('getMountsForFileId')
+			->with(1337)
+			->willReturn([$mountPoint1, $mountPoint2]);
+
+		$user1 = $this->createMock(IUser::class);
+		$user2 = $this->createMock(IUser::class);
+		$mountPoint1->expects($this->once())
+			->method('getUser')
+			->willReturn($user1);
+		$mountPoint2->expects($this->once())
+			->method('getUser')
+			->willReturn($user2);
+
+		$user1->expects($this->once())
+			->method('getUID')
+			->willReturn('user1');
+		$user2->expects($this->once())
+			->method('getUID')
+			->willReturn('user2');
+
+		$userFolder1 = $this->createMock(Folder::class);
+		$userFolder2 = $this->createMock(Folder::class);
+		$this->rootFolder->method('getUserFolder')
+			->withConsecutive(['user1'], ['user2'])
+			->willReturnMap([
+				['user1', $userFolder1],
+				['user2', $userFolder2],
+			]);
+
+		$node1 = $this->createMock(Node::class);
+		$node2 = $this->createMock(Node::class);
+		$userFolder1->expects($this->once())
+			->method('getById')
+			->with(1337)
+			->willReturn([$node1]);
+		$userFolder2->expects($this->once())
+			->method('getById')
+			->with(1337)
+			->willReturn([$node2]);
+
+		$node1->method('isDeletable')
+			->willReturn(false);
+
+		$delta = new \DateInterval('P2D');
+		$now = new \DateTime();
+		$now->setTimestamp($this->timestampbase);
+		$mtime = $now->sub($delta);
+
+		$node2->expects($this->once())
+			->method('getMTime')
+			->willReturn($mtime->getTimestamp());
+
+		$node2->expects($this->once())
+			->method('delete')
+			->will($this->throwException(new NotPermittedException()));
+
+		$node2->method('isDeletable')
+			->willReturn(true);
+
+		$node2->expects($this->once())
+			->method('delete');
+
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
@@ -322,7 +453,7 @@ class RetentionJobTest extends TestCase {
 			->with(42, 'files')
 			->willReturn([1337]);
 
-		$mountPoint = $this->createMock(ICachedMountInfo::class);
+		$mountPoint = $this->createMock(ICachedMountFileInfo::class);
 		$this->userMountCache->expects($this->once())
 			->method('getMountsForFileId')
 			->with(1337)
