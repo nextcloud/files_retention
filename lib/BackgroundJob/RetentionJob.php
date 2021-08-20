@@ -202,7 +202,7 @@ class RetentionJob extends TimedJob {
 				return $this->getDeletableNodeFromMountPoint($mountPoint, $fileId);
 			} catch (NotPermittedException $e) {
 				// Check the next mount point
-				$this->logger->debug('Mount point ' . $mountPoint->getMountId() . ' has no delete permissions for file ' . $fileId);
+				$this->logger->debug('Mount point ' . ($mountPoint->getMountId() ?? 'null') . ' has no delete permissions for file ' . $fileId);
 			} catch (NotFoundException $e) {
 				// Already logged explicitly inside
 			}
@@ -233,10 +233,10 @@ class RetentionJob extends TimedJob {
 		}
 
 		foreach ($nodes as $node) {
-			if ($node->getPermissions() & \OCP\Constants::PERMISSION_DELETE) {
+			if ($node->isDeletable()) {
 				return $node;
 			}
-			$this->logger->debug('Mount point has access to node ' . $node->getId() . ' but permissions are ' . $node->getPermissions());
+			$this->logger->debug('Mount point ' . ($mountPoint->getMountId() ?? 'null') . ' has access to node ' . $node->getId() . ' but permissions are ' . $node->getPermissions());
 		}
 
 		throw new NotPermittedException();
