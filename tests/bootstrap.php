@@ -31,6 +31,6 @@ require_once __DIR__ . '/../../../lib/base.php';
 if (!class_exists('\PHPUnit\Framework\TestCase')) {
 	require_once('PHPUnit/Autoload.php');
 }
-\OC_App::enable('files_retention');
+(new \OC_App())->enable('files_retention');
 \OC_App::loadApp('files_retention');
 OC_Hook::clear();
