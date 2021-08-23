@@ -203,10 +203,6 @@ class RetentionJobTest extends TestCase {
 			->method('getMTime')
 			->willReturn($mtime->getTimestamp());
 
-		$node->expects($after === 0 ? $this->exactly(2) : $this->never())
-			->method('getUploadTime')
-			->willReturn($mtime->getTimestamp());
-
 		$node->method('isDeletable')
 			->willReturn(true);
 
