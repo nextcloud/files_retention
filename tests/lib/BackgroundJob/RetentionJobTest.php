@@ -29,7 +29,6 @@ use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
 use OCP\Files\Config\ICachedMountFileInfo;
-use OCP\Files\Config\ICachedMountInfo;
 use OCP\Files\Config\IUserMountCache;
 use OCP\Files\Folder;
 use OCP\Files\Node;
