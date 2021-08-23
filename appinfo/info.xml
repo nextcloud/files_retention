@@ -5,7 +5,7 @@
 	<name>Retention</name>
 	<summary>This application allows for automatic deletion of files after a given time</summary>
 	<description>This application allows for automatic deletion of files after a given time</description>
-	<version>1.10.1</version>
+	<version>1.10.2</version>
 	<licence>agpl</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>Files_Retention</namespace>
