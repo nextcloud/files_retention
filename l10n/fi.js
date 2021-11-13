@@ -4,6 +4,8 @@ OC.L10N.register(
     "Not a number" : "Ei numero",
     "Select tag…" : "Valitse tunniste…",
     "Delete" : "Poista",
+    "Yes" : "Kyllä",
+    "No" : "Ei",
     "Error while deleting the retention rule" : "Virhe poistaessa säilytyssääntöä",
     "Files retention" : "Tiedostojen säilyttäminen",
     "{file} will be removed in 24 hours" : "{file} poistetaan 24 tunnin kuluttua",
