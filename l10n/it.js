@@ -11,6 +11,8 @@ OC.L10N.register(
     "{file} will be removed in 24 hours" : "{file} sarà rimosso tra 24 ore",
     "Your systems retention rules will delete this file within 24 hours." : "Le tue regole di conservazione di sistema elimineranno questo file tra 24 ore.",
     "Retention" : "Conservazione",
+    "This application allows for automatic deletion of files after a given time." : "Questa applicazione consente l'eliminazione automatica dei file dopo un determinato tempo.",
+    "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Un'app per Nextcloud per controllare l'eliminazione automatica di file dopo un determinato tempo.\nFacoltativamente, gli utenti possono esserne informati il giorno prima.",
     "File retention" : "Conservazione file",
     "Open documentation" : "Apri documentazione",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definisce se i file contrassegnati con una specifica etichetta dopo un certo periodo. Questo è utile per i documenti confidenziali.",
@@ -23,7 +25,6 @@ OC.L10N.register(
     "Last modification" : "Ultima modifica",
     "Create" : "Crea",
     "Notify users a day before retention will delete a file" : "Notifica gli utenti un giorno prima dell'eliminazione di un file",
-    "Your systems retention rules will deleted this file within 24 hours." : "Le tue regole di conservazione di sistema elimineranno questo file tra 24 ore.",
     "This application allows for automatic deletion of files after a given time" : "Questa applicazione consente l'eliminazione automatica dei file dopo un dato tempo"
 },
 "nplurals=2; plural=(n != 1);");
