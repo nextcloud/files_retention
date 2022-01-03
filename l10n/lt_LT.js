@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Select tag…" : "Pasirinkti žymę...",
     "Delete" : "Ištrinti",
+    "Yes" : "Taip",
+    "No" : "Ne",
     "Open documentation" : "Atverti dokumentaciją",
     "Create" : "Sukurti",
     "This application allows for automatic deletion of files after a given time" : "Ši programa leidžia automatiškai ištrinti failus po nurodyto laiko"
