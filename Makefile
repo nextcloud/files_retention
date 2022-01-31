@@ -21,13 +21,12 @@ clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
 
-handlebars:
-	handlebars -n OCA.File_Retention.Templates js/template.handlebars -f js/template.js
-
 appstore: clean
 	mkdir -p $(sign_dir)
 	rsync -a \
 	--exclude=/build \
+	--exclude=/check-handlebars-templates.sh \
+	--exclude=/compile-handlebars-templates.sh \
 	--exclude=/CONTRIBUTING.md \
 	--exclude=/composer.json \
 	--exclude=/composer.lock \
