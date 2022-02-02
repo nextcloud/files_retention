@@ -9,6 +9,8 @@
     "{file} will be removed in 24 hours" : "Файл {file} будет удалён через 24 часа",
     "Your systems retention rules will delete this file within 24 hours." : "В соответствии с параметрами работы с удаляемыми файлами, этот файл будет удалён через 24 часа.",
     "Retention" : "Удаление файлов",
+    "This application allows for automatic deletion of files after a given time." : "Это приложение позволяет автоматически удалять файлы по истечении заданного времени.",
+    "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Приложение для Nextcloud по управлению автоматическим удалением файлов через заданное время.\nПо желанию пользователи могут быть проинформированы за день до этого.",
     "File retention" : "Удаление файлов",
     "Open documentation" : "Открыть документацию",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Автоматическое удаление файлов на основании присвоения меток. Эта функция может быть полезна для удаления конфиденциальных документов.",
