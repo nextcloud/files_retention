@@ -3,6 +3,10 @@ OC.L10N.register(
     {
     "Not a number" : "N'eo ket un niver",
     "Select tag…" : "Choaz ur c'hlav ...",
+    "Days" : "Deiz",
+    "Weeks" : "Sizun",
+    "Months" : "Miz",
+    "Years" : "Bloaz",
     "Delete" : "Dilemel",
     "Error while deleting the retention rule" : "Ur fazi a zo bet en ul lemel ar eolenn gwarn",
     "Files retention" : "Gwarn restroù",
@@ -12,10 +16,6 @@ OC.L10N.register(
     "File retention" : "Gwarn restr",
     "Open documentation" : "Digeriñ an dielvadur",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Lar ma ar restr klavet gant ur klav resis a vo lamet en un doare otomatek goude un tam amzer. Mat eo evit dielloù kuzulik.",
-    "Days" : "Deiz",
-    "Weeks" : "Sizun",
-    "Months" : "Miz",
-    "Years" : "Bloaz",
     "Create" : "Krouiñ",
     "Notify users a day before retention will delete a file" : "kemenn an implijer  un devez a-raok e vefe lamet ar restr",
     "This application allows for automatic deletion of files after a given time" : "Ar meziant-mañ a aotre all lemel otomatek eus ar restroù goude un amzer benak"

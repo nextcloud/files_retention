@@ -3,6 +3,10 @@ OC.L10N.register(
     {
     "Not a number" : "Није број",
     "Select tag…" : "Одаберите ознаку…",
+    "Days" : "Дана",
+    "Weeks" : "Недеља",
+    "Months" : "Месеци",
+    "Years" : "Година",
     "Delete" : "Обриши",
     "Error while deleting the retention rule" : "Грешка приликом брисања правила задржавања",
     "Files retention" : "Задржавање фајлова",
@@ -12,10 +16,6 @@ OC.L10N.register(
     "File retention" : "Задржавање фајла",
     "Open documentation" : "Отвори документацију",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Дефинише да ли фајл са одређеним ознакама треба да буде аутоматски обрисана после неког времена. Корисно је за поверљива документа.",
-    "Days" : "Дана",
-    "Weeks" : "Недеља",
-    "Months" : "Месеци",
-    "Years" : "Година",
     "Create" : "Направи",
     "Notify users a day before retention will delete a file" : "Обавести корисника дан пре него што ће фајл бити обрисан",
     "This application allows for automatic deletion of files after a given time" : "Ова апликација Вам омогућава аутоматско брисање фајлова после задатог времена"
