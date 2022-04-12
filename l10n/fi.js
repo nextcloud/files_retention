@@ -3,6 +3,10 @@ OC.L10N.register(
     {
     "Not a number" : "Ei numero",
     "Select tag…" : "Valitse tunniste…",
+    "Days" : "Päivää",
+    "Weeks" : "Viikkoa",
+    "Months" : "Kuukautta",
+    "Years" : "Vuotta",
     "Delete" : "Poista",
     "Yes" : "Kyllä",
     "No" : "Ei",
@@ -13,10 +17,6 @@ OC.L10N.register(
     "Retention" : "Säilyttäminen",
     "File retention" : "Tiedoston säilyttäminen",
     "Open documentation" : "Avaa dokumentaatio",
-    "Days" : "Päivää",
-    "Weeks" : "Viikkoa",
-    "Months" : "Kuukautta",
-    "Years" : "Vuotta",
     "Create" : "Luo",
     "Notify users a day before retention will delete a file" : "Ilmoita käyttäjille päivää ennen tiedoston poistamista",
     "This application allows for automatic deletion of files after a given time" : "Tämä sovellus mahdollistaa tiedostojen automattisen poistamisen määritetyn ajan jälkeen"
