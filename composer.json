@@ -8,14 +8,6 @@
 	"name": "nextcloud/files_retention",
 	"description": "files_retention",
 	"license": "AGPL",
-	"require": {
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^9.5",
-		"nextcloud/coding-standard": "^0.5.0",
-		"christophwurst/nextcloud": "dev-master@dev",
-		"vimeo/psalm": "^4.3.2"
-	},
 	"config": {
 		"optimize-autoloader": true,
 		"classmap-authoritative": true,
@@ -31,5 +23,11 @@
 		"psalm:update-baseline": "psalm --threads=1 --update-baseline --set-baseline=tests/psalm-baseline.xml",
 		"psalm:clear": "psalm --clear-cache && psalm --clear-global-cache",
 		"psalm:fix": "psalm --alter --issues=InvalidReturnType,InvalidNullableReturnType,MissingParamType,InvalidFalsableReturnType"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^9.5",
+		"nextcloud/coding-standard": "^1.0.0",
+		"christophwurst/nextcloud": "dev-master",
+		"vimeo/psalm": "^4.22.0"
 	}
 }
