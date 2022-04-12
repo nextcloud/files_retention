@@ -40,11 +40,10 @@ appstore: clean
 	--exclude=/.gitattributes \
 	--exclude=/.gitignore \
 	--exclude=/.l10nignore \
-	--exclude=/.php_cs.cache \
-	--exclude=/.php_cs.dist \
+	--exclude=/.php-cs-fixer.cache \
+	--exclude=/.php-cs-fixer.dist.php \
 	--exclude=/psalm.xml \
 	--exclude=/screenshots \
-	--exclude=/.scrutinizer.yml \
 	--exclude=/tests \
 	--exclude=/translationfiles \
 	--exclude=/.tx \

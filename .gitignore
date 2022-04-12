@@ -1,7 +1,8 @@
 # Tests - auto-generated files
-/tests/.phpunit.result.cache
-/.php_cs.cache
+/tests
+/.php-cs-fixer.cache
 
 # Build related files
 /build
 /vendor
+
