@@ -3,6 +3,10 @@ OC.L10N.register(
     {
     "Not a number" : "Ekki tala",
     "Select tag…" : "Veldu merki...",
+    "Days" : "Dagar",
+    "Weeks" : "Vikur",
+    "Months" : "Mánuðir",
+    "Years" : "Ár",
     "Delete" : "Eyða",
     "Error while deleting the retention rule" : "Villa kom upp við að eyða geymslureglunni",
     "Files retention" : "Tímabundin geymsla skráa",
@@ -12,10 +16,6 @@ OC.L10N.register(
     "File retention" : "Tímabundin geymsla skráa",
     "Open documentation" : "Opna hjálparskjöl",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Skilgreindu hvort skrár sem merktar eru með tilteknu merki eigi að eyðast sjálfvirkt eftir tiltekinn tíma. Þetta nýtist t.d. vel fyrir ýmis trúnaðargögn.",
-    "Days" : "Dagar",
-    "Weeks" : "Vikur",
-    "Months" : "Mánuðir",
-    "Years" : "Ár",
     "Create" : "Búa til",
     "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá",
     "This application allows for automatic deletion of files after a given time" : "Þetta forrit gerir kleift að eyða skrám sjálfvirkt eftir tiltekinn tíma"
