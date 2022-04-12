@@ -10,7 +10,7 @@ on:
 env:
   # Location of the phpunit.xml and phpunit.integration.xml files
   PHPUNIT_CONFIG: ./tests/phpunit.xml
-  #PHPUNIT_INTEGRATION_CONFIG: ./tests/phpunit.integration.xml
+  PHPUNIT_INTEGRATION_CONFIG: ./tests/phpunit.integration.xml
 
 jobs:
   phpunit-mysql:
