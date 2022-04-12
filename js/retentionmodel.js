@@ -31,15 +31,15 @@
 		RETENTION_UNIT_YEAR: 3,
 
 		RETENTION_UNIT_MAP: {
-			0: 'days',
-			1: 'weeks',
-			2: 'months',
-			3: 'years'
+			0: t('files_retention', 'Days'),
+			1: t('files_retention', 'Weeks'),
+			2: t('files_retention', 'Months'),
+			3: t('files_retention', 'Years')
 		},
 
 		RETENTION_AFTER_MAP: {
-			0: 'creation',
-			1: 'last modification',
+			0: t('files_retention', 'Creation'),
+			1: t('files_retention', 'Last modification'),
 		},
 	});
 
