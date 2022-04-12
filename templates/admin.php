@@ -33,11 +33,11 @@
 
 	<table>
 		<thead class="hidden" id="retention-list-header">
-			<th>Tag</th>
-			<th>Retention</th>
-			<th>Time</th>
-			<th>After</th>
-			<th>Active</th>
+			<th><?php p($l->t('Tag')); ?></th>
+			<th><?php p($l->t('Retention')); ?></th>
+			<th><?php p($l->t('Time')); ?></th>
+			<th><?php p($l->t('After')); ?></th>
+			<th><?php p($l->t('Active')); ?></th>
 			<th></th>
 		</thead>
 		<tbody id="retention-list">
