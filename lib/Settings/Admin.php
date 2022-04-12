@@ -27,6 +27,7 @@ use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IInitialStateService;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
+use OCP\Util;
 
 class Admin implements ISettings {
 
@@ -44,6 +45,14 @@ class Admin implements ISettings {
 	 * @return TemplateResponse
 	 */
 	public function getForm() {
+		Util::addScript('files_retention', 'retentionmodel');
+		Util::addScript('files_retention', 'template');
+		Util::addScript('files_retention', 'retentioncollection');
+		Util::addScript('files_retention', 'retentionview');
+		Util::addScript('files_retention', 'admin');
+
+		Util::addStyle('files_retention', 'retention');
+
 		$this->initialStateService->provideInitialState(
 			Application::APP_ID,
 			'notify_before',
