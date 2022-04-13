@@ -19,25 +19,6 @@
  *
  */
 
-script('core', [
-	'oc-backbone-webdav',
-	'systemtags/systemtags',
-	'systemtags/systemtagmodel',
-	'systemtags/systemtagscollection',
-]);
-
-script('files_retention', [
-	'retentionmodel',
-	'template',
-	'retentioncollection',
-	'retentionview',
-	'admin'
-]);
-
-style('files_retention', [
-	'retention'
-]);
-
 /** @var \OCP\IL10N $l */
 ?>
 
