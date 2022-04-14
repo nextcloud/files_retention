@@ -34,26 +34,11 @@ use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
 
 class APIController extends Controller {
+	private IDBConnection $db;
+	private ISystemTagManager $tagManager;
+	private IJobList $joblist;
 
-	/** @var IDBConnection */
-	private $db;
-
-	/** @var ISystemTagManager */
-	private $tagManager;
-
-	/** @var IJobList */
-	private $joblist;
-
-	/**
-	 * APIController constructor.
-	 *
-	 * @param string $appName
-	 * @param IRequest $request
-	 * @param IDBConnection $db
-	 * @param ISystemTagManager $tagManager
-	 * @param IJobList $jobList
-	 */
-	public function __construct($appName,
+	public function __construct(string $appName,
 								IRequest $request,
 								IDBConnection $db,
 								ISystemTagManager $tagManager,
@@ -65,17 +50,14 @@ class APIController extends Controller {
 		$this->joblist = $jobList;
 	}
 
-	/**
-	 * @return JSONResponse
-	 */
-	public function getRetentions() {
+	public function getRetentions(): JSONResponse {
 		$qb = $this->db->getQueryBuilder();
 
 		$qb->select('*')
 			->from('retention')
 			->orderBy('id');
 
-		$cursor = $qb->execute();
+		$cursor = $qb->executeQuery();
 
 		$result = [];
 
@@ -97,15 +79,7 @@ class APIController extends Controller {
 		return new JSONResponse($result);
 	}
 
-	/**
-	 * @param int $tagid
-	 * @param int $timeunit
-	 * @param int $timeamount
-	 * @param int $timeafter
-	 *
-	 * @return Response
-	 */
-	public function addRetention($tagid, $timeunit, $timeamount, $timeafter = Constants::CTIME) {
+	public function addRetention(string $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): Response {
 		$response = new Response();
 
 		try {

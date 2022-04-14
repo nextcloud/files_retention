@@ -53,9 +53,7 @@ class APIControllerTest extends \Test\TestCase {
 
 	/** @var IJobList|\PHPUnit_Framework_MockObject_MockObject */
 	private $jobList;
-
-	/** @var APIController */
-	private $api;
+	private APIController $api;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -85,26 +83,26 @@ class APIControllerTest extends \Test\TestCase {
 	public function testAddRetentionInvalidTag() {
 		$this->tagManager->expects($this->once())
 			->method('getTagsByIds')
-			->with(42)
+			->with('42')
 			->will($this->throwException(new \InvalidArgumentException()));
 
-		$response = $this->api->addRetention(42, Constants::WEEK, 1);
+		$response = $this->api->addRetention('42', Constants::WEEK, 1);
 
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
 	public function testAddRetentionInvalidTimeUnit() {
-		$response = $this->api->addRetention(42, -1, 1);
+		$response = $this->api->addRetention('42', -1, 1);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 
-		$response = $this->api->addRetention(42, 4, 1);
+		$response = $this->api->addRetention('42', 4, 1);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
 	public function testAddRetention() {
 		$this->jobList->expects($this->once())
 			->method('add')
-			->with(RetentionJob::class, ['tag' => 42]);
+			->with(RetentionJob::class, ['tag' => '42']);
 
 		$response = $this->api->addRetention(42, Constants::MONTH, 1);
 		$this->assertInstanceOf(Http\JSONResponse::class, $response);
@@ -124,7 +122,7 @@ class APIControllerTest extends \Test\TestCase {
 
 		$expected = [
 			'id' => (int)$data['id'],
-			'tagid' => 42,
+			'tagid' => '42',
 			'timeunit' => Constants::MONTH,
 			'timeamount' => 1,
 			'timeafter' => 0,
