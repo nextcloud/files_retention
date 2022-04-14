@@ -25,7 +25,7 @@ declare(strict_types=1);
 namespace OCA\Files_Retention\BackgroundJob;
 
 use Exception;
-use OC\BackgroundJob\TimedJob;
+use OCP\BackgroundJob\TimedJob;
 use OC\Files\Filesystem;
 use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
@@ -46,34 +46,15 @@ use OCP\SystemTag\TagNotFoundException;
 use Psr\Log\LoggerInterface;
 
 class RetentionJob extends TimedJob {
-	/** @var ISystemTagManager */
-	private $tagManager;
-
-	/** @var ISystemTagObjectMapper */
-	private $tagMapper;
-
-	/** @var IUserMountCache */
-	private $userMountCache;
-
-	/** @var IDBConnection */
-	private $db;
-
-	/** @var IRootFolder */
-	private $rootFolder;
-
-	/** @var ITimeFactory */
-	private $timeFactory;
-
-	/** @var IJobList */
-	private $jobList;
-
-	/** @var LoggerInterface */
-	private $logger;
-
-	/** @var NotificationManager */
-	private $notificationManager;
-	/** @var IConfig */
-	private $config;
+	private ISystemTagManager $tagManager;
+	private ISystemTagObjectMapper $tagMapper;
+	private IUserMountCache $userMountCache;
+	private IDBConnection $db;
+	private IRootFolder $rootFolder;
+	private IJobList $jobList;
+	private LoggerInterface $logger;
+	private NotificationManager $notificationManager;
+	private IConfig $config;
 
 	public function __construct(ISystemTagManager $tagManager,
 								ISystemTagObjectMapper $tagMapper,
@@ -85,6 +66,7 @@ class RetentionJob extends TimedJob {
 								LoggerInterface $logger,
 								NotificationManager $notificationManager,
 								IConfig $config) {
+		parent::__construct($timeFactory);
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);
 
@@ -93,7 +75,6 @@ class RetentionJob extends TimedJob {
 		$this->userMountCache = $userMountCache;
 		$this->db = $db;
 		$this->rootFolder = $rootFolder;
-		$this->timeFactory = $timeFactory;
 		$this->jobList = $jobList;
 		$this->logger = $logger;
 		$this->notificationManager = $notificationManager;
@@ -127,7 +108,7 @@ class RetentionJob extends TimedJob {
 			->from('retention')
 			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tag)));
 
-		$cursor = $qb->execute();
+		$cursor = $qb->executeQuery();
 		$data = $cursor->fetch();
 		$cursor->closeCursor();
 
@@ -319,7 +300,7 @@ class RetentionJob extends TimedJob {
 
 		$delta = new \DateInterval($spec);
 		$currentDate = new \DateTime();
-		$currentDate->setTimestamp($this->timeFactory->getTime());
+		$currentDate->setTimestamp($this->time->getTime());
 
 		return $currentDate->sub($delta);
 	}
