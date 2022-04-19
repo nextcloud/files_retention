@@ -1,7 +1,7 @@
 {
 	"name": "files_retention",
 	"description": "This application allows for automatic deletion of files after a given time.",
-	"version": "1.13.0",
+	"version": "1.14.0",
 	"author": "Roeland Jago Douma",
 	"contributors": [],
 	"homepage": "https://github.com/nextcloud/files_retention",
