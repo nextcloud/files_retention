@@ -17,6 +17,8 @@ OC.L10N.register(
     "Retention" : "Säilyttäminen",
     "File retention" : "Tiedoston säilyttäminen",
     "Open documentation" : "Avaa dokumentaatio",
+    "Tag" : "Tunniste",
+    "Time" : "Aika",
     "Create" : "Luo",
     "Notify users a day before retention will delete a file" : "Ilmoita käyttäjille päivää ennen tiedoston poistamista",
     "This application allows for automatic deletion of files after a given time" : "Tämä sovellus mahdollistaa tiedostojen automattisen poistamisen määritetyn ajan jälkeen"
