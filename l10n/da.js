@@ -8,7 +8,11 @@ OC.L10N.register(
     "Months" : "Måneder",
     "Years" : "År",
     "Delete" : "Slet",
+    "Yes" : "Ja",
+    "No" : "Nej",
     "Open documentation" : "Åbn dokumentation",
+    "Time" : "Tid",
+    "after" : "efter",
     "Create" : "Opret"
 },
 "nplurals=2; plural=(n != 1);");
