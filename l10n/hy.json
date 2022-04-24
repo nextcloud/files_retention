@@ -1,5 +1,9 @@
 { "translations": {
     "Delete" : "հեռացնել",
+    "Yes" : "Yes",
+    "No" : "No",
+    "Time" : "Ժամ",
+    "after" : "հետո",
     "Create" : "Ստեղծել"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
