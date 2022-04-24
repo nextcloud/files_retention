@@ -1,5 +1,8 @@
 { "translations": {
     "Delete" : "លុប",
+    "Yes" : "Yes",
+    "No" : "No",
+    "Time" : "ម៉ោង",
     "Create" : "បង្កើត"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

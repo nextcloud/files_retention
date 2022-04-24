@@ -8,10 +8,14 @@ OC.L10N.register(
     "Months" : "Meses",
     "Years" : "Años",
     "Delete" : "Desaniciar",
+    "Yes" : "Sí",
+    "No" : "Non",
     "Error while deleting the retention rule" : "Fallu mentanto se desaniciaba la regla de retención",
     "Retention" : "Retención",
     "File retention" : "Retención de ficheros",
     "Open documentation" : "Abrir documentación",
+    "Time" : "Hora",
+    "after" : "dempués",
     "Create" : "Crear"
 },
 "nplurals=2; plural=(n != 1);");
