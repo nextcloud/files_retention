@@ -22,6 +22,7 @@
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definisce se i file contrassegnati con una specifica etichetta dopo un certo periodo. Questo è utile per i documenti confidenziali.",
     "Tag" : "Etichetta",
     "Time" : "Ora",
+    "After" : "Dopo",
     "Active" : "Attivo",
     "after" : "dopo",
     "Create" : "Crea",
