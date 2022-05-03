@@ -7,13 +7,17 @@ OC.L10N.register(
     "Weeks" : "Semanas",
     "Months" : "Meses",
     "Years" : "Años",
+    "Creation" : "Creación",
     "Delete" : "Borrar",
+    "Yes" : "Sí",
+    "No" : "No",
     "Error while deleting the retention rule" : "Error al borrar la regla de retención",
     "Retention" : "Retención",
     "File retention" : "Retención de archivo",
     "Open documentation" : "Abrir documentación",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Define si los archivos etiquetados con una etiqueta específica deben ser borrados automáticamente después de un tiempo. Esto es útil para archivos confidenciales.",
-    "Create" : "Crear",
-    "This application allows for automatic deletion of files after a given time" : "Esta aplicación permite el borrado automático de archivos después de un tiempo dado"
+    "Time" : "Hora",
+    "after" : "después",
+    "Create" : "Crear"
 },
 "nplurals=2; plural=(n != 1);");

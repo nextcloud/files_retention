@@ -7,8 +7,14 @@ OC.L10N.register(
     "Weeks" : "Uker",
     "Months" : "Måneder",
     "Years" : "År",
+    "Creation" : "Opprettelse",
     "Delete" : "Slett",
+    "Yes" : "Ja",
+    "No" : "Nei",
     "Open documentation" : "Åpne dokumentasjon",
+    "Time" : "Tid",
+    "Active" : "Aktiv",
+    "after" : "etter",
     "Create" : "Opprett"
 },
 "nplurals=2; plural=(n != 1);");

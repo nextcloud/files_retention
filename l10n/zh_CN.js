@@ -22,9 +22,11 @@ OC.L10N.register(
     "File retention" : "文件保留",
     "Open documentation" : "打开文档",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "当有特殊标签的文件需要在一定时间后自动删除时定义。适用于机密文档。",
+    "Tag" : "Tag",
+    "Time" : "时间",
+    "Active" : "活动",
     "after" : "之后 ",
     "Create" : "创建",
-    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户",
-    "This application allows for automatic deletion of files after a given time" : "此应用允许在给定时间之后自动删除文件"
+    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户"
 },
 "nplurals=1; plural=0;");

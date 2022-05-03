@@ -20,9 +20,11 @@
     "File retention" : "Διατήρηση αρχείου",
     "Open documentation" : "Άνοιγμα τεκμηρίωσης",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Ορίστε εάν τα αρχεία με συγκεκριμένη ετικέτα θα διαγραφούν αυτόματα μετά από κάποιο χρονικό διάστημα. Αυτό είναι χρήσιμο για τα εμπιστευτικά έγγραφα.",
+    "Tag" : "Ετικέτα",
+    "Time" : "Ώρα",
+    "Active" : "Ενεργό",
     "after" : "μετά",
     "Create" : "Δημιουργία",
-    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου",
-    "This application allows for automatic deletion of files after a given time" : "Αυτή η εφαρμογή επιτρέπει την αυτόματη διαγραφή αρχείων μετά από συγκεκριμένη ώρα"
+    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

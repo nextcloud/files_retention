@@ -7,8 +7,14 @@ OC.L10N.register(
     "Weeks" : "Tuần",
     "Months" : "Tháng",
     "Years" : "Năm",
+    "Creation" : "Sự tạo lập",
     "Delete" : "Xóa",
+    "Yes" : "Có",
+    "No" : "Không",
     "Open documentation" : "Mở tài liệu",
+    "Time" : "Thời gian",
+    "Active" : "Hoạt động",
+    "after" : "sau khi",
     "Create" : "Tạo"
 },
 "nplurals=1; plural=0;");

@@ -22,9 +22,11 @@ OC.L10N.register(
     "File retention" : "Bewaartermijn van bestand",
     "Open documentation" : "Openen documentatie",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een specifieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertrouwelijke documenten.",
+    "Tag" : "Label",
+    "Time" : "Tijd",
+    "Active" : "Actief",
     "after" : "na",
     "Create" : "Aanmaken",
-    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt",
-    "This application allows for automatic deletion of files after a given time" : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen"
+    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt"
 },
 "nplurals=2; plural=(n != 1);");

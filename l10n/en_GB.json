@@ -5,13 +5,18 @@
     "Weeks" : "Weeks",
     "Months" : "Months",
     "Years" : "Years",
+    "Creation" : "Creation",
     "Delete" : "Delete",
+    "Yes" : "Yes",
+    "No" : "No",
     "Error while deleting the retention rule" : "Error while deleting the retention rule",
     "Retention" : "Retention",
     "File retention" : "File retention",
     "Open documentation" : "Open documentation",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.",
-    "Create" : "Create",
-    "This application allows for automatic deletion of files after a given time" : "This application allows for automatic deletion of files after a given time"
+    "Tag" : "Tag",
+    "Time" : "Time",
+    "after" : "after",
+    "Create" : "Create"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

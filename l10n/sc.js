@@ -22,9 +22,10 @@ OC.L10N.register(
     "File retention" : "Allogada de archìviu",
     "Open documentation" : "Aberi documentatzione",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Defini si is archìvios cun etichetas ispetzìficas si diant cantzellare in automàticu a pustis de unu tempus dadu. Est ùtile pro documentos de cunfidu.",
+    "Time" : "Ora",
+    "Active" : "Ativu",
     "after" : "a pustis",
     "Create" : "Crea",
-    "Notify users a day before retention will delete a file" : "Sa notìfica de utentes una die in antis de s'allogada at a cantzellare un'archìviu",
-    "This application allows for automatic deletion of files after a given time" : "Custa aplicatzione permitit sa cantzelladura automàtica de archìvios a pustis de unu tempus dadu"
+    "Notify users a day before retention will delete a file" : "Sa notìfica de utentes una die in antis de s'allogada at a cantzellare un'archìviu"
 },
 "nplurals=2; plural=(n != 1);");

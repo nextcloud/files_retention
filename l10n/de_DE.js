@@ -22,9 +22,12 @@ OC.L10N.register(
     "File retention" : "Dateiaufbewahrung",
     "Open documentation" : "Dokumentation öffnen",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definieren Sie ob mit einem Schlagwort markierte Dateien automatisch nach einer Zeit gelöscht werden sollen. Das ist für vertrauliche Dokumente nützlich.",
+    "Tag" : "Schlagwort",
+    "Time" : "Zeit",
+    "After" : "Nach",
+    "Active" : "Aktiv",
     "after" : "nach",
     "Create" : "Erstellen",
-    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung",
-    "This application allows for automatic deletion of files after a given time" : "Diese Anwendung ermöglicht das automatische Löschen von Dateien nach einer bestimmten Zeit"
+    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung"
 },
 "nplurals=2; plural=(n != 1);");
