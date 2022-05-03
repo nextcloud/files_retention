@@ -26,7 +26,6 @@ OC.L10N.register(
     "Active" : "Ativu",
     "after" : "a pustis",
     "Create" : "Crea",
-    "Notify users a day before retention will delete a file" : "Sa notìfica de utentes una die in antis de s'allogada at a cantzellare un'archìviu",
-    "This application allows for automatic deletion of files after a given time" : "Custa aplicatzione permitit sa cantzelladura automàtica de archìvios a pustis de unu tempus dadu"
+    "Notify users a day before retention will delete a file" : "Sa notìfica de utentes una die in antis de s'allogada at a cantzellare un'archìviu"
 },
 "nplurals=2; plural=(n != 1);");

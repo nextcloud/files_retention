@@ -24,7 +24,6 @@ OC.L10N.register(
     "Active" : "Actiu",
     "after" : "després de",
     "Create" : "Crea",
-    "Notify users a day before retention will delete a file" : "Notificar als usuaris un dia abans que la retenció suprimirà un fitxer",
-    "This application allows for automatic deletion of files after a given time" : "Aquesta aplicació permet suprimir automàticament els fitxers després d’un moment determinat"
+    "Notify users a day before retention will delete a file" : "Notificar als usuaris un dia abans que la retenció suprimirà un fitxer"
 },
 "nplurals=2; plural=(n != 1);");

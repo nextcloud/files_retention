@@ -19,7 +19,6 @@ OC.L10N.register(
     "Tag" : "Tag",
     "Time" : "Time",
     "after" : "after",
-    "Create" : "Create",
-    "This application allows for automatic deletion of files after a given time" : "This application allows for automatic deletion of files after a given time"
+    "Create" : "Create"
 },
 "nplurals=2; plural=(n != 1);");

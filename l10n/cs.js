@@ -28,7 +28,6 @@ OC.L10N.register(
     "Active" : "Aktivní",
     "after" : "po",
     "Create" : "Vytvořit",
-    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže",
-    "This application allows for automatic deletion of files after a given time" : "Tato aplikace umožňuje automatické mazání souborů po uplynutí zadané doby"
+    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

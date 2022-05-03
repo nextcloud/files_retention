@@ -28,7 +28,6 @@ OC.L10N.register(
     "Active" : "Aktibo",
     "after" : "gero",
     "Create" : "Sortu",
-    "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali.",
-    "This application allows for automatic deletion of files after a given time" : "Aplikazio honek fitxategiak esandako epe bat pasatu ostean ezabatzen uzten dizu"
+    "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali."
 },
 "nplurals=2; plural=(n != 1);");

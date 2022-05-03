@@ -26,7 +26,6 @@
     "Active" : "Etkin",
     "after" : "şundan sonra",
     "Create" : "Oluştur",
-    "Notify users a day before retention will delete a file" : "Bir dosyanın saklama kuralı tarafından silineceği bir gün önceden kullanıcılara bildirilsin",
-    "This application allows for automatic deletion of files after a given time" : "Bu uygulama belirtilen süre sonunda dosyaların otomatik olarak silinmesini sağlar"
+    "Notify users a day before retention will delete a file" : "Bir dosyanın saklama kuralı tarafından silineceği bir gün önceden kullanıcılara bildirilsin"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
