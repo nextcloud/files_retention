@@ -27,7 +27,6 @@ OC.L10N.register(
     "Active" : "Ενεργό",
     "after" : "μετά",
     "Create" : "Δημιουργία",
-    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου",
-    "This application allows for automatic deletion of files after a given time" : "Αυτή η εφαρμογή επιτρέπει την αυτόματη διαγραφή αρχείων μετά από συγκεκριμένη ώρα"
+    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου"
 },
 "nplurals=2; plural=(n != 1);");

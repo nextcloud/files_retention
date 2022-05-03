@@ -18,7 +18,6 @@ OC.L10N.register(
     "Tag" : "Birkas",
     "Time" : "Laiks",
     "after" : "pēc",
-    "Create" : "Izveidot",
-    "This application allows for automatic deletion of files after a given time" : "Šī lietotne ļauj automātiski dzēst datnes pēc noteikta laika"
+    "Create" : "Izveidot"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

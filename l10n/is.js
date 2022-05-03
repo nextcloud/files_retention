@@ -24,7 +24,6 @@ OC.L10N.register(
     "Active" : "Virkt",
     "after" : "eftir",
     "Create" : "Búa til",
-    "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá",
-    "This application allows for automatic deletion of files after a given time" : "Þetta forrit gerir kleift að eyða skrám sjálfvirkt eftir tiltekinn tíma"
+    "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

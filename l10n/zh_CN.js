@@ -27,7 +27,6 @@ OC.L10N.register(
     "Active" : "活动",
     "after" : "之后 ",
     "Create" : "创建",
-    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户",
-    "This application allows for automatic deletion of files after a given time" : "此应用允许在给定时间之后自动删除文件"
+    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户"
 },
 "nplurals=1; plural=0;");

@@ -19,7 +19,6 @@ OC.L10N.register(
     "Time" : "زمان",
     "Active" : "فعال کردن",
     "after" : "بعد از",
-    "Create" : "ایجاد کردن",
-    "This application allows for automatic deletion of files after a given time" : "این برنامه امکان حذف خودکار پرونده ها را در مدت زمان مشخصی فراهم می کند"
+    "Create" : "ایجاد کردن"
 },
 "nplurals=2; plural=(n > 1);");
