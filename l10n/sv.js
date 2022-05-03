@@ -27,7 +27,6 @@ OC.L10N.register(
     "Active" : "Aktiv",
     "after" : "efter",
     "Create" : "Skapa",
-    "Notify users a day before retention will delete a file" : "Meddela användare en dag innan en lagringsregel kommer radera en fil",
-    "This application allows for automatic deletion of files after a given time" : "Den här applikationen möjliggör automatisk radering av filer efter en viss tid"
+    "Notify users a day before retention will delete a file" : "Meddela användare en dag innan en lagringsregel kommer radera en fil"
 },
 "nplurals=2; plural=(n != 1);");

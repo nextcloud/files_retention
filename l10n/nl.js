@@ -27,7 +27,6 @@ OC.L10N.register(
     "Active" : "Actief",
     "after" : "na",
     "Create" : "Aanmaken",
-    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt",
-    "This application allows for automatic deletion of files after a given time" : "Deze applicatie kan bestanden automatisch na een bepaalde tijd verwijderen"
+    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt"
 },
 "nplurals=2; plural=(n != 1);");

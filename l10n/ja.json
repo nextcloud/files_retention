@@ -24,7 +24,6 @@
     "Active" : "有効",
     "after" : "後",
     "Create" : "作成",
-    "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する",
-    "This application allows for automatic deletion of files after a given time" : "このアプリで一定時間後にファイルを自動削除できます"
+    "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

@@ -28,7 +28,6 @@ OC.L10N.register(
     "Active" : "作用中",
     "after" : "之後",
     "Create" : "新增",
-    "Notify users a day before retention will delete a file" : "在「保留」將要刪除檔案的前一天通知使用者",
-    "This application allows for automatic deletion of files after a given time" : "此應用可使檔案在設定的一段時間後自動刪除。"
+    "Notify users a day before retention will delete a file" : "在「保留」將要刪除檔案的前一天通知使用者"
 },
 "nplurals=1; plural=0;");

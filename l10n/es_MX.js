@@ -18,7 +18,6 @@ OC.L10N.register(
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Define si los archivos etiquetados con una etiqueta específica deben ser borrados automáticamente después de un tiempo. Esto es útil para archivos confidenciales.",
     "Time" : "Hora",
     "after" : "después",
-    "Create" : "Crear",
-    "This application allows for automatic deletion of files after a given time" : "Esta aplicación permite el borrado automático de archivos después de un tiempo dado"
+    "Create" : "Crear"
 },
 "nplurals=2; plural=(n != 1);");

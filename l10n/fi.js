@@ -23,7 +23,6 @@ OC.L10N.register(
     "Active" : "Aktiivinen",
     "after" : "jälkeen",
     "Create" : "Luo",
-    "Notify users a day before retention will delete a file" : "Ilmoita käyttäjille päivää ennen tiedoston poistamista",
-    "This application allows for automatic deletion of files after a given time" : "Tämä sovellus mahdollistaa tiedostojen automattisen poistamisen määritetyn ajan jälkeen"
+    "Notify users a day before retention will delete a file" : "Ilmoita käyttäjille päivää ennen tiedoston poistamista"
 },
 "nplurals=2; plural=(n != 1);");

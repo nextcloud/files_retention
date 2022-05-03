@@ -25,7 +25,6 @@ OC.L10N.register(
     "Active" : "Dejavno",
     "after" : "po",
     "Create" : "Ustvari",
-    "Notify users a day before retention will delete a file" : "Obvesti uporabnika dan pred brisanjem datoteke.",
-    "This application allows for automatic deletion of files after a given time" : "Program omogoča samodejno brisanje datotek po določenem času."
+    "Notify users a day before retention will delete a file" : "Obvesti uporabnika dan pred brisanjem datoteke."
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");

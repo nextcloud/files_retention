@@ -28,7 +28,6 @@ OC.L10N.register(
     "Active" : "Aktiv",
     "after" : "nach",
     "Create" : "Erstellen",
-    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung",
-    "This application allows for automatic deletion of files after a given time" : "Diese Anwendung ermöglicht das automatische Löschen von Dateien nach einer bestimmten Zeit"
+    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung"
 },
 "nplurals=2; plural=(n != 1);");

@@ -19,7 +19,6 @@ OC.L10N.register(
     "Time" : "시간",
     "Active" : "활성화",
     "after" : "이후",
-    "Create" : "만들기",
-    "This application allows for automatic deletion of files after a given time" : "이 앱은 일정 기간이 지난 후 파일을 자동으로 삭제합니다"
+    "Create" : "만들기"
 },
 "nplurals=1; plural=0;");
