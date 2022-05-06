@@ -22,6 +22,7 @@
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definujte, či by sa súbory označené štítkom mali po určitom čase automaticky odstrániť. To je užitočné pre dôverné dokumenty.",
     "Tag" : "Štítok",
     "Time" : "Čas",
+    "After" : "Po",
     "Active" : "Aktívne",
     "after" : "po",
     "Create" : "Vytvoriť",
