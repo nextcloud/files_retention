@@ -22,6 +22,7 @@
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Permet de  supprimer automatiquement les fichiers portant une certaine étiquette, au bout d' un certain temps. C'est utile dans le cas de documents confidentiels.",
     "Tag" : "Étiquette",
     "Time" : "Heure",
+    "After" : "Après",
     "Active" : "Actif",
     "after" : "après ",
     "Create" : "Créer",
