@@ -30,4 +30,4 @@ OC.L10N.register(
     "Create" : "Criar",
     "Notify users a day before retention will delete a file" : "Notificar usuários um dia antes da retenção excluir um arquivo"
 },
-"nplurals=2; plural=(n > 1);");
+"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
