@@ -27,5 +27,5 @@
     "after" : "dopo",
     "Create" : "Crea",
     "Notify users a day before retention will delete a file" : "Notifica gli utenti un giorno prima dell'eliminazione di un file"
-},"pluralForm" :"nplurals=2; plural=(n != 1);"
+},"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
