@@ -8,6 +8,7 @@ OC.L10N.register(
     "No" : "Nu",
     "Open documentation" : "Deschide documentația",
     "Time" : "Timp",
+    "Active" : "Activ",
     "after" : "după",
     "Create" : "Creează"
 },
