@@ -79,7 +79,7 @@ class APIController extends Controller {
 		return new JSONResponse($result);
 	}
 
-	public function addRetention(string $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): Response {
+	public function addRetention(int $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): Response {
 		$response = new Response();
 
 		try {
