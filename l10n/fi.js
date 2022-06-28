@@ -8,6 +8,7 @@ OC.L10N.register(
     "Months" : "Kuukautta",
     "Years" : "Vuotta",
     "Creation" : "Luonti",
+    "Last modification" : "Viimeisin muokkaus",
     "Delete" : "Poista",
     "Yes" : "Kyllä",
     "No" : "Ei",
