@@ -2,7 +2,7 @@
 	"autoload-dev": {
 		"psr-4": {
 			"OCP\\": "vendor/christophwurst/nextcloud/OCP",
-			"OCA\\Notifications\\": "lib/"
+			"OCA\\Files_Retention\\": "lib/"
 		}
 	},
 	"name": "nextcloud/files_retention",
