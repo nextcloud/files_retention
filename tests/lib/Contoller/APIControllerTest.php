@@ -30,6 +30,7 @@ use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
 use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
+use OCP\SystemTag\TagNotFoundException;
 
 /**
  * Class APIControllerTest
@@ -163,16 +164,25 @@ class APIControllerTest extends \Test\TestCase {
 			],
 			[
 				[
-					[1, Constants::DAY, 1, 0, null],
+					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => null],
 				]
 			],
 			[
 				[
-					[1, Constants::DAY, 1, 0, null],
-					[2, Constants::WEEK, 2, 0, null],
-					[3, Constants::MONTH, 3, 1, null],
-					[4, Constants::YEAR, 4, 1, null],
+					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => null],
+					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => null],
+					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => null],
+					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => null],
 				]
+			],
+			[
+				[
+					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => null],
+					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => null, 'expected' => false],
+					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => null, 'expected' => false],
+					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => null],
+				],
+				['2', '3'],
 			],
 		];
 	}
@@ -180,30 +190,32 @@ class APIControllerTest extends \Test\TestCase {
 	/**
 	 * @dataProvider dataGetRetentions
 	 * @param array $data
+	 * @param array $missingTags
 	 */
-	public function testGetRetentions($data) {
+	public function testGetRetentions(array $data, array $missingTags = []): void {
 		$expected = [];
 
 		foreach ($data as $d) {
 			$qb = $this->db->getQueryBuilder();
 			$qb->insert('retention')
-				->setValue('tag_id', $qb->createNamedParameter($d[0]))
-				->setValue('time_unit', $qb->createNamedParameter($d[1]))
-				->setValue('time_amount', $qb->createNamedParameter($d[2]))
-				->setValue('time_after', $qb->createNamedParameter($d[3]));
+				->setValue('tag_id', $qb->createNamedParameter($d['tagid']))
+				->setValue('time_unit', $qb->createNamedParameter($d['timeunit']))
+				->setValue('time_amount', $qb->createNamedParameter($d['timeamount']))
+				->setValue('time_after', $qb->createNamedParameter($d['timeafter']));
 			$qb->execute();
 
 			$id = $qb->getLastInsertId();
 
-			$expected[] = [
-				'id' => $id,
-				'tagid' => $d[0],
-				'timeunit' => $d[1],
-				'timeamount' => $d[2],
-				'timeafter' => $d[3],
-				'hasJob' => null,
-			];
+			if ($d['expected'] ?? true) {
+				unset($d['expected']);
+				$expected[] = array_merge([
+					'id' => $id,
+				], $d);
+			}
 		}
+
+		$this->tagManager->method('getTagsByIds')
+			->willThrowException(new TagNotFoundException('', 0, null, $missingTags));
 
 		$response = $this->api->getRetentions();
 
