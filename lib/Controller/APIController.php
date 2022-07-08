@@ -102,7 +102,7 @@ class APIController extends Controller {
 		} catch (TagNotFoundException $e) {
 			$missingTags = array_map('intval', $e->getMissingTags());
 
-			$result = array_values(array_filter($result, static function (array $rule) use ($missingTags) {
+			$result = array_values(array_filter($result, static function (array $rule) use ($missingTags): bool {
 				return !in_array($rule['tagid'], $missingTags, true);
 			}));
 		}
