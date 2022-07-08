@@ -32,6 +32,7 @@ use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
 use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
+use OCP\SystemTag\TagNotFoundException;
 
 class APIController extends Controller {
 
@@ -77,9 +78,10 @@ class APIController extends Controller {
 
 		$cursor = $qb->execute();
 
-		$result = [];
+		$result = $tagIds = [];
 
 		while ($data = $cursor->fetch()) {
+			$tagIds[] = (string) $data['tag_id'];
 			$hasJob = $this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 
 			$result[] = [
@@ -93,6 +95,17 @@ class APIController extends Controller {
 		}
 
 		$cursor->closeCursor();
+
+
+		try {
+			$this->tagManager->getTagsByIds($tagIds);
+		} catch (TagNotFoundException $e) {
+			$missingTags = array_map('intval', $e->getMissingTags());
+
+			$result = array_values(array_filter($result, static function (array $rule) use ($missingTags) {
+				return !in_array($rule['tagid'], $missingTags, true);
+			}));
+		}
 
 		return new JSONResponse($result);
 	}
