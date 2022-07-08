@@ -22,6 +22,7 @@
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Автоматическое удаление файлов на основании присвоения меток. Эта функция может быть полезна для удаления конфиденциальных документов.",
     "Tag" : "Метка",
     "Time" : "Время",
+    "After" : "После",
     "Active" : "Активный",
     "after" : "после",
     "Create" : "Создать",
