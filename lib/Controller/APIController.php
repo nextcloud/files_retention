@@ -79,11 +79,11 @@ class APIController extends Controller {
 		return new JSONResponse($result);
 	}
 
-	public function addRetention(string $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): Response {
+	public function addRetention(int $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): Response {
 		$response = new Response();
 
 		try {
-			$this->tagManager->getTagsByIds($tagid);
+			$this->tagManager->getTagsByIds((string) $tagid);
 		} catch (\InvalidArgumentException $e) {
 			$response->setStatus(Http::STATUS_BAD_REQUEST);
 			return $response;
@@ -105,7 +105,7 @@ class APIController extends Controller {
 		$id = $qb->getLastInsertId();
 
 		//Insert cronjob
-		$this->joblist->add(RetentionJob::class, ['tag' => (int)$tagid]);
+		$this->joblist->add(RetentionJob::class, ['tag' => $tagid]);
 
 		return new JSONResponse([
 			'id' => $id,
