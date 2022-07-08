@@ -111,6 +111,14 @@
 				timeunit: unit,
 				timeamount: amount,
 				timeafter: after,
+			}, {
+				success: function () {
+					OC.Notification.showTemporary(t('files_retention', 'Retention rule saved'), {type: 'success'});
+				},
+				error: function (_, xhr) {
+					OC.Notification.showTemporary(t('files_retention', 'An error occurred while trying to save the retention rule'), {type: 'error'});
+					console.error(xhr)
+				}
 			});
 
 			$('#retention_submit').prop('disabled', true);
