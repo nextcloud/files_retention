@@ -85,7 +85,7 @@ class RetentionJob extends TimedJob {
 		// Validate if tag still exists
 		$tag = $argument['tag'];
 		try {
-			$this->tagManager->getTagsByIds($tag);
+			$this->tagManager->getTagsByIds((string) $tag);
 		} catch (\InvalidArgumentException $e) {
 			// tag is invalid remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
@@ -137,7 +137,7 @@ class RetentionJob extends TimedJob {
 		$offset = '';
 		$limit = 1000;
 		while ($offset !== null) {
-			$fileIds = $this->tagMapper->getObjectIdsForTags($tag, 'files', $limit, $offset);
+			$fileIds = $this->tagMapper->getObjectIdsForTags((string) $tag, 'files', $limit, $offset);
 			$this->logger->debug('Checking retention for ' . count($fileIds) . ' files in this chunk');
 
 			foreach ($fileIds as $fileId) {
