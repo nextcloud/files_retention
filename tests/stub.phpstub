@@ -30,3 +30,11 @@ namespace OC\Hooks {
 	class BasicEmitter extends Emitter {
 	}
 }
+
+namespace OC\Files {
+    class Filesystem {
+        static public bool $loaded;
+
+        static public function init($userId, $path): void {}
+    }
+}
