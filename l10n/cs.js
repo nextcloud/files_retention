@@ -2,6 +2,8 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Není číslo",
+    "Retention rule saved" : "Pravidlo zadržování uloženo",
+    "An error occurred while trying to save the retention rule" : "Při pokusu o uložení pravidla zadržování došlo k chybě",
     "Select tag…" : "Vybrat štítek…",
     "Days" : "Dnů",
     "Weeks" : "Týdny",
