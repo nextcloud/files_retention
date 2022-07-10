@@ -2,6 +2,8 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Ez da zenbakia",
+    "Retention rule saved" : "Mantentze araua gordeta",
+    "An error occurred while trying to save the retention rule" : "Akatsa gertatu da mantentze araua gordetzen saiatzean",
     "Select tag…" : "Hautatu etiketa…",
     "Days" : "Egunak",
     "Weeks" : "Asteak",
