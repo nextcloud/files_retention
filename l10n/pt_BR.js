@@ -2,6 +2,8 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Não é um número",
+    "Retention rule saved" : "Regra de retenção salva",
+    "An error occurred while trying to save the retention rule" : "Ocorreu um erro ao tentar salvar a regra de retenção",
     "Select tag…" : "Selecione a etiqueta...",
     "Days" : "Dias",
     "Weeks" : "Semanas",
