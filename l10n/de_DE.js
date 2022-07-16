@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Not a number" : "Keine Zahl",
     "Retention rule saved" : "Aufbewahrungsregel gespeichert.",
-    "An error occurred while trying to save the retention rule" : "Beim Speichern der Aufbewahrungsregel ist ein Fehler aufgetreten. ",
+    "An error occurred while trying to save the retention rule" : "Es ist ein Fehler beim Speichern der Aufbewahrungsregel aufgetreten",
     "Select tag…" : "Schlagwort auswählen",
     "Days" : "Tage",
     "Weeks" : "Wochen",
