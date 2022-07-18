@@ -1,5 +1,7 @@
 { "translations": {
     "Not a number" : "Не е номер",
+    "Retention rule saved" : "Правилото за запазване е записано",
+    "An error occurred while trying to save the retention rule" : "Възникна грешка при опит за записване на правилото за запазване",
     "Select tag…" : "Изберете етикет...",
     "Days" : "Дни",
     "Weeks" : "Седмици",
