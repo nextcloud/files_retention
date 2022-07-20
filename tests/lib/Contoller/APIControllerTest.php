@@ -31,6 +31,7 @@ use OCP\IDBConnection;
 use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\TagNotFoundException;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Class APIControllerTest
@@ -43,16 +44,16 @@ class APIControllerTest extends \Test\TestCase {
 	/** @var string */
 	private $appName = 'files_retention';
 
-	/** @var IRequest|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var IRequest|MockObject */
 	private $request;
 
 	/** @var IDBConnection */
 	private $db;
 
-	/** @var ISystemTagManager|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var ISystemTagManager|MockObject */
 	private $tagManager;
 
-	/** @var IJobList|\PHPUnit_Framework_MockObject_MockObject */
+	/** @var IJobList|MockObject */
 	private $jobList;
 	private APIController $api;
 
@@ -164,23 +165,23 @@ class APIControllerTest extends \Test\TestCase {
 			],
 			[
 				[
-					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => null],
+					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => false],
 				]
 			],
 			[
 				[
-					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => null],
-					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => null],
-					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => null],
-					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => null],
+					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => false],
+					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => false],
+					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => false],
+					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => false],
 				]
 			],
 			[
 				[
-					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => null],
-					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => null, 'expected' => false],
-					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => null, 'expected' => false],
-					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => null],
+					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => false],
+					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => false, 'expected' => false],
+					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => false, 'expected' => false],
+					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => false],
 				],
 				['2', '3'],
 			],
