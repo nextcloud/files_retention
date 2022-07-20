@@ -68,7 +68,7 @@ class Notifier implements INotifier {
 		}
 		$node = array_pop($nodes);
 
-		$l = $this->l10Factory->get($languageCode);
+		$l = $this->l10Factory->get(Application::APP_ID, $languageCode);
 		$notification->setRichSubject(
 				$l->t('{file} will be removed in 24 hours'),
 				[
