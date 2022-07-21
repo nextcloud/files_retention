@@ -2,6 +2,8 @@ OC.L10N.register(
     "files_retention",
     {
     "Not a number" : "Nem szám",
+    "Retention rule saved" : "Megőrzési szabály mentve",
+    "An error occurred while trying to save the retention rule" : "Hiba történt a megőrzési szabály mentése során",
     "Select tag…" : "Címke kiválasztása…",
     "Days" : "Napok",
     "Weeks" : "Hetek",
