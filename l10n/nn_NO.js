@@ -4,6 +4,7 @@ OC.L10N.register(
     "Delete" : "Ta bort",
     "Yes" : "Ja",
     "No" : "Nei",
+    "Open documentation" : "Opne dokumentasjon",
     "Time" : "Tid",
     "after" : "etter",
     "Create" : "Lag"
