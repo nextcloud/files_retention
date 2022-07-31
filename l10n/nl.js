@@ -24,6 +24,7 @@ OC.L10N.register(
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een specifieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertrouwelijke documenten.",
     "Tag" : "Label",
     "Time" : "Tijd",
+    "After" : "Na",
     "Active" : "Actief",
     "after" : "na",
     "Create" : "Aanmaken",
