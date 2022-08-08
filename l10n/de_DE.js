@@ -30,6 +30,6 @@ OC.L10N.register(
     "Active" : "Aktiv",
     "after" : "nach",
     "Create" : "Erstellen",
-    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung"
+    "Notify users a day before retention will delete a file" : "Die Benutzer einen Tag vor einer Dateilöschung durch die Dateiaufbewahrung benachrichtigen"
 },
 "nplurals=2; plural=(n != 1);");
