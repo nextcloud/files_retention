@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @copyright 2016 Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -24,27 +25,25 @@ namespace OCA\Files_Retention\Settings;
 
 use OCA\Files_Retention\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
-use OCP\IInitialStateService;
+use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
+use OCP\IURLGenerator;
 use OCP\Settings\ISettings;
 use OCP\Util;
 
 class Admin implements ISettings {
 
-	/** @var IInitialStateService */
-	protected $initialStateService;
-	/** @var IConfig */
-	protected $config;
+	protected IInitialState $initialStateService;
+	protected IURLGenerator $url;
+	protected IConfig $config;
 
-	public function __construct(IInitialStateService $initialStateService, IConfig $config) {
+	public function __construct(IInitialState $initialStateService, IURLGenerator $url, IConfig $config) {
 		$this->initialStateService = $initialStateService;
+		$this->url = $url;
 		$this->config = $config;
 	}
 
-	/**
-	 * @return TemplateResponse
-	 */
-	public function getForm() {
+	public function getForm(): TemplateResponse {
 		Util::addScript('files_retention', 'retentionmodel');
 		Util::addScript('files_retention', 'template');
 		Util::addScript('files_retention', 'retentioncollection');
@@ -53,29 +52,26 @@ class Admin implements ISettings {
 
 		Util::addStyle('files_retention', 'retention');
 
+		Util::addScript('files_retention', 'files_retention-main');
+
 		$this->initialStateService->provideInitialState(
-			Application::APP_ID,
+			'doc-url',
+			$this->url->linkToDocs('admin-files-retention')
+		);
+
+		$this->initialStateService->provideInitialState(
 			'notify_before',
 			$this->config->getAppValue(Application::APP_ID, 'notify_before', 'no') === 'yes'
 		);
+
 		return new TemplateResponse('files_retention', 'admin', [], '');
 	}
 
-	/**
-	 * @return string the section ID, e.g. 'sharing'
-	 */
-	public function getSection() {
+	public function getSection(): string {
 		return 'workflow';
 	}
 
-	/**
-	 * @return int whether the form should be rather on the top or bottom of
-	 * the admin section. The forms are arranged in ascending order of the
-	 * priority values. It is required to return a value between 0 and 100.
-	 *
-	 * E.g.: 70
-	 */
-	public function getPriority() {
+	public function getPriority(): int {
 		return 80;
 	}
 }

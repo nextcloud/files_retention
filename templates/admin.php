@@ -22,15 +22,9 @@
 /** @var \OCP\IL10N $l */
 ?>
 
+<div id="files_retention"></div>
+
 <form id="retention" class="section" data-systemtag-id="">
-	<h2 class="inlineblock"><?php p($l->t('File retention')); ?></h2>
-	<a target="_blank" rel="noreferrer" class="icon-info svg"
-	   title="<?php p($l->t('Open documentation'));?>"
-	   href="<?php p(link_to_docs('admin-files-retention')); ?>">
-	</a>
-
-	<p class="settings-hint"><?php p($l->t('Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')); ?></p>
-
 	<table>
 		<thead class="hidden" id="retention-list-header">
 			<th><?php p($l->t('Tag')); ?></th>
@@ -64,11 +58,4 @@
 	</select>
 
 	<input type="button" id="retention_submit" value="<?php p($l->t('Create')); ?>" disabled>
-
-	<p>
-		<input type="checkbox" id="retention_notify" class="checkbox" />
-		<label for="retention_notify">
-			<?php p($l->t('Notify users a day before retention will delete a file')); ?>
-		</label>
-	</p>
 </form>
