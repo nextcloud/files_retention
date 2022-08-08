@@ -1,38 +1,32 @@
 <!--
-  - @copyright Copyright (c) 2018 Roeland Jago Douma <roeland@famdouma.nl>
-  -
-  - @author Roeland Jago Douma <roeland@famdouma.nl>
-  -
-  - @license GNU AGPL version 3 or any later version
-  -
-  - This program is free software: you can redistribute it and/or modify
-  - it under the terms of the GNU Affero General Public License as
-  - published by the Free Software Foundation, either version 3 of the
-  - License, or (at your option) any later version.
-  -
-  - This program is distributed in the hope that it will be useful,
-  - but WITHOUT ANY WARRANTY; without even the implied warranty of
-  - MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  - GNU Affero General Public License for more details.
-  -
-  - You should have received a copy of the GNU Affero General Public License
-  - along with this program. If not, see <http://www.gnu.org/licenses/>.
-  -
+  - SPDX-FileCopyrightText: Joas Schilling <coding@schilljs.com>
+  - SPDX-License-Identifier: AGPL-3.0-only
   -->
 <template>
 	<SettingsSection :title="t('files_retention', 'File retention')"
 		:doc-url="docUrl"
 		:description="t('files_retention', 'Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')">
-
 		<table class="retention-rules-table">
 			<thead>
 				<tr>
-					<th class="retention-heading__name">{{ t('files_retention', 'Tag') }}</th>
-					<th class="retention-heading__amount">{{ t('files_retention','Retention') }}</th>
-					<th class="retention-heading__unit">{{ t('files_retention','Time') }}</th>
-					<th class="retention-heading__after">{{ t('files_retention','After') }}</th>
-					<th class="retention-heading__active">{{ t('files_retention','Active') }}</th>
-					<th class="retention-heading__action">{{ t('files_retention','Actions') }}</th>
+					<th class="retention-heading__name">
+						{{ t('files_retention', 'Tag') }}
+					</th>
+					<th class="retention-heading__amount">
+						{{ t('files_retention','Retention') }}
+					</th>
+					<th class="retention-heading__unit">
+						{{ t('files_retention','Time') }}
+					</th>
+					<th class="retention-heading__after">
+						{{ t('files_retention','After') }}
+					</th>
+					<th class="retention-heading__active">
+						{{ t('files_retention','Active') }}
+					</th>
+					<th class="retention-heading__action">
+						{{ t('files_retention','Actions') }}
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,7 +54,7 @@
 					<td class="retention-rule__unit">
 						<Multiselect v-model="newUnit"
 							:disabled="loading"
-							 :options="unitOptions"
+							:options="unitOptions"
 							:allow-empty="false"
 							track-by="id"
 							label="label"
@@ -75,16 +69,16 @@
 							label="label"
 							:close-on-select="true" />
 					</td>
-					<td class="retention-rule__active"></td>
+					<td class="retention-rule__active" />
 					<td class="retention-rule__action">
-						<Button type="tertiary"
+						<VueButton type="tertiary"
 							:disabled="loading"
 							:aria-label="createLabel"
 							@click="onClickCreate">
 							<template #icon>
 								<Plus :size="20" />
 							</template>
-						</Button>
+						</VueButton>
 					</td>
 				</tr>
 			</tbody>
@@ -100,7 +94,7 @@
 </template>
 
 <script>
-import Button from '@nextcloud/vue/dist/Components/Button'
+import VueButton from '@nextcloud/vue/dist/Components/Button'
 import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch'
 import Multiselect from '@nextcloud/vue/dist/Components/Multiselect'
 import MultiselectTags from '@nextcloud/vue/dist/Components/MultiselectTags'
@@ -117,7 +111,7 @@ export default {
 	name: 'AdminSettings',
 
 	components: {
-		Button,
+		VueButton,
 		CheckboxRadioSwitch,
 		Multiselect,
 		MultiselectTags,
@@ -168,11 +162,11 @@ export default {
 		},
 
 		amountLabel() {
-			return t('files_retention','Number of days, weeks, months or years after which the files should be deleted')
+			return t('files_retention', 'Number of days, weeks, months or years after which the files should be deleted')
 		},
 
 		createLabel() {
-			return t('files_retention','Create new retention rule')
+			return t('files_retention', 'Create new retention rule')
 		},
 	},
 
@@ -211,7 +205,7 @@ export default {
 					error() {
 						this.loadingNotifyBefore = false
 						showError(t('files_retention', 'An error occurred while changing the setting'))
-					}
+					},
 				}
 			)
 		},

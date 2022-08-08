@@ -1,24 +1,38 @@
+<!--
+  - SPDX-FileCopyrightText: Joas Schilling <coding@schilljs.com>
+  - SPDX-License-Identifier: AGPL-3.0-only
+  -->
 <template>
 	<tr>
-		<td class="retention-rule__name"><span>{{ tagName }}</span></td>
-		<td class="retention-rule__amount"><span>{{ timeamount }}</span></td>
-		<td class="retention-rule__unit"><span>{{ getUnit }}</span></td>
-		<td class="retention-rule__after"><span>{{ getAfter }}</span></td>
-		<td class="retention-rule__active"><span>{{ hasJobLabel }}</span></td>
+		<td class="retention-rule__name">
+			<span>{{ tagName }}</span>
+		</td>
+		<td class="retention-rule__amount">
+			<span>{{ timeamount }}</span>
+		</td>
+		<td class="retention-rule__unit">
+			<span>{{ getUnit }}</span>
+		</td>
+		<td class="retention-rule__after">
+			<span>{{ getAfter }}</span>
+		</td>
+		<td class="retention-rule__active">
+			<span>{{ hasJobLabel }}</span>
+		</td>
 		<td class="retention-rule__action">
-			<Button type="tertiary"
+			<VueButton type="tertiary"
 				:aria-label="deleteLabel"
 				@click="onClickDelete">
 				<template #icon>
 					<Delete :size="20" />
 				</template>
-			</Button>
+			</VueButton>
 		</td>
 	</tr>
 </template>
 
 <script>
-import Button from '@nextcloud/vue/dist/Components/Button'
+import VueButton from '@nextcloud/vue/dist/Components/Button'
 import Delete from 'vue-material-design-icons/Delete'
 
 import { showSuccess } from '@nextcloud/dialogs'
@@ -27,7 +41,7 @@ export default {
 	name: 'RetentionRule',
 
 	components: {
-		Button,
+		VueButton,
 		Delete,
 	},
 
@@ -64,24 +78,24 @@ export default {
 		},
 
 		getUnit() {
-			switch(this.timeunit) {
-				case 0:
-					return t('files_retention', 'Days')
-				case 1:
-					return t('files_retention', 'Weeks')
-				case 2:
-					return t('files_retention', 'Months')
-				default:
-					return t('files_retention', 'Years')
+			switch (this.timeunit) {
+			case 0:
+				return t('files_retention', 'Days')
+			case 1:
+				return t('files_retention', 'Weeks')
+			case 2:
+				return t('files_retention', 'Months')
+			default:
+				return t('files_retention', 'Years')
 			}
 		},
 
 		getAfter() {
-			switch(this.timeafter) {
-				case 0:
-					return t('files_retention', 'Creation')
-				default:
-					return t('files_retention', 'Last modification')
+			switch (this.timeafter) {
+			case 0:
+				return t('files_retention', 'Creation')
+			default:
+				return t('files_retention', 'Last modification')
 			}
 		},
 
