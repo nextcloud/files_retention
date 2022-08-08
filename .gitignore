@@ -1,5 +1,5 @@
 # Tests - auto-generated files
-/tests
+/tests/.phpunit.result.cache
 /.php-cs-fixer.cache
 
 # Build related files

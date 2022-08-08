@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @copyright 2016 Roeland Jago Douma <roeland@famdouma.nl>
@@ -32,13 +33,12 @@ use OCP\Settings\ISettings;
 use OCP\Util;
 
 class Admin implements ISettings {
-
-	protected IInitialState $initialStateService;
+	protected IInitialState $initialState;
 	protected IURLGenerator $url;
 	protected IConfig $config;
 
-	public function __construct(IInitialState $initialStateService, IURLGenerator $url, IConfig $config) {
-		$this->initialStateService = $initialStateService;
+	public function __construct(IInitialState $initialState, IURLGenerator $url, IConfig $config) {
+		$this->initialState = $initialState;
 		$this->url = $url;
 		$this->config = $config;
 	}
@@ -46,12 +46,12 @@ class Admin implements ISettings {
 	public function getForm(): TemplateResponse {
 		Util::addScript('files_retention', 'files_retention-main');
 
-		$this->initialStateService->provideInitialState(
+		$this->initialState->provideInitialState(
 			'doc-url',
 			$this->url->linkToDocs('admin-files-retention')
 		);
 
-		$this->initialStateService->provideInitialState(
+		$this->initialState->provideInitialState(
 			'notify_before',
 			$this->config->getAppValue(Application::APP_ID, 'notify_before', 'no') === 'yes'
 		);
