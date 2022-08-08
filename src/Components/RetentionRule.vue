@@ -5,19 +5,19 @@
 <template>
 	<tr>
 		<td class="retention-rule__name">
-			<span>{{ tagName }}</span>
+			{{ tagName }}
 		</td>
 		<td class="retention-rule__amount">
-			<span>{{ timeamount }}</span>
+			{{ timeamount }}
 		</td>
 		<td class="retention-rule__unit">
-			<span>{{ getUnit }}</span>
+			{{ getUnit }}
 		</td>
 		<td class="retention-rule__after">
-			<span>{{ getAfter }}</span>
+			{{ getAfter }}
 		</td>
 		<td class="retention-rule__active">
-			<span>{{ hasJobLabel }}</span>
+			{{ hasJobLabel }}
 		</td>
 		<td class="retention-rule__action">
 			<VueButton type="tertiary"
