@@ -25,20 +25,6 @@
 <div id="files_retention"></div>
 
 <form id="retention" class="section" data-systemtag-id="">
-	<table>
-		<thead class="hidden" id="retention-list-header">
-			<th><?php p($l->t('Tag')); ?></th>
-			<th><?php p($l->t('Retention')); ?></th>
-			<th><?php p($l->t('Time')); ?></th>
-			<th><?php p($l->t('After')); ?></th>
-			<th><?php p($l->t('Active')); ?></th>
-			<th></th>
-		</thead>
-		<tbody id="retention-list">
-
-		</tbody>
-	</table>
-
 	<input type="hidden" name="retention_tag" id="retention_tag" placeholder="<?php p($l->t('Select tag…')); ?>" style="width: 400px;" />
 	<br>
 	<input type="number" id="retention_amount" name="retention_amount" value="10" style="width: 200px;">
