@@ -55,6 +55,7 @@ class APIControllerTest extends \Test\TestCase {
 
 	/** @var IJobList|MockObject */
 	private $jobList;
+
 	private APIController $api;
 
 	protected function setUp(): void {
