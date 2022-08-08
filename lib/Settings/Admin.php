@@ -44,14 +44,6 @@ class Admin implements ISettings {
 	}
 
 	public function getForm(): TemplateResponse {
-		Util::addScript('files_retention', 'retentionmodel');
-		Util::addScript('files_retention', 'template');
-		Util::addScript('files_retention', 'retentioncollection');
-		Util::addScript('files_retention', 'retentionview');
-		Util::addScript('files_retention', 'admin');
-
-		Util::addStyle('files_retention', 'retention');
-
 		Util::addScript('files_retention', 'files_retention-main');
 
 		$this->initialStateService->provideInitialState(
