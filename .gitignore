@@ -4,6 +4,7 @@
 
 # Build related files
 /build
+/js
 /node_modules
 /vendor
 
