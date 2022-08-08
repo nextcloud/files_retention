@@ -4,8 +4,5 @@ module.exports = {
 	],
 	globals: {
 		'$': true
-	},
-	rules: {
-		'no-control-regex': 1
 	}
 }
