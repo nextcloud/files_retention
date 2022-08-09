@@ -1,8 +1,5 @@
 module.exports = {
 	extends: [
-		'@nextcloud'
+		'@nextcloud',
 	],
-	globals: {
-		'$': true
-	}
 }
