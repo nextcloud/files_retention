@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import VueButton from '@nextcloud/vue/dist/Components/Button'
-import Delete from 'vue-material-design-icons/Delete'
+import VueButton from '@nextcloud/vue/dist/Components/Button.js'
+import Delete from 'vue-material-design-icons/Delete.vue'
 
 import { showSuccess } from '@nextcloud/dialogs'
 
