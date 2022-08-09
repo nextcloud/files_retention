@@ -94,13 +94,13 @@
 </template>
 
 <script>
-import VueButton from '@nextcloud/vue/dist/Components/Button'
-import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch'
-import Multiselect from '@nextcloud/vue/dist/Components/Multiselect'
-import MultiselectTags from '@nextcloud/vue/dist/Components/MultiselectTags'
-import Plus from 'vue-material-design-icons/Plus'
-import SettingsSection from '@nextcloud/vue/dist/Components/SettingsSection'
-import TextField from '@nextcloud/vue/dist/Components/TextField'
+import VueButton from '@nextcloud/vue/dist/Components/Button.js'
+import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch.js'
+import Multiselect from '@nextcloud/vue/dist/Components/Multiselect.js'
+import MultiselectTags from '@nextcloud/vue/dist/Components/MultiselectTags.js'
+import Plus from 'vue-material-design-icons/Plus.vue'
+import SettingsSection from '@nextcloud/vue/dist/Components/SettingsSection.js'
+import TextField from '@nextcloud/vue/dist/Components/TextField.js'
 
 import RetentionRule from './Components/RetentionRule.vue'
 

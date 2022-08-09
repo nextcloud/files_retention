@@ -27,6 +27,7 @@ const mutations = {
 	 * @param {object} rule the rule
 	 */
 	addRule(state, rule) {
+		// eslint-disable-next-line import/no-named-as-default-member
 		Vue.set(state.retentionRules, rule.id, rule)
 	},
 
