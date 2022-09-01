@@ -1,0 +1,8 @@
+{ "translations": {
+    "Delete" : "Borrar",
+    "Yes" : "Si",
+    "No" : "No",
+    "Open documentation" : "Ubrir documentazión",
+    "Create" : "Crear"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
