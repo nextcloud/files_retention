@@ -1,6 +1,6 @@
 { "translations": {
-    "Delete" : "O'chir",
-    "Yes" : "Ha",
-    "No" : "Yo'q"
+    "Delete" : "Delete",
+    "Yes" : "Yes",
+    "No" : "No"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

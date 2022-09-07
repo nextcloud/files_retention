@@ -1,8 +1,8 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Delete" : "O'chir",
-    "Yes" : "Ha",
-    "No" : "Yo'q"
+    "Delete" : "Delete",
+    "Yes" : "Yes",
+    "No" : "No"
 },
 "nplurals=1; plural=0;");
