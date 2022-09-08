@@ -1,6 +1,7 @@
 { "translations": {
     "Delete" : "Delete",
     "Yes" : "Yes",
-    "No" : "No"
+    "No" : "No",
+    "Open documentation" : "Hujjatlarni ochish"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
