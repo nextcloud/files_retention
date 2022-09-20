@@ -8,6 +8,7 @@ OC.L10N.register(
     "Months" : "Mánuðir",
     "Years" : "Ár",
     "Creation" : "Búið til",
+    "Last modification" : "Síðast breyting",
     "Delete" : "Eyða",
     "Yes" : "Já",
     "No" : "Nei",
