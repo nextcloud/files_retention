@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae6dba508d8945f4935d3519309fd47b",
+    "content-hash": "8f6d7567d4543e4520d13ee8a9dec943",
     "packages": [],
     "packages-dev": [
         {
@@ -172,49 +172,6 @@
                 }
             ],
             "time": "2021-03-30T17:13:30+00:00"
-        },
-        {
-            "name": "christophwurst/nextcloud",
-            "version": "dev-stable24",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ChristophWurst/nextcloud_composer.git",
-                "reference": "13c86ee94db9b60be2facd5494736bcb6405e405"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ChristophWurst/nextcloud_composer/zipball/13c86ee94db9b60be2facd5494736bcb6405e405",
-                "reference": "13c86ee94db9b60be2facd5494736bcb6405e405",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.4 || ~8.0 || ~8.1",
-                "psr/container": "^1.1.1",
-                "psr/event-dispatcher": "^1.0",
-                "psr/log": "^1.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "24.0.0-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "AGPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Christoph Wurst",
-                    "email": "christoph@winzerhof-wurst.at"
-                }
-            ],
-            "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
-            "support": {
-                "issues": "https://github.com/ChristophWurst/nextcloud_composer/issues",
-                "source": "https://github.com/ChristophWurst/nextcloud_composer/tree/stable24"
-            },
-            "time": "2022-06-02T14:12:23+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -1102,6 +1059,48 @@
                 "source": "https://github.com/nextcloud/coding-standard/tree/v1.0.0"
             },
             "time": "2021-11-10T08:44:10+00:00"
+        },
+        {
+            "name": "nextcloud/ocp",
+            "version": "dev-stable24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nextcloud-deps/ocp.git",
+                "reference": "aa88708d8280ffd8498ccda9954d923a1da55c92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/aa88708d8280ffd8498ccda9954d923a1da55c92",
+                "reference": "aa88708d8280ffd8498ccda9954d923a1da55c92",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ~8.0 || ~8.1",
+                "psr/container": "^1.1.1",
+                "psr/event-dispatcher": "^1.0",
+                "psr/log": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "24.0.0-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Wurst",
+                    "email": "christoph@winzerhof-wurst.at"
+                }
+            ],
+            "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
+            "support": {
+                "source": "https://github.com/nextcloud-deps/ocp/tree/stable24"
+            },
+            "time": "2022-09-27T08:15:22+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4843,7 +4842,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "christophwurst/nextcloud": 20
+        "nextcloud/ocp": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
