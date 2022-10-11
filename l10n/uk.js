@@ -2,6 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Select tag…" : "Вибрати позначку...",
+    "Years" : "Роки ",
     "Delete" : "Вилучити",
     "Yes" : "Так",
     "No" : "Ні",
