@@ -3,7 +3,7 @@
   - SPDX-License-Identifier: AGPL-3.0-only
   -->
 <template>
-	<SettingsSection :title="t('files_retention', 'File retention')"
+	<NcSettingsSection :title="t('files_retention', 'File retention')"
 		:doc-url="docUrl"
 		:description="t('files_retention', 'Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')">
 		<table class="retention-rules-table">
@@ -38,21 +38,21 @@
 
 				<tr>
 					<td class="retention-rule__name">
-						<MultiselectTags v-model="newTag"
+						<NcMultiselectTags v-model="newTag"
 							:disabled="loading"
 							:multiple="false"
 							:filter="filterAvailableTagList"
 							:close-on-select="true" />
 					</td>
 					<td class="retention-rule__amount">
-						<TextField :value.sync="newAmount"
+						<NcTextField :value.sync="newAmount"
 							:disabled="loading"
 							type="text"
 							:label="amountLabel"
 							:placeholder="''" />
 					</td>
 					<td class="retention-rule__unit">
-						<Multiselect v-model="newUnit"
+						<NcMultiselect v-model="newUnit"
 							:disabled="loading"
 							:options="unitOptions"
 							:allow-empty="false"
@@ -61,7 +61,7 @@
 							:close-on-select="true" />
 					</td>
 					<td class="retention-rule__after">
-						<Multiselect v-model="newAfter"
+						<NcMultiselect v-model="newAfter"
 							:disabled="loading"
 							:options="afterOptions"
 							:allow-empty="false"
@@ -71,36 +71,36 @@
 					</td>
 					<td class="retention-rule__active" />
 					<td class="retention-rule__action">
-						<VueButton type="tertiary"
+						<NcButton type="tertiary"
 							:disabled="loading"
 							:aria-label="createLabel"
 							@click="onClickCreate">
 							<template #icon>
 								<Plus :size="20" />
 							</template>
-						</VueButton>
+						</NcButton>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 
-		<CheckboxRadioSwitch type="switch"
+		<NcCheckboxRadioSwitch type="switch"
 			:checked="notifyBefore"
 			:loading="loadingNotifyBefore"
 			@update:checked="onToggleNotifyBefore">
 			{{ t('files_retention', 'Notify users a day before retention will delete a file') }}
-		</CheckboxRadioSwitch>
-	</SettingsSection>
+		</NcCheckboxRadioSwitch>
+	</NcSettingsSection>
 </template>
 
 <script>
-import VueButton from '@nextcloud/vue/dist/Components/Button.js'
-import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch.js'
-import Multiselect from '@nextcloud/vue/dist/Components/Multiselect.js'
-import MultiselectTags from '@nextcloud/vue/dist/Components/MultiselectTags.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import NcMultiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
+import NcMultiselectTags from '@nextcloud/vue/dist/Components/NcMultiselectTags.js'
 import Plus from 'vue-material-design-icons/Plus.vue'
-import SettingsSection from '@nextcloud/vue/dist/Components/SettingsSection.js'
-import TextField from '@nextcloud/vue/dist/Components/TextField.js'
+import NcSettingsSection from '@nextcloud/vue/dist/Components/NcSettingsSection.js'
+import NcTextField from '@nextcloud/vue/dist/Components/NcTextField.js'
 
 import RetentionRule from './Components/RetentionRule.vue'
 
@@ -111,14 +111,14 @@ export default {
 	name: 'AdminSettings',
 
 	components: {
-		VueButton,
-		CheckboxRadioSwitch,
-		Multiselect,
-		MultiselectTags,
+		NcButton,
+		NcCheckboxRadioSwitch,
+		NcMultiselect,
+		NcMultiselectTags,
 		Plus,
 		RetentionRule,
-		SettingsSection,
-		TextField,
+		NcSettingsSection,
+		NcTextField,
 	},
 
 	data() {
