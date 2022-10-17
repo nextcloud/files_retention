@@ -216,6 +216,7 @@ export default {
 			const newTag = this.newTag?.id ?? this.newTag
 			const newUnit = this.newUnit?.id ?? this.newUnit
 			const newAfter = this.newAfter?.id ?? this.newAfter
+			const newAmount = parseInt(this.newAmount, 10)
 
 			if (newTag < 0) {
 				showError(t('files_retention', 'Invalid tag selected'))
@@ -224,10 +225,30 @@ export default {
 
 			const tagName = OC.SystemTags.collection.get(newTag)?.attributes?.name
 
+			if (this.tagIdsWithRule.includes(newTag)) {
+				showError(t('files_retention', 'Tag {tagName} already has a retention rule', { tagName }))
+				return
+			}
+
+			if (newUnit < 0 || newUnit > 3) {
+				showError(t('files_retention', 'Invalid unit option'))
+				return
+			}
+
+			if (newAfter < 0 || newAfter > 1) {
+				showError(t('files_retention', 'Invalid action option'))
+				return
+			}
+
+			if (isNaN(newAmount) || newAmount < 1) {
+				showError(t('files_retention', 'Invalid retention time'))
+				return
+			}
+
 			try {
 				await this.$store.dispatch('createNewRule', {
 					tagid: newTag,
-					timeamount: this.newAmount,
+					timeamount: newAmount,
 					timeunit: newUnit,
 					timeafter: newAfter,
 				})
