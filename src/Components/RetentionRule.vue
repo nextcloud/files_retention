@@ -20,19 +20,19 @@
 			{{ hasJobLabel }}
 		</td>
 		<td class="retention-rule__action">
-			<VueButton type="tertiary"
+			<NcButton type="tertiary"
 				:aria-label="deleteLabel"
 				@click="onClickDelete">
 				<template #icon>
 					<Delete :size="20" />
 				</template>
-			</VueButton>
+			</NcButton>
 		</td>
 	</tr>
 </template>
 
 <script>
-import VueButton from '@nextcloud/vue/dist/Components/Button.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import Delete from 'vue-material-design-icons/Delete.vue'
 
 import { showSuccess } from '@nextcloud/dialogs'
@@ -41,7 +41,7 @@ export default {
 	name: 'RetentionRule',
 
 	components: {
-		VueButton,
+		NcButton,
 		Delete,
 	},
 
