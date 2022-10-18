@@ -130,15 +130,18 @@ export default {
 		max-width: 200px;
 		white-space: nowrap;
 		overflow: hidden;
-		padding: 10px;
+		padding: 10px 10px 10px 13px;
 	}
 
 	&__amount {
 		text-align: right;
+		padding-right: 23px;
 	}
 
 	&__action {
-		padding: 0 10px;
+		padding-left: 10px;
+		flex-direction: row-reverse;
+		display: flex;
 	}
 }
 </style>
