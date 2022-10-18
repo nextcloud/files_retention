@@ -21,9 +21,6 @@
 					<th class="retention-heading__after">
 						{{ t('files_retention','From date of') }}
 					</th>
-					<th class="retention-heading__active">
-						{{ t('files_retention','Active') }}
-					</th>
 					<th class="retention-heading__action">
 						{{ t('files_retention','Actions') }}
 					</th>
@@ -69,7 +66,6 @@
 							label="label"
 							:close-on-select="true" />
 					</td>
-					<td class="retention-rule__active" />
 					<td class="retention-rule__action">
 						<NcButton type="tertiary"
 							:disabled="loading"
