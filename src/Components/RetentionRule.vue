@@ -16,9 +16,6 @@
 		<td class="retention-rule__after">
 			{{ getAfter }}
 		</td>
-		<td class="retention-rule__active">
-			{{ hasJobLabel }}
-		</td>
 		<td class="retention-rule__action">
 			<NcButton type="tertiary"
 				:aria-label="deleteLabel"
@@ -97,10 +94,6 @@ export default {
 			default:
 				return t('files_retention', 'Last modification')
 			}
-		},
-
-		hasJobLabel() {
-			return this.hasJob ? t('files_retention', 'Yes') : t('files_retention', 'No')
 		},
 
 		deleteLabel() {
