@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.14.0 – 2022-10-18
+### Changed
+- Require Nextcloud 25
+
 ## 1.13.2 – 2022-07-11
 ### Fixed
 - Fix UI not showing when a tag for any rule is missing
