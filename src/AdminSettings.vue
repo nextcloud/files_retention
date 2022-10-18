@@ -288,15 +288,38 @@ export default {
 		&__active,
 		&__action {
 			color: var(--color-text-maxcontrast);
-			padding: 10px;
+			padding: 10px 10px 10px 0;
 		}
-
 		&__amount {
 			text-align: right;
 		}
 
 		&__action {
-			padding: 0 10px;
+			padding-left: 10px;
+			flex-direction: row-reverse;
+			display: flex;
+		}
+	}
+
+	.retention-heading {
+		&__name,
+		&__unit,
+		&__after,
+		&__active,
+		&__action {
+			padding-left: 13px;
+		}
+
+		&__amount {
+			padding-right: 23px;
+		}
+	}
+
+	.retention-rule {
+		&__amount {
+			::v-deep .input-field__input {
+				text-align: right;
+			}
 		}
 	}
 }
