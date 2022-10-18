@@ -21,9 +21,7 @@
 					<th class="retention-heading__after">
 						{{ t('files_retention','From date of') }}
 					</th>
-					<th class="retention-heading__action">
-						{{ t('files_retention','Actions') }}
-					</th>
+					<th class="retention-heading__action"></th>
 				</tr>
 			</thead>
 			<tbody>
