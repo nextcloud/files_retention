@@ -65,7 +65,7 @@
 							:close-on-select="true" />
 					</td>
 					<td class="retention-rule__action">
-						<NcButton type="tertiary"
+						<NcButton type="secondary"
 							:disabled="loading"
 							:aria-label="createLabel"
 							@click="onClickCreate">
