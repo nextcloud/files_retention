@@ -11,6 +11,39 @@ version+=master
 
 all: appstore
 
+# Dev env management
+dev-setup: clean npm-init
+
+npm-init:
+	npm ci
+
+npm-update:
+	npm update
+
+# Building
+build-js:
+	npm run dev
+
+build-js-production:
+	npm run build
+
+watch-js:
+	npm run watch
+
+# Linting
+lint:
+	npm run lint
+
+lint-fix:
+	npm run lint:fix
+
+# Style linting
+stylelint:
+	npm run stylelint
+
+stylelint-fix:
+	npm run stylelint:fix
+
 release: appstore create-tag
 
 create-tag:
@@ -20,35 +53,39 @@ create-tag:
 clean:
 	rm -rf $(build_dir)
 	rm -rf node_modules
+	rm -rf js
 
-appstore: clean
+appstore: dev-setup build-js-production
 	mkdir -p $(sign_dir)
 	rsync -a \
 	--exclude=/build \
-	--exclude=/check-handlebars-templates.sh \
-	--exclude=/compile-handlebars-templates.sh \
+	--exclude=/.eslintrc.js \
+	--exclude=/babel.config.js \
 	--exclude=/CONTRIBUTING.md \
 	--exclude=/composer.json \
 	--exclude=/composer.lock \
 	--exclude=/docs \
-	--exclude=/.drone.yml \
 	--exclude=/.git \
 	--exclude=/.github \
-	--exclude=/issue_template.md \
-	--exclude=/l10n/l10n.pl \
-	--exclude=/README.md \
 	--exclude=/.gitattributes \
 	--exclude=/.gitignore \
 	--exclude=/.l10nignore \
+	--exclude=/Makefile \
+	--exclude=/node_modules \
 	--exclude=/.php-cs-fixer.cache \
 	--exclude=/.php-cs-fixer.dist.php \
+	--exclude=/package.json \
+	--exclude=/package-lock.json \
 	--exclude=/psalm.xml \
+	--exclude=/README.md \
 	--exclude=/screenshots \
+	--exclude=/src \
+	--exclude=/stylelint.config.js \
 	--exclude=/tests \
 	--exclude=/translationfiles \
 	--exclude=/.tx \
 	--exclude=/vendor \
-	--exclude=/Makefile \
+	--exclude=/webpack.config.js \
 	$(project_dir)/ $(sign_dir)/$(app_name)
 	tar -czf $(build_dir)/$(app_name).tar.gz \
 		-C $(sign_dir) $(app_name)

@@ -24,8 +24,9 @@ namespace OCA\Files_Retention\Tests\Settings;
 
 use OCA\Files_Retention\Settings\Admin;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
-use OCP\IInitialStateService;
+use OCP\IURLGenerator;
 use Test\TestCase;
 
 class AdminTest extends TestCase {
@@ -33,14 +34,16 @@ class AdminTest extends TestCase {
 	private $admin;
 
 	private $initialStateService;
+	private $url;
 	private $config;
 
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->initialStateService = $this->createMock(IInitialStateService::class);
+		$this->initialStateService = $this->createMock(IInitialState::class);
+		$this->url = $this->createMock(IURLGenerator::class);
 		$this->config = $this->createMock(IConfig::class);
-		$this->admin = new Admin($this->initialStateService, $this->config);
+		$this->admin = new Admin($this->initialStateService, $this->url, $this->config);
 	}
 
 	public function testGetForm() {
