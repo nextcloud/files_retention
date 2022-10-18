@@ -182,7 +182,7 @@ export default {
 				'notify_before',
 				newNotifyBefore ? 'yes' : 'no',
 				{
-					success() {
+					success: function() {
 						if (newNotifyBefore) {
 							showSuccess(t('files_retention', 'Users are now notified one day before a file or folder is being deleted'))
 						} else {
@@ -191,11 +191,11 @@ export default {
 
 						this.loadingNotifyBefore = false
 						this.notifyBefore = newNotifyBefore
-					},
-					error() {
+					}.bind(this),
+					error: function() {
 						this.loadingNotifyBefore = false
 						showError(t('files_retention', 'An error occurred while changing the setting'))
-					},
+					}.bind(this),
 				}
 			)
 		},
