@@ -7,11 +7,8 @@
 		<td class="retention-rule__name">
 			{{ tagName }}
 		</td>
-		<td class="retention-rule__amount">
-			{{ timeamount }}
-		</td>
-		<td class="retention-rule__unit">
-			{{ getUnit }}
+		<td class="retention-rule__time">
+			{{ getAmountAndUnit }}
 		</td>
 		<td class="retention-rule__after">
 			{{ getAfter }}
@@ -74,16 +71,16 @@ export default {
 			return OC.SystemTags.collection.get(this.tagid)?.attributes?.name
 		},
 
-		getUnit() {
+		getAmountAndUnit() {
 			switch (this.timeunit) {
 			case 0:
-				return t('files_retention', 'Days')
+				return n('files_retention', '%n day', '%n days', this.timeamount)
 			case 1:
-				return t('files_retention', 'Weeks')
+				return n('files_retention', '%n week', '%n weeks', this.timeamount)
 			case 2:
-				return t('files_retention', 'Months')
+				return n('files_retention', '%n month', '%n months', this.timeamount)
 			default:
-				return t('files_retention', 'Years')
+				return n('files_retention', '%n year', '%n years', this.timeamount)
 			}
 		},
 
@@ -113,8 +110,7 @@ export default {
 <style scoped lang="scss">
 .retention-rule {
 	&__name,
-	&__amount,
-	&__unit,
+	&__time,
 	&__after,
 	&__active,
 	&__action {
@@ -126,9 +122,8 @@ export default {
 		padding: 10px 10px 10px 13px;
 	}
 
-	&__amount {
-		text-align: right;
-		padding-right: 23px;
+	&__time {
+		text-align: center;
 	}
 
 	&__action {

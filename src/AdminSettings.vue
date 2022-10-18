@@ -12,11 +12,8 @@
 					<th class="retention-heading__name">
 						{{ t('files_retention', 'Files tagged with') }}
 					</th>
-					<th class="retention-heading__amount">
-						{{ t('files_retention','Retention') }}
-					</th>
-					<th class="retention-heading__unit">
-						{{ t('files_retention','Time') }}
+					<th class="retention-heading__time">
+						{{ t('files_retention','Retention time') }}
 					</th>
 					<th class="retention-heading__after">
 						{{ t('files_retention','From date of') }}
@@ -39,14 +36,12 @@
 							:filter="filterAvailableTagList"
 							:close-on-select="true" />
 					</td>
-					<td class="retention-rule__amount">
+					<td class="retention-rule__time">
 						<NcTextField :value.sync="newAmount"
 							:disabled="loading"
 							type="text"
 							:label="amountLabel"
 							:placeholder="''" />
-					</td>
-					<td class="retention-rule__unit">
 						<NcMultiselect v-model="newUnit"
 							:disabled="loading"
 							:options="unitOptions"
@@ -276,16 +271,17 @@ export default {
 	.retention-heading,
 	.retention-rule {
 		&__name,
-		&__amount,
-		&__unit,
+		&__time,
 		&__after,
 		&__active,
 		&__action {
 			color: var(--color-text-maxcontrast);
 			padding: 10px 10px 10px 0;
 		}
-		&__amount {
-			text-align: right;
+
+		&__time {
+			text-align: center;
+			min-width: 260px;
 		}
 
 		&__action {
@@ -297,20 +293,22 @@ export default {
 
 	.retention-heading {
 		&__name,
-		&__unit,
+		&__time,
 		&__after,
 		&__active,
 		&__action {
 			padding-left: 13px;
 		}
-
-		&__amount {
-			padding-right: 23px;
-		}
 	}
 
 	.retention-rule {
-		&__amount {
+		&__time {
+			> div {
+				width: 49%;
+				min-width: 0;
+				display: inline-block;
+			}
+
 			::v-deep .input-field__input {
 				text-align: right;
 			}
