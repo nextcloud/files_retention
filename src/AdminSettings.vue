@@ -3,14 +3,14 @@
   - SPDX-License-Identifier: AGPL-3.0-only
   -->
 <template>
-	<NcSettingsSection :title="t('files_retention', 'File retention')"
+	<NcSettingsSection :title="t('files_retention', 'File retention & automatic deletion')"
 		:doc-url="docUrl"
 		:description="t('files_retention', 'Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')">
 		<table class="retention-rules-table">
 			<thead>
 				<tr>
 					<th class="retention-heading__name">
-						{{ t('files_retention', 'Tag') }}
+						{{ t('files_retention', 'Files tagged with') }}
 					</th>
 					<th class="retention-heading__amount">
 						{{ t('files_retention','Retention') }}
@@ -19,7 +19,7 @@
 						{{ t('files_retention','Time') }}
 					</th>
 					<th class="retention-heading__after">
-						{{ t('files_retention','After') }}
+						{{ t('files_retention','From date of') }}
 					</th>
 					<th class="retention-heading__active">
 						{{ t('files_retention','Active') }}
@@ -78,6 +78,7 @@
 							<template #icon>
 								<Plus :size="20" />
 							</template>
+							{{ t('files_retention', 'Create') }}
 						</NcButton>
 					</td>
 				</tr>
@@ -88,7 +89,7 @@
 			:checked="notifyBefore"
 			:loading="loadingNotifyBefore"
 			@update:checked="onToggleNotifyBefore">
-			{{ t('files_retention', 'Notify users a day before retention will delete a file') }}
+			{{ t('files_retention', 'Notify owner a day before a file is automatically deleted') }}
 		</NcCheckboxRadioSwitch>
 	</NcSettingsSection>
 </template>
