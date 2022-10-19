@@ -1,14 +1,14 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Select tag…" : "აირჩიეთ ტეგი...",
+    "Create" : "შექმნა",
     "Creation" : "შექმნა",
+    "Select tag…" : "აირჩიეთ ტეგი...",
     "Delete" : "წაშლა",
     "Yes" : "კი",
     "No" : "არა",
     "Open documentation" : "ღია დოკუმენტაცია",
-    "Time" : "დრო",
     "after" : "შემდეგ",
-    "Create" : "შექმნა"
+    "Time" : "დრო"
 },
 "nplurals=2; plural=(n!=1);");

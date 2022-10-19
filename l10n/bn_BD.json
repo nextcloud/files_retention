@@ -1,8 +1,8 @@
 { "translations": {
+    "Create" : "তৈরী কর",
     "Delete" : "মুছে",
     "Yes" : "Yes",
     "No" : "No",
-    "Time" : "সময়",
-    "Create" : "তৈরী কর"
+    "Time" : "সময়"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
