@@ -1,10 +1,10 @@
 { "translations": {
+    "Create" : "Lag",
     "Delete" : "Ta bort",
     "Yes" : "Ja",
     "No" : "Nei",
     "Open documentation" : "Opne dokumentasjon",
-    "Time" : "Tid",
     "after" : "etter",
-    "Create" : "Lag"
+    "Time" : "Tid"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
