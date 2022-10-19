@@ -1,7 +1,7 @@
 { "translations": {
+    "Create" : "Buat",
     "Delete" : "Padam",
     "Yes" : "Yes",
-    "No" : "No",
-    "Create" : "Buat"
+    "No" : "No"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

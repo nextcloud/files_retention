@@ -1,9 +1,9 @@
 { "translations": {
+    "Create" : "Yarat",
     "Delete" : "Sil",
     "Yes" : "Yes",
     "No" : "No",
     "Open documentation" : "Sənədləri aç",
-    "Time" : "Vaxt",
-    "Create" : "Yarat"
+    "Time" : "Vaxt"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
