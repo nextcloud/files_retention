@@ -1,10 +1,10 @@
 { "translations": {
+    "Create" : "Erstellen",
     "Delete" : "Läschen",
     "Yes" : "Yes",
     "No" : "No",
     "Open documentation" : "Dokumentatioun opmaachen",
-    "Time" : "Zäit",
     "after" : "No",
-    "Create" : "Erstellen"
+    "Time" : "Zäit"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

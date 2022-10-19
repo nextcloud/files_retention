@@ -1,8 +1,8 @@
 { "translations": {
+    "Create" : "قۇر",
     "Delete" : "ئۆچۈر",
     "Yes" : "Yes",
     "No" : "No",
-    "Time" : "ۋاقىت",
-    "Create" : "قۇر"
+    "Time" : "ۋاقىت"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

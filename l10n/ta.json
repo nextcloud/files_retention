@@ -1,7 +1,7 @@
 { "translations": {
+    "Create" : "உருவாக்குக",
     "Delete" : "நீக்குக",
     "Yes" : "Yes",
-    "No" : "No",
-    "Create" : "உருவாக்குக"
+    "No" : "No"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
