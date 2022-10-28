@@ -28,7 +28,7 @@ OC.L10N.register(
     "An error occurred while changing the setting" : "Es ist ein Fehler beim Ändern der Einstellungen aufgetreten",
     "Invalid tag selected" : "Ungültiges Tag ausgewählt",
     "Tag {tagName} already has a retention rule" : "Tag {tagName} hat bereits eine Aufbewahrungsregel",
-    "Invalid unit option" : "Ungültige Einheitsoption",
+    "Invalid unit option" : "Ungültige Einheitenoption",
     "Invalid action option" : "Ungültige Aktionsoption",
     "Invalid retention time" : "Ungültige Aufbewahrungszeit",
     "Retention rule for tag {tagName} saved" : "Aufbewahrungsregel für Tag {tagName} gespeichert",
