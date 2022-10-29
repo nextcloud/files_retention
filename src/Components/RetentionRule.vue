@@ -101,7 +101,7 @@ export default {
 	methods: {
 		async onClickDelete() {
 			await this.$store.dispatch('deleteRetentionRule', this.id)
-			showSuccess(t('files_retention', 'Delete retention rule for tag {tagName} has been deleted', { tagName: this.tagName }))
+			showSuccess(t('files_retention', 'Retention rule for tag {tagName} has been deleted', { tagName: this.tagName }))
 		},
 	},
 }
