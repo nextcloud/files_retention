@@ -32,7 +32,6 @@
     "Retention rule for tag {tagName} saved" : "{tagName} etiketi için saklama kuralı kaydedildi",
     "Failed to save retention rule for tag {tagName}" : "{tagName} etkiketi için saklama kuralı kaydedilemedi",
     "Delete retention rule for tag {tagName}" : "{tagName} etiketi için saklama kuralını sil",
-    "Delete retention rule for tag {tagName} has been deleted" : "{tagName} etiketi için saklama kuralı silindi",
     "_%n day_::_%n days_" : ["%n gün","%n gün"],
     "_%n week_::_%n weeks_" : ["%n hafta","%n hafta"],
     "_%n month_::_%n months_" : ["%n ay","%n ay"],
