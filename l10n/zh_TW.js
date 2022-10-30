@@ -34,7 +34,6 @@ OC.L10N.register(
     "Retention rule for tag {tagName} saved" : "標籤 {tagName} 的保留規則已儲存",
     "Failed to save retention rule for tag {tagName}" : "儲存標籤 {tagName} 的保留規則失敗",
     "Delete retention rule for tag {tagName}" : "刪除標籤 {tagName} 的保留規則",
-    "Delete retention rule for tag {tagName} has been deleted" : "刪除標籤 {tagName} 的保留規則已被刪除",
     "_%n day_::_%n days_" : ["%n天"],
     "_%n week_::_%n weeks_" : ["%n週"],
     "_%n month_::_%n months_" : ["%n月"],
