@@ -34,6 +34,7 @@ OC.L10N.register(
     "Retention rule for tag {tagName} saved" : "Pravidlo uchovávání pro štítek {tagName} uloženo",
     "Failed to save retention rule for tag {tagName}" : "Nepodařilo se uložit pravidlo uchovávání pro štítek {tagName}",
     "Delete retention rule for tag {tagName}" : "Smazat pravidlo uchovávání pro štítek {tagName}",
+    "Retention rule for tag {tagName} has been deleted" : "Pravidlo uchovávání pro štítek {tagName} bylo smazáno",
     "_%n day_::_%n days_" : ["%n den","%n dny","%n dnů","%n dny"],
     "_%n week_::_%n weeks_" : ["%n týden","%n týdny","%n týdny","%n týdny"],
     "_%n month_::_%n months_" : ["%n měsíc","%n měsíce","%n měsíců","%n měsíce"],
