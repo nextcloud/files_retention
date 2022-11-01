@@ -32,6 +32,7 @@
     "Retention rule for tag {tagName} saved" : "La regla de retención para la etiqueta {tagName} fue guardada",
     "Failed to save retention rule for tag {tagName}" : "Fallo al guardar la regla de retención para la etiqueta {tagName}",
     "Delete retention rule for tag {tagName}" : "Regla de retención de eliminación para la etiqueta {tagName}",
+    "Retention rule for tag {tagName} has been deleted" : "La regla de retención de eliminación para la etiqueta {tagName} ha sido eliminada",
     "_%n day_::_%n days_" : ["%n día","%n días","%n días"],
     "_%n week_::_%n weeks_" : ["%n semana","%n semanas","%n semanas"],
     "_%n month_::_%n months_" : ["%n mes","%n meses","%n meses"],
