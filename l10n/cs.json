@@ -45,12 +45,12 @@
     "Error while deleting the retention rule" : "Chyba při mazání pravidla pro uchovávání",
     "File retention" : "Uchovávání souborů",
     "Open documentation" : "Otevřít dokumentaci",
-    "after" : "po",
-    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže",
     "Tag" : "Štítek",
     "Time" : "Čas",
     "After" : "Po uplynutí",
     "Active" : "Aktivní",
+    "after" : "po",
+    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže",
     "Retention rule saved" : "Pravidlo uchovávání uloženo",
     "An error occurred while trying to save the retention rule" : "Při pokusu o uložení pravidla uchovávání došlo k chybě"
 },"pluralForm" :"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"

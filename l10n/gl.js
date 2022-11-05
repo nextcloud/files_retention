@@ -20,10 +20,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Produciuse un erro ao eliminar a regra de retención",
     "File retention" : "Retención de ficheiros",
     "Open documentation" : "Abrir a documentación",
-    "after" : "após",
-    "Notify users a day before retention will delete a file" : "Notificar aos usuarios un día antes de que a retención eliminará un ficheiro",
     "Tag" : "Etiqueta",
     "Time" : "Hora",
-    "Active" : "Activo"
+    "Active" : "Activo",
+    "after" : "após",
+    "Notify users a day before retention will delete a file" : "Notificar aos usuarios un día antes de que a retención eliminará un ficheiro"
 },
 "nplurals=2; plural=(n != 1);");

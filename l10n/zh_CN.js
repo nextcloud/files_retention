@@ -23,10 +23,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "删除保留规则时出错",
     "File retention" : "文件保留",
     "Open documentation" : "打开文档",
-    "after" : "之后 ",
-    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户",
     "Tag" : "Tag",
     "Time" : "时间",
-    "Active" : "活动"
+    "Active" : "活动",
+    "after" : "之后 ",
+    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户"
 },
 "nplurals=1; plural=0;");

@@ -7,7 +7,7 @@ OC.L10N.register(
     "Yes" : "Yes",
     "No" : "Jo",
     "Open documentation" : "Dokumentacion i hapur",
-    "after" : "pas",
-    "Time" : "Kohë"
+    "Time" : "Kohë",
+    "after" : "pas"
 },
 "nplurals=2; plural=(n != 1);");

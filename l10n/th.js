@@ -6,7 +6,7 @@ OC.L10N.register(
     "Yes" : "ใช่",
     "No" : "ไม่",
     "Open documentation" : "เปิดเอกสาร",
-    "after" : "หลัง",
-    "Time" : "เวลา"
+    "Time" : "เวลา",
+    "after" : "หลัง"
 },
 "nplurals=1; plural=0;");

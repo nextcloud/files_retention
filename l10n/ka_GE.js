@@ -8,7 +8,7 @@ OC.L10N.register(
     "Yes" : "კი",
     "No" : "არა",
     "Open documentation" : "ღია დოკუმენტაცია",
-    "after" : "შემდეგ",
-    "Time" : "დრო"
+    "Time" : "დრო",
+    "after" : "შემდეგ"
 },
 "nplurals=2; plural=(n!=1);");

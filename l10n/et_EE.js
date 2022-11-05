@@ -8,7 +8,7 @@ OC.L10N.register(
     "Yes" : "Jah",
     "No" : "Ei",
     "Open documentation" : "Ava dokumentatsioon",
-    "after" : "pärast",
-    "Time" : "Aeg"
+    "Time" : "Aeg",
+    "after" : "pärast"
 },
 "nplurals=2; plural=(n != 1);");

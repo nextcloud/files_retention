@@ -8,8 +8,8 @@ OC.L10N.register(
     "Yes" : "a",
     "No" : "Nu",
     "Open documentation" : "Deschide documentația",
-    "after" : "după",
     "Time" : "Timp",
-    "Active" : "Activ"
+    "Active" : "Activ",
+    "after" : "după"
 },
 "nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));");

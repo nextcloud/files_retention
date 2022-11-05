@@ -5,7 +5,7 @@ OC.L10N.register(
     "Delete" : "հեռացնել",
     "Yes" : "Yes",
     "No" : "No",
-    "after" : "հետո",
-    "Time" : "Ժամ"
+    "Time" : "Ժամ",
+    "after" : "հետո"
 },
 "nplurals=2; plural=(n != 1);");

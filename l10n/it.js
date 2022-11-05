@@ -23,11 +23,11 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Errore durante l'eliminazione della regola di conservazione",
     "File retention" : "Conservazione file",
     "Open documentation" : "Apri documentazione",
-    "after" : "dopo",
-    "Notify users a day before retention will delete a file" : "Notifica gli utenti un giorno prima dell'eliminazione di un file",
     "Tag" : "Etichetta",
     "Time" : "Ora",
     "After" : "Dopo",
-    "Active" : "Attivo"
+    "Active" : "Attivo",
+    "after" : "dopo",
+    "Notify users a day before retention will delete a file" : "Notifica gli utenti un giorno prima dell'eliminazione di un file"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

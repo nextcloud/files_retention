@@ -19,10 +19,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "שגיאה בעת מחיקת כלל השמירה",
     "File retention" : "שמירת קבצים",
     "Open documentation" : "תיעוד פתוח",
-    "after" : "לאחר",
-    "Notify users a day before retention will delete a file" : "להודיע למשתמש בטרם מחיקת הקובץ על לידי מנגנון השמירה",
     "Tag" : "תגית",
     "Time" : "זמן",
-    "Active" : "פעיל"
+    "Active" : "פעיל",
+    "after" : "לאחר",
+    "Notify users a day before retention will delete a file" : "להודיע למשתמש בטרם מחיקת הקובץ על לידי מנגנון השמירה"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");
