@@ -1,4 +1,5 @@
 { "translations": {
+    "Create" : "Loo",
     "Not a number" : "Pole number",
     "Select tag…" : "Vali silt…",
     "Delete" : "Kustuta",
@@ -6,7 +7,6 @@
     "No" : "Ei",
     "Open documentation" : "Ava dokumentatsioon",
     "Time" : "Aeg",
-    "after" : "pärast",
-    "Create" : "Loo"
+    "after" : "pärast"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

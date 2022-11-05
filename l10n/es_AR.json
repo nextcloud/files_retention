@@ -1,11 +1,11 @@
 { "translations": {
+    "Create" : "Crear",
     "Select tag…" : "Seleccionar etiqueta...",
     "Delete" : "Eliminar",
     "Yes" : "Si",
     "No" : "No",
     "Open documentation" : "Abrir documentación",
     "Time" : "Hora",
-    "after" : "después",
-    "Create" : "Crear"
+    "after" : "después"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }

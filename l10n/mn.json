@@ -1,11 +1,11 @@
 { "translations": {
+    "Create" : "Үүсгэх",
     "Select tag…" : "хаяг сонгоно уу",
     "Delete" : "Устгах",
     "Yes" : "Тийм",
     "No" : "Үгүй",
     "Open documentation" : "бичиг баримт нээх",
     "Time" : "Цаг",
-    "after" : "дараа",
-    "Create" : "Үүсгэх"
+    "after" : "дараа"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

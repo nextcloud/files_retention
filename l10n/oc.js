@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Create" : "Crear",
     "Years" : "Annadas",
     "Delete" : "Suprimir",
     "Yes" : "Òc",
@@ -8,7 +9,6 @@ OC.L10N.register(
     "Open documentation" : "Dobrir la documentacion",
     "Time" : "Ora",
     "Active" : "Activa",
-    "after" : "aprèp",
-    "Create" : "Crear"
+    "after" : "aprèp"
 },
 "nplurals=2; plural=(n > 1);");
