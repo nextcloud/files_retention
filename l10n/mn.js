@@ -7,7 +7,7 @@ OC.L10N.register(
     "Yes" : "Тийм",
     "No" : "Үгүй",
     "Open documentation" : "бичиг баримт нээх",
-    "after" : "дараа",
-    "Time" : "Цаг"
+    "Time" : "Цаг",
+    "after" : "дараа"
 },
 "nplurals=2; plural=(n != 1);");

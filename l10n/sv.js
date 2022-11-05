@@ -23,10 +23,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Ett fel uppstod när raderingsregeln togs bort",
     "File retention" : "Fillagring",
     "Open documentation" : "Öppna dokumentationen",
-    "after" : "efter",
-    "Notify users a day before retention will delete a file" : "Meddela användare en dag innan en lagringsregel kommer radera en fil",
     "Tag" : "Tagg",
     "Time" : "Tid",
-    "Active" : "Aktiv"
+    "Active" : "Aktiv",
+    "after" : "efter",
+    "Notify users a day before retention will delete a file" : "Meddela användare en dag innan en lagringsregel kommer radera en fil"
 },
 "nplurals=2; plural=(n != 1);");

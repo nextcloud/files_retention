@@ -6,7 +6,7 @@ OC.L10N.register(
     "Yes" : "Ja",
     "No" : "Nei",
     "Open documentation" : "Opne dokumentasjon",
-    "after" : "etter",
-    "Time" : "Tid"
+    "Time" : "Tid",
+    "after" : "etter"
 },
 "nplurals=2; plural=(n != 1);");

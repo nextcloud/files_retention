@@ -7,8 +7,8 @@ OC.L10N.register(
     "Yes" : "Да",
     "No" : "Не",
     "Open documentation" : "Отвори ја документацијата",
-    "after" : "после",
     "Time" : "Време",
-    "Active" : "Активно"
+    "Active" : "Активно",
+    "after" : "после"
 },
 "nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;");

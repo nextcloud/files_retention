@@ -23,10 +23,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Σφάλμα κατά την διαγραφή κανόνα διατήρησης",
     "File retention" : "Διατήρηση αρχείου",
     "Open documentation" : "Άνοιγμα τεκμηρίωσης",
-    "after" : "μετά",
-    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου",
     "Tag" : "Ετικέτα",
     "Time" : "Ώρα",
-    "Active" : "Ενεργό"
+    "Active" : "Ενεργό",
+    "after" : "μετά",
+    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου"
 },
 "nplurals=2; plural=(n != 1);");

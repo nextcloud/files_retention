@@ -17,8 +17,8 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "파일 보존 기한 규칙을 삭제하는 중 오류 발생",
     "File retention" : "파일 보존 기한",
     "Open documentation" : "문서 열기",
-    "after" : "이후",
     "Time" : "시간",
-    "Active" : "활성화"
+    "Active" : "활성화",
+    "after" : "이후"
 },
 "nplurals=1; plural=0;");

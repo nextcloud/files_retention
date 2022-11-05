@@ -21,10 +21,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Villa kom upp við að eyða geymslureglunni",
     "File retention" : "Tímabundin geymsla skráa",
     "Open documentation" : "Opna hjálparskjöl",
-    "after" : "eftir",
-    "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá",
     "Tag" : "Merki",
     "Time" : "Tími",
-    "Active" : "Virkt"
+    "Active" : "Virkt",
+    "after" : "eftir",
+    "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

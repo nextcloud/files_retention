@@ -20,10 +20,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Virhe poistaessa säilytyssääntöä",
     "File retention" : "Tiedoston säilyttäminen",
     "Open documentation" : "Avaa dokumentaatio",
-    "after" : "jälkeen",
-    "Notify users a day before retention will delete a file" : "Ilmoita käyttäjille päivää ennen tiedoston poistamista",
     "Tag" : "Tunniste",
     "Time" : "Aika",
-    "Active" : "Aktiivinen"
+    "Active" : "Aktiivinen",
+    "after" : "jälkeen",
+    "Notify users a day before retention will delete a file" : "Ilmoita käyttäjille päivää ennen tiedoston poistamista"
 },
 "nplurals=2; plural=(n != 1);");

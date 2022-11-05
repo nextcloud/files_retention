@@ -17,8 +17,8 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "خطا هنگام حذف کردن قانون نگهداری",
     "File retention" : "حفظ پرونده",
     "Open documentation" : "مستندات باز",
-    "after" : "بعد از",
     "Time" : "زمان",
-    "Active" : "فعال کردن"
+    "Active" : "فعال کردن",
+    "after" : "بعد از"
 },
 "nplurals=2; plural=(n > 1);");

@@ -20,10 +20,10 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Грешка приликом брисања правила задржавања",
     "File retention" : "Задржавање фајла",
     "Open documentation" : "Отвори документацију",
-    "after" : "након",
-    "Notify users a day before retention will delete a file" : "Обавести корисника дан пре него што ће фајл бити обрисан",
     "Tag" : "Ознака",
     "Time" : "Време",
-    "Active" : "Активан"
+    "Active" : "Активан",
+    "after" : "након",
+    "Notify users a day before retention will delete a file" : "Обавести корисника дан пре него што ће фајл бити обрисан"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

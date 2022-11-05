@@ -23,11 +23,11 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Ошибка при удалении правила срока хранения",
     "File retention" : "Удаление файлов",
     "Open documentation" : "Открыть документацию",
-    "after" : "после",
-    "Notify users a day before retention will delete a file" : "Уведомлять пользователей за день до окончания хранения удалённых файлов",
     "Tag" : "Метка",
     "Time" : "Время",
     "After" : "После",
-    "Active" : "Активный"
+    "Active" : "Активный",
+    "after" : "после",
+    "Notify users a day before retention will delete a file" : "Уведомлять пользователей за день до окончания хранения удалённых файлов"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");

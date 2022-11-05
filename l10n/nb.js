@@ -13,8 +13,8 @@ OC.L10N.register(
     "Yes" : "Ja",
     "No" : "Nei",
     "Open documentation" : "Åpne dokumentasjon",
-    "after" : "etter",
     "Time" : "Tid",
-    "Active" : "Aktiv"
+    "Active" : "Aktiv",
+    "after" : "etter"
 },
 "nplurals=2; plural=(n != 1);");

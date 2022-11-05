@@ -17,7 +17,7 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Error al borrar la regla de retención",
     "File retention" : "Retención de archivo",
     "Open documentation" : "Abrir documentación",
-    "after" : "después",
-    "Time" : "Hora"
+    "Time" : "Hora",
+    "after" : "después"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
