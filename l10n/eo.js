@@ -8,7 +8,7 @@ OC.L10N.register(
     "Yes" : "Yes",
     "No" : "No",
     "Open documentation" : "Malfermi la dokumentaron",
-    "after" : "post",
-    "Time" : "Dato"
+    "Time" : "Dato",
+    "after" : "post"
 },
 "nplurals=2; plural=(n != 1);");

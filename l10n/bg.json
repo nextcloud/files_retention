@@ -44,12 +44,12 @@
     "Error while deleting the retention rule" : "Грешка при изтриване на правилото за запазване",
     "File retention" : "Запазване на файлове",
     "Open documentation" : "Отвори документацията",
-    "after" : "след",
-    "Notify users a day before retention will delete a file" : "Уведомява потребителите един ден преди запазването да изтрие файл",
     "Tag" : "Етикет",
     "Time" : "Час",
     "After" : "След",
     "Active" : "Активен",
+    "after" : "след",
+    "Notify users a day before retention will delete a file" : "Уведомява потребителите един ден преди запазването да изтрие файл",
     "Retention rule saved" : "Правилото за запазване е записано",
     "An error occurred while trying to save the retention rule" : "Възникна грешка при опит за записване на правилото за запазване"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

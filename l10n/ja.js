@@ -23,11 +23,11 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "保持ルールの削除中にエラーが発生しました",
     "File retention" : "ファイル保持",
     "Open documentation" : "公開文書",
-    "after" : "後",
-    "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する",
     "Tag" : "タグ",
     "Time" : "時間",
     "After" : "後",
-    "Active" : "有効"
+    "Active" : "有効",
+    "after" : "後",
+    "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する"
 },
 "nplurals=1; plural=0;");

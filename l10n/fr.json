@@ -21,11 +21,11 @@
     "Error while deleting the retention rule" : "Erreur lors de l'effacement de la règle de suppression de fichier",
     "File retention" : "Suppression programmée de fichiers",
     "Open documentation" : "Ouvrir l'aide",
-    "after" : "après ",
-    "Notify users a day before retention will delete a file" : "Notifier les utilisateurs 1 jour avant la suppression automatique d'un fichier",
     "Tag" : "Étiquette",
     "Time" : "Heure",
     "After" : "Après",
-    "Active" : "Actif"
+    "Active" : "Actif",
+    "after" : "après ",
+    "Notify users a day before retention will delete a file" : "Notifier les utilisateurs 1 jour avant la suppression automatique d'un fichier"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }

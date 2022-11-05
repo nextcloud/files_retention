@@ -12,7 +12,7 @@ OC.L10N.register(
     "Yes" : "Ja",
     "No" : "Nej",
     "Open documentation" : "Åbn dokumentation",
-    "after" : "efter",
-    "Time" : "Tid"
+    "Time" : "Tid",
+    "after" : "efter"
 },
 "nplurals=2; plural=(n != 1);");

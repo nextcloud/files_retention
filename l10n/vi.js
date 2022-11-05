@@ -13,8 +13,8 @@ OC.L10N.register(
     "Yes" : "Có",
     "No" : "Không",
     "Open documentation" : "Mở tài liệu",
-    "after" : "sau khi",
     "Time" : "Thời gian",
-    "Active" : "Hoạt động"
+    "Active" : "Hoạt động",
+    "after" : "sau khi"
 },
 "nplurals=1; plural=0;");

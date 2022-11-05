@@ -23,11 +23,11 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Fout bij verwijderen bewaartermijnregel",
     "File retention" : "Bewaartermijn van bestand",
     "Open documentation" : "Openen documentatie",
-    "after" : "na",
-    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt",
     "Tag" : "Label",
     "Time" : "Tijd",
     "After" : "Na",
-    "Active" : "Actief"
+    "Active" : "Actief",
+    "after" : "na",
+    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt"
 },
 "nplurals=2; plural=(n != 1);");

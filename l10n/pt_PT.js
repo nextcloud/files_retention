@@ -8,8 +8,8 @@ OC.L10N.register(
     "Yes" : "Sim",
     "No" : "Não",
     "Open documentation" : "Abrir documentação",
-    "after" : "depois",
     "Tag" : "Etiqueta",
-    "Time" : "Tempo"
+    "Time" : "Tempo",
+    "after" : "depois"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

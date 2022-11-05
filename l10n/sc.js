@@ -23,9 +23,9 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Errore in sa cantzelladura de sa règula de allogada",
     "File retention" : "Allogada de archìviu",
     "Open documentation" : "Aberi documentatzione",
-    "after" : "a pustis",
-    "Notify users a day before retention will delete a file" : "Sa notìfica de utentes una die in antis de s'allogada at a cantzellare un'archìviu",
     "Time" : "Ora",
-    "Active" : "Ativu"
+    "Active" : "Ativu",
+    "after" : "a pustis",
+    "Notify users a day before retention will delete a file" : "Sa notìfica de utentes una die in antis de s'allogada at a cantzellare un'archìviu"
 },
 "nplurals=2; plural=(n != 1);");

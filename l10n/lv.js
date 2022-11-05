@@ -16,8 +16,8 @@ OC.L10N.register(
     "Error while deleting the retention rule" : "Kļūda, dzēšot saglabāšanas kārtulu",
     "File retention" : "Datņu glabāšana",
     "Open documentation" : "Atvērt dokumentāciju",
-    "after" : "pēc",
     "Tag" : "Birkas",
-    "Time" : "Laiks"
+    "Time" : "Laiks",
+    "after" : "pēc"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");
