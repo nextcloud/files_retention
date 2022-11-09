@@ -27,6 +27,7 @@ namespace OCA\Files_Retention\Notification;
 
 use OCA\Files_Retention\AppInfo\Application;
 use OCP\Files\IRootFolder;
+use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
 use OCP\Notification\AlreadyProcessedException;
 use OCP\Notification\INotification;
@@ -37,10 +38,13 @@ class Notifier implements INotifier {
 	private $l10Factory;
 	/** @var IRootFolder */
 	private $rootFolder;
+	/** @var IURLGenerator */
+	private $url;
 
-	public function __construct(IFactory $l10Factory, IRootFolder $rootFolder) {
+	public function __construct(IFactory $l10Factory, IRootFolder $rootFolder, IURLGenerator $url) {
 		$this->l10Factory = $l10Factory;
 		$this->rootFolder = $rootFolder;
+		$this->url = $url;
 	}
 
 
@@ -61,8 +65,9 @@ class Notifier implements INotifier {
 		$userFolder = $this->rootFolder->getUserFolder($notification->getUser());
 
 		$subject = $notification->getSubjectParameters();
+		$fileId = (int)$subject['fileId'];
 
-		$nodes = $userFolder->getById((int)$subject['fileId']);
+		$nodes = $userFolder->getById($fileId);
 		if (empty($nodes)) {
 			throw new AlreadyProcessedException();
 		}
@@ -78,13 +83,15 @@ class Notifier implements INotifier {
 						'name' => $node->getName(),
 						'path' => $userFolder->getRelativePath($node->getPath()),
 						'mimetype' => $node->getMimetype(),
+						'link' => $this->url->linkToRouteAbsolute('files.viewcontroller.showFile', ['fileid' => $fileId]),
 					],
 				])
 			->setParsedSubject(str_replace('{file}', $node->getName(), $l->t('{file} will be removed in 24 hours')))
 			->setRichMessage(
 				$l->t('Your systems retention rules will delete this file within 24 hours.')
 			)
-			->setParsedMessage($l->t('Your systems retention rules will delete this file within 24 hours.'));
+			->setParsedMessage($l->t('Your systems retention rules will delete this file within 24 hours.'))
+			->setIcon($this->url->getAbsoluteURL($this->url->imagePath('files_retention', 'app-dark.svg')));
 
 		return $notification;
 	}
