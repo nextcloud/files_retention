@@ -34,6 +34,7 @@ OC.L10N.register(
     "Retention rule for tag {tagName} saved" : "Записано е правило за запазване на етикета {tagName}",
     "Failed to save retention rule for tag {tagName}" : "Неуспешно записано правило за запазване за етикета {tagName}",
     "Delete retention rule for tag {tagName}" : "Изтриване на правило за запазване за етикет {tagName}",
+    "Retention rule for tag {tagName} has been deleted" : "Правилото за запазване на етикет {tagName} е изтрито",
     "_%n day_::_%n days_" : ["%n дни","%n дни"],
     "_%n week_::_%n weeks_" : ["%n седмици","%n седмици"],
     "_%n month_::_%n months_" : ["%n месеци","%n месеци"],
