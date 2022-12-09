@@ -50,7 +50,7 @@ const actions = {
 	 */
 	async loadRetentionRules(context) {
 		const response = await getRetentionRules()
-		response.data.forEach((rule) => {
+		response.data.ocs.data.forEach((rule) => {
 			context.commit('addRule', rule)
 		})
 	},
@@ -62,7 +62,7 @@ const actions = {
 
 	async createNewRule(context, rule) {
 		const response = await createRetentionRule(rule)
-		context.commit('addRule', response.data)
+		context.commit('addRule', response.data.ocs.data)
 	},
 }
 
