@@ -108,8 +108,6 @@ class APIControllerTest extends \Test\TestCase {
 			->with(RetentionJob::class, ['tag' => '42']);
 
 		$response = $this->api->addRetention(42, Constants::MONTH, 1);
-		$this->assertInstanceOf(Http\JSONResponse::class, $response);
-		/** @var Http\JSONResponse $response */
 
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')
@@ -137,17 +135,17 @@ class APIControllerTest extends \Test\TestCase {
 	public function testDeleteRetentionNotFound() {
 		$response = $this->api->deleteRetention(42);
 
-		$this->assertInstanceOf(Http\NotFoundResponse::class, $response);
+		$this->assertSame(Http::STATUS_NOT_FOUND, $response->getStatus());
 	}
 
-	public function testDeleteRetention() {
+	public function testDeleteRetention(): void {
 		$qb = $this->db->getQueryBuilder();
 
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter(42))
 			->setValue('time_unit', $qb->createNamedParameter(1))
 			->setValue('time_amount', $qb->createNamedParameter(2));
-		$qb->execute();
+		$qb->executeStatement();
 		$id = $qb->getLastInsertId();
 
 		$this->jobList->expects($this->once())
@@ -159,7 +157,7 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame(Http::STATUS_NO_CONTENT, $response->getStatus());
 	}
 
-	public function dataGetRetentions() {
+	public function dataGetRetentions(): array {
 		return [
 			[
 				[]
@@ -204,7 +202,7 @@ class APIControllerTest extends \Test\TestCase {
 				->setValue('time_unit', $qb->createNamedParameter($d['timeunit']))
 				->setValue('time_amount', $qb->createNamedParameter($d['timeamount']))
 				->setValue('time_after', $qb->createNamedParameter($d['timeafter']));
-			$qb->execute();
+			$qb->executeStatement();
 
 			$id = $qb->getLastInsertId();
 
@@ -221,76 +219,6 @@ class APIControllerTest extends \Test\TestCase {
 
 		$response = $this->api->getRetentions();
 
-		$this->assertInstanceOf(Http\JSONResponse::class, $response);
-		$this->assertSame($expected, $response->getData());
-	}
-
-	public function dataEditRetentionBadRequest() {
-		return [
-			[null, null],
-			[null, 0],
-			[Constants::DAY, 0],
-			[-1, null],
-			[4, null],
-			[-1, 0],
-		];
-	}
-
-	/**
-	 * @dataProvider dataEditRetentionBadRequest
-	 * @param int|null $timeunit
-	 * @param int|null $timeamount
-	 */
-	public function testEditRetentionBadRequest($timeunit, $timeamount) {
-		$response = $this->api->editRetention(42, $timeunit, $timeamount);
-
-		$this->assertInstanceOf(Http\Response::class, $response);
-		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
-	}
-
-	public function testEditRetentionNoRetetion() {
-		$response = $this->api->editRetention(42, Constants::DAY, 6);
-
-		$this->assertInstanceOf(Http\NotFoundResponse::class, $response);
-	}
-
-	public function dataEditRetention() {
-		return [
-			[Constants::MONTH, null],
-			[null, 2],
-			[Constants::YEAR, 10],
-		];
-	}
-
-	/**
-	 * @dataProvider dataEditRetention
-	 * @param int|null $timeunit
-	 * @param int|null $timeamount
-	 */
-	public function testEditRetention($timeunit, $timeamount) {
-		$qb = $this->db->getQueryBuilder();
-		$qb->insert('retention')
-			->setValue('tag_id', $qb->createNamedParameter(42))
-			->setValue('time_unit', $qb->createNamedParameter(Constants::DAY))
-			->setValue('time_amount', $qb->createNamedParameter(1));
-		$qb->execute();
-
-		$id = $qb->getLastInsertId();
-
-		$expected = [
-			'id' => $id,
-			'tagid' => 42,
-			'timeunit' => $timeunit === null ? Constants::DAY : $timeunit,
-			'timeamount' => $timeamount === null ? 1 : $timeamount,
-			'timeafter' => 0,
-			'hasJob' => true,
-		];
-
-		$response = $this->api->editRetention($id, $timeunit, $timeamount);
-
-		$this->assertInstanceOf(Http\JSONResponse::class, $response);
-		/** @var Http\JSONResponse $response */
-		$this->assertSame(Http::STATUS_OK, $response->getStatus());
 		$this->assertSame($expected, $response->getData());
 	}
 }
