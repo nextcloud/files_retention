@@ -26,6 +26,5 @@ return [
 		['name' => 'API#getRetentions', 'url' => '/api/v1/retentions', 'verb' => 'GET'],
 		['name' => 'API#addRetention', 'url' => '/api/v1/retentions', 'verb' => 'POST'],
 		['name' => 'API#deleteRetention', 'url' => '/api/v1/retentions/{id}', 'verb' => 'DELETE'],
-		['name' => 'API#editRetention', 'url' => '/api/v1/retentions/{id}', 'verb' => 'PUT'],
 	],
 ];
