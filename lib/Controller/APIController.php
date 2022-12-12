@@ -1,7 +1,12 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
+ * @copyright Copyright (c) 2022 Joas Schilling <coding@schilljs.com>
+ * @copyright Copyright (c) 2017 Roeland Jago Douma <roeland@famdouma.nl>
  *
+ * @author Joas Schilling <coding@schilljs.com>
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @license GNU AGPL version 3 or any later version
@@ -24,20 +29,19 @@ namespace OCA\Files_Retention\Controller;
 
 use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
-use OCP\AppFramework\Controller;
+use OCP\AppFramework\OCSController;
 use OCP\AppFramework\Http;
-use OCP\AppFramework\Http\JSONResponse;
-use OCP\AppFramework\Http\Response;
+use OCP\AppFramework\Http\DataResponse;
 use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
 use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\TagNotFoundException;
 
-class APIController extends Controller {
+class APIController extends OCSController {
 	private IDBConnection $db;
 	private ISystemTagManager $tagManager;
-	private IJobList $joblist;
+	private IJobList $jobList;
 
 	public function __construct(string $appName,
 								IRequest $request,
@@ -48,10 +52,10 @@ class APIController extends Controller {
 
 		$this->db = $db;
 		$this->tagManager = $tagManager;
-		$this->joblist = $jobList;
+		$this->jobList = $jobList;
 	}
 
-	public function getRetentions(): JSONResponse {
+	public function getRetentions(): DataResponse {
 		$qb = $this->db->getQueryBuilder();
 
 		$qb->select('*')
@@ -61,10 +65,9 @@ class APIController extends Controller {
 		$cursor = $qb->executeQuery();
 
 		$result = $tagIds = [];
-
 		while ($data = $cursor->fetch()) {
 			$tagIds[] = (string) $data['tag_id'];
-			$hasJob = $this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
+			$hasJob = $this->jobList->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 
 			$result[] = [
 				'id' => (int)$data['id'],
@@ -75,9 +78,7 @@ class APIController extends Controller {
 				'hasJob' => $hasJob,
 			];
 		}
-
 		$cursor->closeCursor();
-
 
 		try {
 			$this->tagManager->getTagsByIds($tagIds);
@@ -89,22 +90,18 @@ class APIController extends Controller {
 			}));
 		}
 
-		return new JSONResponse($result);
+		return new DataResponse($result);
 	}
 
-	public function addRetention(int $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): Response {
-		$response = new Response();
-
+	public function addRetention(int $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): DataResponse {
 		try {
 			$this->tagManager->getTagsByIds((string) $tagid);
 		} catch (\InvalidArgumentException $e) {
-			$response->setStatus(Http::STATUS_BAD_REQUEST);
-			return $response;
+			return new DataResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
 		if ($timeunit < 0 || $timeunit > 3 || $timeamount < 1 || $timeafter < 0 || $timeafter > 1) {
-			$response->setStatus(Http::STATUS_BAD_REQUEST);
-			return $response;
+			return new DataResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
 		$qb = $this->db->getQueryBuilder();
@@ -114,13 +111,13 @@ class APIController extends Controller {
 			->setValue('time_amount', $qb->createNamedParameter($timeamount))
 			->setValue('time_after', $qb->createNamedParameter($timeafter));
 
-		$qb->execute();
+		$qb->executeStatement();
 		$id = $qb->getLastInsertId();
 
 		//Insert cronjob
-		$this->joblist->add(RetentionJob::class, ['tag' => $tagid]);
+		$this->jobList->add(RetentionJob::class, ['tag' => $tagid]);
 
-		return new JSONResponse([
+		return new DataResponse([
 			'id' => $id,
 			'tagid' => $tagid,
 			'timeunit' => $timeunit,
@@ -130,12 +127,7 @@ class APIController extends Controller {
 		], Http::STATUS_CREATED);
 	}
 
-	/**
-	 * @param int $id
-	 *
-	 * @return Response
-	 */
-	public function deleteRetention($id) {
+	public function deleteRetention(int $id): DataResponse {
 		$qb = $this->db->getQueryBuilder();
 
 		// Fetch tag_id
@@ -143,12 +135,12 @@ class APIController extends Controller {
 			->from('retention')
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
 			->setMaxResults(1);
-		$cursor = $qb->execute();
+		$cursor = $qb->executeQuery();
 		$data = $cursor->fetch();
 		$cursor->closeCursor();
 
 		if ($data === false) {
-			return new Http\NotFoundResponse();
+			return new DataResponse([], Http::STATUS_NOT_FOUND);
 		}
 
 		// Remove from retention db
@@ -158,81 +150,8 @@ class APIController extends Controller {
 		$qb->execute();
 
 		// Remove cronjob
-		$this->joblist->remove(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
+		$this->jobList->remove(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 
-		$response = new Response();
-		$response->setStatus(Http::STATUS_NO_CONTENT);
-		return $response;
-	}
-
-	/**
-	 * @param int $id
-	 * @param int|null $timeunit
-	 * @param int|null $timeamount
-	 * @param int|null $timeafter
-	 *
-	 * @return Response
-	 */
-	public function editRetention($id, $timeunit = null, $timeamount = null, $timeafter = null) {
-		if (($timeunit === null && $timeamount === null) ||
-			($timeunit !== null && ($timeunit < 0 || $timeunit > 3)) ||
-			($timeamount !== null && $timeamount < 1) ||
-			($timeafter !== null && ($timeafter < 0 || $timeafter > 1))) {
-			$response = new Response();
-			$response->setStatus(Http::STATUS_BAD_REQUEST);
-			return $response;
-		}
-
-		$qb = $this->db->getQueryBuilder();
-
-		// Fetch tag_id
-		$qb->select('tag_id')
-			->from('retention')
-			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
-			->setMaxResults(1);
-		$cursor = $qb->execute();
-		$data = $cursor->fetch();
-		$cursor->closeCursor();
-
-		if ($data === false) {
-			return new Http\NotFoundResponse();
-		}
-
-		$qb = $this->db->getQueryBuilder();
-		$qb->update('retention');
-
-		if ($timeunit !== null) {
-			$qb->set('time_unit', $qb->createNamedParameter($timeunit));
-		}
-		if ($timeamount !== null) {
-			$qb->set('time_amount', $qb->createNamedParameter($timeamount));
-		}
-		if ($timeafter !== null) {
-			$qb->set('time_after', $qb->createNamedParameter($timeafter));
-		}
-		$qb->where($qb->expr()->eq('id', $qb->createNamedParameter($id)));
-		$qb->execute();
-
-		$qb = $this->db->getQueryBuilder();
-		$qb->select('*')
-			->from('retention')
-			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
-			->setMaxResults(1);
-		$cursor = $qb->execute();
-		$data = $cursor->fetch();
-		$cursor->closeCursor();
-
-		if (!$this->joblist->has(RetentionJob::class, ['tag' => (int)$data['tag_id']])) {
-			$this->joblist->add(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
-		}
-
-		return new JSONResponse([
-			'id' => $id,
-			'tagid' => (int)$data['tag_id'],
-			'timeunit' => (int)$data['time_unit'],
-			'timeamount' => (int)$data['time_amount'],
-			'timeafter' => (int)$data['time_after'],
-			'hasJob' => true,
-		]);
+		return new DataResponse([], Http::STATUS_NO_CONTENT);
 	}
 }
