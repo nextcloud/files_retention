@@ -4,14 +4,14 @@
  */
 
 import axios from '@nextcloud/axios'
-import { generateUrl } from '@nextcloud/router'
+import { generateOcsUrl } from '@nextcloud/router'
 
 /**
  * @param {object} rule The retention rule to add
  * @return {object} The axios response
  */
 const createRetentionRule = async function(rule) {
-	return axios.post(generateUrl('/apps/files_retention/api/v1/retentions'), rule)
+	return axios.post(generateOcsUrl('/apps/files_retention/api/v1/retentions'), rule)
 }
 
 /**
@@ -19,14 +19,14 @@ const createRetentionRule = async function(rule) {
  * @return {object} The axios response
  */
 const deleteRetentionRule = async function(ruleId) {
-	return axios.delete(generateUrl('/apps/files_retention/api/v1/retentions/' + ruleId))
+	return axios.delete(generateOcsUrl('/apps/files_retention/api/v1/retentions/{ruleId}', { ruleId }))
 }
 
 /**
  * @return {object} The axios response
  */
 const getRetentionRules = async function() {
-	return axios.get(generateUrl('/apps/files_retention/api/v1/retentions'))
+	return axios.get(generateOcsUrl('/apps/files_retention/api/v1/retentions'))
 }
 
 export {
