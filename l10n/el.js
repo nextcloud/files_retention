@@ -15,6 +15,7 @@ OC.L10N.register(
     "Years" : "Χρόνια",
     "Creation" : "Δημιουργία",
     "Last modification" : "Τελευταία τροποποίηση",
+    "Number of days, weeks, months or years after which the files should be deleted" : "Αριθμός ημερών, εβδομάδων, μηνών ή ετών μετά τα οποία πρέπει να διαγραφούν τα αρχεία",
     "Not a number" : "Δεν είναι αριθμός",
     "Select tag…" : "Γίνεται επιλογή ετικέτας…",
     "Delete" : "Διαγραφή",
