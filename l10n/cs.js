@@ -40,6 +40,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n měsíc","%n měsíce","%n měsíců","%n měsíce"],
     "_%n year_::_%n years_" : ["%n rok","%n roky","%n let","%n roky"],
     "Not a number" : "Není číslo",
+    "Retention rule saved" : "Pravidlo uchovávání uloženo",
+    "An error occurred while trying to save the retention rule" : "Při pokusu o uložení pravidla uchovávání došlo k chybě",
     "Select tag…" : "Vybrat štítek…",
     "Delete" : "Smazat",
     "Yes" : "Ano",
@@ -52,8 +54,6 @@ OC.L10N.register(
     "After" : "Po uplynutí",
     "Active" : "Aktivní",
     "after" : "po",
-    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže",
-    "Retention rule saved" : "Pravidlo uchovávání uloženo",
-    "An error occurred while trying to save the retention rule" : "Při pokusu o uložení pravidla uchovávání došlo k chybě"
+    "Notify users a day before retention will delete a file" : "Upozornit uživatele den předem než správa dat soubor smaže"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

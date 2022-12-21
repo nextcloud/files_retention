@@ -40,6 +40,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n ay","%n ay"],
     "_%n year_::_%n years_" : ["%n yıl","%n yıl"],
     "Not a number" : "Bir sayı değil",
+    "Retention rule saved" : "Saklama kuralı kaydedildi",
+    "An error occurred while trying to save the retention rule" : "Saklama kuralı kaydedilirken bir sorun çıktı",
     "Select tag…" : "Etiket seçin …",
     "Delete" : "Sil",
     "Yes" : "Evet",
@@ -52,8 +54,6 @@ OC.L10N.register(
     "After" : "Sonra",
     "Active" : "Etkin",
     "after" : "şundan sonra",
-    "Notify users a day before retention will delete a file" : "Bir dosyanın saklama kuralı tarafından silineceği bir gün önceden kullanıcılara bildirilsin",
-    "Retention rule saved" : "Saklama kuralı kaydedildi",
-    "An error occurred while trying to save the retention rule" : "Saklama kuralı kaydedilirken bir sorun çıktı"
+    "Notify users a day before retention will delete a file" : "Bir dosyanın saklama kuralı tarafından silineceği bir gün önceden kullanıcılara bildirilsin"
 },
 "nplurals=2; plural=(n > 1);");

@@ -38,6 +38,8 @@
     "_%n month_::_%n months_" : ["%n mes","%n meses","%n meses"],
     "_%n year_::_%n years_" : ["%n año","%n años","%n años"],
     "Not a number" : "No es un número",
+    "Retention rule saved" : "Regla de retención guardada",
+    "An error occurred while trying to save the retention rule" : "Ha ocurrido un error al intentar guardar la regla de retención",
     "Select tag…" : "Seleccionar etiqueta…",
     "Delete" : "Eliminar",
     "Yes" : "Si",
@@ -50,8 +52,6 @@
     "After" : "Después",
     "Active" : "Activo",
     "after" : "después",
-    "Notify users a day before retention will delete a file" : "Notificar a los usuarios un día antes de que la retención elimine un archivo",
-    "Retention rule saved" : "Regla de retención guardada",
-    "An error occurred while trying to save the retention rule" : "Ha ocurrido un error al intentar guardar la regla de retención"
+    "Notify users a day before retention will delete a file" : "Notificar a los usuarios un día antes de que la retención elimine un archivo"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }

@@ -40,6 +40,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n月"],
     "_%n year_::_%n years_" : ["%n年"],
     "Not a number" : "不是數字",
+    "Retention rule saved" : "保留規則已儲存",
+    "An error occurred while trying to save the retention rule" : "嘗試儲存保留規則時發生錯誤",
     "Select tag…" : "選擇標記",
     "Delete" : "刪除",
     "Yes" : "是",
@@ -52,8 +54,6 @@ OC.L10N.register(
     "After" : "之後",
     "Active" : "作用中",
     "after" : "之後",
-    "Notify users a day before retention will delete a file" : "在「保留」將要刪除檔案的前一天通知使用者",
-    "Retention rule saved" : "保留規則已儲存",
-    "An error occurred while trying to save the retention rule" : "嘗試儲存保留規則時發生錯誤"
+    "Notify users a day before retention will delete a file" : "在「保留」將要刪除檔案的前一天通知使用者"
 },
 "nplurals=1; plural=0;");

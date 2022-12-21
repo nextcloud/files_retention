@@ -40,6 +40,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n month","%n months"],
     "_%n year_::_%n years_" : ["%n year","%n years"],
     "Not a number" : "Not a number",
+    "Retention rule saved" : "Retention rule saved",
+    "An error occurred while trying to save the retention rule" : "An error occurred while trying to save the retention rule",
     "Select tag…" : "Select tag…",
     "Delete" : "Delete",
     "Yes" : "Yes",
@@ -52,8 +54,6 @@ OC.L10N.register(
     "After" : "After",
     "Active" : "Active",
     "after" : "after",
-    "Notify users a day before retention will delete a file" : "Notify users a day before retention will delete a file",
-    "Retention rule saved" : "Retention rule saved",
-    "An error occurred while trying to save the retention rule" : "An error occurred while trying to save the retention rule"
+    "Notify users a day before retention will delete a file" : "Notify users a day before retention will delete a file"
 },
 "nplurals=2; plural=(n != 1);");
