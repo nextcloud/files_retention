@@ -40,6 +40,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n hónap","%n hónap"],
     "_%n year_::_%n years_" : ["%n év","%n év"],
     "Not a number" : "Nem szám",
+    "Retention rule saved" : "Megőrzési szabály mentve",
+    "An error occurred while trying to save the retention rule" : "Hiba történt a megőrzési szabály mentése során",
     "Select tag…" : "Címke kiválasztása…",
     "Delete" : "Törlés",
     "Yes" : "Igen",
@@ -52,8 +54,6 @@ OC.L10N.register(
     "After" : "Utána",
     "Active" : "Aktív",
     "after" : "után",
-    "Notify users a day before retention will delete a file" : "A felhasználók értesítése a fájl törlése előtt egy nappal",
-    "Retention rule saved" : "Megőrzési szabály mentve",
-    "An error occurred while trying to save the retention rule" : "Hiba történt a megőrzési szabály mentése során"
+    "Notify users a day before retention will delete a file" : "A felhasználók értesítése a fájl törlése előtt egy nappal"
 },
 "nplurals=2; plural=(n != 1);");

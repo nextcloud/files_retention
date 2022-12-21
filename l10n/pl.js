@@ -40,6 +40,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n miesiąc","%n miesiące","%n miesięcy","%n miesięcy"],
     "_%n year_::_%n years_" : ["%n rok","%n lata","%n lat","%n lat"],
     "Not a number" : "Nie jest liczbą",
+    "Retention rule saved" : "Zapisano regułę przechowywania",
+    "An error occurred while trying to save the retention rule" : "Podczas próby zapisania reguły przechowywania wystąpił błąd",
     "Select tag…" : "Wybierz etykietę…",
     "Delete" : "Usuń",
     "Yes" : "Tak",
@@ -52,8 +54,6 @@ OC.L10N.register(
     "After" : "Po",
     "Active" : "Aktywne",
     "after" : "po",
-    "Notify users a day before retention will delete a file" : "Powiadom użytkowników dzień przed usunięciem pliku z przechowywania",
-    "Retention rule saved" : "Zapisano regułę przechowywania",
-    "An error occurred while trying to save the retention rule" : "Podczas próby zapisania reguły przechowywania wystąpił błąd"
+    "Notify users a day before retention will delete a file" : "Powiadom użytkowników dzień przed usunięciem pliku z przechowywania"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

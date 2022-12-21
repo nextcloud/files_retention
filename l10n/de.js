@@ -39,6 +39,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n Monat","%n Monate"],
     "_%n year_::_%n years_" : ["%n Jahr","%n Jahre"],
     "Not a number" : "Keine Zahl",
+    "Retention rule saved" : "Aufbewahrungsregel gespeichert.",
+    "An error occurred while trying to save the retention rule" : "Es ist ein Fehler beim Speichern der Aufbewahrungsregel aufgetreten.",
     "Select tag…" : "Schlagwort auswählen",
     "Delete" : "Löschen",
     "Yes" : "Ja",
@@ -51,8 +53,6 @@ OC.L10N.register(
     "After" : "Nach",
     "Active" : "Aktiv",
     "after" : "nach",
-    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vorher, bevor die Dateiaufbewahrung eine Datei löscht",
-    "Retention rule saved" : "Aufbewahrungsregel gespeichert.",
-    "An error occurred while trying to save the retention rule" : "Es ist ein Fehler beim Speichern der Aufbewahrungsregel aufgetreten."
+    "Notify users a day before retention will delete a file" : "Benachrichtige die Benutzer einen Tag vorher, bevor die Dateiaufbewahrung eine Datei löscht"
 },
 "nplurals=2; plural=(n != 1);");

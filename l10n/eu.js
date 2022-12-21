@@ -20,6 +20,8 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["hilabete %n","%n hilabete"],
     "_%n year_::_%n years_" : ["urte %n","%n urte"],
     "Not a number" : "Ez da zenbakia",
+    "Retention rule saved" : "Mantentze araua gordeta",
+    "An error occurred while trying to save the retention rule" : "Akatsa gertatu da mantentze araua gordetzen saiatzean",
     "Select tag…" : "Hautatu etiketa…",
     "Delete" : "Ezabatu",
     "Yes" : "Bai",
@@ -32,8 +34,6 @@ OC.L10N.register(
     "After" : "Gero",
     "Active" : "Aktibo",
     "after" : "gero",
-    "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali.",
-    "Retention rule saved" : "Mantentze araua gordeta",
-    "An error occurred while trying to save the retention rule" : "Akatsa gertatu da mantentze araua gordetzen saiatzean"
+    "Notify users a day before retention will delete a file" : "Erabiltzaileek fitxategia ezabatu baino egun bat baino lehenago jakinarazpena bidali."
 },
 "nplurals=2; plural=(n != 1);");
