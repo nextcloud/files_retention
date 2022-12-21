@@ -16,6 +16,8 @@ OC.L10N.register(
     "Creation" : "Vytvorenie",
     "Last modification" : "Naposledy zmenené",
     "Not a number" : "Nie je číslo",
+    "Retention rule saved" : "Pravidlo uchovávania bolo uložené",
+    "An error occurred while trying to save the retention rule" : "Pri pokuse o uloženie pravidla o uchovávaní sa vyskytla chyba",
     "Select tag…" : "Vybrať štítok...",
     "Delete" : "Zmazať",
     "Yes" : "Áno",
@@ -28,8 +30,6 @@ OC.L10N.register(
     "After" : "Po",
     "Active" : "Aktívne",
     "after" : "po",
-    "Notify users a day before retention will delete a file" : "Upozorní používateľov deň pred vymazaním súboru",
-    "Retention rule saved" : "Pravidlo uchovávania bolo uložené",
-    "An error occurred while trying to save the retention rule" : "Pri pokuse o uloženie pravidla o uchovávaní sa vyskytla chyba"
+    "Notify users a day before retention will delete a file" : "Upozorní používateľov deň pred vymazaním súboru"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");
