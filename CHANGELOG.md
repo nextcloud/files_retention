@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.14.1 – 2023-01-02
+### Added
+- Migrated the API to OCS so it's usable for clients
+
 ## 1.14.0 – 2022-10-18
 ### Changed
 - Require Nextcloud 25
