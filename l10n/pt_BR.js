@@ -34,6 +34,7 @@ OC.L10N.register(
     "Retention rule for tag {tagName} saved" : "Regra de retenção para a tag {tagName} salva",
     "Failed to save retention rule for tag {tagName}" : "Falha ao salvar regra de retenção para tag {tagName}",
     "Delete retention rule for tag {tagName}" : "Remover regra de retenção para tag {tagName}",
+    "Retention rule for tag {tagName} has been deleted" : "A regra de retenção da tag {tagName} foi excluída",
     "_%n day_::_%n days_" : ["%ndia","%ndias","%ndias"],
     "_%n week_::_%n weeks_" : ["%nsemana","%nsemanas","%nsemanas"],
     "_%n month_::_%n months_" : ["%nmês","%nmeses","%nmeses"],
