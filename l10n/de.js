@@ -34,6 +34,7 @@ OC.L10N.register(
     "Retention rule for tag {tagName} saved" : "Aufbewahrungsregel für Schlagwort {tagName} gespeichert",
     "Failed to save retention rule for tag {tagName}" : "Aufbewahrungsregel für Schlagwort {tagName} konnte nicht gespeichert werden.",
     "Delete retention rule for tag {tagName}" : "Aufbewahrungsregel für Schlagwort {tagName} löschen",
+    "Retention rule for tag {tagName} has been deleted" : "Aufbewahrungsregel für Schlagwort {tagName} wurde gelöscht",
     "_%n day_::_%n days_" : ["%n Tag","%n Tage"],
     "_%n week_::_%n weeks_" : ["%n Woche","%n Wochen"],
     "_%n month_::_%n months_" : ["%n Monat","%n Monate"],
