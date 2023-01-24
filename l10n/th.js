@@ -5,7 +5,7 @@ OC.L10N.register(
     "Delete" : "ลบ",
     "Yes" : "ใช่",
     "No" : "ไม่",
-    "Open documentation" : "เปิดเอกสาร",
+    "Open documentation" : "เปิดเอกสารประกอบ",
     "Time" : "เวลา",
     "after" : "หลัง"
 },
