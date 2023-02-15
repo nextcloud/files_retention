@@ -8,7 +8,7 @@ OC.L10N.register(
     "This application allows for automatic deletion of files after a given time." : "Cette application permet la suppression automatique de fichiers après un certain temps.",
     "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Une app pour Nextcloud permettant la suppression automatique de fichiers après un certain temps.\nEn option les utilisateurs peuvent être prévenus la veille.",
     "File retention & automatic deletion" : "Rétention de fichier & suppression automatique",
-    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Permet de  supprimer automatiquement les fichiers portant une certaine étiquette, au bout d' un certain temps. C'est utile dans le cas de documents confidentiels.",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Permet de  supprimer automatiquement les fichiers portant une certaine étiquette au bout d'un certain temps. Cela peut être utile dans le cas de documents confidentiels.",
     "Files tagged with" : "Fichiers étiquetés avec",
     "Retention time" : "Durée de rétention",
     "From date of" : "Depuis la date du",
