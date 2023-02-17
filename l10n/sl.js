@@ -23,6 +23,7 @@ OC.L10N.register(
     "Open documentation" : "Odpri dokumentacijo",
     "Tag" : "Oznaka",
     "Time" : "Čas",
+    "After" : "Po",
     "Active" : "Dejavno",
     "after" : "po",
     "Notify users a day before retention will delete a file" : "Obvesti uporabnika dan pred brisanjem datoteke."
