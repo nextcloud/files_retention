@@ -39,6 +39,7 @@ use OCP\IDBConnection;
 use OCP\Files\Node;
 use OCP\Files\NotFoundException;
 use OCP\Files\IRootFolder;
+use OCP\IUser;
 use OCP\Notification\IManager as NotificationManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
@@ -254,6 +255,11 @@ class RetentionJob extends TimedJob {
 	}
 
 	private function notifyNode(Node $node, \DateTime $notifyBefore): void {
+		$owner = $node->getOwner();
+		if (!$owner instanceof IUser) {
+			return;
+		}
+
 		$mtime = new \DateTime();
 
 		// Fallback is the mtime
@@ -269,7 +275,7 @@ class RetentionJob extends TimedJob {
 			try {
 				$notification = $this->notificationManager->createNotification();
 				$notification->setApp(Application::APP_ID)
-					->setUser($node->getOwner()->getUID())
+					->setUser($owner->getUID())
 					->setDateTime(new \DateTime())
 					->setObject('retention', (string)$node->getId())
 					->setSubject('deleteTomorrow', [
