@@ -13,7 +13,7 @@ import AdminSettings from './AdminSettings.vue'
 import store from './store/index.js'
 
 // Styles
-import '@nextcloud/dialogs/styles/toast.scss'
+import '@nextcloud/dialogs/dist/index.css'
 
 Vue.use(Vuex)
 
