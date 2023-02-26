@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "{file} will be removed in 24 hours" : "{file} буде вилучено через 24 години",
     "Create" : "Створити",
     "Years" : "Роки ",
     "Select tag…" : "Вибрати позначку...",
