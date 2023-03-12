@@ -12,6 +12,8 @@ OC.L10N.register(
     "Months" : "Meses",
     "Years" : "Anos",
     "Creation" : "Creación",
+    "_%n day_::_%n days_" : ["%n día","%n días"],
+    "_%n week_::_%n weeks_" : ["%n semana","%n semanas"],
     "Not a number" : "Non é un número",
     "Select tag…" : "Seleccionar a etiqueta…",
     "Delete" : "Eliminar",
