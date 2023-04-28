@@ -25,20 +25,20 @@ declare(strict_types=1);
 namespace OCA\Files_Retention\BackgroundJob;
 
 use Exception;
-use OCP\BackgroundJob\TimedJob;
 use OC\Files\Filesystem;
 use OCA\Files_Retention\AppInfo\Application;
 use OCA\Files_Retention\Constants;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
+use OCP\BackgroundJob\TimedJob;
 use OCP\Files\Config\ICachedMountFileInfo;
 use OCP\Files\Config\IUserMountCache;
+use OCP\Files\IRootFolder;
+use OCP\Files\Node;
+use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
 use OCP\IConfig;
 use OCP\IDBConnection;
-use OCP\Files\Node;
-use OCP\Files\NotFoundException;
-use OCP\Files\IRootFolder;
 use OCP\Notification\IManager as NotificationManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
@@ -57,15 +57,15 @@ class RetentionJob extends TimedJob {
 	private IConfig $config;
 
 	public function __construct(ISystemTagManager $tagManager,
-								ISystemTagObjectMapper $tagMapper,
-								IUserMountCache $userMountCache,
-								IDBConnection $db,
-								IRootFolder $rootFolder,
-								ITimeFactory $timeFactory,
-								IJobList $jobList,
-								LoggerInterface $logger,
-								NotificationManager $notificationManager,
-								IConfig $config) {
+		ISystemTagObjectMapper $tagMapper,
+		IUserMountCache $userMountCache,
+		IDBConnection $db,
+		IRootFolder $rootFolder,
+		ITimeFactory $timeFactory,
+		IJobList $jobList,
+		LoggerInterface $logger,
+		NotificationManager $notificationManager,
+		IConfig $config) {
 		parent::__construct($timeFactory);
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);

@@ -29,9 +29,9 @@ namespace OCA\Files_Retention\Controller;
 
 use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
-use OCP\AppFramework\OCSController;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\OCSController;
 use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
 use OCP\IRequest;
@@ -44,10 +44,10 @@ class APIController extends OCSController {
 	private IJobList $jobList;
 
 	public function __construct(string $appName,
-								IRequest $request,
-								IDBConnection $db,
-								ISystemTagManager $tagManager,
-								IJobList $jobList) {
+		IRequest $request,
+		IDBConnection $db,
+		ISystemTagManager $tagManager,
+		IJobList $jobList) {
 		parent::__construct($appName, $request);
 
 		$this->db = $db;

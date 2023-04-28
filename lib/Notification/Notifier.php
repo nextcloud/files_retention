@@ -75,17 +75,17 @@ class Notifier implements INotifier {
 
 		$l = $this->l10Factory->get(Application::APP_ID, $languageCode);
 		$notification->setRichSubject(
-				$l->t('{file} will be removed in 24 hours'),
-				[
-					'file' => [
-						'type' => 'file',
-						'id' => $node->getId(),
-						'name' => $node->getName(),
-						'path' => $userFolder->getRelativePath($node->getPath()),
-						'mimetype' => $node->getMimetype(),
-						'link' => $this->url->linkToRouteAbsolute('files.viewcontroller.showFile', ['fileid' => $fileId]),
-					],
-				])
+			$l->t('{file} will be removed in 24 hours'),
+			[
+				'file' => [
+					'type' => 'file',
+					'id' => $node->getId(),
+					'name' => $node->getName(),
+					'path' => $userFolder->getRelativePath($node->getPath()),
+					'mimetype' => $node->getMimetype(),
+					'link' => $this->url->linkToRouteAbsolute('files.viewcontroller.showFile', ['fileid' => $fileId]),
+				],
+			])
 			->setParsedSubject(str_replace('{file}', $node->getName(), $l->t('{file} will be removed in 24 hours')))
 			->setRichMessage(
 				$l->t('Your systems retention rules will delete this file within 24 hours.')
