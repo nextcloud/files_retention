@@ -10,19 +10,6 @@ OC.L10N.register(
     "Weeks" : "שבועות",
     "Months" : "חודשים",
     "Years" : "שנים",
-    "Creation" : "יצירה",
-    "Not a number" : "לא מספר",
-    "Select tag…" : "נא לבחור תגית…",
-    "Delete" : "מחיקה",
-    "Yes" : "כן",
-    "No" : "לא",
-    "Error while deleting the retention rule" : "שגיאה בעת מחיקת כלל השמירה",
-    "File retention" : "שמירת קבצים",
-    "Open documentation" : "תיעוד פתוח",
-    "Tag" : "תגית",
-    "Time" : "זמן",
-    "Active" : "פעיל",
-    "after" : "לאחר",
-    "Notify users a day before retention will delete a file" : "להודיע למשתמש בטרם מחיקת הקובץ על לידי מנגנון השמירה"
+    "Creation" : "יצירה"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");

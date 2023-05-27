@@ -38,22 +38,6 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n дни","%n дни"],
     "_%n week_::_%n weeks_" : ["%n седмици","%n седмици"],
     "_%n month_::_%n months_" : ["%n месеци","%n месеци"],
-    "_%n year_::_%n years_" : ["%n години","%n години"],
-    "Not a number" : "Не е номер",
-    "Retention rule saved" : "Правилото за запазване е записано",
-    "An error occurred while trying to save the retention rule" : "Възникна грешка при опит за записване на правилото за запазване",
-    "Select tag…" : "Изберете етикет...",
-    "Delete" : "Изтриване",
-    "Yes" : "Да",
-    "No" : "Не",
-    "Error while deleting the retention rule" : "Грешка при изтриване на правилото за запазване",
-    "File retention" : "Запазване на файлове",
-    "Open documentation" : "Отвори документацията",
-    "Tag" : "Етикет",
-    "Time" : "Час",
-    "After" : "След",
-    "Active" : "Активен",
-    "after" : "след",
-    "Notify users a day before retention will delete a file" : "Уведомява потребителите един ден преди запазването да изтрие файл"
+    "_%n year_::_%n years_" : ["%n години","%n години"]
 },
 "nplurals=2; plural=(n != 1);");

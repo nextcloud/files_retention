@@ -1,11 +1,4 @@
 { "translations": {
-    "Create" : "Crear",
-    "Select tag…" : "Selectionar etiquetta...",
-    "Delete" : "Deler",
-    "Yes" : "Si",
-    "No" : "No",
-    "Open documentation" : "Aperir documentation",
-    "Time" : "Tempore",
-    "after" : "post"
+    "Create" : "Crear"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

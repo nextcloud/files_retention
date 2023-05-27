@@ -1,12 +1,5 @@
 { "translations": {
     "Create" : "შექმნა",
-    "Creation" : "შექმნა",
-    "Select tag…" : "აირჩიეთ ტეგი...",
-    "Delete" : "წაშლა",
-    "Yes" : "კი",
-    "No" : "არა",
-    "Open documentation" : "ღია დოკუმენტაცია",
-    "Time" : "დრო",
-    "after" : "შემდეგ"
+    "Creation" : "შექმნა"
 },"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

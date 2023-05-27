@@ -36,22 +36,6 @@
     "_%n day_::_%n days_" : ["%n день","%n дня","%n дней","%n дней"],
     "_%n week_::_%n weeks_" : ["%n неделя","%n недели","%n недель","%n недель"],
     "_%n month_::_%n months_" : ["%n месяц","%n месяца","%n месяцев","%n месяцев"],
-    "_%n year_::_%n years_" : ["%n год","%n года","%n лет","%n лет"],
-    "Not a number" : "Не номер",
-    "Retention rule saved" : "Правило хранения сохранено",
-    "An error occurred while trying to save the retention rule" : "Произошла ошибка при попытке сохранить правило хранения",
-    "Select tag…" : "Выберите метку…",
-    "Delete" : "Удалить",
-    "Yes" : "Да",
-    "No" : "Нет",
-    "Error while deleting the retention rule" : "Ошибка при удалении правила срока хранения",
-    "File retention" : "Удаление файлов",
-    "Open documentation" : "Открыть документацию",
-    "Tag" : "Метка",
-    "Time" : "Время",
-    "After" : "После",
-    "Active" : "Активный",
-    "after" : "после",
-    "Notify users a day before retention will delete a file" : "Уведомлять пользователей за день до окончания хранения удалённых файлов"
+    "_%n year_::_%n years_" : ["%n год","%n года","%n лет","%n лет"]
 },"pluralForm" :"nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);"
 }
