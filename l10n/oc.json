@@ -1,12 +1,5 @@
 { "translations": {
     "Create" : "Crear",
-    "Years" : "Annadas",
-    "Delete" : "Suprimir",
-    "Yes" : "Òc",
-    "No" : "Non",
-    "Open documentation" : "Dobrir la documentacion",
-    "Time" : "Ora",
-    "Active" : "Activa",
-    "after" : "aprèp"
+    "Years" : "Annadas"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

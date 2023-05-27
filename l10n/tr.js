@@ -38,22 +38,6 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n gün","%n gün"],
     "_%n week_::_%n weeks_" : ["%n hafta","%n hafta"],
     "_%n month_::_%n months_" : ["%n ay","%n ay"],
-    "_%n year_::_%n years_" : ["%n yıl","%n yıl"],
-    "Not a number" : "Bir sayı değil",
-    "Retention rule saved" : "Saklama kuralı kaydedildi",
-    "An error occurred while trying to save the retention rule" : "Saklama kuralı kaydedilirken bir sorun çıktı",
-    "Select tag…" : "Etiket seçin …",
-    "Delete" : "Sil",
-    "Yes" : "Evet",
-    "No" : "Hayır",
-    "Error while deleting the retention rule" : "Saklama kuralı silinirken bir sorun çıktı",
-    "File retention" : "Dosya saklama",
-    "Open documentation" : "Belgeleri aç",
-    "Tag" : "Etiket",
-    "Time" : "Saat",
-    "After" : "Sonra",
-    "Active" : "Etkin",
-    "after" : "şundan sonra",
-    "Notify users a day before retention will delete a file" : "Bir dosyanın saklama kuralı tarafından silineceği bir gün önceden kullanıcılara bildirilsin"
+    "_%n year_::_%n years_" : ["%n yıl","%n yıl"]
 },
 "nplurals=2; plural=(n > 1);");

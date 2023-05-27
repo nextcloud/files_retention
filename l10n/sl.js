@@ -12,20 +12,6 @@ OC.L10N.register(
     "Months" : "mesecev",
     "Years" : "let",
     "Creation" : "Ustvarjeno",
-    "Last modification" : "Nazadnje spremenjeno",
-    "Not a number" : "Vpisana vrednost ni število.",
-    "Select tag…" : "Izbor oznake ...",
-    "Delete" : "Izbriši",
-    "Yes" : "Da",
-    "No" : "Ne",
-    "Error while deleting the retention rule" : "Prišlo je do napake med brisanjem pravila brisanja",
-    "File retention" : "Samodejno brisanje datotek",
-    "Open documentation" : "Odpri dokumentacijo",
-    "Tag" : "Oznaka",
-    "Time" : "Čas",
-    "After" : "Po",
-    "Active" : "Dejavno",
-    "after" : "po",
-    "Notify users a day before retention will delete a file" : "Obvesti uporabnika dan pred brisanjem datoteke."
+    "Last modification" : "Nazadnje spremenjeno"
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");

@@ -1,9 +1,5 @@
 { "translations": {
     "Create" : "បង្កើត",
-    "Years" : "ឆ្នាំ",
-    "Delete" : "លុប",
-    "Yes" : "Yes",
-    "No" : "No",
-    "Time" : "ម៉ោង"
+    "Years" : "ឆ្នាំ"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

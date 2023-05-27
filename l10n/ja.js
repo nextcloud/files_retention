@@ -14,20 +14,6 @@ OC.L10N.register(
     "Months" : "月",
     "Years" : "年",
     "Creation" : "作成日から",
-    "Last modification" : "最終更新日から",
-    "Not a number" : "数値ではありません",
-    "Select tag…" : "タグ選択",
-    "Delete" : "削除",
-    "Yes" : "はい",
-    "No" : "いいえ",
-    "Error while deleting the retention rule" : "保持ルールの削除中にエラーが発生しました",
-    "File retention" : "ファイル保持",
-    "Open documentation" : "公開文書",
-    "Tag" : "タグ",
-    "Time" : "時間",
-    "After" : "後",
-    "Active" : "有効",
-    "after" : "後",
-    "Notify users a day before retention will delete a file" : "ファイル保持がファイルを削除する1日前にユーザーに通知する"
+    "Last modification" : "最終更新日から"
 },
 "nplurals=1; plural=0;");

@@ -14,19 +14,6 @@ OC.L10N.register(
     "Months" : "Månader",
     "Years" : "År",
     "Creation" : "Skapad",
-    "Last modification" : "Senast ändrad",
-    "Not a number" : "Inte ett nummer",
-    "Select tag…" : "Välj tagg...",
-    "Delete" : "Ta bort",
-    "Yes" : "Ja",
-    "No" : "Nej",
-    "Error while deleting the retention rule" : "Ett fel uppstod när raderingsregeln togs bort",
-    "File retention" : "Fillagring",
-    "Open documentation" : "Öppna dokumentationen",
-    "Tag" : "Tagg",
-    "Time" : "Tid",
-    "Active" : "Aktiv",
-    "after" : "efter",
-    "Notify users a day before retention will delete a file" : "Meddela användare en dag innan en lagringsregel kommer radera en fil"
+    "Last modification" : "Senast ändrad"
 },
 "nplurals=2; plural=(n != 1);");
