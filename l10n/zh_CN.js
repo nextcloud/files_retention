@@ -18,19 +18,6 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n 天"],
     "_%n week_::_%n weeks_" : ["%n 周"],
     "_%n month_::_%n months_" : ["%n 月"],
-    "_%n year_::_%n years_" : ["%n 年"],
-    "Not a number" : "不是数字",
-    "Select tag…" : "选择标签...",
-    "Delete" : "删除",
-    "Yes" : "是 ",
-    "No" : "否",
-    "Error while deleting the retention rule" : "删除保留规则时出错",
-    "File retention" : "文件保留",
-    "Open documentation" : "打开文档",
-    "Tag" : "Tag",
-    "Time" : "时间",
-    "Active" : "活动",
-    "after" : "之后 ",
-    "Notify users a day before retention will delete a file" : "在 保留 将删除文件的前一天通知用户"
+    "_%n year_::_%n years_" : ["%n 年"]
 },
 "nplurals=1; plural=0;");

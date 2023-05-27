@@ -7,17 +7,6 @@ OC.L10N.register(
     "Days" : "Dienas",
     "Weeks" : "Nedēļas",
     "Months" : "Mēniši",
-    "Years" : "Gadi",
-    "Not a number" : "Nav skaitlis",
-    "Select tag…" : "Izvēlies birku...",
-    "Delete" : "Dzēst",
-    "Yes" : "Jā",
-    "No" : "Nē",
-    "Error while deleting the retention rule" : "Kļūda, dzēšot saglabāšanas kārtulu",
-    "File retention" : "Datņu glabāšana",
-    "Open documentation" : "Atvērt dokumentāciju",
-    "Tag" : "Birkas",
-    "Time" : "Laiks",
-    "after" : "pēc"
+    "Years" : "Gadi"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

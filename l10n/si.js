@@ -8,11 +8,6 @@ OC.L10N.register(
     "Days" : "දින",
     "Weeks" : "සති",
     "Months" : "මාස",
-    "Years" : "වර්ෂ",
-    "Not a number" : "අංකයක් නොවේ",
-    "Yes" : "ඔව්",
-    "No" : "නැහැ",
-    "File retention" : "ගොනුව රඳවා තබා ගැනීම",
-    "Time" : "වේලාව"
+    "Years" : "වර්ෂ"
 },
 "nplurals=2; plural=(n != 1);");

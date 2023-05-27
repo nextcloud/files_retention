@@ -13,19 +13,6 @@
     "Years" : "Χρόνια",
     "Creation" : "Δημιουργία",
     "Last modification" : "Τελευταία τροποποίηση",
-    "Number of days, weeks, months or years after which the files should be deleted" : "Αριθμός ημερών, εβδομάδων, μηνών ή ετών μετά τα οποία πρέπει να διαγραφούν τα αρχεία",
-    "Not a number" : "Δεν είναι αριθμός",
-    "Select tag…" : "Γίνεται επιλογή ετικέτας…",
-    "Delete" : "Διαγραφή",
-    "Yes" : "Ναι",
-    "No" : "Όχι",
-    "Error while deleting the retention rule" : "Σφάλμα κατά την διαγραφή κανόνα διατήρησης",
-    "File retention" : "Διατήρηση αρχείου",
-    "Open documentation" : "Άνοιγμα τεκμηρίωσης",
-    "Tag" : "Ετικέτα",
-    "Time" : "Ώρα",
-    "Active" : "Ενεργό",
-    "after" : "μετά",
-    "Notify users a day before retention will delete a file" : "Ειδοποιήστε τους χρήστες μια ημέρα πριν την διαγραφή αρχείου"
+    "Number of days, weeks, months or years after which the files should be deleted" : "Αριθμός ημερών, εβδομάδων, μηνών ή ετών μετά τα οποία πρέπει να διαγραφούν τα αρχεία"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

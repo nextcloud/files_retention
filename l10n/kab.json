@@ -1,7 +1,4 @@
 { "translations": {
-    "Create" : "Snulfu-d",
-    "Delete" : "Kkes",
-    "Yes" : "Oui",
-    "No" : "Uhu"
+    "Create" : "Snulfu-d"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

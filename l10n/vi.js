@@ -6,15 +6,6 @@ OC.L10N.register(
     "Weeks" : "Tuần",
     "Months" : "Tháng",
     "Years" : "Năm",
-    "Creation" : "Sự tạo lập",
-    "Not a number" : "Không phải chữ số",
-    "Select tag…" : "Chọn thẻ...",
-    "Delete" : "Xóa",
-    "Yes" : "Có",
-    "No" : "Không",
-    "Open documentation" : "Mở tài liệu",
-    "Time" : "Thời gian",
-    "Active" : "Hoạt động",
-    "after" : "sau khi"
+    "Creation" : "Sự tạo lập"
 },
 "nplurals=1; plural=0;");

@@ -38,22 +38,6 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n дан","%n дана","%n дана"],
     "_%n week_::_%n weeks_" : ["%n седмица","%n седмице","%n седмица"],
     "_%n month_::_%n months_" : ["%n месец","%n месеца","%n месеци"],
-    "_%n year_::_%n years_" : ["%n година","%n године","%n година"],
-    "Not a number" : "Није број",
-    "Retention rule saved" : "Сачувано је правило задржавања",
-    "An error occurred while trying to save the retention rule" : "Дошло је до грешке приликом покушаја чувања правила задржавања",
-    "Select tag…" : "Одаберите ознаку…",
-    "Delete" : "Обриши",
-    "Yes" : "Да",
-    "No" : "Не",
-    "Error while deleting the retention rule" : "Грешка приликом брисања правила задржавања",
-    "File retention" : "Задржавање фајла",
-    "Open documentation" : "Отвори документацију",
-    "Tag" : "Ознака",
-    "Time" : "Време",
-    "After" : "Након",
-    "Active" : "Активан",
-    "after" : "након",
-    "Notify users a day before retention will delete a file" : "Обавести корисника дан пре него што ће фајл бити обрисан"
+    "_%n year_::_%n years_" : ["%n година","%n године","%n година"]
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");
