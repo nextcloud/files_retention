@@ -1,10 +1,4 @@
 { "translations": {
-    "Create" : "สร้าง",
-    "Delete" : "ลบ",
-    "Yes" : "ใช่",
-    "No" : "ไม่",
-    "Open documentation" : "เปิดเอกสารประกอบ",
-    "Time" : "เวลา",
-    "after" : "หลัง"
+    "Create" : "สร้าง"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

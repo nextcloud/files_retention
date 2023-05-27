@@ -38,22 +38,6 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n día","%n días","%n días"],
     "_%n week_::_%n weeks_" : ["%n semana","%n semanas","%n semanas"],
     "_%n month_::_%n months_" : ["%n mes","%n meses","%n meses"],
-    "_%n year_::_%n years_" : ["%n año","%n años","%n años"],
-    "Not a number" : "No es un número",
-    "Retention rule saved" : "Regla de retención guardada",
-    "An error occurred while trying to save the retention rule" : "Ha ocurrido un error al intentar guardar la regla de retención",
-    "Select tag…" : "Seleccionar etiqueta…",
-    "Delete" : "Eliminar",
-    "Yes" : "Si",
-    "No" : "No",
-    "Error while deleting the retention rule" : "Error al eliminar la regla de retención",
-    "File retention" : "Retención de archivos",
-    "Open documentation" : "Abrir documentación",
-    "Tag" : "Etiqueta",
-    "Time" : "Fecha",
-    "After" : "Después",
-    "Active" : "Activo",
-    "after" : "después",
-    "Notify users a day before retention will delete a file" : "Notificar a los usuarios un día antes de que la retención elimine un archivo"
+    "_%n year_::_%n years_" : ["%n año","%n años","%n años"]
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

@@ -8,17 +8,6 @@ OC.L10N.register(
     "Days" : "روزها",
     "Weeks" : "هفته‌ها",
     "Months" : "ماه‌ها",
-    "Years" : "سال‌ها",
-    "Not a number" : "یک شماره نیست",
-    "Select tag…" : "انتخاب برچسب",
-    "Delete" : "حذف",
-    "Yes" : "بله",
-    "No" : "نه",
-    "Error while deleting the retention rule" : "خطا هنگام حذف کردن قانون نگهداری",
-    "File retention" : "حفظ پرونده",
-    "Open documentation" : "مستندات باز",
-    "Time" : "زمان",
-    "Active" : "فعال کردن",
-    "after" : "بعد از"
+    "Years" : "سال‌ها"
 },
 "nplurals=2; plural=(n > 1);");

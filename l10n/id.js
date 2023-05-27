@@ -8,15 +8,6 @@ OC.L10N.register(
     "Days" : "Hari",
     "Weeks" : "Pekan",
     "Months" : "Bulan",
-    "Years" : "Tahun",
-    "Select tag…" : "Pilih tag...",
-    "Delete" : "Hapus",
-    "Yes" : "Ya",
-    "No" : "Tidak",
-    "File retention" : "Retensi berkas",
-    "Open documentation" : "Buka dokumentasi",
-    "Time" : "Waktu",
-    "after" : "setelah",
-    "Notify users a day before retention will delete a file" : "Mengingatkan pengguna 1 hari sebelum masa retensi akan menghapus berkas"
+    "Years" : "Tahun"
 },
 "nplurals=1; plural=0;");

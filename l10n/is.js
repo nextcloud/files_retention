@@ -12,19 +12,6 @@ OC.L10N.register(
     "Months" : "Mánuðir",
     "Years" : "Ár",
     "Creation" : "Búið til",
-    "Last modification" : "Síðast breyting",
-    "Not a number" : "Ekki tala",
-    "Select tag…" : "Veldu merki...",
-    "Delete" : "Eyða",
-    "Yes" : "Já",
-    "No" : "Nei",
-    "Error while deleting the retention rule" : "Villa kom upp við að eyða geymslureglunni",
-    "File retention" : "Tímabundin geymsla skráa",
-    "Open documentation" : "Opna hjálparskjöl",
-    "Tag" : "Merki",
-    "Time" : "Tími",
-    "Active" : "Virkt",
-    "after" : "eftir",
-    "Notify users a day before retention will delete a file" : "Aðvara notendur degi áður en geymslureglur munu eyða skrá"
+    "Last modification" : "Síðast breyting"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

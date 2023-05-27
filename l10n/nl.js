@@ -14,20 +14,6 @@ OC.L10N.register(
     "Months" : "Maanden",
     "Years" : "Jaar",
     "Creation" : "Creatie",
-    "Last modification" : "Laatste wijziging",
-    "Not a number" : "Geen nummer",
-    "Select tag…" : "Selecteren tag…",
-    "Delete" : "Verwijderen",
-    "Yes" : "Ja",
-    "No" : "Nee",
-    "Error while deleting the retention rule" : "Fout bij verwijderen bewaartermijnregel",
-    "File retention" : "Bewaartermijn van bestand",
-    "Open documentation" : "Openen documentatie",
-    "Tag" : "Label",
-    "Time" : "Tijd",
-    "After" : "Na",
-    "Active" : "Actief",
-    "after" : "na",
-    "Notify users a day before retention will delete a file" : "Waarschuw gebruikers een dag voordat de bewaartermijn van het bestand verloopt"
+    "Last modification" : "Laatste wijziging"
 },
 "nplurals=2; plural=(n != 1);");

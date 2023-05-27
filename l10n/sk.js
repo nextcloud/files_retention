@@ -14,22 +14,6 @@ OC.L10N.register(
     "Months" : "Mesiacov",
     "Years" : "Rokov",
     "Creation" : "Vytvorenie",
-    "Last modification" : "Naposledy zmenené",
-    "Not a number" : "Nie je číslo",
-    "Retention rule saved" : "Pravidlo uchovávania bolo uložené",
-    "An error occurred while trying to save the retention rule" : "Pri pokuse o uloženie pravidla o uchovávaní sa vyskytla chyba",
-    "Select tag…" : "Vybrať štítok...",
-    "Delete" : "Zmazať",
-    "Yes" : "Áno",
-    "No" : "Nie",
-    "Error while deleting the retention rule" : "Chyba pri odstraňovaní pravidla uchovávania",
-    "File retention" : "Uchovávanie súborov",
-    "Open documentation" : "Otvoriť dokumentáciu",
-    "Tag" : "Štítok",
-    "Time" : "Čas",
-    "After" : "Po",
-    "Active" : "Aktívne",
-    "after" : "po",
-    "Notify users a day before retention will delete a file" : "Upozorní používateľov deň pred vymazaním súboru"
+    "Last modification" : "Naposledy zmenené"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");
