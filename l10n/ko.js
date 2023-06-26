@@ -8,6 +8,8 @@ OC.L10N.register(
     "Weeks" : "주",
     "Months" : "개월",
     "Years" : "년",
-    "Creation" : "생성"
+    "Creation" : "생성",
+    "_%n day_::_%n days_" : ["%n일"],
+    "_%n week_::_%n weeks_" : ["%n주"]
 },
 "nplurals=1; plural=0;");
