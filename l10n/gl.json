@@ -4,6 +4,7 @@
     "Your systems retention rules will delete this file within 24 hours." : "As súas regras de retención dos seu sistema eliminarán este ficheiro nun prazo de 24 horas.",
     "Retention" : "Retención",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Define se os ficheiros etiquetados cunha etiqueta específica deben ser eliminados automaticamente após algún tempo. Isto é útil para documentos confidenciais.",
+    "Retention time" : "Tempo de retención",
     "Create" : "Crear",
     "Days" : "Días",
     "Weeks" : "Semanas",
