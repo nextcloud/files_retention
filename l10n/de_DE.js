@@ -10,7 +10,7 @@ OC.L10N.register(
     "File retention & automatic deletion" : "Dateiaufbewahrung & automatische Löschung",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definieren Sie ob mit einem Schlagwort markierte Dateien automatisch nach einer Zeit gelöscht werden sollen. Das ist für vertrauliche Dokumente nützlich.",
     "Files tagged with" : "Dateien verschlagwortet mit",
-    "Retention time" : "Aufbewwahrungszeit",
+    "Retention time" : "Aufbewahrungszeit",
     "From date of" : "Ab Datum von",
     "Create" : "Erstellen",
     "Notify owner a day before a file is automatically deleted" : "Den Besitzer einen Tag vor der automatischen Löschung benachrichtigen",
