@@ -1,6 +1,9 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Files retention" : "الاحتفاظ بالملفات",
+    "{file} will be removed in 24 hours" : "ستتم إزالة {file} خلال 24 ساعة",
+    "Your systems retention rules will delete this file within 24 hours." : "القواعد الخاصة بالاحتفاظ بالملفات علي أنظمتك سوف تقوم بحذف هذا الملف في غضون 24 ساعة.",
     "Retention" : "مدة الحفظ",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "حدد ما إذا كان يجب حذف الملفات الموسومة بعلامة معينة تلقائيًا بعد مرور بعض الوقت. هذا الأمر مفيد للوثائق السرية.",
     "Create" : "إنشاء",
