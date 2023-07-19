@@ -2,6 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Create" : "Crear",
+    "Years" : "Años",
     "Creation" : "Creación",
     "_%n day_::_%n days_" : ["%n day","%n days","%n days"],
     "_%n week_::_%n weeks_" : ["%n week","%n weeks","%n weeks"],
