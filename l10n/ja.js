@@ -14,6 +14,8 @@ OC.L10N.register(
     "Months" : "月",
     "Years" : "年",
     "Creation" : "作成日から",
-    "Last modification" : "最終更新日から"
+    "Last modification" : "最終更新日から",
+    "_%n day_::_%n days_" : ["%n日"],
+    "_%n week_::_%n weeks_" : ["%n週間"]
 },
 "nplurals=1; plural=0;");
