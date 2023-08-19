@@ -14,6 +14,7 @@ OC.L10N.register(
     "Months" : "Månader",
     "Years" : "År",
     "Creation" : "Skapad",
-    "Last modification" : "Senast ändrad"
+    "Last modification" : "Senast ändrad",
+    "An error occurred while changing the setting" : "Ett fel uppstod när inställningen ändrades"
 },
 "nplurals=2; plural=(n != 1);");
