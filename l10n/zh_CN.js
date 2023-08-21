@@ -15,6 +15,7 @@ OC.L10N.register(
     "Years" : "年",
     "Creation" : "创建 ",
     "Last modification" : "上一次更改 ",
+    "An error occurred while changing the setting" : "更改设置时发生错误",
     "_%n day_::_%n days_" : ["%n 天"],
     "_%n week_::_%n weeks_" : ["%n 周"],
     "_%n month_::_%n months_" : ["%n 月"],
