@@ -5,6 +5,7 @@ OC.L10N.register(
     "Days" : "Dage",
     "Weeks" : "Uger",
     "Months" : "Måneder",
-    "Years" : "År"
+    "Years" : "År",
+    "An error occurred while changing the setting" : "Der opstod en fejl under ændring af indstillingen."
 },
 "nplurals=2; plural=(n != 1);");
