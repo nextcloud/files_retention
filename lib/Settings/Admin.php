@@ -33,14 +33,11 @@ use OCP\Settings\ISettings;
 use OCP\Util;
 
 class Admin implements ISettings {
-	protected IInitialState $initialState;
-	protected IURLGenerator $url;
-	protected IConfig $config;
-
-	public function __construct(IInitialState $initialState, IURLGenerator $url, IConfig $config) {
-		$this->initialState = $initialState;
-		$this->url = $url;
-		$this->config = $config;
+	public function __construct(
+		protected IInitialState $initialState,
+		protected IURLGenerator $url,
+		protected IConfig $config,
+	) {
 	}
 
 	public function getForm(): TemplateResponse {

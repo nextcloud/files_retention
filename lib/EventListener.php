@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -23,25 +25,42 @@
 
 namespace OCA\Files_Retention;
 
+use OCP\DB\QueryBuilder\IQueryBuilder;
+use OCP\EventDispatcher\Event;
+use OCP\EventDispatcher\IEventListener;
 use OCP\IDBConnection;
 use OCP\SystemTag\ISystemTag;
+use OCP\SystemTag\ManagerEvent;
+use Psr\Log\LoggerInterface;
 
-class EventListener {
-	/** @var IDBConnection */
-	private $db;
-
+/**
+ * @template-implements IEventListener<Event>
+ */
+class EventListener implements IEventListener {
 	public function __construct(
-		IDBConnection $db
+		private IDBConnection $db,
+		private LoggerInterface $logger,
 	) {
-		$this->db = $db;
 	}
 
-	public function tagDeleted(ISystemTag $tag) {
+	public function handle(Event $event): void {
+		if (!$event instanceof ManagerEvent) {
+			return;
+		}
+
+		$this->tagDeleted($event->getTag());
+	}
+
+	protected function tagDeleted(ISystemTag $tag): void {
 		$qb = $this->db->getQueryBuilder();
 
 		$qb->delete('retention')
-			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tag->getId())));
+			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tag->getId(), IQueryBuilder::PARAM_INT), IQueryBuilder::PARAM_INT));
 
-		$qb->execute();
+		$deleted = (bool) $qb->executeStatement();
+
+		if ($deleted) {
+			$this->logger->info('Deleting retention rule for tag #' . $tag->getId() . ' because the tag is deleted');
+		}
 	}
 }

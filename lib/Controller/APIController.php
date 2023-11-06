@@ -39,20 +39,14 @@ use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\TagNotFoundException;
 
 class APIController extends OCSController {
-	private IDBConnection $db;
-	private ISystemTagManager $tagManager;
-	private IJobList $jobList;
-
-	public function __construct(string $appName,
+	public function __construct(
+		string $appName,
 		IRequest $request,
-		IDBConnection $db,
-		ISystemTagManager $tagManager,
-		IJobList $jobList) {
+		private IDBConnection $db,
+		private ISystemTagManager $tagManager,
+		private IJobList $jobList,
+	) {
 		parent::__construct($appName, $request);
-
-		$this->db = $db;
-		$this->tagManager = $tagManager;
-		$this->jobList = $jobList;
 	}
 
 	public function getRetentions(): DataResponse {

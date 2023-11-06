@@ -46,39 +46,21 @@ use OCP\SystemTag\TagNotFoundException;
 use Psr\Log\LoggerInterface;
 
 class RetentionJob extends TimedJob {
-	private ISystemTagManager $tagManager;
-	private ISystemTagObjectMapper $tagMapper;
-	private IUserMountCache $userMountCache;
-	private IDBConnection $db;
-	private IRootFolder $rootFolder;
-	private IJobList $jobList;
-	private LoggerInterface $logger;
-	private NotificationManager $notificationManager;
-	private IConfig $config;
-
-	public function __construct(ISystemTagManager $tagManager,
-		ISystemTagObjectMapper $tagMapper,
-		IUserMountCache $userMountCache,
-		IDBConnection $db,
-		IRootFolder $rootFolder,
+	public function __construct(
+		private ISystemTagManager $tagManager,
+		private ISystemTagObjectMapper $tagMapper,
+		private IUserMountCache $userMountCache,
+		private IDBConnection $db,
+		private IRootFolder $rootFolder,
 		ITimeFactory $timeFactory,
-		IJobList $jobList,
-		LoggerInterface $logger,
-		NotificationManager $notificationManager,
-		IConfig $config) {
+		private IJobList $jobList,
+		private LoggerInterface $logger,
+		private NotificationManager $notificationManager,
+		private IConfig $config,
+	) {
 		parent::__construct($timeFactory);
 		// Run once a day
 		$this->setInterval(24 * 60 * 60);
-
-		$this->tagManager = $tagManager;
-		$this->tagMapper = $tagMapper;
-		$this->userMountCache = $userMountCache;
-		$this->db = $db;
-		$this->rootFolder = $rootFolder;
-		$this->jobList = $jobList;
-		$this->logger = $logger;
-		$this->notificationManager = $notificationManager;
-		$this->config = $config;
 	}
 
 	public function run($argument): void {
