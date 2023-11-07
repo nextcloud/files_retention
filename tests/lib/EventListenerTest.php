@@ -28,6 +28,7 @@ use OCA\Files_Retention\Constants;
 use OCA\Files_Retention\EventListener;
 use OCP\IDBConnection;
 use OCP\SystemTag\ISystemTagManager;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class EventListenerTest
@@ -36,15 +37,15 @@ use OCP\SystemTag\ISystemTagManager;
  * @group DB
  */
 class EventListenerTest extends \Test\TestCase {
-	/** @var IDBConnection */
-	private $db;
-	/** @var ISystemTagManager */
-	private $tagManager;
+	private IDBConnection $db;
+	private LoggerInterface $logger;
+	private ISystemTagManager $tagManager;
 
 	protected function setUp(): void {
 		parent::setUp();
 
 		$this->db = \OC::$server->getDatabaseConnection();
+		$this->logger = $this->createMock(LoggerInterface::class);
 		$this->tagManager = \OC::$server->get(ISystemTagManager::class);
 	}
 
@@ -69,8 +70,8 @@ class EventListenerTest extends \Test\TestCase {
 		$this->tagManager->deleteTags($tag->getId());
 		$this->addTag((int) $tag->getId(), 1, Constants::DAY);
 
-		$eventListener = new EventListener($this->db);
-		$eventListener->tagDeleted($tag);
+		$eventListener = new EventListener($this->db, $this->logger);
+		self::invokePrivate($eventListener, 'tagDeleted', [$tag]);
 
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')

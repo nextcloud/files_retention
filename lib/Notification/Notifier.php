@@ -34,19 +34,12 @@ use OCP\Notification\INotification;
 use OCP\Notification\INotifier;
 
 class Notifier implements INotifier {
-	/** @var IFactory */
-	private $l10Factory;
-	/** @var IRootFolder */
-	private $rootFolder;
-	/** @var IURLGenerator */
-	private $url;
-
-	public function __construct(IFactory $l10Factory, IRootFolder $rootFolder, IURLGenerator $url) {
-		$this->l10Factory = $l10Factory;
-		$this->rootFolder = $rootFolder;
-		$this->url = $url;
+	public function __construct(
+		private IFactory $l10Factory,
+		private IRootFolder $rootFolder,
+		private IURLGenerator $url,
+	) {
 	}
-
 
 	public function getID(): string {
 		return Application::APP_ID;

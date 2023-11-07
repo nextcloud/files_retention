@@ -32,9 +32,8 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\Files\Config\IMountProviderCollection;
 use OCP\Files\Config\IUserMountCache;
-use OCP\IServerContainer;
+use OCP\Server;
 use OCP\SystemTag\ManagerEvent;
-use Psr\Container\ContainerInterface;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'files_retention';
@@ -44,23 +43,15 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
-		$context->registerService(IUserMountCache::class, function (ContainerInterface $c) {
-			/** @var IServerContainer $server */
-			$server = $c->get(IServerContainer::class);
-			return $server->get(IMountProviderCollection::class)->getMountCache();
+		$context->registerService(IUserMountCache::class, function () {
+			return Server::get(IMountProviderCollection::class)->getMountCache();
 		});
+
+		$context->registerEventListener(ManagerEvent::EVENT_DELETE, EventListener::class);
 
 		$context->registerNotifierService(Notifier::class);
 	}
 
 	public function boot(IBootContext $context): void {
-		$server = $context->getServerContainer();
-		$dispatcher = $server->getEventDispatcher();
-		$dispatcher->addListener(ManagerEvent::EVENT_DELETE, function (ManagerEvent $event) use ($server) {
-			/** @var EventListener $eventListener */
-			$eventListener = $server->get(EventListener::class);
-
-			$eventListener->tagDeleted($event->getTag());
-		});
 	}
 }
