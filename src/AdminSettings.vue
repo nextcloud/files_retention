@@ -3,7 +3,7 @@
   - SPDX-License-Identifier: AGPL-3.0-only
   -->
 <template>
-	<NcSettingsSection :title="t('files_retention', 'File retention & automatic deletion')"
+	<NcSettingsSection :name="t('files_retention', 'File retention & automatic deletion')"
 		:doc-url="docUrl"
 		:description="t('files_retention', 'Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')">
 		<table class="retention-rules-table">
@@ -30,9 +30,10 @@
 
 				<tr>
 					<td class="retention-rule__name">
-						<NcMultiselectTags v-model="newTag"
+						<NcSelectTags v-model="newTag"
 							:disabled="loading"
 							:multiple="false"
+							:clearable="false"
 							:filter="filterAvailableTagList"
 							:close-on-select="true" />
 					</td>
@@ -41,34 +42,39 @@
 							:disabled="loading"
 							type="text"
 							:label="amountLabel"
+							:aria-label="amountAriaLabel"
 							:placeholder="''" />
-						<NcMultiselect v-model="newUnit"
+						<NcSelect v-model="newUnit"
 							:disabled="loading"
 							:options="unitOptions"
 							:allow-empty="false"
+							:clearable="false"
 							track-by="id"
 							label="label"
 							:close-on-select="true" />
 					</td>
 					<td class="retention-rule__after">
-						<NcMultiselect v-model="newAfter"
+						<NcSelect v-model="newAfter"
 							:disabled="loading"
 							:options="afterOptions"
 							:allow-empty="false"
+							:clearable="false"
 							track-by="id"
 							label="label"
 							:close-on-select="true" />
 					</td>
 					<td class="retention-rule__action">
-						<NcButton type="secondary"
-							:disabled="loading"
-							:aria-label="createLabel"
-							@click="onClickCreate">
-							<template #icon>
-								<Plus :size="20" />
-							</template>
-							{{ t('files_retention', 'Create') }}
-						</NcButton>
+						<div class="retention-rule__action--button-aligner">
+							<NcButton type="success"
+								:disabled="loading || newTag < 0"
+								:aria-label="createLabel"
+								@click="onClickCreate">
+								<template #icon>
+									<Plus :size="20" />
+								</template>
+								{{ t('files_retention', 'Create') }}
+							</NcButton>
+						</div>
 					</td>
 				</tr>
 			</tbody>
@@ -86,8 +92,8 @@
 <script>
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import NcMultiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
-import NcMultiselectTags from '@nextcloud/vue/dist/Components/NcMultiselectTags.js'
+import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
+import NcSelectTags from '@nextcloud/vue/dist/Components/NcSelectTags.js'
 import Plus from 'vue-material-design-icons/Plus.vue'
 import NcSettingsSection from '@nextcloud/vue/dist/Components/NcSettingsSection.js'
 import NcTextField from '@nextcloud/vue/dist/Components/NcTextField.js'
@@ -103,8 +109,8 @@ export default {
 	components: {
 		NcButton,
 		NcCheckboxRadioSwitch,
-		NcMultiselect,
-		NcMultiselectTags,
+		NcSelect,
+		NcSelectTags,
 		Plus,
 		RetentionRule,
 		NcSettingsSection,
@@ -124,13 +130,13 @@ export default {
 				{ id: 2, label: t('files_retention', 'Months') },
 				{ id: 3, label: t('files_retention', 'Years') },
 			],
-			newUnit: 0,
+			newUnit: [],
 
 			afterOptions: [
 				{ id: 0, label: t('files_retention', 'Creation') },
 				{ id: 1, label: t('files_retention', 'Last modification') },
 			],
-			newAfter: 0,
+			newAfter: [],
 
 			newAmount: '14', // FIXME TextField does not accept numbers …
 
@@ -152,6 +158,10 @@ export default {
 		},
 
 		amountLabel() {
+			return t('files_retention', 'Time units')
+		},
+
+		amountAriaLabel() {
 			return t('files_retention', 'Number of days, weeks, months or years after which the files should be deleted')
 		},
 
@@ -164,6 +174,8 @@ export default {
 		try {
 			await OC.SystemTags.collection.fetch({})
 			await this.$store.dispatch('loadRetentionRules')
+
+			this.resetForm()
 
 			this.loading = false
 		} catch (e) {
@@ -254,8 +266,8 @@ export default {
 		resetForm() {
 			this.newTag = -1
 			this.newAmount = '14'
-			this.newUnit = 0
-			this.newAfter = 0
+			this.newUnit = [this.unitOptions[0]]
+			this.newAfter = [this.afterOptions[0]]
 		},
 	},
 }
@@ -277,17 +289,22 @@ export default {
 		&__action {
 			color: var(--color-text-maxcontrast);
 			padding: 10px 10px 10px 0;
+			vertical-align: bottom;
 		}
 
 		&__time {
 			text-align: center;
-			min-width: 260px;
+			min-width: 320px;
 		}
 
 		&__action {
 			padding-left: 10px;
 			flex-direction: row-reverse;
 			display: flex;
+
+			&--button-aligner {
+				margin-top: 6px;
+			}
 		}
 	}
 
