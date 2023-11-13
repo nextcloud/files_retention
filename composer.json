@@ -1,7 +1,6 @@
 {
 	"autoload-dev": {
 		"psr-4": {
-			"OCP\\": "vendor/nextcloud/ocp/OCP",
 			"OCA\\Files_Retention\\": "lib/"
 		}
 	},
@@ -12,7 +11,7 @@
 		"optimize-autoloader": true,
 		"classmap-authoritative": true,
 		"platform": {
-			"php": "8.0"
+			"php": "8.0.2"
 		}
 	},
 	"scripts": {
@@ -20,15 +19,16 @@
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
 		"cs:fix": "php-cs-fixer fix",
 		"psalm": "psalm --threads=1",
+		"psalm:dev": "psalm --no-cache --threads=$(nproc)",
 		"psalm:update-baseline": "psalm --threads=1 --update-baseline",
 		"psalm:clear": "psalm --clear-cache && psalm --clear-global-cache",
 		"psalm:fix": "psalm --alter --issues=InvalidReturnType,InvalidNullableReturnType,MissingParamType,InvalidFalsableReturnType",
 		"test:unit": "vendor/bin/phpunit -c tests/phpunit.xml"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^9.5",
-		"nextcloud/coding-standard": "^1.0.0",
-		"vimeo/psalm": "^5.1.0",
+		"phpunit/phpunit": "^9.6",
+		"nextcloud/coding-standard": "^1.1.1",
+		"vimeo/psalm": "^5.15.0",
 		"nextcloud/ocp": "dev-stable27"
 	}
 }
