@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Година",
     "Creation" : "Прављење",
     "Last modification" : "Време последње измене",
+    "Time units" : "Временске јединице",
     "Number of days, weeks, months or years after which the files should be deleted" : "Број дана, недеља, месеци или година након којег би фајлови требало да се обришу",
     "Create new retention rule" : "Креирај ново правило задржавања",
     "An error occurred while loading the existing retention rules" : "Дошло је до грешке приликом учитавања постојећих правила задржавања",
