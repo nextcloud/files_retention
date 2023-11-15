@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "سنوات",
     "Creation" : "الإنشاء",
     "Last modification" : "آخر تعديل",
+    "Time units" : "وحدات الزمن",
     "Number of days, weeks, months or years after which the files should be deleted" : "عدد الأيام أو الأسابيع أو الأشهر أو السنوات التي يجب حذف الملفات بعدها",
     "Create new retention rule" : "أنشِئ قاعدة احتفاظ جديدة",
     "An error occurred while loading the existing retention rules" : "حدث خطأ أثناء تحميل القواعد الجديدة للاحتفاظ",

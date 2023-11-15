@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Let",
     "Creation" : "Vytvoření",
     "Last modification" : "Naposledy upraveno",
+    "Time units" : "Časové jednotky",
     "Number of days, weeks, months or years after which the files should be deleted" : "Počet dnů, týdnů, měsíců či let po jejichž uplynutí mají být soubory smazány",
     "Create new retention rule" : "Vytvořit nové pravidlo pro uchovávání",
     "An error occurred while loading the existing retention rules" : "Chyba při načítání existujícího pravidla pro uchovávání",
