@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Yıl",
     "Creation" : "Oluşturulma",
     "Last modification" : "Son değişiklik",
+    "Time units" : "Zaman birimleri",
     "Number of days, weeks, months or years after which the files should be deleted" : "Dosyaların silinmesi için geçmesi gereken gün, hafta, ay ya da yıl sayısı",
     "Create new retention rule" : "Yeni tutma kuralı ekle",
     "An error occurred while loading the existing retention rules" : "Var olan saklama kuralları yüklenirken bir sorun çıktı",
