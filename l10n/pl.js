@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Lata",
     "Creation" : "Utworzenie",
     "Last modification" : "Ostatnia modyfikacja",
+    "Time units" : "Jednostki czasu",
     "Number of days, weeks, months or years after which the files should be deleted" : "Liczba dni, tygodni, miesięcy lub lat, po których pliki powinny zostać usunięte",
     "Create new retention rule" : "Utwórz nową regułę przechowywania",
     "An error occurred while loading the existing retention rules" : "Podczas wczytywania istniejących reguł przechowywania wystąpił błąd",
