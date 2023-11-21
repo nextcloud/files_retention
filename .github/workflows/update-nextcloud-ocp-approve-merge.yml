@@ -26,6 +26,8 @@ jobs:
     permissions:
       # for hmarr/auto-approve-action to approve PRs
       pull-requests: write
+      # for alexwilson/enable-github-automerge-action to approve PRs
+      contents: write
 
     steps:
       - uses: mdecoleman/pr-branch-name@bab4c71506bcd299fb350af63bb8e53f2940a599 # v2.0.0
