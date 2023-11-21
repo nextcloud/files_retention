@@ -41,8 +41,7 @@ jobs:
 
       # Nextcloud bot approve and merge request
       - name: Auto merge
-        uses: pascalgn/automerge-action@22948e0bc22f0aa673800da838595a3e7347e584 # v0.15.6
+        uses: alexwilson/enable-github-automerge-action@f3e77fa17ba5a11771671361c01f382322c6db03 # main
         if: startsWith(steps.branchname.outputs.branch, 'automated/noid/') && endsWith(steps.branchname.outputs.branch, 'update-nextcloud-ocp')
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: ''
+          github-token: ${{ secrets.GITHUB_TOKEN }}
