@@ -15,6 +15,10 @@ OC.L10N.register(
     "Years" : "År",
     "Creation" : "Skapad",
     "Last modification" : "Senast ändrad",
-    "An error occurred while changing the setting" : "Ett fel uppstod när inställningen ändrades"
+    "An error occurred while changing the setting" : "Ett fel uppstod när inställningen ändrades",
+    "_%n day_::_%n days_" : ["%n dag","%n dagar"],
+    "_%n week_::_%n weeks_" : ["%n vecka","%n veckor"],
+    "_%n month_::_%n months_" : ["%n månad","%n månader"],
+    "_%n year_::_%n years_" : ["%n år","%n år"]
 },
 "nplurals=2; plural=(n != 1);");
