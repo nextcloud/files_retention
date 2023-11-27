@@ -18,6 +18,7 @@
     "Years" : "年",
     "Creation" : "創建",
     "Last modification" : "最後修改日期",
+    "Time units" : "時間單位",
     "Number of days, weeks, months or years after which the files should be deleted" : "應刪除檔案的天數、週數、月數或年數",
     "Create new retention rule" : "建立新的保留規則",
     "An error occurred while loading the existing retention rules" : "載入既有保留規則時發生錯誤",
