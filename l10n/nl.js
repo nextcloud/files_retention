@@ -14,6 +14,7 @@ OC.L10N.register(
     "Months" : "Maanden",
     "Years" : "Jaar",
     "Creation" : "Creatie",
-    "Last modification" : "Laatste wijziging"
+    "Last modification" : "Laatste wijziging",
+    "An error occurred while changing the setting" : "Er is een fout opgetreden tijdens het wijzigen van de instelling."
 },
 "nplurals=2; plural=(n != 1);");
