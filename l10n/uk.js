@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "{file} will be removed in 24 hours" : "{file} буде вилучено через 24 години",
     "Create" : "Створити",
+    "Days" : "Дні",
     "Years" : "Роки ",
     "An error occurred while changing the setting" : "Помилка під час внесення змін до налаштувань"
 },
