@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Jahre",
     "Creation" : "Erstellen",
     "Last modification" : "Letzte Änderung",
+    "Time units" : "Zeiteinheiten",
     "Number of days, weeks, months or years after which the files should be deleted" : "Anzahl der Tage, Wochen, Monate oder Jahre, nach denen die Dateien gelöscht werden sollen",
     "Create new retention rule" : "Neue Aufbewahrungsregel erstellen",
     "An error occurred while loading the existing retention rules" : "Es ist ein Fehler beim Laden der Aufbewahrungsregeln aufgetreten.",
