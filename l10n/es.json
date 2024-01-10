@@ -18,6 +18,7 @@
     "Years" : "Años",
     "Creation" : "Creación",
     "Last modification" : "Última modificación",
+    "Time units" : "Unidades de tiempo",
     "Number of days, weeks, months or years after which the files should be deleted" : "Número de días, semanas, meses o años después de los cuales los archivos deben ser borrados",
     "Create new retention rule" : "Crear una nueva regla de retención",
     "An error occurred while loading the existing retention rules" : "Ha ocurrido un error mientras se cargaban las reglas de retención existentes",
