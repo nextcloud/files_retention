@@ -78,7 +78,7 @@ class APIControllerTest extends \Test\TestCase {
 	protected function tearDown(): void {
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention');
-		$qb->execute();
+		$qb->executeStatement();
 
 		parent::tearDown();
 	}
@@ -112,7 +112,7 @@ class APIControllerTest extends \Test\TestCase {
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')
 			->from('retention');
-		$cursor = $qb->execute();
+		$cursor = $qb->executeQuery();
 		$data = $cursor->fetchAll();
 		$cursor->closeCursor();
 

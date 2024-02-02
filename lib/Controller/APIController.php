@@ -62,6 +62,9 @@ class APIController extends OCSController {
 		while ($data = $cursor->fetch()) {
 			$tagIds[] = (string) $data['tag_id'];
 			$hasJob = $this->jobList->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
+			if (!$hasJob) {
+				$this->jobList->add(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
+			}
 
 			$result[] = [
 				'id' => (int)$data['id'],
@@ -69,7 +72,7 @@ class APIController extends OCSController {
 				'timeunit' => (int)$data['time_unit'],
 				'timeamount' => (int)$data['time_amount'],
 				'timeafter' => (int)$data['time_after'],
-				'hasJob' => $hasJob,
+				'hasJob' => true,
 			];
 		}
 		$cursor->closeCursor();
@@ -141,7 +144,7 @@ class APIController extends OCSController {
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention')
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)));
-		$qb->execute();
+		$qb->executeStatement();
 
 		// Remove cronjob
 		$this->jobList->remove(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
