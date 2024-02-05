@@ -109,7 +109,7 @@ class RetentionJobTest extends TestCase {
 	protected function tearDown(): void {
 		$qb = $this->db->getQueryBuilder();
 		$qb->delete('retention');
-		$qb->execute();
+		$qb->executeStatement();
 
 		parent::tearDown();
 	}
@@ -121,7 +121,7 @@ class RetentionJobTest extends TestCase {
 			->setValue('time_unit', $qb->createNamedParameter($timeunit))
 			->setValue('time_amount', $qb->createNamedParameter($timeamount))
 			->setValue('time_after', $qb->createNamedParameter($timeafter));
-		$qb->execute();
+		$qb->executeStatement();
 	}
 
 	public function deleteTestCases() {
