@@ -130,13 +130,13 @@ export default {
 				{ id: 2, label: t('files_retention', 'Months') },
 				{ id: 3, label: t('files_retention', 'Years') },
 			],
-			newUnit: [],
+			newUnit: {},
 
 			afterOptions: [
 				{ id: 0, label: t('files_retention', 'Creation') },
 				{ id: 1, label: t('files_retention', 'Last modification') },
 			],
-			newAfter: [],
+			newAfter: {},
 
 			newAmount: '14', // FIXME TextField does not accept numbers …
 
@@ -266,8 +266,8 @@ export default {
 		resetForm() {
 			this.newTag = -1
 			this.newAmount = '14'
-			this.newUnit = [this.unitOptions[0]]
-			this.newAfter = [this.afterOptions[0]]
+			this.newUnit = this.unitOptions[0]
+			this.newAfter = this.afterOptions[0]
 		},
 	},
 }
