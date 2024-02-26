@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.17.1 - 2024-02-26
+
+### Fixed
+
+- Fix `retention time` and `from date of` fields. (@nickvergessen)
+  [#479](https://github.com/nextcloud/files_retention/pull/479)
+
+### Changed
+
+- 🔌 Upgrade Nextcloud server API definition.
+
 ## 1.17.0 - 2024-01-22
 ### Changed
 
