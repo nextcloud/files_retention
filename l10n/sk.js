@@ -15,6 +15,7 @@ OC.L10N.register(
     "Years" : "Rokov",
     "Creation" : "Vytvorenie",
     "Last modification" : "Naposledy zmenené",
+    "An error occurred while changing the setting" : "Nastala chyba počas zmeny nastavenia",
     "_%n day_::_%n days_" : ["%n deň","%n dni","%n dní","%n dní"]
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");
