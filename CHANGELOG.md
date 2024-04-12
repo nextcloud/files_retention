@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.17.2 - 2024-04-12
+
+### Fixed
+
+- Fix searching and filtering tags. (@nickvergessen)
+
 ## 1.17.1 - 2024-02-26
 
 ### Fixed
