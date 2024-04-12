@@ -34,7 +34,7 @@
 							:disabled="loading"
 							:multiple="false"
 							:clearable="false"
-							:filter="filterAvailableTagList"
+							:options-filter="filterAvailableTagList"
 							:close-on-select="true" />
 					</td>
 					<td class="retention-rule__time">
