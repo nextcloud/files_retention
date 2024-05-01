@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: files_automatedtagging
+Upstream-Name: files_retention
 Upstream-Contact: Nextcloud <info@nextcloud.com>
-Source: https://github.com/nextcloud/files_automatedtagging
+Source: https://github.com/nextcloud/files_retention
 
 Files: .gitattributes .github/* .editorconfig babel.config.js .php-cs-fixer.dist.php package-lock.json package.json composer.json composer.lock README.md img/app.svg webpack.js stylelint.config.js .eslintrc.js .gitignore .jshintrc .l10nignore action/.gitignore action/package.json action/package-lock.json action/dist/index.js tests/* psalm.xml vendor-bin/*/composer.json vendor-bin/*/composer.lock .tx/config webpack.config.js
 Copyright: none
