@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Create" : "Cruthaigh",
     "_%n day_::_%n days_" : ["%n lá","%n laethanta","%n laethanta","%n laethanta","%n laethanta"],
+    "_%n week_::_%n weeks_" : ["%n seachtain","%n seachtainí","%n seachtainí","%n seachtainí","%n seachtainí"],
     "_%n month_::_%n months_" : ["%n mí","%n míonna","%n míonna","%n míonna","%n míonna"],
     "_%n year_::_%n years_" : ["%n bhliain","%n bliain","%n bliain","%n bliain","%n bliain"]
 },
