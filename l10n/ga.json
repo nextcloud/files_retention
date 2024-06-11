@@ -1,5 +1,6 @@
 { "translations": {
     "Create" : "Cruthaigh",
+    "An error occurred while changing the setting" : "Tharla earráid agus an socrú á athrú",
     "_%n day_::_%n days_" : ["%n lá","%n laethanta","%n laethanta","%n laethanta","%n laethanta"],
     "_%n week_::_%n weeks_" : ["%n seachtain","%n seachtainí","%n seachtainí","%n seachtainí","%n seachtainí"],
     "_%n month_::_%n months_" : ["%n mí","%n míonna","%n míonna","%n míonna","%n míonna"],
