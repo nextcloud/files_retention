@@ -2,6 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Create" : "Cruthaigh",
+    "Days" : "Laethanta",
     "Years" : "Blianta",
     "An error occurred while changing the setting" : "Tharla earráid agus an socrú á athrú",
     "_%n day_::_%n days_" : ["%n lá","%n laethanta","%n laethanta","%n laethanta","%n laethanta"],
