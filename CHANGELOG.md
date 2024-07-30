@@ -5,6 +5,38 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.19.0 - 2024-07-30
+### Changed
+
+- ✨ Support and require Nextcloud 30.
+- 🗣️ Update translations.
+- 🔌 Upgrade dependencies.
+
+## 1.18.0 - 2024-04-12
+### Changed
+
+- ✨ Support and require Nextcloud 29.
+- 🗣️ Update translations.
+- 🔌 Upgrade dependencies.
+
+## 1.17.2 - 2024-04-12
+### Fixed
+
+- Fix searching and filtering tags
+
+## 1.17.1 - 2024-02-26
+### Fixed
+
+- Fix "retention time" and "from date of" fields.
+  [#479](https://github.com/nextcloud/files_retention/pull/479)
+
+## 1.17.0 - 2024-01-17
+### Changed
+
+- ✨ Support and require Nextcloud 28.
+- 🗣️ Update translations.
+- 🔌 Upgrade dependencies.
+
 ## 1.16.0 - 2023-05-16
 ### Changed
 
