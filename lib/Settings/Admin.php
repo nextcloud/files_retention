@@ -17,9 +17,9 @@ use OCP\Util;
 
 class Admin implements ISettings {
 	public function __construct(
-		protected IInitialState $initialState,
-		protected IURLGenerator $url,
-		protected IConfig $config,
+		protected readonly IInitialState $initialState,
+		protected readonly IURLGenerator $url,
+		protected readonly IConfig $config,
 	) {
 	}
 

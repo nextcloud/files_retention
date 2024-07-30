@@ -1,4 +1,5 @@
 # Tests - auto-generated files
+/tests/.phpunit.cache
 /tests/.phpunit.result.cache
 /.php-cs-fixer.cache
 

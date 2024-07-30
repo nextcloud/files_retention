@@ -23,9 +23,9 @@ class APIController extends OCSController {
 	public function __construct(
 		string $appName,
 		IRequest $request,
-		private IDBConnection $db,
-		private ISystemTagManager $tagManager,
-		private IJobList $jobList,
+		private readonly IDBConnection $db,
+		private readonly ISystemTagManager $tagManager,
+		private readonly IJobList $jobList,
 	) {
 		parent::__construct($appName, $request);
 	}

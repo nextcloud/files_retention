@@ -30,16 +30,16 @@ use Psr\Log\LoggerInterface;
 
 class RetentionJob extends TimedJob {
 	public function __construct(
-		private ISystemTagManager $tagManager,
-		private ISystemTagObjectMapper $tagMapper,
-		private IUserMountCache $userMountCache,
-		private IDBConnection $db,
-		private IRootFolder $rootFolder,
 		ITimeFactory $timeFactory,
-		private IJobList $jobList,
-		private LoggerInterface $logger,
-		private NotificationManager $notificationManager,
-		private IConfig $config,
+		private readonly ISystemTagManager $tagManager,
+		private readonly ISystemTagObjectMapper $tagMapper,
+		private readonly IUserMountCache $userMountCache,
+		private readonly IDBConnection $db,
+		private readonly IRootFolder $rootFolder,
+		private readonly IJobList $jobList,
+		private readonly LoggerInterface $logger,
+		private readonly NotificationManager $notificationManager,
+		private readonly IConfig $config,
 	) {
 		parent::__construct($timeFactory);
 		// Run once a day

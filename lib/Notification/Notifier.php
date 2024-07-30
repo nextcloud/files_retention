@@ -18,9 +18,9 @@ use OCP\Notification\INotifier;
 
 class Notifier implements INotifier {
 	public function __construct(
-		private IFactory $l10Factory,
-		private IRootFolder $rootFolder,
-		private IURLGenerator $url,
+		private readonly IFactory $l10Factory,
+		private readonly IRootFolder $rootFolder,
+		private readonly IURLGenerator $url,
 	) {
 	}
 
