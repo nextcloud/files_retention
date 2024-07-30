@@ -21,8 +21,8 @@ use Psr\Log\LoggerInterface;
  */
 class EventListener implements IEventListener {
 	public function __construct(
-		private IDBConnection $db,
-		private LoggerInterface $logger,
+		private readonly IDBConnection $db,
+		private readonly LoggerInterface $logger,
 	) {
 	}
 

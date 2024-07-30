@@ -93,12 +93,12 @@ class RetentionJobTest extends TestCase {
 		$this->timeFactory->method('getTime')->willReturn($this->timestampbase);
 
 		$this->retentionJob = new RetentionJob(
+			$this->timeFactory,
 			$this->tagManager,
 			$this->tagMapper,
 			$this->userMountCache,
 			$this->db,
 			$this->rootFolder,
-			$this->timeFactory,
 			$this->jobList,
 			$this->createMock(LoggerInterface::class),
 			$this->createMock(IManager::class),
