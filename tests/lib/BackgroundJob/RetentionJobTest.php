@@ -348,7 +348,6 @@ class RetentionJobTest extends TestCase {
 		$userFolder1 = $this->createMock(Folder::class);
 		$userFolder2 = $this->createMock(Folder::class);
 		$this->rootFolder->method('getUserFolder')
-			->withConsecutive(['user1'], ['user2'])
 			->willReturnMap([
 				['user1', $userFolder1],
 				['user2', $userFolder2],
@@ -446,18 +445,27 @@ class RetentionJobTest extends TestCase {
 	public function testsPagination(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
-		$this->tagMapper->expects($this->exactly(2))
+		$withConsecutive = [
+			[
+				'args' => ['42', 'files', 1000, ''],
+				'return' => array_fill(0, 1000, 1337),
+			],
+			[
+				'args' => ['42', 'files', 1000, '1337'],
+				'return' => [],
+			],
+		];
+
+		$i = 0;
+		$this->tagMapper->expects($this->exactly(count($withConsecutive)))
 			->method('getObjectIdsForTags')
-			->withConsecutive(
-				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo('')],
-				[$this->equalTo(42), $this->equalTo('files'), $this->equalTo(1000), $this->equalTo('1337')]
-			)
-			->will(
-				$this->onConsecutiveCalls(
-					array_fill(0, 1000, 1337),
-					[]
-				)
-			);
+			->willReturnCallback(function () use ($withConsecutive, &$i) {
+				$this->assertArrayHasKey($i, $withConsecutive);
+				$this->assertSame($withConsecutive[$i]['args'], func_get_args());
+				$return = $withConsecutive[$i]['return'];
+				$i++;
+				return $return;
+			});
 
 		$this->userMountCache->expects($this->exactly(1000))
 			->method('getMountsForFileId')
