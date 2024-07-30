@@ -2,25 +2,8 @@
 
 declare(strict_types=1);
 /**
- * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
- *
- * @author Roeland Jago Douma <roeland@famdouma.nl>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 namespace OCA\Files_Retention\Tests\BackgroundJob;
 
@@ -49,33 +32,15 @@ use Test\TestCase;
  * @group DB
  */
 class RetentionJobTest extends TestCase {
-
-	/** @var ISystemTagManager|MockObject */
-	private $tagManager;
-
-	/** @var ISystemTagObjectMapper|MockObject */
-	private $tagMapper;
-
-	/** @var IUserMountCache|MockObject */
-	private $userMountCache;
-
-	/** @var IDBConnection */
-	private $db;
-
-	/** @var IRootFolder|MockObject */
-	private $rootFolder;
-
-	/** @var ITimeFactory|MockObject */
-	private $timeFactory;
-
-	/** @var IJobList|MockObject */
-	private $jobList;
-
-	/** @var RetentionJob */
-	private $retentionJob;
-
-	/** @var int */
-	private $timestampbase;
+	private ISystemTagManager&MockObject $tagManager;
+	private ISystemTagObjectMapper&MockObject $tagMapper;
+	private IUserMountCache&MockObject $userMountCache;
+	private IDBConnection $db;
+	private IRootFolder&MockObject $rootFolder;
+	private ITimeFactory&MockObject $timeFactory;
+	private IJobList&MockObject $jobList;
+	private RetentionJob $retentionJob;
+	private int $timestampbase;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -114,7 +79,7 @@ class RetentionJobTest extends TestCase {
 		parent::tearDown();
 	}
 
-	private function addTag($tagId, $timeunit, $timeamount, $timeafter = 0) {
+	private function addTag(int $tagId, int $timeunit, int $timeamount, int $timeafter = 0): void {
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter($tagId))
@@ -124,7 +89,7 @@ class RetentionJobTest extends TestCase {
 		$qb->executeStatement();
 	}
 
-	public function deleteTestCases() {
+	public static function deleteTestCases(): array {
 		return [
 			[[1, Constants::DAY],   [0, Constants::DAY], false, 0],
 			[[2, Constants::WEEK],  [0, Constants::DAY], false, 0],
@@ -155,13 +120,8 @@ class RetentionJobTest extends TestCase {
 
 	/**
 	 * @dataProvider deleteTestCases
-	 *
-	 * @param array $retentionTime
-	 * @param array $fileTime
-	 * @param array $delete
-	 * @param array $after
 	 */
-	public function testDeleteFile($retentionTime, $fileTime, $delete, $after) {
+	public function testDeleteFile(array $retentionTime, array $fileTime, bool $delete, int $after): void {
 		$this->addTag(42, $retentionTime[1], $retentionTime[0], $after);
 
 		$this->tagMapper->expects($this->once())
@@ -223,7 +183,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testInvalidTag() {
+	public function testInvalidTag(): void {
 		$this->tagManager->expects($this->once())
 			->method('getTagsByIds')
 			->will($this->throwException(new \InvalidArgumentException()));
@@ -235,7 +195,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoSuchTag() {
+	public function testNoSuchTag(): void {
 		$this->tagManager->expects($this->once())
 			->method('getTagsByIds')
 			->will($this->throwException(new TagNotFoundException()));
@@ -247,7 +207,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoSuchRetention() {
+	public function testNoSuchRetention(): void {
 		// Tag exists
 		$this->tagManager->expects($this->once())
 			->method('getTagsByIds');
@@ -259,7 +219,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testCantDelete() {
+	public function testCantDelete(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
 		$this->tagMapper->expects($this->once())
@@ -313,7 +273,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoDeletePermissions() {
+	public function testNoDeletePermissions(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
 		$this->tagMapper->expects($this->once())
@@ -354,7 +314,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoDeletePermissionsOnFirstMountPointButOnSecond() {
+	public function testNoDeletePermissionsOnFirstMountPointButOnSecond(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
 		$this->tagMapper->expects($this->once())
@@ -430,7 +390,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoMountPoint() {
+	public function testNoMountPoint(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
 		$this->tagMapper->expects($this->once())
@@ -446,7 +406,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testNoFileIds() {
+	public function testNoFileIds(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
 		$this->tagMapper->expects($this->once())
@@ -483,7 +443,7 @@ class RetentionJobTest extends TestCase {
 		$this->retentionJob->run(['tag' => 42]);
 	}
 
-	public function testsPagination() {
+	public function testsPagination(): void {
 		$this->addTag(42, 1, Constants::DAY);
 
 		$this->tagMapper->expects($this->exactly(2))

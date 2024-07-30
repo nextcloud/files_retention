@@ -1,24 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
- * @copyright 2017, Roeland Jago Douma <roeland@famdouma.nl>
- *
- * @author Roeland Jago Douma <roeland@famdouma.nl>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 namespace OCA\Files_Retention\Tests\Controller;
 
@@ -40,21 +25,11 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @group DB
  */
 class APIControllerTest extends \Test\TestCase {
-
-	/** @var string */
-	private $appName = 'files_retention';
-
-	/** @var IRequest|MockObject */
-	private $request;
-
-	/** @var IDBConnection */
-	private $db;
-
-	/** @var ISystemTagManager|MockObject */
-	private $tagManager;
-
-	/** @var IJobList|MockObject */
-	private $jobList;
+	private string $appName = 'files_retention';
+	private IRequest&MockObject $request;
+	private IDBConnection $db;
+	private ISystemTagManager&MockObject $tagManager;
+	private IJobList&MockObject $jobList;
 
 	private APIController $api;
 
@@ -83,7 +58,7 @@ class APIControllerTest extends \Test\TestCase {
 		parent::tearDown();
 	}
 
-	public function testAddRetentionInvalidTag() {
+	public function testAddRetentionInvalidTag(): void {
 		$this->tagManager->expects($this->once())
 			->method('getTagsByIds')
 			->with('42')
@@ -94,7 +69,7 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
-	public function testAddRetentionInvalidTimeUnit() {
+	public function testAddRetentionInvalidTimeUnit(): void {
 		$response = $this->api->addRetention(42, -1, 1);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 
@@ -102,7 +77,7 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
-	public function testAddRetention() {
+	public function testAddRetention(): void {
 		$this->jobList->expects($this->once())
 			->method('add')
 			->with(RetentionJob::class, ['tag' => '42']);
@@ -132,7 +107,7 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame($expected, $response->getData());
 	}
 
-	public function testDeleteRetentionNotFound() {
+	public function testDeleteRetentionNotFound(): void {
 		$response = $this->api->deleteRetention(42);
 
 		$this->assertSame(Http::STATUS_NOT_FOUND, $response->getStatus());
@@ -157,7 +132,7 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame(Http::STATUS_NO_CONTENT, $response->getStatus());
 	}
 
-	public function dataGetRetentions(): array {
+	public static function dataGetRetentions(): array {
 		return [
 			[
 				[]
@@ -189,8 +164,6 @@ class APIControllerTest extends \Test\TestCase {
 
 	/**
 	 * @dataProvider dataGetRetentions
-	 * @param array $data
-	 * @param array $missingTags
 	 */
 	public function testGetRetentions(array $data, array $missingTags = []): void {
 		$expected = [];
