@@ -9,6 +9,7 @@ namespace OCA\Files_Retention\Migration;
 
 use Closure;
 use OCP\DB\ISchemaWrapper;
+use OCP\DB\Types;
 use OCP\Migration\IOutput;
 use OCP\Migration\SimpleMigrationStep;
 
@@ -26,20 +27,20 @@ class Version010700Date20191125104957 extends SimpleMigrationStep {
 
 		if (!$schema->hasTable('retention')) {
 			$table = $schema->createTable('retention');
-			$table->addColumn('id', 'integer', [
+			$table->addColumn('id', Types::INTEGER, [
 				'autoincrement' => true,
 				'notnull' => true,
 				'length' => 4,
 			]);
-			$table->addColumn('tag_id', 'integer', [
+			$table->addColumn('tag_id', Types::INTEGER, [
 				'notnull' => true,
 				'length' => 4,
 			]);
-			$table->addColumn('time_unit', 'integer', [
+			$table->addColumn('time_unit', Types::INTEGER, [
 				'notnull' => true,
 				'length' => 4,
 			]);
-			$table->addColumn('time_amount', 'smallint', [
+			$table->addColumn('time_amount', Types::SMALLINT, [
 				'notnull' => true,
 				'length' => 1,
 			]);
