@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Évek",
     "Creation" : "Létrehozás",
     "Last modification" : "Utolsó módosítás",
+    "Time units" : "Időegységek",
     "Number of days, weeks, months or years after which the files should be deleted" : "Napok, hetek, hónapok vagy évek száma, ami után a fájlok törlésre kerülnek",
     "Create new retention rule" : "Új megőrzési szabály létrehozása",
     "An error occurred while loading the existing retention rules" : "Hiba történt a meglévő megőrzési szabályok betöltése során",
