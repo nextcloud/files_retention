@@ -50,7 +50,7 @@ class RetentionJob extends TimedJob {
 		// Validate if tag still exists
 		$tag = $argument['tag'];
 		try {
-			$this->tagManager->getTagsByIds((string) $tag);
+			$this->tagManager->getTagsByIds((string)$tag);
 		} catch (\InvalidArgumentException $e) {
 			// tag is invalid remove backgroundjob and exit
 			$this->jobList->remove($this, $argument);
@@ -92,7 +92,7 @@ class RetentionJob extends TimedJob {
 		$notifyBefore = $this->getNotifyBeforeDate($deleteBefore);
 
 		if ($notifyDayBefore) {
-			$this->logger->debug("Running retention for Tag $tag with delete before " . $deleteBefore->format(\DateTimeInterface::ATOM) . " and notify before " . $notifyBefore->format(\DateTimeInterface::ATOM));
+			$this->logger->debug("Running retention for Tag $tag with delete before " . $deleteBefore->format(\DateTimeInterface::ATOM) . ' and notify before ' . $notifyBefore->format(\DateTimeInterface::ATOM));
 		} else {
 			$this->logger->debug("Running retention for Tag $tag with delete before " . $deleteBefore->format(\DateTimeInterface::ATOM));
 		}
@@ -102,11 +102,11 @@ class RetentionJob extends TimedJob {
 		$offset = '';
 		$limit = 1000;
 		while ($offset !== null) {
-			$fileIds = $this->tagMapper->getObjectIdsForTags((string) $tag, 'files', $limit, $offset);
+			$fileIds = $this->tagMapper->getObjectIdsForTags((string)$tag, 'files', $limit, $offset);
 			$this->logger->debug('Checking retention for ' . count($fileIds) . ' files in this chunk');
 
 			foreach ($fileIds as $fileId) {
-				$fileId = (int) $fileId;
+				$fileId = (int)$fileId;
 				try {
 					$node = $this->checkFileId($fileId);
 				} catch (NotFoundException $e) {
@@ -127,7 +127,7 @@ class RetentionJob extends TimedJob {
 				break;
 			}
 
-			$offset = (string) array_pop($fileIds);
+			$offset = (string)array_pop($fileIds);
 		}
 	}
 

@@ -68,7 +68,7 @@ class EventListenerTest extends \Test\TestCase {
 	public function testTagDeleted(): void {
 		$tag = $this->tagManager->createTag(self::getUniqueID('foo'), true, true);
 		$this->tagManager->deleteTags($tag->getId());
-		$this->addTag((int) $tag->getId(), 1, Constants::DAY);
+		$this->addTag((int)$tag->getId(), 1, Constants::DAY);
 
 		$eventListener = new EventListener($this->db, $this->logger);
 		self::invokePrivate($eventListener, 'tagDeleted', [$tag]);
