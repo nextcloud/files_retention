@@ -40,7 +40,7 @@ class EventListener implements IEventListener {
 		$qb->delete('retention')
 			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tag->getId(), IQueryBuilder::PARAM_INT), IQueryBuilder::PARAM_INT));
 
-		$deleted = (bool) $qb->executeStatement();
+		$deleted = (bool)$qb->executeStatement();
 
 		if ($deleted) {
 			$this->logger->info('Deleting retention rule for tag #' . $tag->getId() . ' because the tag is deleted');

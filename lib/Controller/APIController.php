@@ -41,7 +41,7 @@ class APIController extends OCSController {
 
 		$result = $tagIds = [];
 		while ($data = $cursor->fetch()) {
-			$tagIds[] = (string) $data['tag_id'];
+			$tagIds[] = (string)$data['tag_id'];
 			$hasJob = $this->jobList->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
 			if (!$hasJob) {
 				$this->jobList->add(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
@@ -73,7 +73,7 @@ class APIController extends OCSController {
 
 	public function addRetention(int $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::CTIME): DataResponse {
 		try {
-			$this->tagManager->getTagsByIds((string) $tagid);
+			$this->tagManager->getTagsByIds((string)$tagid);
 		} catch (\InvalidArgumentException $e) {
 			return new DataResponse([], Http::STATUS_BAD_REQUEST);
 		}
