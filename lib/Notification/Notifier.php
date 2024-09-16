@@ -10,6 +10,7 @@ namespace OCA\Files_Retention\Notification;
 
 use OCA\Files_Retention\AppInfo\Application;
 use OCP\Files\IRootFolder;
+use OCP\Files\Node;
 use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
 use OCP\Notification\AlreadyProcessedException;
@@ -47,6 +48,7 @@ class Notifier implements INotifier {
 		if (empty($nodes)) {
 			throw new AlreadyProcessedException();
 		}
+		/** @var Node $node */
 		$node = array_pop($nodes);
 
 		$l = $this->l10Factory->get(Application::APP_ID, $languageCode);
@@ -55,9 +57,9 @@ class Notifier implements INotifier {
 			[
 				'file' => [
 					'type' => 'file',
-					'id' => $node->getId(),
+					'id' => (string)$node->getId(),
 					'name' => $node->getName(),
-					'path' => $userFolder->getRelativePath($node->getPath()),
+					'path' => (string)$userFolder->getRelativePath($node->getPath()),
 					'mimetype' => $node->getMimetype(),
 					'link' => $this->url->linkToRouteAbsolute('files.viewcontroller.showFile', ['fileid' => $fileId]),
 				],
