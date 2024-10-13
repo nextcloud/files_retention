@@ -12,7 +12,7 @@ OC.L10N.register(
     "Files tagged with" : "الملفات الموسومة بـ",
     "Retention time" : "مدة الاحتفاظ",
     "From date of" : "من يومِ",
-    "Create" : "أنشِيء",
+    "Create" : "إنشاء ",
     "Notify owner a day before a file is automatically deleted" : "أبلِغ صاحب الملف owner قبل الحذف الآلي للملف بيومٍ",
     "Days" : "أيام",
     "Weeks" : "أسابيع",
