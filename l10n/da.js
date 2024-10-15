@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Retention" : "Tilbageholdelse",
     "Create" : "Opret",
     "Days" : "Dage",
     "Weeks" : "Uger",
