@@ -11,7 +11,7 @@ OC.L10N.register(
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Define se os ficheiros etiquetados cunha etiqueta específica deben ser eliminados automaticamente após algún tempo. Isto é útil para documentos confidenciais.",
     "Files tagged with" : "Ficheiros etiquetados con",
     "Retention time" : "Tempo de retención",
-    "From date of" : "Dende a data de",
+    "From date of" : "Desde a data de",
     "Create" : "Crear",
     "Notify owner a day before a file is automatically deleted" : "Notificar ao propietario un día antes de que se elimine automaticamente un ficheiro",
     "Days" : "Días",
