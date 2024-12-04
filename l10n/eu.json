@@ -18,6 +18,7 @@
     "Years" : "Urteak",
     "Creation" : "Sorrera",
     "Last modification" : "Azken aldaketa",
+    "Time units" : "Denbora unitateak",
     "Number of days, weeks, months or years after which the files should be deleted" : "Fitxategiak ezabatzeko behar diren egun, aste, hilabete edo urte kopurua",
     "Create new retention rule" : "Sortu mantentze-arau berria",
     "An error occurred while loading the existing retention rules" : "Errore bat gertatu da dauden mantentze-arauak kargatzean",
