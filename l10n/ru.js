@@ -20,6 +20,7 @@ OC.L10N.register(
     "Years" : "Лет",
     "Creation" : "Создание",
     "Last modification" : "Изменён",
+    "Time units" : "Единицы измерения времени",
     "Number of days, weeks, months or years after which the files should be deleted" : "Количество дней, недель, месяцев или лет, по истечении которых файлы должны быть удалены",
     "Create new retention rule" : "Создать новое правило хранения",
     "An error occurred while loading the existing retention rules" : "Произошла ошибка при загрузке существующих правил хранения",
