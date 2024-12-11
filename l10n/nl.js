@@ -15,6 +15,8 @@ OC.L10N.register(
     "Years" : "Jaar",
     "Creation" : "Creatie",
     "Last modification" : "Laatste wijziging",
-    "An error occurred while changing the setting" : "Er is een fout opgetreden tijdens het wijzigen van de instelling."
+    "An error occurred while changing the setting" : "Er is een fout opgetreden tijdens het wijzigen van de instelling.",
+    "_%n day_::_%n days_" : ["%n dag","%n dagen"],
+    "_%n week_::_%n weeks_" : ["%n week","weken"]
 },
 "nplurals=2; plural=(n != 1);");
