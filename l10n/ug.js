@@ -2,7 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Files retention" : "ھۆججەتلەرنى ساقلاپ قېلىش",
-    "{file} will be removed in 24 hours" : "{ھۆججەت 24 24 سائەت ئىچىدە ئۆچۈرۈلىدۇ",
+    "{file} will be removed in 24 hours" : "{file} 24 24 سائەت ئىچىدە ئۆچۈرۈلىدۇ",
     "Your systems retention rules will delete this file within 24 hours." : "سىستېمىڭىزنى ساقلاش قائىدىسى بۇ ھۆججەتنى 24 سائەت ئىچىدە ئۆچۈرۈۋېتىدۇ.",
     "Retention" : "تۇتۇپ قېلىش",
     "This application allows for automatic deletion of files after a given time." : "بۇ پروگرامما مەلۇم ۋاقىتتىن كېيىن ھۆججەتلەرنى ئاپتوماتىك ئۆچۈرەلەيدۇ.",
@@ -33,7 +33,7 @@ OC.L10N.register(
     "Invalid action option" : "ئىناۋەتسىز ھەرىكەت تاللانمىسى",
     "Invalid retention time" : "ساقلاش ۋاقتى ئىناۋەتسىز",
     "Retention rule for tag {tagName} saved" : "خەتكۈچ {tagName} نى ساقلاش قائىدىسى ساقلاندى",
-    "Failed to save retention rule for tag {tagName}" : "خەتكۈچ {tagName for ساقلاش قائىدىسىنى ساقلىيالمىدى",
+    "Failed to save retention rule for tag {tagName}" : "خەتكۈچ {tagName} for ساقلاش قائىدىسىنى ساقلىيالمىدى",
     "Delete retention rule for tag {tagName}" : "خەتكۈچ {tagName} نىڭ ساقلاش قائىدىسىنى ئۆچۈرۈڭ",
     "Retention rule for tag {tagName} has been deleted" : "خەتكۈچ {tagName} نى ساقلاش قائىدىسى ئۆچۈرۈلدى"
 },
