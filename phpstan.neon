@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
 parameters:
 	level: 5
 	paths:
@@ -5,7 +7,6 @@ parameters:
 	scanFiles:
 		- tests/stub.phpstub
 	scanDirectories:
-		# - vendor/nextcloud/ocp
-		- ../../lib/public
+		- vendor/nextcloud/ocp
 	ignoreErrors:
 		- '#on an unknown class Doctrine\\DBAL\\Schema\\Table#'
