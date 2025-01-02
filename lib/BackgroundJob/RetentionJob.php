@@ -102,7 +102,7 @@ class RetentionJob extends TimedJob {
 
 		$offset = '';
 		$limit = 1000;
-		while ($offset !== null) {
+		while (true) {
 			$fileIds = $this->tagMapper->getObjectIdsForTags((string)$tag, 'files', $limit, $offset);
 			$this->logger->debug('Checking retention for ' . count($fileIds) . ' files in this chunk');
 
