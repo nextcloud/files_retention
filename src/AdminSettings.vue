@@ -140,7 +140,7 @@ export default {
 
 			newAmount: '14', // FIXME TextField does not accept numbers …
 
-			newTag: -1,
+			newTag: null,
 			tagOptions: [],
 			filterAvailableTagList: (tag) => {
 				return !this.tagIdsWithRule.includes(tag.id)
@@ -220,7 +220,7 @@ export default {
 			const newAfter = this.newAfter?.id ?? this.newAfter
 			const newAmount = parseInt(this.newAmount, 10)
 
-			if (newTag < 0) {
+			if (newTag === null || newTag < 0) {
 				showError(t('files_retention', 'Invalid tag selected'))
 				return
 			}
@@ -264,7 +264,7 @@ export default {
 		},
 
 		resetForm() {
-			this.newTag = -1
+			this.newTag = null
 			this.newAmount = '14'
 			this.newUnit = this.unitOptions[0]
 			this.newAfter = this.afterOptions[0]
