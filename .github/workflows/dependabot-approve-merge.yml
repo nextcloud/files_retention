@@ -49,4 +49,3 @@ jobs:
         with:
           target: 'minor'
           use-github-auto-merge: true
-          github-token: ${{ secrets.DEPENDABOT_AUTOMERGE_TOKEN }}
