@@ -9,7 +9,7 @@
 name: Dependabot
 
 on:
-  pull_request:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
     branches:
       - main
       - master
@@ -29,8 +29,6 @@ jobs:
     permissions:
       # for hmarr/auto-approve-action to approve PRs
       pull-requests: write
-      # for alexwilson/enable-github-automerge-action to approve PRs
-      contents: write
 
     steps:
       - name: Disabled on forks
@@ -48,4 +46,4 @@ jobs:
       - uses: ahmadnassri/action-dependabot-auto-merge@45fc124d949b19b6b8bf6645b6c9d55f4f9ac61a # v2
         with:
           target: minor
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.DEPENDABOT_AUTOMERGE_TOKEN }}
