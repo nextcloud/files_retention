@@ -29,7 +29,7 @@ jobs:
     permissions:
       # hmarr/auto-approve-action
       pull-requests: write
-      # ahmadnassri/action-dependabot-auto-merge
+      # fastify/github-action-merge-dependabot
       contents: write
 
     steps:
@@ -45,7 +45,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Nextcloud bot approve and merge request
-      - uses: ahmadnassri/action-dependabot-auto-merge@45fc124d949b19b6b8bf6645b6c9d55f4f9ac61a # v2
+      - uses: fastify/github-action-merge-dependabot@c3bde0759d4f24db16f7b250b2122bc2df57e817 # v3.11.0
         with:
-          target: minor
+          target: 'minor'
+          use-github-auto-merge: true
           github-token: ${{ secrets.DEPENDABOT_AUTOMERGE_TOKEN }}
