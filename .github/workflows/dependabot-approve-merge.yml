@@ -27,8 +27,10 @@ jobs:
     if: github.event.pull_request.user.login == 'dependabot[bot]' || github.event.pull_request.user.login == 'renovate[bot]'
     runs-on: ubuntu-latest-low
     permissions:
-      # for hmarr/auto-approve-action to approve PRs
+      # hmarr/auto-approve-action
       pull-requests: write
+      # ahmadnassri/action-dependabot-auto-merge
+      contents: write
 
     steps:
       - name: Disabled on forks
