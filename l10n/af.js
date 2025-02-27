@@ -1,7 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Create" : "Skep",
-    "Days" : "Dae"
+    "Days" : "Dae",
+    "Create" : "Skep"
 },
 "nplurals=2; plural=(n != 1);");

@@ -1,7 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Create" : "បង្កើត",
-    "Years" : "ឆ្នាំ"
+    "Years" : "ឆ្នាំ",
+    "Create" : "បង្កើត"
 },
 "nplurals=1; plural=0;");

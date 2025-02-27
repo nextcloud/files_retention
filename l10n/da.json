@@ -1,10 +1,10 @@
 { "translations": {
     "Retention" : "Tilbageholdelse",
-    "Create" : "Opret",
     "Days" : "Dage",
     "Weeks" : "Uger",
     "Months" : "Måneder",
     "Years" : "År",
-    "An error occurred while changing the setting" : "Der opstod en fejl under ændring af indstillingen."
+    "An error occurred while changing the setting" : "Der opstod en fejl under ændring af indstillingen.",
+    "Create" : "Opret"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
