@@ -1,9 +1,9 @@
 { "translations": {
     "{file} will be removed in 24 hours" : "{file} буде вилучено через 24 години",
-    "Create" : "Створити",
     "Days" : "Дні",
     "Years" : "Роки ",
     "An error occurred while changing the setting" : "Помилка під час внесення змін до налаштувань",
+    "Create" : "Створити",
     "_%n day_::_%n days_" : ["%n день","%n днів","%n днів","%n днів"],
     "_%n week_::_%n weeks_" : ["%n день","%n тижнів","%n тижнів","%n тижнів"],
     "_%n month_::_%n months_" : ["%n місяць","%n місяців","%n місяців ","%n місяців"],
