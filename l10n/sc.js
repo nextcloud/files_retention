@@ -7,13 +7,13 @@ OC.L10N.register(
     "Retention" : "Allogada",
     "This application allows for automatic deletion of files after a given time." : "Custa aplicatzione permitit sa cantzelladura automàtica de archìvios a pustis de unu tempus dadu.",
     "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Un'aplicatzione de Nextcloud pro controllare sa cantzelladura automàtica de archìvios pustis de unu tempus definidu. \nIs utentes podent seberare de retzire informatziones sa die antis.",
-    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Defini si is archìvios cun etichetas ispetzìficas si diant cantzellare in automàticu a pustis de unu tempus dadu. Est ùtile pro documentos de cunfidu.",
-    "Create" : "Crea",
     "Days" : "Dies",
     "Weeks" : "Chidas",
     "Months" : "Meses",
     "Years" : "Annos",
     "Creation" : "Creatzione",
-    "Last modification" : "Ùrtima modìfica"
+    "Last modification" : "Ùrtima modìfica",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Defini si is archìvios cun etichetas ispetzìficas si diant cantzellare in automàticu a pustis de unu tempus dadu. Est ùtile pro documentos de cunfidu.",
+    "Create" : "Crea"
 },
 "nplurals=2; plural=(n != 1);");

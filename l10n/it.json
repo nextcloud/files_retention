@@ -5,14 +5,14 @@
     "Retention" : "Conservazione",
     "This application allows for automatic deletion of files after a given time." : "Questa applicazione consente l'eliminazione automatica dei file dopo un determinato tempo.",
     "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Un'app per Nextcloud per controllare l'eliminazione automatica di file dopo un determinato tempo.\nFacoltativamente, gli utenti possono esserne informati il giorno prima.",
-    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definisce se i file contrassegnati con una specifica etichetta dopo un certo periodo. Questo è utile per i documenti confidenziali.",
-    "Create" : "Crea",
     "Days" : "Giorni",
     "Weeks" : "Settimane",
     "Months" : "Mesi",
     "Years" : "Anni",
     "Creation" : "Creazione",
     "Last modification" : "Ultima modifica",
-    "An error occurred while changing the setting" : "Si è verificato un errore durante la modifica delle impostazioni"
+    "An error occurred while changing the setting" : "Si è verificato un errore durante la modifica delle impostazioni",
+    "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definisce se i file contrassegnati con una specifica etichetta dopo un certo periodo. Questo è utile per i documenti confidenziali.",
+    "Create" : "Crea"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
