@@ -91,30 +91,30 @@ class RetentionJobTest extends TestCase {
 
 	public static function deleteTestCases(): array {
 		return [
-			[[1, Constants::DAY],   [0, Constants::DAY], false, 0],
-			[[2, Constants::WEEK],  [0, Constants::DAY], false, 0],
-			[[3, Constants::MONTH], [0, Constants::DAY], false, 1],
-			[[4, Constants::YEAR],  [0, Constants::DAY], false, 1],
+			[[1, Constants::UNIT_DAY],   [0, Constants::UNIT_DAY], false, 0],
+			[[2, Constants::UNIT_WEEK],  [0, Constants::UNIT_DAY], false, 0],
+			[[3, Constants::UNIT_MONTH], [0, Constants::UNIT_DAY], false, 1],
+			[[4, Constants::UNIT_YEAR],  [0, Constants::UNIT_DAY], false, 1],
 
-			[[1, Constants::DAY],   [2, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [2, Constants::DAY], false, 0],
-			[[3, Constants::MONTH], [2, Constants::DAY], false, 1],
-			[[4, Constants::YEAR],  [2, Constants::DAY], false, 1],
+			[[1, Constants::UNIT_DAY],   [2, Constants::UNIT_DAY], true, 0],
+			[[2, Constants::UNIT_WEEK],  [2, Constants::UNIT_DAY], false, 0],
+			[[3, Constants::UNIT_MONTH], [2, Constants::UNIT_DAY], false, 1],
+			[[4, Constants::UNIT_YEAR],  [2, Constants::UNIT_DAY], false, 1],
 
-			[[1, Constants::DAY],   [21, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [21, Constants::DAY], true, 0],
-			[[3, Constants::MONTH], [21, Constants::DAY], false, 1],
-			[[4, Constants::YEAR],  [21, Constants::DAY], false, 1],
+			[[1, Constants::UNIT_DAY],   [21, Constants::UNIT_DAY], true, 0],
+			[[2, Constants::UNIT_WEEK],  [21, Constants::UNIT_DAY], true, 0],
+			[[3, Constants::UNIT_MONTH], [21, Constants::UNIT_DAY], false, 1],
+			[[4, Constants::UNIT_YEAR],  [21, Constants::UNIT_DAY], false, 1],
 
-			[[1, Constants::DAY],   [180, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [180, Constants::DAY], true, 0],
-			[[3, Constants::MONTH], [180, Constants::DAY], true, 1],
-			[[4, Constants::YEAR],  [180, Constants::DAY], false, 1],
+			[[1, Constants::UNIT_DAY],   [180, Constants::UNIT_DAY], true, 0],
+			[[2, Constants::UNIT_WEEK],  [180, Constants::UNIT_DAY], true, 0],
+			[[3, Constants::UNIT_MONTH], [180, Constants::UNIT_DAY], true, 1],
+			[[4, Constants::UNIT_YEAR],  [180, Constants::UNIT_DAY], false, 1],
 
-			[[1, Constants::DAY],   [10000, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [10000, Constants::DAY], true, 0],
-			[[3, Constants::MONTH], [10000, Constants::DAY], true, 1],
-			[[4, Constants::YEAR],  [10000, Constants::DAY], true, 1],
+			[[1, Constants::UNIT_DAY],   [10000, Constants::UNIT_DAY], true, 0],
+			[[2, Constants::UNIT_WEEK],  [10000, Constants::UNIT_DAY], true, 0],
+			[[3, Constants::UNIT_MONTH], [10000, Constants::UNIT_DAY], true, 1],
+			[[4, Constants::UNIT_YEAR],  [10000, Constants::UNIT_DAY], true, 1],
 		];
 	}
 
@@ -220,7 +220,7 @@ class RetentionJobTest extends TestCase {
 	}
 
 	public function testCantDelete(): void {
-		$this->addTag(42, 1, Constants::DAY);
+		$this->addTag(42, 1, Constants::UNIT_DAY);
 
 		$this->tagMapper->expects($this->once())
 			->method('getObjectIdsForTags')
@@ -274,7 +274,7 @@ class RetentionJobTest extends TestCase {
 	}
 
 	public function testNoDeletePermissions(): void {
-		$this->addTag(42, 1, Constants::DAY);
+		$this->addTag(42, 1, Constants::UNIT_DAY);
 
 		$this->tagMapper->expects($this->once())
 			->method('getObjectIdsForTags')
@@ -315,7 +315,7 @@ class RetentionJobTest extends TestCase {
 	}
 
 	public function testNoDeletePermissionsOnFirstMountPointButOnSecond(): void {
-		$this->addTag(42, 1, Constants::DAY);
+		$this->addTag(42, 1, Constants::UNIT_DAY);
 
 		$this->tagMapper->expects($this->once())
 			->method('getObjectIdsForTags')
@@ -390,7 +390,7 @@ class RetentionJobTest extends TestCase {
 	}
 
 	public function testNoMountPoint(): void {
-		$this->addTag(42, 1, Constants::DAY);
+		$this->addTag(42, 1, Constants::UNIT_DAY);
 
 		$this->tagMapper->expects($this->once())
 			->method('getObjectIdsForTags')
@@ -406,7 +406,7 @@ class RetentionJobTest extends TestCase {
 	}
 
 	public function testNoFileIds(): void {
-		$this->addTag(42, 1, Constants::DAY);
+		$this->addTag(42, 1, Constants::UNIT_DAY);
 
 		$this->tagMapper->expects($this->once())
 			->method('getObjectIdsForTags')
@@ -443,7 +443,7 @@ class RetentionJobTest extends TestCase {
 	}
 
 	public function testsPagination(): void {
-		$this->addTag(42, 1, Constants::DAY);
+		$this->addTag(42, 1, Constants::UNIT_DAY);
 
 		$withConsecutive = [
 			[

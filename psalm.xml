@@ -17,19 +17,16 @@
 		<directory name="lib" />
 		<ignoreFiles>
 			<directory name="vendor" />
+			<directory name="vendor-bin" />
 		</ignoreFiles>
 	</projectFiles>
 	<extraFiles>
 		<directory name="vendor" />
-		<ignoreFiles>
-			<directory name="vendor/phpunit/php-code-coverage" />
-		</ignoreFiles>
 	</extraFiles>
 	<issueHandlers>
 		<UndefinedClass>
 			<errorLevel type="suppress">
 				<referencedClass name="OC" />
-				<referencedClass name="Doctrine\DBAL\Types\Types" />
 			</errorLevel>
 		</UndefinedClass>
 		<UndefinedDocblockClass>
