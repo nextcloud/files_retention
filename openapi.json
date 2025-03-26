@@ -68,9 +68,13 @@
                     "timeunit": {
                         "type": "integer",
                         "format": "int64",
-                        "description": "0 days, 1 weeks, 2 months, 3 years",
-                        "minimum": 0,
-                        "maximum": 3
+                        "enum": [
+                            0,
+                            1,
+                            2,
+                            3
+                        ],
+                        "description": "0 days, 1 weeks, 2 months, 3 years"
                     },
                     "timeamount": {
                         "type": "integer",
@@ -80,9 +84,11 @@
                     "timeafter": {
                         "type": "integer",
                         "format": "int64",
-                        "description": "0 creation time, 1 modification time",
-                        "minimum": 0,
-                        "maximum": 1
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "description": "0 creation time, 1 modification time"
                     },
                     "hasJob": {
                         "type": "boolean"
@@ -192,9 +198,13 @@
                                     "timeunit": {
                                         "type": "integer",
                                         "format": "int64",
-                                        "description": "Time unit of the retention (days, weeks, months, years)",
-                                        "minimum": 0,
-                                        "maximum": 3
+                                        "enum": [
+                                            0,
+                                            1,
+                                            2,
+                                            3
+                                        ],
+                                        "description": "Time unit of the retention (days, weeks, months, years)"
                                     },
                                     "timeamount": {
                                         "type": "integer",
@@ -205,9 +215,11 @@
                                     "timeafter": {
                                         "type": "integer",
                                         "format": "int64",
-                                        "description": "Whether retention time is based creation time (0) or modification time (1)",
-                                        "minimum": 0,
-                                        "maximum": 1
+                                        "enum": [
+                                            0,
+                                            1
+                                        ],
+                                        "description": "Whether retention time is based creation time (0) or modification time (1)"
                                     }
                                 }
                             }

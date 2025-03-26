@@ -14,10 +14,10 @@ namespace OCA\Files_Retention;
  *     id: positive-int,
  *     tagid: positive-int,
  *     // 0 days, 1 weeks, 2 months, 3 years
- *     timeunit: int<0, 3>,
+ *     timeunit: 0|1|2|3,
  *     timeamount: positive-int,
  *     // 0 creation time, 1 modification time
- *     timeafter: int<0, 1>,
+ *     timeafter: 0|1,
  *     hasJob: bool,
  * }
  */
