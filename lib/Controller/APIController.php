@@ -86,10 +86,10 @@ class APIController extends OCSController {
 	 * Create a retention rule
 	 *
 	 * @param int $tagid Tag the retention is based on
-	 * @param int<0, 3> $timeunit Time unit of the retention (days, weeks, months, years)
+	 * @param 0|1|2|3 $timeunit Time unit of the retention (days, weeks, months, years)
 	 * @psalm-param Constants::UNIT_* $timeunit
 	 * @param positive-int $timeamount Amount of time units that have to be passed
-	 * @param int<0, 1> $timeafter Whether retention time is based creation time (0) or modification time (1)
+	 * @param 0|1 $timeafter Whether retention time is based creation time (0) or modification time (1)
 	 * @psalm-param Constants::MODE_* $timeafter
 	 * @return DataResponse<Http::STATUS_BAD_REQUEST, array{error: 'tagid'|'timeunit'|'timeamount'|'timeafter'}, array{}>|DataResponse<Http::STATUS_CREATED, Files_RetentionRule, array{}>
 	 *
