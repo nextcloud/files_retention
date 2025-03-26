@@ -197,7 +197,7 @@ class RetentionJob extends TimedJob {
 		$mtime->setTimestamp($node->getMTime());
 
 		// Use the upload time if we have it
-		if ($timeAfter === Constants::CTIME && $node->getUploadTime() !== 0) {
+		if ($timeAfter === Constants::MODE_CTIME && $node->getUploadTime() !== 0) {
 			$mtime->setTimestamp($node->getUploadTime());
 		}
 
@@ -253,13 +253,13 @@ class RetentionJob extends TimedJob {
 	private function getBeforeDate(int $timeunit, int $timeAmount): \DateTime {
 		$spec = 'P' . $timeAmount;
 
-		if ($timeunit === Constants::DAY) {
+		if ($timeunit === Constants::UNIT_DAY) {
 			$spec .= 'D';
-		} elseif ($timeunit === Constants::WEEK) {
+		} elseif ($timeunit === Constants::UNIT_WEEK) {
 			$spec .= 'W';
-		} elseif ($timeunit === Constants::MONTH) {
+		} elseif ($timeunit === Constants::UNIT_MONTH) {
 			$spec .= 'M';
-		} elseif ($timeunit === Constants::YEAR) {
+		} elseif ($timeunit === Constants::UNIT_YEAR) {
 			$spec .= 'Y';
 		}
 

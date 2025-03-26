@@ -64,7 +64,7 @@ class APIControllerTest extends \Test\TestCase {
 			->with('42')
 			->will($this->throwException(new \InvalidArgumentException()));
 
-		$response = $this->api->addRetention(42, Constants::WEEK, 1);
+		$response = $this->api->addRetention(42, Constants::UNIT_WEEK, 1);
 
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
@@ -82,7 +82,7 @@ class APIControllerTest extends \Test\TestCase {
 			->method('add')
 			->with(RetentionJob::class, ['tag' => '42']);
 
-		$response = $this->api->addRetention(42, Constants::MONTH, 1);
+		$response = $this->api->addRetention(42, Constants::UNIT_MONTH, 1);
 
 		$qb = $this->db->getQueryBuilder();
 		$qb->select('*')
@@ -99,7 +99,7 @@ class APIControllerTest extends \Test\TestCase {
 		$expected = [
 			'id' => (int)$data['id'],
 			'tagid' => 42,
-			'timeunit' => Constants::MONTH,
+			'timeunit' => Constants::UNIT_MONTH,
 			'timeamount' => 1,
 			'timeafter' => 0,
 			'hasJob' => true,
@@ -139,23 +139,23 @@ class APIControllerTest extends \Test\TestCase {
 			],
 			[
 				[
-					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => true],
+					['tagid' => 1, 'timeunit' => Constants::UNIT_DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => true],
 				]
 			],
 			[
 				[
-					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => true],
-					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => true],
-					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => true],
-					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => true],
+					['tagid' => 1, 'timeunit' => Constants::UNIT_DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => true],
+					['tagid' => 2, 'timeunit' => Constants::UNIT_WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => true],
+					['tagid' => 3, 'timeunit' => Constants::UNIT_MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => true],
+					['tagid' => 4, 'timeunit' => Constants::UNIT_YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => true],
 				]
 			],
 			[
 				[
-					['tagid' => 1, 'timeunit' => Constants::DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => true],
-					['tagid' => 2, 'timeunit' => Constants::WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => true, 'expected' => false],
-					['tagid' => 3, 'timeunit' => Constants::MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => true, 'expected' => false],
-					['tagid' => 4, 'timeunit' => Constants::YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => true],
+					['tagid' => 1, 'timeunit' => Constants::UNIT_DAY, 'timeamount' => 1, 'timeafter' => 0, 'hasJob' => true],
+					['tagid' => 2, 'timeunit' => Constants::UNIT_WEEK, 'timeamount' => 2, 'timeafter' => 0, 'hasJob' => true, 'expected' => false],
+					['tagid' => 3, 'timeunit' => Constants::UNIT_MONTH, 'timeamount' => 3, 'timeafter' => 1, 'hasJob' => true, 'expected' => false],
+					['tagid' => 4, 'timeunit' => Constants::UNIT_YEAR, 'timeamount' => 4, 'timeafter' => 1, 'hasJob' => true],
 				],
 				['2', '3'],
 			],

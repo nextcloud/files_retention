@@ -8,11 +8,11 @@ declare(strict_types=1);
 namespace OCA\Files_Retention;
 
 class Constants {
-	public const DAY = 0;
-	public const WEEK = 1;
-	public const MONTH = 2;
-	public const YEAR = 3;
+	public const UNIT_DAY = 0;
+	public const UNIT_WEEK = 1;
+	public const UNIT_MONTH = 2;
+	public const UNIT_YEAR = 3;
 
-	public const CTIME = 0;
-	public const MTIME = 1;
+	public const MODE_CTIME = 0;
+	public const MODE_MTIME = 1;
 }
