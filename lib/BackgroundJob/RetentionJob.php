@@ -119,7 +119,7 @@ class RetentionJob extends TimedJob {
 				$deleted = $this->expireNode($node, $deleteBefore, $timeAfter);
 
 				if ($notifyDayBefore && !$deleted) {
-					$this->notifyNode($node, $notifyBefore);
+					$this->notifyNode($node, $notifyBefore, $timeAfter);
 				}
 			}
 
@@ -190,18 +190,28 @@ class RetentionJob extends TimedJob {
 		throw new NotPermittedException();
 	}
 
-	private function expireNode(Node $node, \DateTime $deleteBefore, int $timeAfter): bool {
-		$mtime = new \DateTime();
+	protected function getDateFromNode(Node $node, int $timeAfter): \DateTime {
+		$time = new \DateTime();
 
 		// Fallback is the mtime
-		$mtime->setTimestamp($node->getMTime());
+		$time->setTimestamp($node->getMTime());
 
 		// Use the upload time if we have it
 		if ($timeAfter === Constants::MODE_CTIME && $node->getUploadTime() !== 0) {
-			$mtime->setTimestamp($node->getUploadTime());
+			$time->setTimestamp($node->getUploadTime());
+		} elseif ($timeAfter === Constants::MODE_MTIME && $node->getMTime() < $node->getUploadTime()) {
+			// Use the upload time if it's newer than the modification time
+			$time->setTimestamp($node->getUploadTime());
+			$this->logger->debug('Upload time of file ' . $node->getId() . ' is newer than modification time, continuing with that');
 		}
 
-		if ($mtime < $deleteBefore) {
+		return $time;
+	}
+
+	private function expireNode(Node $node, \DateTime $deleteBefore, int $timeAfter): bool {
+		$time = $this->getDateFromNode($node, $timeAfter);
+
+		if ($time < $deleteBefore) {
 			$this->logger->debug('Expiring file ' . $node->getId());
 			try {
 				$node->delete();
@@ -218,18 +228,10 @@ class RetentionJob extends TimedJob {
 		return false;
 	}
 
-	private function notifyNode(Node $node, \DateTime $notifyBefore): void {
-		$mtime = new \DateTime();
+	private function notifyNode(Node $node, \DateTime $notifyBefore, int $timeAfter): void {
+		$time = $this->getDateFromNode($node, $timeAfter);
 
-		// Fallback is the mtime
-		$mtime->setTimestamp($node->getMTime());
-
-		// Use the upload time if we have it
-		if ($node->getUploadTime() !== 0) {
-			$mtime->setTimestamp($node->getUploadTime());
-		}
-
-		if ($mtime < $notifyBefore) {
+		if ($time < $notifyBefore) {
 			$this->logger->debug('Notifying about retention tomorrow for file ' . $node->getId());
 			try {
 				$notification = $this->notificationManager->createNotification();
