@@ -126,30 +126,37 @@ class RetentionJobTest extends TestCase {
 
 	public function deleteTestCases() {
 		return [
-			[[1, Constants::DAY],   [0, Constants::DAY], false, 0],
-			[[2, Constants::WEEK],  [0, Constants::DAY], false, 0],
-			[[3, Constants::MONTH], [0, Constants::DAY], false, 1],
-			[[4, Constants::YEAR],  [0, Constants::DAY], false, 1],
+			[[1, Constants::DAY],   [0, Constants::DAY], false, Constants::CTIME],
+			[[2, Constants::WEEK],  [0, Constants::DAY], false, Constants::CTIME],
+			[[3, Constants::MONTH], [0, Constants::DAY], false, Constants::MTIME],
+			[[4, Constants::YEAR],  [0, Constants::DAY], false, Constants::MTIME],
 
-			[[1, Constants::DAY],   [2, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [2, Constants::DAY], false, 0],
-			[[3, Constants::MONTH], [2, Constants::DAY], false, 1],
-			[[4, Constants::YEAR],  [2, Constants::DAY], false, 1],
+			[[1, Constants::DAY],   [2, Constants::DAY], true, Constants::CTIME],
+			[[2, Constants::WEEK],  [2, Constants::DAY], false, Constants::CTIME],
+			[[3, Constants::MONTH], [2, Constants::DAY], false, Constants::MTIME],
+			[[4, Constants::YEAR],  [2, Constants::DAY], false, Constants::MTIME],
 
-			[[1, Constants::DAY],   [21, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [21, Constants::DAY], true, 0],
-			[[3, Constants::MONTH], [21, Constants::DAY], false, 1],
-			[[4, Constants::YEAR],  [21, Constants::DAY], false, 1],
+			[[1, Constants::DAY],   [21, Constants::DAY], true, Constants::CTIME],
+			[[2, Constants::WEEK],  [21, Constants::DAY], true, Constants::CTIME],
+			[[3, Constants::MONTH], [21, Constants::DAY], false, Constants::MTIME],
+			[[4, Constants::YEAR],  [21, Constants::DAY], false, Constants::MTIME],
 
-			[[1, Constants::DAY],   [180, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [180, Constants::DAY], true, 0],
-			[[3, Constants::MONTH], [180, Constants::DAY], true, 1],
-			[[4, Constants::YEAR],  [180, Constants::DAY], false, 1],
+			[[1, Constants::DAY],   [180, Constants::DAY], true, Constants::CTIME],
+			[[2, Constants::WEEK],  [180, Constants::DAY], true, Constants::CTIME],
+			[[3, Constants::MONTH], [180, Constants::DAY], true, Constants::MTIME],
+			[[4, Constants::YEAR],  [180, Constants::DAY], false, Constants::MTIME],
 
-			[[1, Constants::DAY],   [10000, Constants::DAY], true, 0],
-			[[2, Constants::WEEK],  [10000, Constants::DAY], true, 0],
-			[[3, Constants::MONTH], [10000, Constants::DAY], true, 1],
-			[[4, Constants::YEAR],  [10000, Constants::DAY], true, 1],
+			[[1, Constants::DAY],   [10000, Constants::DAY], true, Constants::CTIME],
+			[[2, Constants::WEEK],  [10000, Constants::DAY], true, Constants::CTIME],
+			[[3, Constants::MONTH], [10000, Constants::DAY], true, Constants::MTIME],
+			[[4, Constants::YEAR],  [10000, Constants::DAY], true, Constants::MTIME],
+
+			[[2, Constants::WEEK],  ['mtime' => 10, 'ctime' => 10], false, Constants::CTIME],
+			[[2, Constants::WEEK],  ['mtime' => 10, 'ctime' => 16], true, Constants::CTIME],
+			[[2, Constants::WEEK],  ['mtime' => 16, 'ctime' => 16], true, Constants::CTIME],
+			[[2, Constants::WEEK],  ['mtime' => 10, 'ctime' => 10], false, Constants::MTIME],
+			[[2, Constants::WEEK],  ['mtime' => 10, 'ctime' => 16], false, Constants::MTIME],
+			[[2, Constants::WEEK],  ['mtime' => 16, 'ctime' => 16], true, Constants::MTIME],
 		];
 	}
 
@@ -176,17 +183,14 @@ class RetentionJobTest extends TestCase {
 			->willReturn([$mountPoint]);
 
 		$user = $this->createMock(IUser::class);
-		$mountPoint->expects($this->once())
-			->method('getUser')
+		$mountPoint->method('getUser')
 			->willReturn($user);
 
-		$user->expects($this->once())
-			->method('getUID')
+		$user->method('getUID')
 			->willReturn('admin');
 
 		$userFolder = $this->createMock(Folder::class);
-		$this->rootFolder->expects($this->once())
-			->method('getUserFolder')
+		$this->rootFolder->method('getUserFolder')
 			->with('admin')
 			->willReturn($userFolder);
 
@@ -196,18 +200,28 @@ class RetentionJobTest extends TestCase {
 			->with(1337)
 			->willReturn([$node]);
 
-		$delta = new \DateInterval('P' . $fileTime[0] . 'D');
-		$now = new \DateTime();
-		$now->setTimestamp($this->timestampbase);
-		$mtime = $now->sub($delta);
+		if (isset($fileTime['mtime'])) {
+			$delta = new \DateInterval('P' . $fileTime['mtime'] . 'D');
+			$now = new \DateTime();
+			$now->setTimestamp($this->timestampbase);
+			$mtime = $now->sub($delta);
 
-		$node->expects($this->once())
-			->method('getMTime')
+			$delta = new \DateInterval('P' . $fileTime['ctime'] . 'D');
+			$now = new \DateTime();
+			$now->setTimestamp($this->timestampbase);
+			$ctime = $now->sub($delta);
+		} else {
+			$delta = new \DateInterval('P' . $fileTime[0] . 'D');
+			$now = new \DateTime();
+			$now->setTimestamp($this->timestampbase);
+			$mtime = $ctime = $now->sub($delta);
+		}
+
+		$node->method('getMTime')
 			->willReturn($mtime->getTimestamp());
 
-		$node->expects($after === 0 ? $this->exactly(2) : $this->never())
-			->method('getUploadTime')
-			->willReturn($mtime->getTimestamp());
+		$node->method('getUploadTime')
+			->willReturn($ctime->getTimestamp());
 
 		$node->method('isDeletable')
 			->willReturn(true);
