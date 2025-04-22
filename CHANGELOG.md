@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.18.1 - 2025-04-22
+### Changed
+
+- Consider upload time also when retention is based on modification
+
 ## 1.18.0 - 2024-04-12
 ### Changed
 
