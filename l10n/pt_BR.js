@@ -35,7 +35,7 @@ OC.L10N.register(
     "Create" : "Criar",
     "Notify owner a day before a file is automatically deleted" : "Notifique o proprietário um dia antes de um arquivo ser excluído automaticamente",
     "_%n day_::_%n days_" : ["%ndia","%ndias","%ndias"],
-    "_%n week_::_%n weeks_" : ["%nsemana","%nsemanas","%nsemanas"],
+    "_%n week_::_%n weeks_" : ["%n semana","%n semanas","%n semanas"],
     "_%n month_::_%n months_" : ["%nmês","%nmeses","%nmeses"],
     "_%n year_::_%n years_" : ["%nano","%nanos","%nanos"],
     "Delete retention rule for tag {tagName}" : "Remover regra de retenção para tag {tagName}",
