@@ -2,7 +2,7 @@ OC.L10N.register(
     "files_retention",
     {
     "Files retention" : "Dateienaufbewahrung",
-    "{file} will be removed in 24 hours" : "{file} wird in 24 Stunden gelöscht",
+    "{file} will be removed in 24 hours" : "{file} wird in 24 Stunden entfernt",
     "Your systems retention rules will delete this file within 24 hours." : "Die Aufbewahrungsregeln Ihres Systems werden diese Datei innerhalb von 24 Stunden löschen.",
     "Retention" : "Aufbewahrung",
     "This application allows for automatic deletion of files after a given time." : "Diese App ermöglicht das automatische Löschen von Dateien nach einer bestimmten Zeit.",
