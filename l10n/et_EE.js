@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Years" : "Aastad",
     "Create" : "Loo",
     "_%n day_::_%n days_" : ["%n päev","%n päeva"],
     "_%n week_::_%n weeks_" : ["%n nädal","%n nädalat"],
