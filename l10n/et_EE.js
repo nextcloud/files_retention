@@ -7,6 +7,7 @@ OC.L10N.register(
     "Years" : "Aastad",
     "Creation" : "Koostamine",
     "Last modification" : "Viimane muutmine",
+    "An error occurred while changing the setting" : "Seadistuse muutmisel tekkis viga",
     "Create" : "Loo",
     "_%n day_::_%n days_" : ["%n päev","%n päeva"],
     "_%n week_::_%n weeks_" : ["%n nädal","%n nädalat"],
