@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "An error occurred while changing the setting" : "An error occurred while changing the setting",
     "Create" : "Tengeneza",
     "_%n day_::_%n days_" : ["%n day","%n days"],
     "_%n week_::_%n weeks_" : ["%n week","%n weeks"],
