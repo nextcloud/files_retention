@@ -4,6 +4,7 @@ OC.L10N.register(
     "Files retention" : "Failide säilitamine",
     "{file} will be removed in 24 hours" : "{file} eemaldatakse 24 tunni pärast",
     "Days" : "Päevad",
+    "Months" : "Kuud",
     "Years" : "Aastad",
     "Creation" : "Koostamine",
     "Last modification" : "Viimane muutmine",
