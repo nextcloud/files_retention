@@ -16,7 +16,7 @@ OC.L10N.register(
     "Time units" : "Unités de temps",
     "Number of days, weeks, months or years after which the files should be deleted" : "Nombre de jours, semaines, mois ou années après lequel les fichiers devraient être supprimés",
     "Create new retention rule" : "Créer une nouvelle règle de rétention",
-    "An error occurred while loading the existing retention rules" : "Une erreur s'est produite lors du chargement des règles de rétention existantes",
+    "An error occurred while loading the existing retention rules" : "Une erreur est survenue lors du chargement des règles de rétention existantes",
     "Users are now notified one day before a file or folder is being deleted" : "Les utilisateurs sont désormais notifiés un jour avant qu'un fichier ou dossier soit supprimé.",
     "Users are no longer notified before a file or folder is being deleted" : "Les utilisateurs ne sont plus notifiés avant qu'un fichier ou dossier soit supprimé",
     "An error occurred while changing the setting" : "Une erreur est survenue lors de la modification du paramètre",
