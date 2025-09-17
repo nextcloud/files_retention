@@ -14,6 +14,7 @@ OC.L10N.register(
     "Creation" : "Δημιουργία",
     "Last modification" : "Τελευταία τροποποίηση",
     "Number of days, weeks, months or years after which the files should be deleted" : "Αριθμός ημερών, εβδομάδων, μηνών ή ετών μετά τα οποία πρέπει να διαγραφούν τα αρχεία",
+    "An error occurred while changing the setting" : "Προέκυψε σφάλμα κατά την αλλαγή της ρύθμισης",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Ορίστε εάν τα αρχεία με συγκεκριμένη ετικέτα θα διαγραφούν αυτόματα μετά από κάποιο χρονικό διάστημα. Αυτό είναι χρήσιμο για τα εμπιστευτικά έγγραφα.",
     "Create" : "Δημιουργία"
 },
