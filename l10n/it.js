@@ -15,6 +15,8 @@ OC.L10N.register(
     "Last modification" : "Ultima modifica",
     "An error occurred while changing the setting" : "Si è verificato un errore durante la modifica delle impostazioni",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definisce se i file contrassegnati con una specifica etichetta dopo un certo periodo. Questo è utile per i documenti confidenziali.",
-    "Create" : "Crea"
+    "Create" : "Crea",
+    "_%n day_::_%n days_" : ["%n giorno","%n giorni","%n giorni"],
+    "_%n week_::_%n weeks_" : ["%n settimana","%n settimane","%n settimane"]
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
