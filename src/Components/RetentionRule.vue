@@ -64,11 +64,15 @@ export default {
 			type: Boolean,
 			required: true,
 		},
+		tags: {
+			type: Array,
+			required: true,
+		},
 	},
 
 	computed: {
 		tagName() {
-			return OC.SystemTags.collection.get(this.tagid)?.attributes?.name
+			return this.tags.find((tag) => tag.id === this.tagid)?.displayName
 		},
 
 		getAmountAndUnit() {
