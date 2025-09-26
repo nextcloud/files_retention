@@ -18,12 +18,13 @@
 					<th class="retention-heading__after">
 						{{ t('files_retention','From date of') }}
 					</th>
-					<th class="retention-heading__action"></th>
+					<th class="retention-heading__action" />
 				</tr>
 			</thead>
 			<tbody>
 				<RetentionRule v-for="rule in retentionRules"
 					:key="rule.id"
+					:tags="tags"
 					v-bind="rule">
 					{{ rule.tagid }}
 				</RetentionRule>
@@ -99,6 +100,7 @@ import NcSettingsSection from '@nextcloud/vue/dist/Components/NcSettingsSection.
 import NcTextField from '@nextcloud/vue/dist/Components/NcTextField.js'
 
 import RetentionRule from './Components/RetentionRule.vue'
+import { fetchTags } from './services/api.ts'
 
 import { showError, showSuccess, showWarning } from '@nextcloud/dialogs'
 import { loadState } from '@nextcloud/initial-state'
@@ -145,6 +147,7 @@ export default {
 			filterAvailableTagList: (tag) => {
 				return !this.tagIdsWithRule.includes(tag.id)
 			},
+			tags: [],
 		}
 	},
 
@@ -172,7 +175,7 @@ export default {
 
 	async mounted() {
 		try {
-			await OC.SystemTags.collection.fetch({})
+			this.tags = await fetchTags()
 			await this.$store.dispatch('loadRetentionRules')
 
 			this.resetForm()
@@ -208,7 +211,7 @@ export default {
 						this.loadingNotifyBefore = false
 						showError(t('files_retention', 'An error occurred while changing the setting'))
 					}.bind(this),
-				}
+				},
 			)
 		},
 
@@ -225,7 +228,7 @@ export default {
 				return
 			}
 
-			const tagName = OC.SystemTags.collection.get(newTag)?.attributes?.name
+			const tagName = this.tags.find((tag) => tag.id === newTag)?.displayName
 
 			if (this.tagIdsWithRule.includes(newTag)) {
 				showError(t('files_retention', 'Tag {tagName} already has a retention rule', { tagName }))
