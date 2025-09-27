@@ -12,6 +12,7 @@
     "Creation" : "Creatzione",
     "Last modification" : "Ùrtima modìfica",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Defini si is archìvios cun etichetas ispetzìficas si diant cantzellare in automàticu a pustis de unu tempus dadu. Est ùtile pro documentos de cunfidu.",
-    "Create" : "Crea"
+    "Create" : "Crea",
+    "Failed to load tags" : "No at fatu a carrigare is etichetas"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

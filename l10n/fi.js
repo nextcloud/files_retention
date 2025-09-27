@@ -19,6 +19,7 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n päivä","%n päivää"],
     "_%n week_::_%n weeks_" : ["%n viikko","%n viikkoa"],
     "_%n month_::_%n months_" : ["%n kuukausi","%n kuukautta"],
-    "_%n year_::_%n years_" : ["%n vuosi","%n vuotta"]
+    "_%n year_::_%n years_" : ["%n vuosi","%n vuotta"],
+    "Failed to load tags" : "Tunnisteiden lataaminen epäonnistui"
 },
 "nplurals=2; plural=(n != 1);");

@@ -7,6 +7,7 @@ OC.L10N.register(
     "_%n day_::_%n days_" : ["%n ден","%n дена"],
     "_%n week_::_%n weeks_" : ["%n недела","%n недели"],
     "_%n month_::_%n months_" : ["%n месец","%n месеци"],
-    "_%n year_::_%n years_" : ["%n година","%n години"]
+    "_%n year_::_%n years_" : ["%n година","%n години"],
+    "Failed to load tags" : "Неуспешно вчитување на ознаки"
 },
 "nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;");

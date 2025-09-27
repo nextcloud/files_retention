@@ -37,6 +37,7 @@
     "_%n month_::_%n months_" : ["%n個月"],
     "_%n year_::_%n years_" : ["%n年"],
     "Delete retention rule for tag {tagName}" : "刪除標籤 {tagName} 的保留規則",
-    "Retention rule for tag {tagName} has been deleted" : "標籤 {tagName} 的保留規則已已刪除刪除"
+    "Retention rule for tag {tagName} has been deleted" : "標籤 {tagName} 的保留規則已已刪除刪除",
+    "Failed to load tags" : "載入標記失敗"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

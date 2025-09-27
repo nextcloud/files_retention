@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n Monat","%n Monate"],
     "_%n year_::_%n years_" : ["%n Jahr","%n Jahre"],
     "Delete retention rule for tag {tagName}" : "Aufbewahrungsregel für Schlagwort {tagName} löschen",
-    "Retention rule for tag {tagName} has been deleted" : "Aufbewahrungsregel für Schlagwort {tagName} wurde gelöscht"
+    "Retention rule for tag {tagName} has been deleted" : "Aufbewahrungsregel für Schlagwort {tagName} wurde gelöscht",
+    "Failed to load tags" : "Schlagworte konnten nicht geladen werden"
 },
 "nplurals=2; plural=(n != 1);");

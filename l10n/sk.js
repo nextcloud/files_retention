@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n mesiac","%n mesiace","%n mesiacov","%n mesiacov"],
     "_%n year_::_%n years_" : ["%n rok","%n roky","%n rokov","%n rokov"],
     "Delete retention rule for tag {tagName}" : "Zmazať pravidlo uchovávania pre tag {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : "Pravidlo uchovávania pre tag {tagName} bolo zmazané"
+    "Retention rule for tag {tagName} has been deleted" : "Pravidlo uchovávania pre tag {tagName} bolo zmazané",
+    "Failed to load tags" : "Nepodarilo sa načítať štítky"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

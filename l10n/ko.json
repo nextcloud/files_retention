@@ -37,6 +37,7 @@
     "_%n month_::_%n months_" : ["%n개월"],
     "_%n year_::_%n years_" : ["%n년"],
     "Delete retention rule for tag {tagName}" : "태그 {tagName}에 대한 보존 규칙이 삭제됨",
-    "Retention rule for tag {tagName} has been deleted" : "태그 {tagName}에 대한 보존 규칙이 삭제되었습니다"
+    "Retention rule for tag {tagName} has been deleted" : "태그 {tagName}에 대한 보존 규칙이 삭제되었습니다",
+    "Failed to load tags" : "태그 불러오기 실패"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
