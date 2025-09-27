@@ -10,6 +10,7 @@
     "Creation" : "Búið til",
     "Last modification" : "Síðast breyting",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Skilgreindu hvort skrár sem merktar eru með tilteknu merki eigi að eyðast sjálfvirkt eftir tiltekinn tíma. Þetta nýtist t.d. vel fyrir ýmis trúnaðargögn.",
-    "Create" : "Búa til"
+    "Create" : "Búa til",
+    "Failed to load tags" : "Mistókst að hlaða inn merkjum"
 },"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
 }

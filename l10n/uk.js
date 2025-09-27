@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n місяць","%n місяців","%n місяців ","%n місяців"],
     "_%n year_::_%n years_" : ["%n рік","%n років","%n років","%n років"],
     "Delete retention rule for tag {tagName}" : "Видалити правило зберігання для тегу {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : "Правило збереження тегу {tagName} було видалено"
+    "Retention rule for tag {tagName} has been deleted" : "Правило збереження тегу {tagName} було видалено",
+    "Failed to load tags" : "Не вдалося завантажити мітки"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");

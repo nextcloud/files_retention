@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%nヶ月"],
     "_%n year_::_%n years_" : ["%n年"],
     "Delete retention rule for tag {tagName}" : "タグ{tagName}の保持ルールを削除します",
-    "Retention rule for tag {tagName} has been deleted" : "タグ{tagName}の保存ルールが削除されました"
+    "Retention rule for tag {tagName} has been deleted" : "タグ{tagName}の保存ルールが削除されました",
+    "Failed to load tags" : "タグの読込に失敗しました"
 },
 "nplurals=1; plural=0;");

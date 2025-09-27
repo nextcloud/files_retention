@@ -15,6 +15,7 @@
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Instellen of bestanden die zijn getagd met een specifieke tag na een bepaalde tijd automatisch moeten worden verwijderd. Dit is zinvol voor vertrouwelijke documenten.",
     "Create" : "Aanmaken",
     "_%n day_::_%n days_" : ["%n dag","%n dagen"],
-    "_%n week_::_%n weeks_" : ["%n week","weken"]
+    "_%n week_::_%n weeks_" : ["%n week","weken"],
+    "Failed to load tags" : "Kon tags niet laden"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

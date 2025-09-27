@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n mí","%n míonna","%n míonna","%n míonna","%n míonna"],
     "_%n year_::_%n years_" : ["%n bhliain","%n bliain","%n bliain","%n bliain","%n bliain"],
     "Delete retention rule for tag {tagName}" : "Scrios an riail choinneála don chlib {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : "Scriosadh an riail choinneála don chlib {tagName}"
+    "Retention rule for tag {tagName} has been deleted" : "Scriosadh an riail choinneála don chlib {tagName}",
+    "Failed to load tags" : "Theip ar lódáil clibeanna"
 },
 "nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);");

@@ -38,6 +38,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n month","%n months","%n months"],
     "_%n year_::_%n years_" : ["%n year","%n years","%n years"],
     "Delete retention rule for tag {tagName}" : "Eliminar regla de retención para la etiqueta {nombreEtiqueta}",
-    "Retention rule for tag {tagName} has been deleted" : "Regla de retención para la etiqueta {nombreEtiqueta} ha sido eliminada"
+    "Retention rule for tag {tagName} has been deleted" : "Regla de retención para la etiqueta {nombreEtiqueta} ha sido eliminada",
+    "Failed to load tags" : "Error al cargar las etiquetas"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
