@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n mes","%n meses"],
     "_%n year_::_%n years_" : ["%n ano","%n anos"],
     "Delete retention rule for tag {tagName}" : "Eliminar a regra de retención para a etiqueta {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : "Eliminouse a regra de retención da etiqueta {tagName}"
+    "Retention rule for tag {tagName} has been deleted" : "Eliminouse a regra de retención da etiqueta {tagName}",
+    "Failed to load tags" : "Produciuse un fallo ao cargar as etiquetas"
 },
 "nplurals=2; plural=(n != 1);");

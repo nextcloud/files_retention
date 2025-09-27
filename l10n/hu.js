@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n hónap","%n hónap"],
     "_%n year_::_%n years_" : ["%n év","%n év"],
     "Delete retention rule for tag {tagName}" : "A(z) {tagName} címkéhez tartozó megőrzési szabály törlése",
-    "Retention rule for tag {tagName} has been deleted" : "A(z) {tagName} címkéhez tartozó megőrzési szabály törölve"
+    "Retention rule for tag {tagName} has been deleted" : "A(z) {tagName} címkéhez tartozó megőrzési szabály törölve",
+    "Failed to load tags" : "A címkék betöltése sikertelen"
 },
 "nplurals=2; plural=(n != 1);");

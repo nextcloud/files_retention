@@ -26,6 +26,7 @@ OC.L10N.register(
     "_%n week_::_%n weeks_" : ["%n nädal","%n nädalat"],
     "_%n month_::_%n months_" : ["%n kuu","%n kuud"],
     "_%n year_::_%n years_" : ["%n aasta","%n aastat"],
-    "Delete retention rule for tag {tagName}" : "Kustuta sildikohane säilitusreegel: {tagName}"
+    "Delete retention rule for tag {tagName}" : "Kustuta sildikohane säilitusreegel: {tagName}",
+    "Failed to load tags" : "Siltide laadimine ei õnnestunud"
 },
 "nplurals=2; plural=(n != 1);");

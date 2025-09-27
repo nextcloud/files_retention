@@ -8,6 +8,7 @@ OC.L10N.register(
     "Weeks" : "Pekan",
     "Months" : "Bulan",
     "Years" : "Tahun",
-    "Create" : "Buat"
+    "Create" : "Buat",
+    "Failed to load tags" : "Gagal memuat tag"
 },
 "nplurals=1; plural=0;");
