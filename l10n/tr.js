@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n ay","%n ay"],
     "_%n year_::_%n years_" : ["%n yıl","%n yıl"],
     "Delete retention rule for tag {tagName}" : "{tagName} etiketi için saklama kuralını sil",
-    "Retention rule for tag {tagName} has been deleted" : "{tagName} etiketi için saklama kuralı silindi"
+    "Retention rule for tag {tagName} has been deleted" : "{tagName} etiketi için saklama kuralı silindi",
+    "Failed to load tags" : "Etiketler yüklenemedi"
 },
 "nplurals=2; plural=(n > 1);");

@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n month","%n miezi"],
     "_%n year_::_%n years_" : ["%n year","%nmiaka "],
     "Delete retention rule for tag {tagName}" : " Futa sheria ya kuhifadhi kwa lebo {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : " Sheria ya kuhifadhi lebo ya {tagName} imefutwa"
+    "Retention rule for tag {tagName} has been deleted" : " Sheria ya kuhifadhi lebo ya {tagName} imefutwa",
+    "Failed to load tags" : "Imeshindwa kupakia lebo"
 },
 "nplurals=2; plural=(n != 1);");

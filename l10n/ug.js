@@ -35,6 +35,7 @@ OC.L10N.register(
     "Create" : "قۇر",
     "Notify owner a day before a file is automatically deleted" : "ھۆججەت ئاپتوماتىك ئۆچۈرۈلۈشتىن بىر كۈن بۇرۇن ئىگىسىگە خەۋەر قىلىڭ",
     "Delete retention rule for tag {tagName}" : "خەتكۈچ {tagName} نىڭ ساقلاش قائىدىسىنى ئۆچۈرۈڭ",
-    "Retention rule for tag {tagName} has been deleted" : "خەتكۈچ {tagName} نى ساقلاش قائىدىسى ئۆچۈرۈلدى"
+    "Retention rule for tag {tagName} has been deleted" : "خەتكۈچ {tagName} نى ساقلاش قائىدىسى ئۆچۈرۈلدى",
+    "Failed to load tags" : "خەتكۈچلەرنى يۈكلىيەلمىدى"
 },
 "nplurals=2; plural=(n != 1);");

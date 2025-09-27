@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n месец","%n месеца","%n месеци"],
     "_%n year_::_%n years_" : ["%n година","%n године","%n година"],
     "Delete retention rule for tag {tagName}" : "Обриши правило задржавања за ознаку {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : "Обрисано је правило задржавња за ознаку {tagName} "
+    "Retention rule for tag {tagName} has been deleted" : "Обрисано је правило задржавња за ознаку {tagName} ",
+    "Failed to load tags" : "Грешка при учитавању ознака"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

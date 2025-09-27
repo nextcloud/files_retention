@@ -6,6 +6,7 @@
     "Weeks" : "Pekan",
     "Months" : "Bulan",
     "Years" : "Tahun",
-    "Create" : "Buat"
+    "Create" : "Buat",
+    "Failed to load tags" : "Gagal memuat tag"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

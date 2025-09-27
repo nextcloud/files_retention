@@ -1,5 +1,6 @@
 { "translations": {
     "Creation" : "Kreado",
-    "Create" : "Krei"
+    "Create" : "Krei",
+    "Failed to load tags" : "Ŝargo de la etikedoj malsukcesis"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

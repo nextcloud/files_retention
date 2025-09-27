@@ -38,6 +38,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["%n month","%n months"],
     "_%n year_::_%n years_" : ["%n year","%n years"],
     "Delete retention rule for tag {tagName}" : "Delete retention rule for tag {tagName}",
-    "Retention rule for tag {tagName} has been deleted" : "Retention rule for tag {tagName} has been deleted"
+    "Retention rule for tag {tagName} has been deleted" : "Retention rule for tag {tagName} has been deleted",
+    "Failed to load tags" : "بارگیری برچسب ها انجام نشد"
 },
 "nplurals=2; plural=(n > 1);");

@@ -18,6 +18,7 @@ OC.L10N.register(
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Ορίστε εάν τα αρχεία με συγκεκριμένη ετικέτα θα διαγραφούν αυτόματα μετά από κάποιο χρονικό διάστημα. Αυτό είναι χρήσιμο για τα εμπιστευτικά έγγραφα.",
     "Create" : "Δημιουργία",
     "_%n day_::_%n days_" : ["%n ημέρα","%n ημέρες"],
-    "_%n week_::_%n weeks_" : ["%n εβδομάδα","%n εβδομάδες"]
+    "_%n week_::_%n weeks_" : ["%n εβδομάδα","%n εβδομάδες"],
+    "Failed to load tags" : "Απέτυχε η φόρτωση ετικετών"
 },
 "nplurals=2; plural=(n != 1);");

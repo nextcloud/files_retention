@@ -39,6 +39,7 @@ OC.L10N.register(
     "_%n month_::_%n months_" : ["hilabete %n","%n hilabete"],
     "_%n year_::_%n years_" : ["urte %n","%n urte"],
     "Delete retention rule for tag {tagName}" : "Ezabatu {tagName} etiketaren atxikipen-araua",
-    "Retention rule for tag {tagName} has been deleted" : "{tagName} etiketaren atxikipen-araua ezabatu da"
+    "Retention rule for tag {tagName} has been deleted" : "{tagName} etiketaren atxikipen-araua ezabatu da",
+    "Failed to load tags" : "Etiketak kargatzeak huts egin du"
 },
 "nplurals=2; plural=(n != 1);");
