@@ -41,7 +41,7 @@
     "@nextcloud/typings": "^1.9.1",
     "@nextcloud/webpack-vue-config": "^6.3.0",
     "ts-loader": "^9.5.4",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "vue-loader": "^17.4.2"
   }
 }
