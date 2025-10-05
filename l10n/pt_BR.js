@@ -40,6 +40,6 @@ OC.L10N.register(
     "_%n year_::_%n years_" : ["%n ano","%n anos","%n anos"],
     "Delete retention rule for tag {tagName}" : "Excluir regra de retenção para etiqueta {tagName}",
     "Retention rule for tag {tagName} has been deleted" : "A regra de retenção da etiqueta {tagName} foi excluída",
-    "Failed to load tags" : "Erro ao carregar etiquetas"
+    "Failed to load tags" : "Falha ao carregar etiquetas"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
