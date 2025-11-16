@@ -32,6 +32,9 @@
     "From date of" : "كۈندىن باشلاپ",
     "Create" : "قۇر",
     "Notify owner a day before a file is automatically deleted" : "ھۆججەت ئاپتوماتىك ئۆچۈرۈلۈشتىن بىر كۈن بۇرۇن ئىگىسىگە خەۋەر قىلىڭ",
+    "_%n day_::_%n days_" : ["%n كۈن","%n كۈن"],
+    "_%n month_::_%n months_" : ["%n ئاي","%n ئاي"],
+    "_%n year_::_%n years_" : ["%n يىل","%n يىل"],
     "Delete retention rule for tag {tagName}" : "خەتكۈچ {tagName} نىڭ ساقلاش قائىدىسىنى ئۆچۈرۈڭ",
     "Retention rule for tag {tagName} has been deleted" : "خەتكۈچ {tagName} نى ساقلاش قائىدىسى ئۆچۈرۈلدى",
     "Failed to load tags" : "خەتكۈچلەرنى يۈكلىيەلمىدى"
