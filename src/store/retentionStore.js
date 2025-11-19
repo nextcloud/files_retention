@@ -9,10 +9,10 @@ import {
 	getRetentionRules,
 } from '../services/retentionService.js'
 
-const state = {
+const state = () => ({
 	retentionRules: {
 	},
-}
+})
 
 const getters = {
 	getRetentionRules: state => () => Object.values(state.retentionRules),
