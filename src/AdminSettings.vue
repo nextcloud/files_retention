@@ -329,7 +329,7 @@ export default {
 				display: inline-block;
 			}
 
-			::v-deep .input-field__input {
+			:deep(.input-field__input) {
 				text-align: right;
 			}
 		}
