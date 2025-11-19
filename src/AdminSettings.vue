@@ -104,6 +104,7 @@ import { fetchTags } from './services/api.ts'
 
 import { showError, showSuccess, showWarning } from '@nextcloud/dialogs'
 import { loadState } from '@nextcloud/initial-state'
+import { t } from '@nextcloud/l10n'
 
 export default {
 	name: 'AdminSettings',
@@ -188,6 +189,8 @@ export default {
 	},
 
 	methods: {
+		t,
+
 		onToggleNotifyBefore() {
 			this.loadingNotifyBefore = true
 			const newNotifyBefore = !this.notifyBefore

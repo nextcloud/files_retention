@@ -30,6 +30,7 @@ import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import Delete from 'vue-material-design-icons/TrashCanOutline.vue'
 
 import { showSuccess } from '@nextcloud/dialogs'
+import { t, n } from '@nextcloud/l10n'
 
 export default {
 	name: 'RetentionRule',
