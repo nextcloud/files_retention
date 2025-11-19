@@ -3,15 +3,12 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  */
 
-import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
+import { createStore } from 'vuex'
 import retentionStore from './retentionStore.js'
-
-Vue.use(Vuex)
 
 const mutations = {}
 
-export default new Store({
+export default createStore({
 	modules: {
 		retentionStore,
 	},
