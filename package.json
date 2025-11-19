@@ -20,11 +20,11 @@
     "@nextcloud/initial-state": "^3.0.0",
     "@nextcloud/l10n": "^3.4.1",
     "@nextcloud/router": "^3.1.0",
-    "@nextcloud/vue": "^8.33.0",
+    "@nextcloud/vue": "^9.2.0",
     "camelcase": "^9.0.0",
-    "vue": "^2.7.16",
+    "vue": "^3.5.24",
     "vue-material-design-icons": "^5.3.1",
-    "vuex": "^3.6.2",
+    "vuex": "^4.1.0",
     "webdav": "^5.8.0"
   },
   "engines": {
@@ -42,7 +42,6 @@
     "@nextcloud/typings": "^1.10.0",
     "@nextcloud/webpack-vue-config": "^7.0.2",
     "ts-loader": "^9.5.4",
-    "typescript": "^5.9.3",
-    "vue-loader": "^15.11.1"
+    "typescript": "^5.9.3"
   }
 }
