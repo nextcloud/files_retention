@@ -2,7 +2,6 @@
  * SPDX-FileCopyrightText: Joas Schilling <coding@schilljs.com>
  * SPDX-License-Identifier: AGPL-3.0-only
  */
-import Vue from 'vue'
 import {
 	createRetentionRule,
 	deleteRetentionRule,
@@ -27,8 +26,7 @@ const mutations = {
 	 * @param {object} rule the rule
 	 */
 	addRule(state, rule) {
-		// eslint-disable-next-line import/no-named-as-default-member
-		Vue.set(state.retentionRules, rule.id, rule)
+		state.retentionRules[rule.id] = rule
 	},
 
 	/**
@@ -38,7 +36,7 @@ const mutations = {
 	 * @param {number} id the rule id of the rule to delete
 	 */
 	deleteRule(state, id) {
-		Vue.delete(state.retentionRules, id)
+		delete state.retentionRules[id]
 	},
 }
 
