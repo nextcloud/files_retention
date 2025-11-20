@@ -35,11 +35,10 @@
 							:disabled="loading"
 							:multiple="false"
 							:clearable="false"
-							:options-filter="filterAvailableTagList"
-							:close-on-select="true" />
+							:options-filter="filterAvailableTagList" />
 					</td>
 					<td class="retention-rule__time">
-						<NcTextField :value.sync="newAmount"
+						<NcTextField v-model="newAmount"
 							:disabled="loading"
 							type="text"
 							:label="amountLabel"
@@ -51,8 +50,7 @@
 							:allow-empty="false"
 							:clearable="false"
 							track-by="id"
-							label="label"
-							:close-on-select="true" />
+							label="label" />
 					</td>
 					<td class="retention-rule__after">
 						<NcSelect v-model="newAfter"
@@ -61,12 +59,11 @@
 							:allow-empty="false"
 							:clearable="false"
 							track-by="id"
-							label="label"
-							:close-on-select="true" />
+							label="label" />
 					</td>
 					<td class="retention-rule__action">
 						<div class="retention-rule__action--button-aligner">
-							<NcButton type="success"
+							<NcButton variant="success"
 								:disabled="loading || newTag < 0"
 								:aria-label="createLabel"
 								@click="onClickCreate">
@@ -82,28 +79,29 @@
 		</table>
 
 		<NcCheckboxRadioSwitch type="switch"
-			:checked="notifyBefore"
+			:model-value="notifyBefore"
 			:loading="loadingNotifyBefore"
-			@update:checked="onToggleNotifyBefore">
+			@update:modelValue="onToggleNotifyBefore">
 			{{ t('files_retention', 'Notify owner a day before a file is automatically deleted') }}
 		</NcCheckboxRadioSwitch>
 	</NcSettingsSection>
 </template>
 
 <script>
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
-import NcSelectTags from '@nextcloud/vue/dist/Components/NcSelectTags.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcSelect from '@nextcloud/vue/components/NcSelect'
+import NcSelectTags from '@nextcloud/vue/components/NcSelectTags'
+import NcSettingsSection from '@nextcloud/vue/components/NcSettingsSection'
+import NcTextField from '@nextcloud/vue/components/NcTextField'
 import Plus from 'vue-material-design-icons/Plus.vue'
-import NcSettingsSection from '@nextcloud/vue/dist/Components/NcSettingsSection.js'
-import NcTextField from '@nextcloud/vue/dist/Components/NcTextField.js'
 
 import RetentionRule from './Components/RetentionRule.vue'
 import { fetchTags } from './services/api.ts'
 
 import { showError, showSuccess, showWarning } from '@nextcloud/dialogs'
 import { loadState } from '@nextcloud/initial-state'
+import { t } from '@nextcloud/l10n'
 
 export default {
 	name: 'AdminSettings',
@@ -188,6 +186,8 @@ export default {
 	},
 
 	methods: {
+		t,
+
 		onToggleNotifyBefore() {
 			this.loadingNotifyBefore = true
 			const newNotifyBefore = !this.notifyBefore
@@ -329,7 +329,7 @@ export default {
 				display: inline-block;
 			}
 
-			::v-deep .input-field__input {
+			:deep(.input-field__input) {
 				text-align: right;
 			}
 		}

@@ -14,7 +14,7 @@
 			{{ getAfter }}
 		</td>
 		<td class="retention-rule__action">
-			<NcButton type="tertiary"
+			<NcButton variant="tertiary"
 				:aria-label="deleteLabel"
 				@click="onClickDelete">
 				<template #icon>
@@ -26,10 +26,11 @@
 </template>
 
 <script>
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
 import Delete from 'vue-material-design-icons/TrashCanOutline.vue'
 
 import { showSuccess } from '@nextcloud/dialogs'
+import { t, n } from '@nextcloud/l10n'
 
 export default {
 	name: 'RetentionRule',

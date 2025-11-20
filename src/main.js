@@ -23,11 +23,6 @@ __webpack_nonce__ = btoa(getRequestToken())
 // eslint-disable-next-line
 __webpack_public_path__ = generateFilePath('files_retention', '', 'js/')
 
-Vue.prototype.t = t
-Vue.prototype.n = n
-Vue.prototype.OC = OC
-Vue.prototype.OCA = OCA
-
 export default new Vue({
 	el: '#files_retention',
 	// eslint-disable-next-line vue/match-component-file-name
