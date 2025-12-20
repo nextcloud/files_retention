@@ -25,6 +25,7 @@ class Application extends App implements IBootstrap {
 		parent::__construct(self::APP_ID, $urlParams);
 	}
 
+	#[\Override]
 	public function register(IRegistrationContext $context): void {
 		$context->registerService(IUserMountCache::class, function () {
 			return Server::get(IMountProviderCollection::class)->getMountCache();
@@ -35,6 +36,7 @@ class Application extends App implements IBootstrap {
 		$context->registerNotifierService(Notifier::class);
 	}
 
+	#[\Override]
 	public function boot(IBootContext $context): void {
 	}
 }

@@ -16,14 +16,11 @@ use OCP\IDBConnection;
 use OCP\IRequest;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\TagNotFoundException;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Class APIControllerTest
- *
- * @package OCA\Files_Retention\Tests\Controller
- * @group DB
- */
+#[Group('DB')]
 class APIControllerTest extends \Test\TestCase {
 	private string $appName = 'files_retention';
 	private IRequest&MockObject $request;
@@ -37,7 +34,7 @@ class APIControllerTest extends \Test\TestCase {
 		parent::setUp();
 
 		$this->request = $this->createMock(IRequest::class);
-		$this->db = \OC::$server->getDatabaseConnection();
+		$this->db = \OCP\Server::get(IDBConnection::class);
 		$this->tagManager = $this->createMock(ISystemTagManager::class);
 		$this->jobList = $this->createMock(IJobList::class);
 
@@ -162,9 +159,7 @@ class APIControllerTest extends \Test\TestCase {
 		];
 	}
 
-	/**
-	 * @dataProvider dataGetRetentions
-	 */
+	#[DataProvider('dataGetRetentions')]
 	public function testGetRetentions(array $data, array $missingTags = []): void {
 		$expected = [];
 

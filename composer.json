@@ -11,7 +11,7 @@
 		"optimize-autoloader": true,
 		"classmap-authoritative": true,
 		"platform": {
-			"php": "8.1"
+			"php": "8.2"
 		},
 		"sort-packages": true,
 		"allow-plugins": {
@@ -26,7 +26,7 @@
 		"psalm": "psalm --no-cache --threads=$(nproc)",
 		"psalm:dev": "@psalm",
 		"psalm:update-baseline": "psalm --threads=1 --update-baseline",
-		"test:unit": "vendor/bin/phpunit --colors=always -c tests/phpunit.xml",
+		"test:unit": "vendor/bin/phpunit --colors=always -c tests/phpunit.xml --fail-on-warning --fail-on-risky --display-deprecations --display-phpunit-deprecations",
 		"post-install-cmd": [
 			"[ $COMPOSER_DEV_MODE -eq 0 ] || composer bin all install"
 		],

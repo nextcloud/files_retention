@@ -28,25 +28,22 @@ use OCA\Files_Retention\Constants;
 use OCA\Files_Retention\EventListener;
 use OCP\IDBConnection;
 use OCP\SystemTag\ISystemTagManager;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 
-/**
- * Class EventListenerTest
- *
- * @package OCA\Files_Retention\Tests
- * @group DB
- */
+#[Group('DB')]
 class EventListenerTest extends \Test\TestCase {
 	private IDBConnection $db;
-	private LoggerInterface $logger;
+	private LoggerInterface&MockObject $logger;
 	private ISystemTagManager $tagManager;
 
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->db = \OC::$server->getDatabaseConnection();
+		$this->db = \OCP\Server::get(IDBConnection::class);
 		$this->logger = $this->createMock(LoggerInterface::class);
-		$this->tagManager = \OC::$server->get(ISystemTagManager::class);
+		$this->tagManager = \OCP\Server::get(ISystemTagManager::class);
 	}
 
 	protected function tearDown(): void {

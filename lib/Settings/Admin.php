@@ -23,6 +23,7 @@ class Admin implements ISettings {
 	) {
 	}
 
+	#[\Override]
 	public function getForm(): TemplateResponse {
 		Util::addScript('files_retention', 'files_retention-main');
 
@@ -39,10 +40,12 @@ class Admin implements ISettings {
 		return new TemplateResponse('files_retention', 'admin', [], '');
 	}
 
+	#[\Override]
 	public function getSection(): string {
 		return 'workflow';
 	}
 
+	#[\Override]
 	public function getPriority(): int {
 		return 80;
 	}

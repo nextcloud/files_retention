@@ -24,13 +24,13 @@ use OCP\Notification\IManager;
 use OCP\SystemTag\ISystemTagManager;
 use OCP\SystemTag\ISystemTagObjectMapper;
 use OCP\SystemTag\TagNotFoundException;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
-/**
- * @group DB
- */
+#[Group('DB')]
 class RetentionJobTest extends TestCase {
 	private ISystemTagManager&MockObject $tagManager;
 	private ISystemTagObjectMapper&MockObject $tagMapper;
@@ -50,7 +50,7 @@ class RetentionJobTest extends TestCase {
 		$this->tagManager = $this->createMock(ISystemTagManager::class);
 		$this->tagMapper = $this->createMock(ISystemTagObjectMapper::class);
 		$this->userMountCache = $this->createMock(IUserMountCache::class);
-		$this->db = \OC::$server->getDatabaseConnection();
+		$this->db = \OCP\Server::get(IDBConnection::class);
 		$this->rootFolder = $this->createMock(IRootFolder::class);
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
 		$this->jobList = $this->createMock(IJobList::class);
@@ -89,7 +89,7 @@ class RetentionJobTest extends TestCase {
 		$qb->executeStatement();
 	}
 
-	public static function deleteTestCases(): array {
+	public static function dataDeleteTest(): array {
 		return [
 			[[1, Constants::UNIT_DAY],   [0, Constants::UNIT_DAY], false, Constants::MODE_CTIME],
 			[[2, Constants::UNIT_WEEK],  [0, Constants::UNIT_DAY], false, Constants::MODE_CTIME],
@@ -125,9 +125,7 @@ class RetentionJobTest extends TestCase {
 		];
 	}
 
-	/**
-	 * @dataProvider deleteTestCases
-	 */
+	#[DataProvider('dataDeleteTest')]
 	public function testDeleteFile(array $retentionTime, array $fileTime, bool $delete, int $after): void {
 		$this->addTag(42, $retentionTime[1], $retentionTime[0], $after);
 
