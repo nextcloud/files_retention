@@ -9,6 +9,9 @@ OC.L10N.register(
     "Months" : "Bulan",
     "Years" : "Tahun",
     "Create" : "Buat",
+    "_%n day_::_%n days_" : ["%n hari"],
+    "_%n month_::_%n months_" : ["%n bulan"],
+    "_%n year_::_%n years_" : ["%n tahun"],
     "Failed to load tags" : "Gagal memuat tag"
 },
 "nplurals=1; plural=0;");
