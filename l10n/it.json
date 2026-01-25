@@ -11,11 +11,18 @@
     "Years" : "Anni",
     "Creation" : "Creazione",
     "Last modification" : "Ultima modifica",
+    "Time units" : "Unità di tempo",
+    "Number of days, weeks, months or years after which the files should be deleted" : "Numero di giorni, settimane, mesi o anni dopo i quali i file devono essere eliminati",
+    "Create new retention rule" : "Crea nuova regola di conservazione",
     "An error occurred while changing the setting" : "Si è verificato un errore durante la modifica delle impostazioni",
+    "Invalid retention time" : "Tempo di conservazione non valido",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definisce se i file contrassegnati con una specifica etichetta dopo un certo periodo. Questo è utile per i documenti confidenziali.",
+    "Retention time" : "Tempo di conservazione",
     "Create" : "Crea",
     "_%n day_::_%n days_" : ["%n giorno","%n giorni","%n giorni"],
     "_%n week_::_%n weeks_" : ["%n settimana","%n settimane","%n settimane"],
+    "_%n month_::_%n months_" : ["%n mese","%n mesi","%n mesi"],
+    "_%n year_::_%n years_" : ["%n anno","%n anni","%n anni"],
     "Failed to load tags" : "Caricamento etichette non riuscito"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
