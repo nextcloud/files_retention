@@ -11,6 +11,7 @@
     "Years" : "Godina",
     "Creation" : "Stvaranje",
     "Last modification" : "Posljednja izmjena",
+    "An error occurred while changing the setting" : "Došlo je do pogreške pri promjeni postavki",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definirajte treba li datoteke s određenom oznakom automatski izbrisati nakon nekog vremena. Ovo je korisno za povjerljive dokumente.",
     "Create" : "Stvori",
     "Failed to load tags" : "Učitavanje oznaka nije uspjelo"
