@@ -86,10 +86,10 @@ class APIController extends OCSController {
 	 * Create a retention rule
 	 *
 	 * @param int $tagid Tag the retention is based on
-	 * @param 0|1|2|3 $timeunit Time unit of the retention (days, weeks, months, years)
+	 * @param int<0, 3> $timeunit Time unit of the retention (days, weeks, months, years)
 	 * @psalm-param Constants::UNIT_* $timeunit
 	 * @param positive-int $timeamount Amount of time units that have to be passed
-	 * @param 0|1 $timeafter Whether retention time is based creation time (0) or modification time (1)
+	 * @param int<0, 1> $timeafter Whether retention time is based creation time (0) or modification time (1)
 	 * @psalm-param Constants::MODE_* $timeafter
 	 * @return DataResponse<Http::STATUS_BAD_REQUEST, array{error: 'tagid'|'timeunit'|'timeamount'|'timeafter'}, array{}>|DataResponse<Http::STATUS_CREATED, Files_RetentionRule, array{}>
 	 *
@@ -101,16 +101,6 @@ class APIController extends OCSController {
 			$this->tagManager->getTagsByIds((string)$tagid);
 		} catch (\InvalidArgumentException) {
 			return new DataResponse(['error' => 'tagid'], Http::STATUS_BAD_REQUEST);
-		}
-
-		if ($timeunit < 0 || $timeunit > 3) {
-			return new DataResponse(['error' => 'timeunit'], Http::STATUS_BAD_REQUEST);
-		}
-		if ($timeamount < 1) {
-			return new DataResponse(['error' => 'timeamount'], Http::STATUS_BAD_REQUEST);
-		}
-		if ($timeafter < 0 || $timeafter > 1) {
-			return new DataResponse(['error' => 'timeafter'], Http::STATUS_BAD_REQUEST);
 		}
 
 		$qb = $this->db->getQueryBuilder();
@@ -140,7 +130,7 @@ class APIController extends OCSController {
 	 * Delete a retention rule
 	 *
 	 * @param int $id Retention rule to delete
-	 * @return DataResponse<Http::STATUS_NO_CONTENT|Http::STATUS_NOT_FOUND, list<empty>, array{}>
+	 * @return DataResponse<Http::STATUS_NO_CONTENT|Http::STATUS_NOT_FOUND, array{}, array{}>
 	 *
 	 * 204: Retention rule deleted
 	 * 404: Retention rule not found
