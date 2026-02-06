@@ -10,7 +10,6 @@ namespace OCA\Files_Retention\Notification;
 
 use OCA\Files_Retention\AppInfo\Application;
 use OCP\Files\IRootFolder;
-use OCP\Files\Node;
 use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
 use OCP\Notification\AlreadyProcessedException;
@@ -48,12 +47,10 @@ class Notifier implements INotifier {
 		$subject = $notification->getSubjectParameters();
 		$fileId = (int)$subject['fileId'];
 
-		$nodes = $userFolder->getById($fileId);
-		if (empty($nodes)) {
+		$node = $userFolder->getFirstNodeById($fileId);
+		if ($node === null) {
 			throw new AlreadyProcessedException();
 		}
-		/** @var Node $node */
-		$node = array_pop($nodes);
 
 		$l = $this->l10Factory->get(Application::APP_ID, $languageCode);
 		$notification->setRichSubject(
