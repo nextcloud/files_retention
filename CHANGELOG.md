@@ -5,7 +5,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 4.0.0 - 2025-01-30
+## 4.0.1 - 2026-03-18
+### Fixed
+
+- Validate admin provided parameters to be sensible
+
+## 4.0.0 - 2026-01-30
 ### Changed
 
 - ✨ Support and require Nextcloud 33
