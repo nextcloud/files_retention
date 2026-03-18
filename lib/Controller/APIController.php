@@ -113,6 +113,20 @@ class APIController extends OCSController {
 			return new DataResponse(['error' => 'timeafter'], Http::STATUS_BAD_REQUEST);
 		}
 
+		// Fetch tag_id
+		$qb = $this->db->getQueryBuilder();
+		$qb->select('tag_id')
+			->from('retention')
+			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tagid)))
+			->setMaxResults(1);
+		$cursor = $qb->executeQuery();
+		$data = $cursor->fetch();
+		$cursor->closeCursor();
+
+		if ($data !== false) {
+			return new DataResponse(['error' => 'tagid'], Http::STATUS_BAD_REQUEST);
+		}
+
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert('retention')
 			->setValue('tag_id', $qb->createNamedParameter($tagid))
@@ -146,9 +160,8 @@ class APIController extends OCSController {
 	 * 404: Retention rule not found
 	 */
 	public function deleteRetention(int $id): DataResponse {
-		$qb = $this->db->getQueryBuilder();
-
 		// Fetch tag_id
+		$qb = $this->db->getQueryBuilder();
 		$qb->select('tag_id')
 			->from('retention')
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))

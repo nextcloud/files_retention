@@ -109,6 +109,18 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame($expected, $response->getData());
 	}
 
+	public function testAddRetentionTwice(): void {
+		$this->jobList->expects($this->any())
+			->method('add')
+			->with(RetentionJob::class, ['tag' => '42']);
+
+		$response = $this->api->addRetention(42, Constants::UNIT_MONTH, 1);
+		$this->assertSame(Http::STATUS_CREATED, $response->getStatus());
+
+		$response = $this->api->addRetention(42, Constants::UNIT_MONTH, 1);
+		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
+	}
+
 	public function testDeleteRetentionNotFound(): void {
 		$response = $this->api->deleteRetention(42);
 
