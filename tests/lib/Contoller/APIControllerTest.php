@@ -74,6 +74,11 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
+	public function testAddRetentionInvalidTimeAmount(): void {
+		$response = $this->api->addRetention(42, 3, 128_000);
+		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
+	}
+
 	public function testAddRetention(): void {
 		$this->jobList->expects($this->once())
 			->method('add')

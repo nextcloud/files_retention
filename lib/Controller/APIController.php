@@ -106,7 +106,7 @@ class APIController extends OCSController {
 		if ($timeunit < 0 || $timeunit > 3) {
 			return new DataResponse(['error' => 'timeunit'], Http::STATUS_BAD_REQUEST);
 		}
-		if ($timeamount < 1) {
+		if ($timeamount < 1 || $timeamount > 32_000) {
 			return new DataResponse(['error' => 'timeamount'], Http::STATUS_BAD_REQUEST);
 		}
 		if ($timeafter < 0 || $timeafter > 1) {
