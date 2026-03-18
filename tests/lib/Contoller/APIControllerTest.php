@@ -74,6 +74,11 @@ class APIControllerTest extends \Test\TestCase {
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
+	public function testAddRetentionInvalidTimeAmount(): void {
+		$response = $this->api->addRetention(42, 3, 128_000);
+		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
+	}
+
 	public function testAddRetention(): void {
 		$this->jobList->expects($this->once())
 			->method('add')
@@ -102,6 +107,18 @@ class APIControllerTest extends \Test\TestCase {
 			'hasJob' => true,
 		];
 		$this->assertSame($expected, $response->getData());
+	}
+
+	public function testAddRetentionTwice(): void {
+		$this->jobList->expects($this->any())
+			->method('add')
+			->with(RetentionJob::class, ['tag' => '42']);
+
+		$response = $this->api->addRetention(42, Constants::UNIT_MONTH, 1);
+		$this->assertSame(Http::STATUS_CREATED, $response->getStatus());
+
+		$response = $this->api->addRetention(42, Constants::UNIT_MONTH, 1);
+		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
 
 	public function testDeleteRetentionNotFound(): void {
