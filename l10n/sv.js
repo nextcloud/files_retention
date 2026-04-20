@@ -1,7 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
-    "Files retention" : "Fillagring",
+    "Files retention" : "Filretention",
     "{file} will be removed in 24 hours" : "{file} kommer tas bort inom 24 timmar",
     "Your systems retention rules will delete this file within 24 hours." : "Dina lagringsregler raderar den här filen inom 24 timmar.",
     "Retention" : "Lagring",
