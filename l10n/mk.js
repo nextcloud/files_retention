@@ -1,6 +1,8 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Days" : "Дена",
+    "Weeks" : "Недели",
     "Months" : "Месеци",
     "Number of days, weeks, months or years after which the files should be deleted" : "Број на денови, недели, месеци или години по кои датотеките треба да се избришат",
     "Create" : "Креирај",
