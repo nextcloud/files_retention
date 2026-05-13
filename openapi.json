@@ -253,28 +253,23 @@
                                     "timeunit": {
                                         "type": "integer",
                                         "format": "int64",
-                                        "enum": [
-                                            0,
-                                            1,
-                                            2,
-                                            3
-                                        ],
-                                        "description": "Time unit of the retention (days, weeks, months, years)"
+                                        "description": "Time unit of the retention (days, weeks, months, years)",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     "timeamount": {
                                         "type": "integer",
                                         "format": "int64",
                                         "description": "Amount of time units that have to be passed",
-                                        "minimum": 1
+                                        "minimum": 1,
+                                        "maximum": 32000
                                     },
                                     "timeafter": {
                                         "type": "integer",
                                         "format": "int64",
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "Whether retention time is based creation time (0) or modification time (1)"
+                                        "description": "Whether retention time is based creation time (0) or modification time (1)",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 }
                             }
@@ -489,7 +484,9 @@
                                                 "meta": {
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
-                                                "data": {}
+                                                "data": {
+                                                    "type": "object"
+                                                }
                                             }
                                         }
                                     }
