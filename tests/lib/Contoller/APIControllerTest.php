@@ -67,6 +67,7 @@ class APIControllerTest extends \Test\TestCase {
 	}
 
 	public function testAddRetentionInvalidTimeUnit(): void {
+		$this->markTestSkipped('Test is no longer applicable as the Dispatcher is limiting values');
 		$response = $this->api->addRetention(42, -1, 1);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 
@@ -75,6 +76,7 @@ class APIControllerTest extends \Test\TestCase {
 	}
 
 	public function testAddRetentionInvalidTimeAmount(): void {
+		$this->markTestSkipped('Test is no longer applicable as the Dispatcher is limiting values');
 		$response = $this->api->addRetention(42, 3, 128_000);
 		$this->assertSame(Http::STATUS_BAD_REQUEST, $response->getStatus());
 	}
