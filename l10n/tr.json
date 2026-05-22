@@ -13,7 +13,7 @@
     "Last modification" : "Son değişiklik",
     "Time units" : "Zaman birimleri",
     "Number of days, weeks, months or years after which the files should be deleted" : "Dosyaların silinmesi için geçmesi gereken gün, hafta, ay ya da yıl sayısı",
-    "Create new retention rule" : "Yeni tutma kuralı ekle",
+    "Create new retention rule" : "Yeni tutma kuralı oluştur",
     "An error occurred while loading the existing retention rules" : "Var olan saklama kuralları yüklenirken bir sorun çıktı",
     "Users are now notified one day before a file or folder is being deleted" : "Kullanıcılar bir dosya ya da klasör silinmeden bir gün önce bilgilendirilecek",
     "Users are no longer notified before a file or folder is being deleted" : "Kullanıcılar bir dosya ya da klasör silinmeden önce bilgilendirilmeyecek",
