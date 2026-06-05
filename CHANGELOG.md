@@ -5,6 +5,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.0 2026-06-05
+### Changed
+
+- Add Nextcloud 34 support on master
+- perf: Use getFirstNodeByid
+- fix(api): Validate admin provided parameters to be sensible
+- docs: add samin-z as owner by @blizzz
+
+**Full Changelog**: https://github.com/nextcloud/files_retention/compare/v4.0.1...v5.0.0
+
 ## 4.0.0 - 2025-01-30
 ### Changed
 
