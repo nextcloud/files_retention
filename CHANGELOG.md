@@ -5,6 +5,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.0 - 2026-06-05
+### Changed
+- Add Nextcloud 34 support on master
+
+### Fixed
+- fix(api): Validate admin provided parameters to be sensible
+
+## 4.0.1 - 2026-03-18
+### Fixed
+
+- Validate admin provided parameters to be sensible
+
 ## 4.0.0 - 2025-01-30
 ### Changed
 
