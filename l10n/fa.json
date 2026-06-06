@@ -11,6 +11,7 @@
     "Years" : "سال‌ها",
     "Creation" : "Creation",
     "Last modification" : "Last modification",
+    "Time units" : "واحدهای زمان",
     "Number of days, weeks, months or years after which the files should be deleted" : "Number of days, weeks, months or years after which the files should be deleted",
     "Create new retention rule" : "Create new retention rule",
     "An error occurred while loading the existing retention rules" : "An error occurred while loading the existing retention rules",
