@@ -11,6 +11,7 @@ namespace OCA\Files_Retention\Tests\Controller;
 use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
 use OCA\Files_Retention\Controller\APIController;
+use OCA\Files_Retention\Service\RetentionService;
 use OCP\AppFramework\Http;
 use OCP\BackgroundJob\IJobList;
 use OCP\IDBConnection;
@@ -38,13 +39,12 @@ class APIControllerTest extends \Test\TestCase {
 		$this->db = \OCP\Server::get(IDBConnection::class);
 		$this->tagManager = $this->createMock(ISystemTagManager::class);
 		$this->jobList = $this->createMock(IJobList::class);
+		$retentionService = new RetentionService($this->db, $this->tagManager, $this->jobList);
 
 		$this->api = new APIController(
 			$this->appName,
 			$this->request,
-			$this->db,
-			$this->tagManager,
-			$this->jobList
+			$retentionService,
 		);
 	}
 
