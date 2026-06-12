@@ -9,17 +9,14 @@ declare(strict_types=1);
 
 namespace OCA\Files_Retention\Controller;
 
-use OCA\Files_Retention\BackgroundJob\RetentionJob;
 use OCA\Files_Retention\Constants;
+use OCA\Files_Retention\Exception\AddRuleException;
 use OCA\Files_Retention\ResponseDefinitions;
+use OCA\Files_Retention\Service\RetentionService;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\OCSController;
-use OCP\BackgroundJob\IJobList;
-use OCP\IDBConnection;
 use OCP\IRequest;
-use OCP\SystemTag\ISystemTagManager;
-use OCP\SystemTag\TagNotFoundException;
 
 /**
  * @psalm-import-type Files_RetentionRule from ResponseDefinitions
@@ -28,9 +25,7 @@ class APIController extends OCSController {
 	public function __construct(
 		string $appName,
 		IRequest $request,
-		private readonly IDBConnection $db,
-		private readonly ISystemTagManager $tagManager,
-		private readonly IJobList $jobList,
+		private readonly RetentionService $retentionService,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -43,44 +38,9 @@ class APIController extends OCSController {
 	 * 200: List retention rules
 	 */
 	public function getRetentions(): DataResponse {
-		$qb = $this->db->getQueryBuilder();
+		$retentions = $this->retentionService->getRetentions();
 
-		$qb->select('*')
-			->from('retention')
-			->orderBy('id');
-
-		$cursor = $qb->executeQuery();
-
-		$result = $tagIds = [];
-		while ($data = $cursor->fetch()) {
-			$tagIds[] = (string)$data['tag_id'];
-			$hasJob = $this->jobList->has(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
-			if (!$hasJob) {
-				$this->jobList->add(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
-			}
-
-			$result[] = [
-				'id' => (int)$data['id'],
-				'tagid' => (int)$data['tag_id'],
-				'timeunit' => (int)$data['time_unit'],
-				'timeamount' => (int)$data['time_amount'],
-				'timeafter' => (int)$data['time_after'],
-				'hasJob' => true,
-			];
-		}
-		$cursor->closeCursor();
-
-		try {
-			$this->tagManager->getTagsByIds($tagIds);
-		} catch (TagNotFoundException $e) {
-			$missingTags = array_map('intval', $e->getMissingTags());
-
-			$result = array_values(array_filter($result, static function (array $rule) use ($missingTags): bool {
-				return !in_array($rule['tagid'], $missingTags, true);
-			}));
-		}
-
-		return new DataResponse($result);
+		return new DataResponse($retentions);
 	}
 
 	/**
@@ -99,47 +59,10 @@ class APIController extends OCSController {
 	 */
 	public function addRetention(int $tagid, int $timeunit, int $timeamount, int $timeafter = Constants::MODE_CTIME): DataResponse {
 		try {
-			$this->tagManager->getTagsByIds((string)$tagid);
-		} catch (\InvalidArgumentException) {
-			return new DataResponse(['error' => 'tagid'], Http::STATUS_BAD_REQUEST);
+			$id = $this->retentionService->addRetention($tagid, $timeunit, $timeamount, $timeafter);
+		} catch (AddRuleException $e) {
+			return new DataResponse(['error' => $e->getMessage()], Http::STATUS_BAD_REQUEST);
 		}
-
-		if ($timeunit < 0 || $timeunit > 3) {
-			return new DataResponse(['error' => 'timeunit'], Http::STATUS_BAD_REQUEST);
-		}
-		if ($timeamount < 1 || $timeamount > 32_000) {
-			return new DataResponse(['error' => 'timeamount'], Http::STATUS_BAD_REQUEST);
-		}
-		if ($timeafter < 0 || $timeafter > 1) {
-			return new DataResponse(['error' => 'timeafter'], Http::STATUS_BAD_REQUEST);
-		}
-
-		// Fetch tag_id
-		$qb = $this->db->getQueryBuilder();
-		$qb->select('tag_id')
-			->from('retention')
-			->where($qb->expr()->eq('tag_id', $qb->createNamedParameter($tagid)))
-			->setMaxResults(1);
-		$cursor = $qb->executeQuery();
-		$data = $cursor->fetch();
-		$cursor->closeCursor();
-
-		if ($data !== false) {
-			return new DataResponse(['error' => 'tagid'], Http::STATUS_BAD_REQUEST);
-		}
-
-		$qb = $this->db->getQueryBuilder();
-		$qb->insert('retention')
-			->setValue('tag_id', $qb->createNamedParameter($tagid))
-			->setValue('time_unit', $qb->createNamedParameter($timeunit))
-			->setValue('time_amount', $qb->createNamedParameter($timeamount))
-			->setValue('time_after', $qb->createNamedParameter($timeafter));
-
-		$qb->executeStatement();
-		$id = $qb->getLastInsertId();
-
-		//Insert cronjob
-		$this->jobList->add(RetentionJob::class, ['tag' => $tagid]);
 
 		return new DataResponse([
 			'id' => $id,
@@ -161,29 +84,8 @@ class APIController extends OCSController {
 	 * 404: Retention rule not found
 	 */
 	public function deleteRetention(int $id): DataResponse {
-		// Fetch tag_id
-		$qb = $this->db->getQueryBuilder();
-		$qb->select('tag_id')
-			->from('retention')
-			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)))
-			->setMaxResults(1);
-		$cursor = $qb->executeQuery();
-		$data = $cursor->fetch();
-		$cursor->closeCursor();
+		$removed = $this->retentionService->deleteRetention($id);
 
-		if ($data === false) {
-			return new DataResponse([], Http::STATUS_NOT_FOUND);
-		}
-
-		// Remove from retention db
-		$qb = $this->db->getQueryBuilder();
-		$qb->delete('retention')
-			->where($qb->expr()->eq('id', $qb->createNamedParameter($id)));
-		$qb->executeStatement();
-
-		// Remove cronjob
-		$this->jobList->remove(RetentionJob::class, ['tag' => (int)$data['tag_id']]);
-
-		return new DataResponse([], Http::STATUS_NO_CONTENT);
+		return new DataResponse([], $removed === false ? Http::STATUS_NOT_FOUND : Http::STATUS_NO_CONTENT);
 	}
 }

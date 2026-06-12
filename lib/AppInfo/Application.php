@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace OCA\Files_Retention\AppInfo;
 
+use OCA\Files_Retention\Event\AddRetentionRuleEvent;
+use OCA\Files_Retention\Event\DeleteRetentionRuleEvent;
 use OCA\Files_Retention\EventListener;
 use OCA\Files_Retention\Notification\Notifier;
 use OCP\AppFramework\App;
@@ -33,6 +35,8 @@ class Application extends App implements IBootstrap {
 		});
 
 		$context->registerEventListener(ManagerEvent::EVENT_DELETE, EventListener::class);
+		$context->registerEventListener(AddRetentionRuleEvent::class, EventListener::class);
+		$context->registerEventListener(DeleteRetentionRuleEvent::class, EventListener::class);
 
 		$context->registerNotifierService(Notifier::class);
 	}
