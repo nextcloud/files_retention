@@ -1,6 +1,7 @@
 OC.L10N.register(
     "files_retention",
     {
+    "Days" : "Dias",
     "Creation" : "Criação",
     "Number of days, weeks, months or years after which the files should be deleted" : "Número de dias, semanas, meses ou anos após os quais os ficheiros devem ser eliminados",
     "An error occurred while changing the setting" : "Ocorreu um erro ao alterar a configuração.",
