@@ -6,7 +6,7 @@
 	},
 	"name": "nextcloud/files_retention",
 	"description": "files_retention",
-	"license": "AGPL",
+	"license": "AGPL-3.0-or-later",
 	"config": {
 		"optimize-autoloader": true,
 		"classmap-authoritative": true,
