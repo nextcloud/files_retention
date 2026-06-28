@@ -1,8 +1,12 @@
 { "translations": {
+    "This application allows for automatic deletion of files after a given time." : "Este aplicativo permite a exclusão automática de arquivos após um determinado período. ",
     "Days" : "Dias",
+    "Years" : "Anos",
     "Creation" : "Criação",
     "Number of days, weeks, months or years after which the files should be deleted" : "Número de dias, semanas, meses ou anos após os quais os ficheiros devem ser eliminados",
+    "Users are now notified one day before a file or folder is being deleted" : "Usuários serão notificados um dia antes de um arquivo ou pasta ser excluído",
     "An error occurred while changing the setting" : "Ocorreu um erro ao alterar a configuração.",
+    "Invalid action option" : "Opção de ação inválida",
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definir se os ficheiros marcados com uma etiqueta específica serão eliminados automaticamente após algum tempo. Isto é útil para documentos confidenciais.",
     "Create" : "Criar",
     "_%n day_::_%n days_" : ["%n dia","%n dias","%n dias"],
