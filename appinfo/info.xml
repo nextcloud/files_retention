@@ -11,7 +11,7 @@
 	<description>An app for Nextcloud to control automatic deletion of files after a given time.
 Optionally the users can be informed the day before.</description>
 	<version>6.0.0-dev.0</version>
-	<licence>agpl</licence>
+	<licence>AGPL-3.0-or-later</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>Files_Retention</namespace>
 
