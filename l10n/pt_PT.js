@@ -5,6 +5,7 @@ OC.L10N.register(
     "This application allows for automatic deletion of files after a given time." : "Este aplicativo permite a exclusão automática de arquivos após um determinado período. ",
     "Days" : "Dias",
     "Weeks" : "Semanas",
+    "Months" : "Meses",
     "Years" : "Anos",
     "Creation" : "Criação",
     "Last modification" : "Última modificação",
