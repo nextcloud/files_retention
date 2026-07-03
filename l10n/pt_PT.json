@@ -1,4 +1,5 @@
 { "translations": {
+    "Files retention" : "Retenção de arquivos",
     "{file} will be removed in 24 hours" : "{file} será removido em 24 horas",
     "Your systems retention rules will delete this file within 24 hours." : "Suas regras de retenção de sistemas excluirão esse arquivo dentro de 24 horas.",
     "This application allows for automatic deletion of files after a given time." : "Este aplicativo permite a exclusão automática de arquivos após um determinado período. ",
@@ -12,6 +13,7 @@
     "Number of days, weeks, months or years after which the files should be deleted" : "Número de dias, semanas, meses ou anos após os quais os ficheiros devem ser eliminados",
     "An error occurred while loading the existing retention rules" : "Um erro ocorreu ao carregar regras de retenção existentes",
     "Users are now notified one day before a file or folder is being deleted" : "Usuários serão notificados um dia antes de um arquivo ou pasta ser excluído",
+    "Users are no longer notified before a file or folder is being deleted" : "Usuários não mais serão notificados antes de um arquivo ou pasta ser excluído.",
     "An error occurred while changing the setting" : "Ocorreu um erro ao alterar a configuração.",
     "Invalid tag selected" : "Etiqueta inválida selecionada",
     "Tag {tagName} already has a retention rule" : "A etiqueta {tagName} já tem uma regra de retenção",
@@ -22,10 +24,12 @@
     "Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents." : "Definir se os ficheiros marcados com uma etiqueta específica serão eliminados automaticamente após algum tempo. Isto é útil para documentos confidenciais.",
     "Files tagged with" : "Arquivos etiquetados com",
     "Retention time" : "Período de retenção",
+    "From date of" : "Da data de",
     "Create" : "Criar",
     "_%n day_::_%n days_" : ["%n dia","%n dias","%n dias"],
     "_%n month_::_%n months_" : ["%n mês","%n meses","%n meses"],
     "_%n year_::_%n years_" : ["%n ano","%n anos","%n anos"],
+    "Delete retention rule for tag {tagName}" : "Excluir regra de retenção para etiqueta {tagName}",
     "Failed to load tags" : "Falha ao carregar as etiquetas"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
