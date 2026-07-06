@@ -107,6 +107,7 @@ import NcSettingsSection from '@nextcloud/vue/components/NcSettingsSection'
 import NcTextField from '@nextcloud/vue/components/NcTextField'
 import Plus from 'vue-material-design-icons/Plus.vue'
 import RetentionRule from './Components/RetentionRule.vue'
+import logger from './logger.ts'
 import { fetchTags } from './services/api.ts'
 
 export default {
@@ -188,9 +189,9 @@ export default {
 			this.resetForm()
 
 			this.loading = false
-		} catch (e) {
+		} catch (error) {
 			showError(t('files_retention', 'An error occurred while loading the existing retention rules'))
-			console.error(e)
+			logger.error('An error occurred while loading the existing retention rules', { error })
 		}
 	},
 
@@ -269,9 +270,9 @@ export default {
 
 				showSuccess(t('files_retention', 'Retention rule for tag {tagName} saved', { tagName }))
 				this.resetForm()
-			} catch (e) {
+			} catch (error) {
 				showError(t('files_retention', 'Failed to save retention rule for tag {tagName}', { tagName }))
-				console.error(e)
+				logger.error(`Failed to save retention rule for tag ${tagName}`, { error })
 			}
 		},
 
