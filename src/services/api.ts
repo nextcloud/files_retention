@@ -38,6 +38,6 @@ export async function fetchTags(): Promise<TagWithId[]> {
 		return parseTags(tags)
 	} catch (error) {
 		logger.error(t('files_retention', 'Failed to load tags'), { error })
-		throw new Error(t('files_retention', 'Failed to load tags'))
+		throw new Error(t('files_retention', 'Failed to load tags'), { cause: error })
 	}
 }
