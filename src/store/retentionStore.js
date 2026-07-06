@@ -8,14 +8,19 @@ import {
 	getRetentionRules,
 } from '../services/retentionService.js'
 
-const state = () => ({
-	retentionRules: {
-	},
-})
+/**
+ *
+ */
+function state() {
+	return {
+		retentionRules: {
+		},
+	}
+}
 
 const getters = {
-	getRetentionRules: state => () => Object.values(state.retentionRules),
-	getTagIdsWithRule: state => () => Object.values(state.retentionRules).map((rule) => rule.tagid),
+	getRetentionRules: (state) => () => Object.values(state.retentionRules),
+	getTagIdsWithRule: (state) => () => Object.values(state.retentionRules).map((rule) => rule.tagid),
 }
 
 const mutations = {

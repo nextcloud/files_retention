@@ -7,10 +7,9 @@ import type { FileStat, ResponseDataDetailed } from 'webdav'
 import type { TagWithId } from '../types'
 
 import { t } from '@nextcloud/l10n'
-
-import { davClient } from './davClient'
-import { parseTags } from '../utils'
 import logger from '../logger'
+import { parseTags } from '../utils'
+import { davClient } from './davClient'
 
 export const fetchTagsPayload = `<?xml version="1.0"?>
 <d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud.org/ns" xmlns:nc="http://nextcloud.org/ns">
@@ -25,7 +24,10 @@ export const fetchTagsPayload = `<?xml version="1.0"?>
 	</d:prop>
 </d:propfind>`
 
-export const fetchTags = async (): Promise<TagWithId[]> => {
+/**
+ *
+ */
+export async function fetchTags(): Promise<TagWithId[]> {
 	const path = '/systemtags'
 	try {
 		const { data: tags } = await davClient.getDirectoryContents(path, {

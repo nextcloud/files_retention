@@ -3,8 +3,9 @@
   - SPDX-License-Identifier: AGPL-3.0-only
   -->
 <template>
-	<NcSettingsSection :name="t('files_retention', 'File retention & automatic deletion')"
-		:doc-url="docUrl"
+	<NcSettingsSection
+		:name="t('files_retention', 'File retention & automatic deletion')"
+		:docUrl="docUrl"
 		:description="t('files_retention', 'Define if files tagged with a specific tag should be deleted automatically after some time. This is useful for confidential documents.')">
 		<table class="retention-rules-table">
 			<thead>
@@ -13,16 +14,17 @@
 						{{ t('files_retention', 'Files tagged with') }}
 					</th>
 					<th class="retention-heading__time">
-						{{ t('files_retention','Retention time') }}
+						{{ t('files_retention', 'Retention time') }}
 					</th>
 					<th class="retention-heading__after">
-						{{ t('files_retention','From date of') }}
+						{{ t('files_retention', 'From date of') }}
 					</th>
 					<th class="retention-heading__action" />
 				</tr>
 			</thead>
 			<tbody>
-				<RetentionRule v-for="rule in retentionRules"
+				<RetentionRule
+					v-for="rule in retentionRules"
 					:key="rule.id"
 					:tags="tags"
 					v-bind="rule">
@@ -31,39 +33,44 @@
 
 				<tr>
 					<td class="retention-rule__name">
-						<NcSelectTags v-model="newTag"
+						<NcSelectTags
+							v-model="newTag"
 							:disabled="loading"
 							:multiple="false"
 							:clearable="false"
-							:options-filter="filterAvailableTagList" />
+							:optionsFilter="filterAvailableTagList" />
 					</td>
 					<td class="retention-rule__time">
-						<NcTextField v-model="newAmount"
+						<NcTextField
+							v-model="newAmount"
 							:disabled="loading"
 							type="text"
 							:label="amountLabel"
 							:aria-label="amountAriaLabel"
-							:placeholder="''" />
-						<NcSelect v-model="newUnit"
+							placeholder="" />
+						<NcSelect
+							v-model="newUnit"
 							:disabled="loading"
 							:options="unitOptions"
-							:allow-empty="false"
+							:allowEmpty="false"
 							:clearable="false"
-							track-by="id"
+							trackBy="id"
 							label="label" />
 					</td>
 					<td class="retention-rule__after">
-						<NcSelect v-model="newAfter"
+						<NcSelect
+							v-model="newAfter"
 							:disabled="loading"
 							:options="afterOptions"
-							:allow-empty="false"
+							:allowEmpty="false"
 							:clearable="false"
-							track-by="id"
+							trackBy="id"
 							label="label" />
 					</td>
 					<td class="retention-rule__action">
 						<div class="retention-rule__action--button-aligner">
-							<NcButton variant="success"
+							<NcButton
+								variant="success"
 								:disabled="loading || newTag < 0"
 								:aria-label="createLabel"
 								@click="onClickCreate">
@@ -78,8 +85,9 @@
 			</tbody>
 		</table>
 
-		<NcCheckboxRadioSwitch type="switch"
-			:model-value="notifyBefore"
+		<NcCheckboxRadioSwitch
+			type="switch"
+			:modelValue="notifyBefore"
 			:loading="loadingNotifyBefore"
 			@update:modelValue="onToggleNotifyBefore">
 			{{ t('files_retention', 'Notify owner a day before a file is automatically deleted') }}
@@ -88,6 +96,9 @@
 </template>
 
 <script>
+import { showError, showSuccess, showWarning } from '@nextcloud/dialogs'
+import { loadState } from '@nextcloud/initial-state'
+import { t } from '@nextcloud/l10n'
 import NcButton from '@nextcloud/vue/components/NcButton'
 import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
 import NcSelect from '@nextcloud/vue/components/NcSelect'
@@ -95,13 +106,8 @@ import NcSelectTags from '@nextcloud/vue/components/NcSelectTags'
 import NcSettingsSection from '@nextcloud/vue/components/NcSettingsSection'
 import NcTextField from '@nextcloud/vue/components/NcTextField'
 import Plus from 'vue-material-design-icons/Plus.vue'
-
 import RetentionRule from './Components/RetentionRule.vue'
 import { fetchTags } from './services/api.ts'
-
-import { showError, showSuccess, showWarning } from '@nextcloud/dialogs'
-import { loadState } from '@nextcloud/initial-state'
-import { t } from '@nextcloud/l10n'
 
 export default {
 	name: 'AdminSettings',
@@ -130,12 +136,14 @@ export default {
 				{ id: 2, label: t('files_retention', 'Months') },
 				{ id: 3, label: t('files_retention', 'Years') },
 			],
+
 			newUnit: {},
 
 			afterOptions: [
 				{ id: 0, label: t('files_retention', 'Creation') },
 				{ id: 1, label: t('files_retention', 'Last modification') },
 			],
+
 			newAfter: {},
 
 			newAmount: '14', // FIXME TextField does not accept numbers …
@@ -145,6 +153,7 @@ export default {
 			filterAvailableTagList: (tag) => {
 				return !this.tagIdsWithRule.includes(tag.id)
 			},
+
 			tags: [],
 		}
 	},
