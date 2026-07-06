@@ -7,4 +7,10 @@ import { recommended } from '@nextcloud/eslint-config'
 
 export default [
 	...recommended,
+	{
+		rules: {
+			// TODO: Re-enable after migration to transpile-only TS build (or migrating from Webpack)
+			'import-extensions/extensions': 'off',
+		},
+	},
 ]
