@@ -14,7 +14,8 @@
 			{{ getAfter }}
 		</td>
 		<td class="retention-rule__action">
-			<NcButton variant="tertiary"
+			<NcButton
+				variant="tertiary"
 				:aria-label="deleteLabel"
 				@click="onClickDelete">
 				<template #icon>
@@ -26,11 +27,10 @@
 </template>
 
 <script>
+import { showSuccess } from '@nextcloud/dialogs'
+import { n, t } from '@nextcloud/l10n'
 import NcButton from '@nextcloud/vue/components/NcButton'
 import Delete from 'vue-material-design-icons/TrashCanOutline.vue'
-
-import { showSuccess } from '@nextcloud/dialogs'
-import { t, n } from '@nextcloud/l10n'
 
 export default {
 	name: 'RetentionRule',
@@ -45,26 +45,32 @@ export default {
 			type: Number,
 			required: true,
 		},
+
 		tagid: {
 			type: Number,
 			required: true,
 		},
+
 		timeunit: {
 			type: Number,
 			required: true,
 		},
+
 		timeamount: {
 			type: Number,
 			required: true,
 		},
+
 		timeafter: {
 			type: Number,
 			required: true,
 		},
+
 		hasJob: {
 			type: Boolean,
 			required: true,
 		},
+
 		tags: {
 			type: Array,
 			required: true,
@@ -78,23 +84,23 @@ export default {
 
 		getAmountAndUnit() {
 			switch (this.timeunit) {
-			case 0:
-				return n('files_retention', '%n day', '%n days', this.timeamount)
-			case 1:
-				return n('files_retention', '%n week', '%n weeks', this.timeamount)
-			case 2:
-				return n('files_retention', '%n month', '%n months', this.timeamount)
-			default:
-				return n('files_retention', '%n year', '%n years', this.timeamount)
+				case 0:
+					return n('files_retention', '%n day', '%n days', this.timeamount)
+				case 1:
+					return n('files_retention', '%n week', '%n weeks', this.timeamount)
+				case 2:
+					return n('files_retention', '%n month', '%n months', this.timeamount)
+				default:
+					return n('files_retention', '%n year', '%n years', this.timeamount)
 			}
 		},
 
 		getAfter() {
 			switch (this.timeafter) {
-			case 0:
-				return t('files_retention', 'Creation')
-			default:
-				return t('files_retention', 'Last modification')
+				case 0:
+					return t('files_retention', 'Creation')
+				default:
+					return t('files_retention', 'Last modification')
 			}
 		},
 
