@@ -39,7 +39,7 @@
     "@nextcloud/webpack-vue-config": "^7.0.2",
     "eslint": "^10.7.0",
     "ts-loader": "^9.6.2",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "engines": {
     "node": "^24.0.0",
