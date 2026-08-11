@@ -5,6 +5,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 6.0.0 - 2026-09-10
+
+### Changed
+- Add Nextcloud 35 support on master
+- Add OpenAPI
+- Feat/add retention api events
+
+### Fixed
+- Consider upload when using modification time
+
+## 5.0.0 - 2026-06-05
+### Changed
+- Add Nextcloud 34 support on master
+
+### Fixed
+- fix(api): Validate admin provided parameters to be sensible
+
 ## 4.0.0 - 2025-01-30
 ### Changed
 

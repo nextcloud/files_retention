@@ -1,6 +1,6 @@
 {
   "name": "files_retention",
-  "version": "6.0.0-dev.0",
+  "version": "6.0.0",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "author": "Joas Schilling <coding@schilljs.com>",
