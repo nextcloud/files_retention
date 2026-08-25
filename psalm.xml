@@ -23,12 +23,4 @@
 	<extraFiles>
 		<directory name="vendor" />
 	</extraFiles>
-	<issueHandlers>
-		<UndefinedDocblockClass>
-			<errorLevel type="suppress">
-				<referencedClass name="Doctrine\DBAL\Schema\Schema" />
-				<referencedClass name="Doctrine\DBAL\Schema\Table" />
-			</errorLevel>
-		</UndefinedDocblockClass>
-	</issueHandlers>
 </psalm>
