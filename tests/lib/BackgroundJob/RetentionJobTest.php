@@ -14,8 +14,8 @@ use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\BackgroundJob\IJobList;
 use OCP\Files\Config\ICachedMountFileInfo;
 use OCP\Files\Config\IUserMountCache;
-use OCP\Files\Folder;
 use OCP\Files\IRootFolder;
+use OCP\Files\IUserFolder;
 use OCP\Files\Node;
 use OCP\Files\NotPermittedException;
 use OCP\IConfig;
@@ -148,7 +148,7 @@ class RetentionJobTest extends TestCase {
 		$user->method('getUID')
 			->willReturn('admin');
 
-		$userFolder = $this->createMock(Folder::class);
+		$userFolder = $this->createMock(IUserFolder::class);
 		$this->rootFolder->method('getUserFolder')
 			->with('admin')
 			->willReturn($userFolder);
@@ -255,7 +255,7 @@ class RetentionJobTest extends TestCase {
 			->method('getUID')
 			->willReturn('user');
 
-		$userFolder = $this->createMock(Folder::class);
+		$userFolder = $this->createMock(IUserFolder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
 			->with('user')
@@ -309,7 +309,7 @@ class RetentionJobTest extends TestCase {
 			->method('getUID')
 			->willReturn('user');
 
-		$userFolder = $this->createMock(Folder::class);
+		$userFolder = $this->createMock(IUserFolder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
 			->with('user')
@@ -358,8 +358,8 @@ class RetentionJobTest extends TestCase {
 			->method('getUID')
 			->willReturn('user2');
 
-		$userFolder1 = $this->createMock(Folder::class);
-		$userFolder2 = $this->createMock(Folder::class);
+		$userFolder1 = $this->createMock(IUserFolder::class);
+		$userFolder2 = $this->createMock(IUserFolder::class);
 		$this->rootFolder->method('getUserFolder')
 			->willReturnMap([
 				['user1', $userFolder1],
@@ -441,7 +441,7 @@ class RetentionJobTest extends TestCase {
 			->method('getUID')
 			->willReturn('user');
 
-		$userFolder = $this->createMock(Folder::class);
+		$userFolder = $this->createMock(IUserFolder::class);
 		$this->rootFolder->expects($this->once())
 			->method('getUserFolder')
 			->with('user')
