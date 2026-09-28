@@ -33,7 +33,7 @@ OC.L10N.register(
     "Retention time" : "Čas uchovávania",
     "From date of" : "Od dátumu",
     "Create" : "Vytvoriť",
-    "Notify owner a day before a file is automatically deleted" : "Oznámiť vlastníkovy deň vopred, že sa súbor automaticky vymaže",
+    "Notify owner a day before a file is automatically deleted" : "Oznámiť vlastníkovi deň vopred, že sa súbor automaticky vymaže",
     "_%n day_::_%n days_" : ["%n deň","%n dni","%n dní","%n dní"],
     "_%n week_::_%n weeks_" : ["%n týždeň","%n týždne","%n týždňov","%n týždňov"],
     "_%n month_::_%n months_" : ["%n mesiac","%n mesiace","%n mesiacov","%n mesiacov"],
