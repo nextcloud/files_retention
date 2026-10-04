@@ -1,5 +1,6 @@
 { "translations": {
     "Days" : "Ussan",
-    "Create" : "Snulfu-d"
+    "Create" : "Snulfu-d",
+    "Failed to load tags" : "Yecceḍ usali n tebzimin"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
