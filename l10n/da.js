@@ -8,6 +8,7 @@ OC.L10N.register(
     "Years" : "År",
     "An error occurred while changing the setting" : "Der opstod en fejl under ændring af indstillingen.",
     "Create" : "Opret",
+    "_%n day_::_%n days_" : ["%n dag","%n dage"],
     "Failed to load tags" : "Kunne ikke indlæse tags"
 },
 "nplurals=2; plural=(n != 1);");
