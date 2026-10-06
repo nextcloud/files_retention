@@ -15,7 +15,7 @@
     "Number of days, weeks, months or years after which the files should be deleted" : "Počet dní, týždňov, mesiacov alebo rokov po ktorých sa súbor môže vymazať",
     "Create new retention rule" : "Vytvoriť nové pravidlo pre uchovávanie",
     "An error occurred while loading the existing retention rules" : "Pri načítavaní existujúceho pravidla pre uchovávanie sa vyskytla chyba",
-    "Users are now notified one day before a file or folder is being deleted" : "Užívatelia teraz budú upozornený deň vopred o zmazaní súboru alebo adresára",
+    "Users are now notified one day before a file or folder is being deleted" : "Používatelia sú teraz upozornení deň pred odstránením súboru alebo priečinka",
     "Users are no longer notified before a file or folder is being deleted" : "Užívatelia už nebudú upozornený o zmazaní súboru alebo adresára",
     "An error occurred while changing the setting" : "Nastala chyba počas zmeny nastavenia",
     "Invalid tag selected" : "Bol vybraný neplatný štítok",
