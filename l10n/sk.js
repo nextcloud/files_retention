@@ -8,7 +8,7 @@ OC.L10N.register(
     "This application allows for automatic deletion of files after a given time." : "Táto aplikácia umožňuje automatické mazanie súborov po určitom čase",
     "An app for Nextcloud to control automatic deletion of files after a given time.\nOptionally the users can be informed the day before." : "Aplikácia pre Nextcloud pre kontrolu automatikého mazania súborov po určitom čase.\nPoužívatelia môžu byť prípadne informovaní deň vopred.",
     "Days" : "Dní",
-    "Weeks" : "Týždňov",
+    "Weeks" : "Týždne",
     "Months" : "Mesiacov",
     "Years" : "Rokov",
     "Creation" : "Vytvorenie",
