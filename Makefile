@@ -67,6 +67,7 @@ appstore: dev-setup build-js-production
 	--exclude=/composer.json \
 	--exclude=/composer.lock \
 	--exclude=/docs \
+	--exclude=/eslint.config.mjs \
 	--exclude=/.git \
 	--exclude=/.github \
 	--exclude=/.gitattributes \
@@ -85,6 +86,8 @@ appstore: dev-setup build-js-production
 	--exclude=/stylelint.config.js \
 	--exclude=/tests \
 	--exclude=/translationfiles \
+	--exclude=/tsconfig.json \
+	--exclude=/tsconfig.json.license \
 	--exclude=/.tx \
 	--exclude=/vendor \
 	--exclude=/vendor-bin \
