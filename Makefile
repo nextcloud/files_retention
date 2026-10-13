@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
+﻿# SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
 # SPDX-License-Identifier: AGPL-3.0-or-later
 app_name=files_retention
 
-project_dir=$(CURDIR)/../$(app_name)
-build_dir=$(CURDIR)/build/artifacts
+project_dir=./../$(app_name)
+build_dir=./build/artifacts
 appstore_dir=$(build_dir)/appstore
 source_dir=$(build_dir)/source
 sign_dir=$(build_dir)/sign
@@ -87,6 +87,7 @@ appstore: dev-setup build-js-production
 	--exclude=/translationfiles \
 	--exclude=/.tx \
 	--exclude=/vendor \
+	--exclude=/vendor-bin \
 	--exclude=/webpack.config.js \
 	$(project_dir)/ $(sign_dir)/$(app_name)
 	tar -czf $(build_dir)/$(app_name).tar.gz \
