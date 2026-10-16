@@ -40,6 +40,6 @@ OC.L10N.register(
     "_%n year_::_%n years_" : ["%n år","%n år"],
     "Delete retention rule for tag {tagName}" : "Fjern slettereglen for mærket {tagName}",
     "Retention rule for tag {tagName} has been deleted" : "Slettereglen for mærket {tagName} er fjernet",
-    "Failed to load tags" : "Kunne ikke indlæse tags"
+    "Failed to load tags" : "Mærkerne kunne ikke indlæses"
 },
 "nplurals=2; plural=(n != 1);");
