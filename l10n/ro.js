@@ -2,6 +2,8 @@ OC.L10N.register(
     "files_retention",
     {
     "Days" : "Zile",
+    "Weeks" : "Săptămâni",
+    "Months" : "Luni",
     "Creation" : "Creere",
     "An error occurred while changing the setting" : "A apărut o eroare la modificarea setării",
     "Create" : "Creează",
