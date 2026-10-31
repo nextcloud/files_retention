@@ -9,9 +9,6 @@ import { createApp } from 'vue'
 import AdminSettings from './AdminSettings.vue'
 import store from './store/index.js'
 
-// Styles
-import '@nextcloud/dialogs/style.css'
-
 __webpack_nonce__ = btoa(getRequestToken())
 
 // eslint-disable-next-line
