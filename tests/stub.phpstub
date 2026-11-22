@@ -22,12 +22,13 @@ declare(strict_types=1);
  */
 
 namespace OC\Hooks {
-	class Emitter {
-		public function emit(string $class, string $value, array $option) {}
-		/** Closure $closure */
-		public function listen(string $class, string $value, $closure) {}
+	interface Emitter {
+		public function listen($scope, $method, callable $callback);
+
+		public function removeListener($scope = null, $method = null, ?callable $callback = null);
 	}
-	class BasicEmitter extends Emitter {
+	abstract class BasicEmitter implements Emitter {
+		protected function emit($scope, $method, array $arguments = []) {}
 	}
 }
 
@@ -35,6 +36,6 @@ namespace OC\Files {
     class Filesystem {
         static public bool $loaded;
 
-        static public function init($userId, $path): void {}
+        static public function init(\OCP\IUser|string|null $user, string $root): bool {}
     }
 }
